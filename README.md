@@ -1,9 +1,12 @@
-# Fabric Example Mod
+# Badlion Coding Pack
 
 ## Setup
 
-For setup instructions please see the [fabric wiki page](https://fabricmc.net/wiki/tutorial:setup) that relates to the IDE that you are using.
+1. clone the project
+2. import into ide
+3. make changes
+4. build
 
 ## License
 
-This template is available under the CC0 license. Feel free to learn from it and incorporate it in your own projects.
+LGPL-V3
