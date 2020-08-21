@@ -2,9 +2,15 @@ pluginManagement {
     repositories {
         jcenter()
         maven {
+            name = "MinecraftForge"
+            url = uri("https://files.minecraftforge.net/maven/")
+        }
+        maven { url 'https://jitpack.io' }
+        maven {
             name = 'Fabric'
             url = 'https://maven.fabricmc.net/'
         }
         gradlePluginPortal()
+        mavenLocal()
     }
 }
