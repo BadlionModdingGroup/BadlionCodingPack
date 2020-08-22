@@ -1,0 +1,20 @@
+--- a/net/badlion/class_2145.java
++++ b/net/badlion/class_2145.java
+@@ -11,7 +11,7 @@
+ import org.lwjgl.input.Keyboard;
+ 
+ public class class_2145 {
+-   private static Map field_5846 = new HashMap();
++   private static final Map<KeyBinding, MutableBoolean> field_5846 = new HashMap<>();
+ 
+    public static void method_6153(GameOptions var0) {
+       field_5846.put(var0.keyForward, new MutableBoolean(false));
+@@ -30,7 +30,7 @@
+          while(var0.hasNext()) {
+             Entry var1 = (Entry)var0.next();
+             if (Keyboard.isKeyDown(((KeyBinding)var1.getKey()).getCode())) {
+-               ((KeyBinding)var1.getKey()).setPressed(true);
++               ((KeyBinding)var1.getKey()).pressed = true;
+                ((MutableBoolean)var1.getValue()).setFalse();
+             }
+          }

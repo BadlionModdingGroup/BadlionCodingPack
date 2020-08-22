@@ -1,0 +1,88 @@
+--- a/net/badlion/class_769.java
++++ b/net/badlion/class_769.java
+@@ -4,6 +4,8 @@
+ import java.util.Locale;
+ import java.util.Map;
+ import java.util.Map.Entry;
++
++import io.github.badlionmoddinggroup.badlion.extra.ItemStackExtra;
+ import net.badlion.client.common.block.Blocks;
+ import net.badlion.client.common.item.ItemStackWrapper;
+ import net.badlion.client.common.item.tag.ITag;
+@@ -35,7 +37,7 @@
+    }
+ 
+    public ItemStackWrapper method_2340(Blocks var1, int var2, int var3) {
+-      return (new ItemStack(var1 == null ? null : Block.get(var1.name().toLowerCase(Locale.ROOT)), var2, var3)).getBadlionItemStack();
++      return ((ItemStackExtra)(Object)(new ItemStack(var1 == null ? null : Block.get(var1.name().toLowerCase(Locale.ROOT)), var2, var3))).getBadlionItemStack();
+    }
+ 
+    public ItemStackWrapper method_2342(class_870 var1) {
+@@ -47,11 +49,11 @@
+    }
+ 
+    public ItemStackWrapper method_2344(class_870 var1, int var2, int var3) {
+-      return (new ItemStack(var1 == null ? null : Item.getFromId(var1.name().toLowerCase(Locale.ROOT)), var2, var3)).getBadlionItemStack();
++      return ((ItemStackExtra)(Object)(new ItemStack(var1 == null ? null : Item.getFromId(var1.name().toLowerCase(Locale.ROOT)), var2, var3))).getBadlionItemStack();
+    }
+ 
+    public ItemStackWrapper method_2341(class_697 var1) {
+-      return (new ItemStack(((class_768)var1).method_3137())).getBadlionItemStack();
++      return ((ItemStackExtra) (Object)(new ItemStack(((class_768)var1).method_3137()))).getBadlionItemStack();
+    }
+ 
+    public ItemStackWrapper method_2332(String var1, boolean var2) {
+@@ -59,12 +61,12 @@
+       if (var2) {
+          var3 = Block.REGISTRY.get(new Identifier(var1));
+          if (var3 instanceof Block) {
+-            return (new ItemStack((Block)var3)).getBadlionItemStack();
++            return ((ItemStackExtra)(Object)(new ItemStack((Block)var3))).getBadlionItemStack();
+          }
+       } else {
+          var3 = Item.REGISTRY.get(new Identifier(var1));
+          if (var3 instanceof Item) {
+-            return (new ItemStack((Item)var3)).getBadlionItemStack();
++            return ((ItemStackExtra)(Object)(new ItemStack((Item)var3))).getBadlionItemStack();
+          }
+       }
+ 
+@@ -79,17 +81,17 @@
+          ItemStack var3;
+          if (var1 == 0) {
+             var3 = var2.method_7107();
+-            return var3 == null ? null : var3.getBadlionItemStack();
++            return var3 == null ? null : ((ItemStackExtra)(Object)var3).getBadlionItemStack();
+          } else {
+             var3 = var2.method_7177(var1 - 1);
+-            return var3 == null ? null : var3.getBadlionItemStack();
++            return var3 == null ? null : ((ItemStackExtra)(Object)var3).getBadlionItemStack();
+          }
+       }
+    }
+ 
+    public ItemStackWrapper method_2331(String var1) {
+       try {
+-         return ItemStack.fromTag(StringNbtReader.parse(var1)).getBadlionItemStack();
++         return ((ItemStackExtra)(Object)ItemStack.fromTag(StringNbtReader.parse(var1))).getBadlionItemStack();
+       } catch (Exception var3) {
+          return null;
+       }
+@@ -97,7 +99,7 @@
+ 
+    public ItemStackWrapper method_2334(ITag var1) {
+       ItemStack var2 = ItemStack.fromTag(((Tag)var1).method_3173());
+-      return var2 == null ? null : var2.getBadlionItemStack();
++      return var2 == null ? null : ((ItemStackExtra)(Object)var2).getBadlionItemStack();
+    }
+ 
+    public ItemStackWrapper method_2333(Map var1) {
+@@ -140,7 +142,7 @@
+          }
+       }
+ 
+-      return var7.getBadlionItemStack();
++      return ((ItemStackExtra)(Object)var7).getBadlionItemStack();
+    }
+ 
+    public class_45 method_2337(TextureWrapper var1) {

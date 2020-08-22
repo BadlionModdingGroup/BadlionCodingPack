@@ -1,0 +1,23 @@
+--- a/net/badlion/class_1580.java
++++ b/net/badlion/class_1580.java
+@@ -96,7 +96,7 @@
+                   Throwable var3 = null;
+ 
+                   try {
+-                     final BufferedImage var4 = ImageIO.read(var2x);
++                     BufferedImage var4 = ImageIO.read(var2x);
+                      if (var4 == null) {
+                         throw new Exception("ImageIO#read() returned null");
+                      }
+@@ -107,9 +107,10 @@
+                         var4 = var5;
+                      }
+ 
++                     BufferedImage finalVar = var4;
+                      BadlionClient.minecraft.method_211(new Runnable() {
+                         public void run() {
+-                           TextureWrapper var1 = BadlionClient.minecraft.method_232().loadTexture("mod-profile-" + var2.getProfileUuid(), var4);
++                           TextureWrapper var1 = BadlionClient.minecraft.method_232().loadTexture("mod-profile-" + var2.getProfileUuid(), finalVar);
+                            var2.setIcon(var1);
+                            var21.method_4025(var1);
+                         }

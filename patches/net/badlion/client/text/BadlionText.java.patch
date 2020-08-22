@@ -1,0 +1,22 @@
+--- a/net/badlion/client/text/BadlionText.java
++++ b/net/badlion/client/text/BadlionText.java
+@@ -51,7 +51,9 @@
+    }
+ 
+    public Date getDate() {
+-      return this.field_2123.getDate();
++//      TODO: mixin fix
++      return new Date();
++//      return this.field_2123.getDate();
+    }
+ 
+    public void append(String var1) {
+@@ -87,6 +89,7 @@
+    }
+ 
+    public void method_6243(Date var1) {
+-      this.field_2123.setDate(var1);
++      //      TODO: mixin fix
++//      this.field_2123.setDate(var1);
+    }
+ }

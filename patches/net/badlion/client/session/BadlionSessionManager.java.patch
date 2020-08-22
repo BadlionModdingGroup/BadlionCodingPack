@@ -1,0 +1,70 @@
+--- a/net/badlion/client/session/BadlionSessionManager.java
++++ b/net/badlion/client/session/BadlionSessionManager.java
+@@ -26,41 +26,43 @@
+          LogManager.getLogger().info("Skin Lookup: " + var2.toString());
+          GameProfile var3 = new GameProfile(var2, var1.method_20());
+          this.profiles.put(var2, var3);
+-         MinecraftClient.getInstance().getSkinProvider().loadProfileTextures(var3, new SkinTextureAvailableCallback() {
+-            public void method_2593(Type var1, Identifier var2x, MinecraftProfileTexture var3) {
+-               if (var1.equals(Type.SKIN)) {
+-                  LogManager.getLogger().info("Skin Lookup Finished: " + var2.toString() + " file: " + var2x.toString());
+-                  BadlionSessionManager.this.field_5637.put(var2, new MinecraftTexture(var2x));
++//         TODO: mixin fix
++//         MinecraftClient.getInstance().getSkinProvider().loadProfileTextures(var3, new SkinTextureAvailableCallback() {
++//            public void method_2593(Type var1, Identifier var2x, MinecraftProfileTexture var3) {
++//               if (var1.equals(Type.SKIN)) {
++//                  LogManager.getLogger().info("Skin Lookup Finished: " + var2.toString() + " file: " + var2x.toString());
++//                  BadlionSessionManager.this.field_5637.put(var2, new MinecraftTexture(var2x));
++//               }
++//
++//            }
++//         }, false, true);
+                }
+ 
+             }
+-         }, false, true);
+-      }
+ 
+-   }
+-
+    public void method_5729(final UUID var1, String var2) {
+       if (!this.profiles.containsKey(var1)) {
+          GameProfile var3 = new GameProfile(var1, var2);
+          this.profiles.put(var1, var3);
+-         MinecraftClient.getInstance().getSkinProvider().loadProfileTextures(var3, new SkinTextureAvailableCallback() {
+-            public void method_2615(Type var1x, Identifier var2, MinecraftProfileTexture var3) {
+-               if (var1x.equals(Type.SKIN)) {
+-                  LogManager.getLogger().info("Skin Lookup Finished: " + var1.toString() + " file: " + var2.toString());
+-                  BadlionSessionManager.this.field_5637.put(var1, new MinecraftTexture(var2));
+-                  String var4 = var3.getMetadata("model");
+-                  if (var4 == null) {
+-                     var4 = "default";
++//                  TODO: mixin fix
++//         MinecraftClient.getInstance().getSkinProvider().loadProfileTextures(var3, new SkinTextureAvailableCallback() {
++//            public void method_2615(Type var1x, Identifier var2, MinecraftProfileTexture var3) {
++//               if (var1x.equals(Type.SKIN)) {
++//                  LogManager.getLogger().info("Skin Lookup Finished: " + var1.toString() + " file: " + var2.toString());
++//                  BadlionSessionManager.this.field_5637.put(var1, new MinecraftTexture(var2));
++//                  String var4 = var3.getMetadata("model");
++//                  if (var4 == null) {
++//                     var4 = "default";
++//                  }
++//
++//                  BadlionSessionManager.this.field_5638.put(var1, var4);
++//               }
++//
++//            }
++//         }, false, true);
+                   }
+-
+-                  BadlionSessionManager.this.field_5638.put(var1, var4);
+                }
+ 
+-            }
+-         }, false, true);
+-      }
+-   }
+-
+    public SessionWrapper method_5731(AbstractSessionManager.class_2107 var1) {
+       return new BadlionSession(var1.method_5740(), var1.method_5743(), var1.method_5742(), var1.method_5737() ? "MOJANG" : "LEGACY", var1.method_5744());
+    }

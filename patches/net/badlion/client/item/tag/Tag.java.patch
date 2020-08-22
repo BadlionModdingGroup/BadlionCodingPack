@@ -1,0 +1,19 @@
+--- a/net/badlion/client/item/tag/Tag.java
++++ b/net/badlion/client/item/tag/Tag.java
+@@ -1,6 +1,7 @@
+ package net.badlion.client.item.tag;
+ 
+ import java.io.DataOutput;
++import java.io.IOException;
+ import java.util.Set;
+ import net.badlion.class_8;
+ import net.badlion.class_849;
+@@ -74,7 +75,7 @@
+       return this.field_2135.getKeys();
+    }
+ 
+-   public void write(String var1, DataOutput var2) {
++   public void write(String var1, DataOutput var2) throws IOException {
+       CompoundTag.write(var1, this.field_2135, var2);
+    }
+ 

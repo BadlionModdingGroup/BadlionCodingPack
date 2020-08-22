@@ -1,0 +1,19 @@
+--- a/net/badlion/class_1912.java
++++ b/net/badlion/class_1912.java
+@@ -3,6 +3,7 @@
+ import java.awt.image.BufferedImage;
+ import java.awt.image.ColorModel;
+ import java.awt.image.WritableRaster;
++import java.io.IOException;
+ import java.io.InputStream;
+ import java.nio.ByteBuffer;
+ import java.nio.ByteOrder;
+@@ -144,7 +145,7 @@
+       var5.clear();
+    }
+ 
+-   public static BufferedImage readBufferedImage(InputStream var0) {
++   public static BufferedImage readBufferedImage(InputStream var0) throws IOException {
+       return ImageIO.read(var0);
+    }
+ 

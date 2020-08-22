@@ -1,0 +1,50 @@
+--- a/net/badlion/client/manager/GLManager.java
++++ b/net/badlion/client/manager/GLManager.java
+@@ -90,7 +90,7 @@
+ 
+    }
+ 
+-   static LinkedList getMatrixStack() {
++   public static LinkedList getMatrixStack() {
+       return matricies;
+    }
+ 
+@@ -130,22 +130,22 @@
+    }
+ 
+    public static class class_2064 {
+-      float field_5465;
+-      private float field_5470;
+-      private float field_5471;
+-      private float field_5472;
+-      private float field_5473;
+-      float field_5466;
+-      private float field_5474;
+-      private float field_5475;
+-      private float field_5476;
+-      private float field_5477;
+-      private float field_5478;
+-      private float field_5479;
+-      float field_5467;
+-      float field_5468;
+-      float field_5469;
+-      private float field_5480;
++      public float field_5465;
++      public float field_5470;
++      public float field_5471;
++      public float field_5472;
++      public float field_5473;
++      public float field_5466;
++      public float field_5474;
++      public float field_5475;
++      public float field_5476;
++      public float field_5477;
++      public float field_5478;
++      public float field_5479;
++      public float field_5467;
++      public float field_5468;
++      public float field_5469;
++      public float field_5480;
+ 
+       private class_2064() {
+          this.field_5465 = this.field_5470 = this.field_5471 = this.field_5472 = this.field_5473 = this.field_5466 = this.field_5474 = this.field_5475 = this.field_5476 = this.field_5477 = this.field_5478 = this.field_5479 = this.field_5467 = this.field_5468 = this.field_5469 = this.field_5480 = 0.0F;

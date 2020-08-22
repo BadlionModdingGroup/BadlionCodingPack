@@ -1,0 +1,33 @@
+--- a/net/badlion/client/common/manager/replay/ReplayManager.java
++++ b/net/badlion/client/common/manager/replay/ReplayManager.java
+@@ -31,14 +31,14 @@
+    public static final ExecutorService field_5242 = Executors.newSingleThreadExecutor();
+    public static boolean field_5243 = false;
+    private class_436 field_5252;
+-   protected boolean field_5244;
+-   protected long field_5245;
+-   protected int field_5246;
++   public boolean field_5244;
++   public long field_5245;
++   public int field_5246;
+    private class_317 field_5253;
+    private class_319 field_5254;
+    private ReentrantReadWriteLock field_5255;
+    public class_365 currentReplayFile;
+-   protected Map field_5248;
++   public Map field_5248;
+    private int field_5256;
+    protected class_312 field_5249;
+    protected class_425 field_5250;
+@@ -253,9 +253,9 @@
+       this.field_5254.method_1171(var1, var2);
+    }
+ 
+-   protected abstract void method_5289(ConcurrentLinkedQueue var1);
++   public abstract void method_5289(ConcurrentLinkedQueue var1);
+ 
+-   private class_365 method_5301(File var1) {
++   private class_365 method_5301(File var1) throws IOException {
+       this.currentReplayFile = new class_365(var1);
+       return this.currentReplayFile;
+    }

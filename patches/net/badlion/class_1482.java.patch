@@ -1,0 +1,11 @@
+--- a/net/badlion/class_1482.java
++++ b/net/badlion/class_1482.java
+@@ -266,7 +266,7 @@
+          for(Iterator var3 = var1.children.iterator(); var3.hasNext(); this.method_4059(var4, var2)) {
+             var4 = (BaseElement)var3.next();
+             if (var4 instanceof ScrollableListElement) {
+-               var2.add((ScrollableListElement)var4);
++               var2.add(var4);
+             }
+          }
+       }

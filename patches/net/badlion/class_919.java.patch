@@ -1,0 +1,14 @@
+--- a/net/badlion/class_919.java
++++ b/net/badlion/class_919.java
+@@ -28,9 +28,9 @@
+    @KeepName
+    protected boolean applyChroma;
+    @KeepName
+-   protected List subModels;
++   protected List<class_919> subModels;
+    @KeepName
+-   protected Map extraModels;
++   protected Map<String, class_919> extraModels;
+    @KeepName
+    protected class_923 animationData;
+    private transient class_910 field_1692;

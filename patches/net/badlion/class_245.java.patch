@@ -1,0 +1,12 @@
+--- a/net/badlion/class_245.java
++++ b/net/badlion/class_245.java
+@@ -23,4 +23,9 @@
+    protected Object method_5282(JsonElement var1) {
+       return this.method_960(var1);
+    }
++
++   @Override
++   protected JsonElement method_5283(Object var1) {
++      return null;
+ }
++}

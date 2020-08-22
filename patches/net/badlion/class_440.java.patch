@@ -1,0 +1,73 @@
+--- a/net/badlion/class_440.java
++++ b/net/badlion/class_440.java
+@@ -1,10 +1,11 @@
+ package net.badlion;
+ 
++import java.io.IOException;
+ import java.io.InputStream;
+ import java.io.OutputStream;
+ 
+ public class class_440 {
+-   public static int method_1595(InputStream var0) {
++   public static int method_1595(InputStream var0) throws IOException {
+       int var1 = var0.read();
+       int var2 = var0.read();
+       int var3 = var0.read();
+@@ -12,7 +13,7 @@
+       return (var1 | var2 | var3 | var4) < 0 ? -1 : var1 << 24 | var2 << 16 | var3 << 8 | var4;
+    }
+ 
+-   public static void method_1597(OutputStream var0, int var1) {
++   public static void method_1597(OutputStream var0, int var1) throws IOException {
+       var0.write(var1 >>> 24 & 255);
+       var0.write(var1 >>> 16 & 255);
+       var0.write(var1 >>> 8 & 255);
+@@ -49,19 +50,19 @@
+             this.field_747 = true;
+          }
+ 
+-         public int read() {
++         public int read() throws IOException {
+             return this.field_747 ? -1 : var0.read();
+          }
+ 
+-         public int read(byte[] var1, int var2, int var3) {
++         public int read(byte[] var1, int var2, int var3) throws IOException {
+             return this.field_747 ? -1 : var0.read(var1, var2, var3);
+          }
+ 
+-         public int available() {
++         public int available() throws IOException {
+             return var0.available();
+          }
+ 
+-         public long skip(long var1) {
++         public long skip(long var1) throws IOException {
+             return this.field_747 ? 0L : var0.skip(var1);
+          }
+ 
+@@ -69,7 +70,7 @@
+             var0.mark(var1);
+          }
+ 
+-         public synchronized void reset() {
++         public synchronized void reset() throws IOException {
+             var0.reset();
+          }
+ 
+@@ -77,13 +78,13 @@
+             return var0.markSupported();
+          }
+ 
+-         public int read(byte[] var1) {
++         public int read(byte[] var1) throws IOException {
+             return this.field_747 ? -1 : var0.read(var1);
+          }
+       };
+    }
+ 
+-   public static void method_1596(InputStream var0, OutputStream var1) {
++   public static void method_1596(InputStream var0, OutputStream var1) throws IOException {
+       byte[] var2 = new byte[1024];
+ 
+       int var3;

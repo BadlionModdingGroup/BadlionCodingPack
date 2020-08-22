@@ -1,0 +1,26 @@
+--- a/net/badlion/class_1995.java
++++ b/net/badlion/class_1995.java
+@@ -83,14 +83,15 @@
+                return false;
+             }
+ 
+-            if (Wrapper.getWrapper().getActiveModProfile().getHitboxes().isHideStuckArrows() && ((ArrowEntity)var0).isStuck() || HitboxesMod.arrows.contains(((var0.x * 7.0D + var0.y) * 13.0D + var0.z) * 17.0D)) {
+-               if (HitboxesMod.arrows.size() > 1000) {
+-                  HitboxesMod.arrows.clear();
+-               }
+-
+-               HitboxesMod.arrows.add(((var0.x * 7.0D + var0.y) * 13.0D + var0.z) * 17.0D);
+-               return false;
+-            }
++            //FIXME: mixin fix
++//            if (Wrapper.getWrapper().getActiveModProfile().getHitboxes().isHideStuckArrows() && ((ArrowEntity)var0).isStuck() || HitboxesMod.arrows.contains(((var0.x * 7.0D + var0.y) * 13.0D + var0.z) * 17.0D)) {
++//               if (HitboxesMod.arrows.size() > 1000) {
++//                  HitboxesMod.arrows.clear();
++//               }
++//
++//               HitboxesMod.arrows.add(((var0.x * 7.0D + var0.y) * 13.0D + var0.z) * 17.0D);
++//               return false;
++//            }
+          } else if (var0 instanceof ProjectileEntity) {
+             if (!(var0 instanceof WitherSkullEntity) && !Wrapper.getWrapper().getActiveModProfile().getHitboxes().isFireballHitboxesEnabled()) {
+                return false;

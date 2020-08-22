@@ -1,0 +1,37 @@
+--- a/net/badlion/class_1067.java
++++ b/net/badlion/class_1067.java
+@@ -6,15 +6,17 @@
+ import com.google.gson.stream.JsonWriter;
+ import org.apache.logging.log4j.LogManager;
+ 
++import java.io.IOException;
++
+ public class class_1067 extends TypeAdapter {
+-   public void method_3111(JsonWriter var1, class_2061 var2) {
++   public void method_3111(JsonWriter var1, class_2061 var2) throws IOException {
+       var1.beginObject();
+       var1.name("value");
+       var1.value(var2.booleanValue());
+       var1.endObject();
+    }
+ 
+-   public class_2061 method_3110(JsonReader var1) {
++   public class_2061 method_3110(JsonReader var1) throws IOException {
+       class_2061 var2 = new class_2061();
+       String var3 = "";
+       boolean var4 = false;
+@@ -49,12 +51,12 @@
+    }
+ 
+    // $FF: synthetic method
+-   public Object read(JsonReader var1) {
++   public Object read(JsonReader var1) throws IOException {
+       return this.method_3110(var1);
+    }
+ 
+    // $FF: synthetic method
+-   public void write(JsonWriter var1, Object var2) {
++   public void write(JsonWriter var1, Object var2) throws IOException {
+       this.method_3111(var1, (class_2061)var2);
+    }
+ }

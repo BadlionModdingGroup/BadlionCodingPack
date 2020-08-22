@@ -1,0 +1,10 @@
+--- a/net/badlion/class_861.java
++++ b/net/badlion/class_861.java
+@@ -4,6 +4,6 @@
+ 
+ public class class_861 implements class_30 {
+    public void method_250(File var1, String var2, int var3, int var4, class_11 var5, boolean var6) {
+-      net.minecraft.class_674.saveScreenshot(var1, var2, var3, var4, ((class_851)var5).method_3175(), var6);
++      net.minecraft.class_674.method_2372(var1, var2, var3, var4, ((class_851)var5).method_3175()); //var 6 must be passed in with mixin
+    }
+ }

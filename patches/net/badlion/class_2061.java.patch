@@ -1,0 +1,11 @@
+--- a/net/badlion/class_2061.java
++++ b/net/badlion/class_2061.java
+@@ -22,7 +22,7 @@
+    }
+ 
+    public boolean isFalse() {
+-      return !this.field_5462 == null ? super.getValue() : this.field_5462;
++      return !this.field_5462 ? super.getValue() : this.field_5462;
+    }
+ 
+    public boolean isTrue() {

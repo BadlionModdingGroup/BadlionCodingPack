@@ -1,0 +1,11 @@
+--- a/net/badlion/client/common/mod/ItemCounterDisplayMod.java
++++ b/net/badlion/client/common/mod/ItemCounterDisplayMod.java
+@@ -30,7 +30,7 @@
+ 
+ public class ItemCounterDisplayMod extends class_477 {
+    @KeepName
+-   int childCounter;
++   public int childCounter;
+    private static final int field_1303 = 20;
+    private transient class_1851 field_1304;
+    private transient boolean field_1305 = false;

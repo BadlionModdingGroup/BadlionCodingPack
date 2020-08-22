@@ -1,0 +1,67 @@
+--- a/net/badlion/class_762.java
++++ b/net/badlion/class_762.java
+@@ -4,6 +4,11 @@
+ import java.util.LinkedList;
+ import java.util.List;
+ import java.util.UUID;
++
++import io.github.badlionmoddinggroup.badlion.extra.ContainerExtra;
++import io.github.badlionmoddinggroup.badlion.extra.EntityExtra;
++import io.github.badlionmoddinggroup.badlion.extra.ItemStackExtra;
++import io.github.badlionmoddinggroup.badlion.extra.PlayerEntityExtra;
+ import net.badlion.client.common.entity.EntityWrapper;
+ import net.badlion.client.common.entity.player.PlayerWrapper;
+ import net.badlion.client.common.item.ItemStackWrapper;
+@@ -31,12 +36,12 @@
+ 
+    public ItemStackWrapper method_993() {
+       ItemStack var1 = this.field_2069.method_7107();
+-      return var1 == null ? null : var1.getBadlionItemStack();
++      return var1 == null ? null : ((ItemStackExtra)(Object)var1).getBadlionItemStack();
+    }
+ 
+    public ItemStackWrapper method_994() {
+       ItemStack var1 = this.field_2069.method_8017();
+-      return var1 == null ? null : var1.getBadlionItemStack();
++      return var1 == null ? null : ((ItemStackExtra)(Object)var1).getBadlionItemStack();
+    }
+ 
+    public class_625 method_995() {
+@@ -171,11 +176,11 @@
+    }
+ 
+    public void method_5230(class_2027 var1) {
+-      this.field_2069.controller.method_3256(this.field_2069, var1);
++      ((PlayerEntityExtra) this.field_2069).getController().method_3256(this.field_2069, var1);
+    }
+ 
+    public boolean method_1013() {
+-      return this.field_2069.controller.method_3259();
++      return ((PlayerEntityExtra) this.field_2069).getController().method_3259();
+    }
+ 
+    public double method_1014() {
+@@ -197,12 +202,12 @@
+ 
+    public class_565 method_1025() {
+       Container var1 = this.field_2069.openedContainer;
+-      return var1 == null ? null : var1.getBadlionContainer();
++      return var1 == null ? null : ((ContainerExtra)var1).getBadlionContainer();
+    }
+ 
+    public ItemStackWrapper method_1017(int var1) {
+       ItemStack var2 = this.field_2069.method_7175(var1);
+-      return var2 == null ? null : var2.getBadlionItemStack();
++      return var2 == null ? null : ((ItemStackExtra)(Object)var2).getBadlionItemStack();
+    }
+ 
+    public float method_1026() {
+@@ -219,7 +224,7 @@
+ 
+    public EntityWrapper method_1029() {
+       FishingBobberEntity var1 = this.field_2069.fishHook;
+-      return var1 == null ? null : var1.getBadlionEntity();
++      return var1 == null ? null : ((EntityExtra) var1).getBadlionEntity();
+    }
+ 
+    public PlayerEntity method_3135() {

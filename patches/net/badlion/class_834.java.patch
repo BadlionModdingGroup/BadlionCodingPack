@@ -1,0 +1,12 @@
+--- a/net/badlion/class_834.java
++++ b/net/badlion/class_834.java
+@@ -40,7 +40,8 @@
+    }
+ 
+    public class_1614 method_2581() {
+-      return this.field_2126.baseResourcePackFolder;
++      throw new RuntimeException("baseResourcePackFolder is needed!");
++//      return this.field_2126.baseResourcePackFolder;
+    }
+ 
+    public File method_2578() {

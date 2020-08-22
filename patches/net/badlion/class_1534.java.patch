@@ -1,0 +1,33 @@
+--- a/net/badlion/class_1534.java
++++ b/net/badlion/class_1534.java
+@@ -101,23 +101,25 @@
+          this.field_3393 = null;
+          break;
+       case CAPE:
+-         final class_913 var6;
++         class_913 var6;
+          try {
+             var6 = (class_913)BadlionClient.UGLY_GSON.fromJson(this.field_3389, class_913.class);
+          } catch (Exception var8) {
+             var6 = new class_913();
+          }
+ 
++         final class_913 var6butgood = var6;
++
+          this.field_3391 = new class_1844("Cloak Type", var6.method_2667(), class_1348.class_1350.values(), new class_2103() {
+             public void method_4182(class_1348.class_1350 var1) {
+-               var6.method_2668(var1);
+-               BadlionClient.getBadlion().getCosmeticManager().method_2834(class_910.CAPE, (JsonObject)BadlionClient.UGLY_GSON.toJsonTree(var6), (class_2103)null, true);
++               var6butgood.method_2668(var1);
++               BadlionClient.getBadlion().getCosmeticManager().method_2834(class_910.CAPE, (JsonObject)BadlionClient.UGLY_GSON.toJsonTree(var6butgood), (class_2103)null, true);
+             }
+          });
+          this.field_3393 = new ModFeatureEnabledBool("Cloak Shoulders", new MutableBoolean(var6.method_2670()), Collections.singletonList("Disable/Enable the shoulder part on your cloak"), new class_2103() {
+             public void method_4183(MutableBoolean var1) {
+-               var6.method_2669(var1.booleanValue());
+-               BadlionClient.getBadlion().getCosmeticManager().method_2834(class_910.CAPE, (JsonObject)BadlionClient.UGLY_GSON.toJsonTree(var6), (class_2103)null, true);
++               var6butgood.method_2669(var1.booleanValue());
++               BadlionClient.getBadlion().getCosmeticManager().method_2834(class_910.CAPE, (JsonObject)BadlionClient.UGLY_GSON.toJsonTree(var6butgood), (class_2103)null, true);
+             }
+          });
+          this.field_3390 = null;

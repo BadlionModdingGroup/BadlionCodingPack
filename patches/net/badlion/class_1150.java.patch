@@ -1,0 +1,20 @@
+--- a/net/badlion/class_1150.java
++++ b/net/badlion/class_1150.java
+@@ -3,6 +3,8 @@
+ import java.util.ArrayList;
+ import java.util.Iterator;
+ import java.util.List;
++
++import io.github.badlionmoddinggroup.badlion.extra.ItemStackExtra;
+ import net.badlion.client.common.item.ItemStackWrapper;
+ import net.badlion.client.item.BadlionItemStack;
+ import net.minecraft.block.Block;
+@@ -103,7 +105,7 @@
+                      var21 = 2;
+                   }
+ 
+-                  class_714 var23 = this.method_3294(var4, var12.getBadlionItemStack());
++                  class_714 var23 = this.method_3294(var4, ((ItemStackExtra)(Object)var12).getBadlionItemStack());
+                   if (var11) {
+                      var23.field_1236 += var21;
+                   }

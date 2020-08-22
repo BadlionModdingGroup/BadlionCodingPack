@@ -1,0 +1,16 @@
+--- a/net/badlion/class_1117.java
++++ b/net/badlion/class_1117.java
+@@ -147,9 +147,10 @@
+ 
+          while(var1.hasNext()) {
+             PlayerListEntry var2 = (PlayerListEntry)var1.next();
+-            PlayerListS2CPacket var3 = new PlayerListS2CPacket(Action.field_6252, new ServerPlayerEntity[0]);
+-            var3.entries.add(new Entry(var2.getProfile(), var2.getLatency(), var2.getGameMode(), var2.getDisplayName()));
+-            this.method_3196(var3);
++            //FIXME: unknown fix
++//            PlayerListS2CPacket var3 = new PlayerListS2CPacket(Action.field_6252, new ServerPlayerEntity[0]);
++//            var3.entries.add(new Entry(var2.getProfile(), var2.getLatency(), var2.getGameMode(), var2.getDisplayName()));
++//            this.method_3196(var3);
+          }
+ 
+       }

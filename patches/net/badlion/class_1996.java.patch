@@ -1,0 +1,17 @@
+--- a/net/badlion/class_1996.java
++++ b/net/badlion/class_1996.java
+@@ -115,12 +115,12 @@
+                }
+ 
+                GlStateManager.scalef(0.5F, 0.5F, 0.5F);
+-               var12.getTransformation().method_3723(Mode.field_4649);
++               var12.getTransformation().method_3723(Mode.NONE); //fix: if this is broken it was field_4649
+                client.getItemRenderer().method_3982(var10, var12);
+                BadlionClient.glStateManager.method_113();
+             } else {
+                BadlionClient.glStateManager.method_112();
+-               var12.getTransformation().method_3723(Mode.field_4649);
++               var12.getTransformation().method_3723(Mode.NONE);
+                client.getItemRenderer().method_3982(var10, var12);
+                BadlionClient.glStateManager.method_113();
+                BadlionClient.glStateManager.method_89(0.0F, 0.0F, 0.05375F);

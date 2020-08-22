@@ -1,0 +1,26 @@
+--- a/net/badlion/class_1255.java
++++ b/net/badlion/class_1255.java
+@@ -2,6 +2,8 @@
+ 
+ import com.mojang.blaze3d.platform.AdvancedOpenGlManager;
+ import com.mojang.blaze3d.platform.GlStateManager;
++import io.github.badlionmoddinggroup.badlion.gui.BadlionButtonWidget;
++import io.github.badlionmoddinggroup.badlion.gui.ButtonType;
+ import net.badlion.client.Wrapper;
+ import net.badlion.client.common.BadlionClient;
+ import net.badlion.client.common.BadlionInterface;
+@@ -27,12 +29,12 @@
+       short var3 = 168;
+       int var4 = this.height / 2 - var3 / 2 + 33;
+       var4 += 10;
+-      this.buttons.add(new ButtonWidget(0, var1, var4, 200, 20, I18n.translate("menu.returnToGame", new Object[0]), .avs$ButtonType.THICK_LINES));
++      this.buttons.add(new BadlionButtonWidget(0, var1, var4, 200, 20, I18n.translate("menu.returnToGame", new Object[0]), ButtonType.THICK_LINES));
+       var4 += 70;
+       this.buttons.add(new ButtonWidget(1, var1, var4, 95, 20, I18n.translate("menu.options", new Object[0])));
+       this.buttons.add(new ButtonWidget(2, var2, var4, 95, 20, "Replay Options"));
+       var4 += 25;
+-      this.buttons.add(new ButtonWidget(3, var1, var4, 200, 20, "Exit Replay", .avs$ButtonType.RED));
++      this.buttons.add(new BadlionButtonWidget(3, var1, var4, 200, 20, "Exit Replay", ButtonType.RED));
+    }
+ 
+    protected void method_3443(ButtonWidget var1) {

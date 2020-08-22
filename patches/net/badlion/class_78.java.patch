@@ -1,0 +1,26 @@
+--- a/net/badlion/class_78.java
++++ b/net/badlion/class_78.java
+@@ -91,7 +91,12 @@
+       public Iterator iterator() {
+          return Iterators.forArray(this.facings());
+       }
++
++      @Override
++      public boolean apply(Object input) {
++         return false;
+    }
++   }
+ 
+    public static enum class_80 {
+       POSITIVE(1, "Towards positive"),
+@@ -170,5 +175,10 @@
+          }
+ 
+       }
++
++      @Override
++      public boolean apply(Object input) {
++         return false;
+    }
+ }
++}

@@ -1,0 +1,44 @@
+--- a/net/badlion/class_578.java
++++ b/net/badlion/class_578.java
+@@ -29,15 +29,15 @@
+ public abstract class class_578 extends AbstractMod implements class_587 {
+    private static final List DEFAULT_RENDER_MODE;
+    @KeepName
+-   protected transient double sizeX;
++   public transient double sizeX;
+    @KeepName
+-   protected transient double sizeY;
++   public transient double sizeY;
+    @KeepName
+-   protected BoxCoord centerBox = null;
++   public BoxCoord centerBox = null;
+    @KeepName
+-   protected BoxCoord topLeftBox = null;
++   public BoxCoord topLeftBox = null;
+    @KeepName
+-   protected BoxCoord bottomRightBox = null;
++   public BoxCoord bottomRightBox = null;
+    @KeepName
+    private class_1632 snapping = new class_1632();
+    protected transient int defaultSizeX;
+@@ -434,7 +434,7 @@
+       this.updateModSize();
+    }
+ 
+-   protected void handleMove(double var1, double var3) {
++   public void handleMove(double var1, double var3) {
+       double var5 = this.getX() + var1;
+       double var7 = this.getY() + var3;
+       this.snapping.method_4489();
+@@ -841,6 +841,11 @@
+                   class_578.this.textModeSettings.method_3696().method_5884(var1);
+                }
+             }, new class_2101() {
++               @Override
++               public String method_5719(Object var1) {
++                  return null;
++               }
++
+                public String method_1870(class_1384 var1) {
+                   return var1.getExampleString();
+                }

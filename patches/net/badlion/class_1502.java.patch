@@ -1,0 +1,14 @@
+--- a/net/badlion/class_1502.java
++++ b/net/badlion/class_1502.java
+@@ -146,6 +146,11 @@
+             BadlionClient.getBadlion().getWrapper().getActiveModProfile().getTextModeSettings().method_3696().method_5884(var1);
+          }
+       }, false, 1, 5, 23, 24) {
++         @Override
++         protected String method_3851(Object var1) {
++            return null;
++         }
++
+          protected String method_4112(class_1384 var1) {
+             return var1.getExampleString();
+          }

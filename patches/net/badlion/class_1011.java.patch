@@ -1,0 +1,37 @@
+--- a/net/badlion/class_1011.java
++++ b/net/badlion/class_1011.java
+@@ -7,15 +7,17 @@
+ import org.apache.commons.lang3.mutable.MutableBoolean;
+ import org.apache.logging.log4j.LogManager;
+ 
++import java.io.IOException;
++
+ public class class_1011 extends TypeAdapter {
+-   public void method_3023(JsonWriter var1, MutableBoolean var2) {
++   public void method_3023(JsonWriter var1, MutableBoolean var2) throws IOException {
+       var1.beginObject();
+       var1.name("value");
+       var1.value(var2.booleanValue());
+       var1.endObject();
+    }
+ 
+-   public MutableBoolean method_3022(JsonReader var1) {
++   public MutableBoolean method_3022(JsonReader var1) throws IOException {
+       MutableBoolean var2 = new MutableBoolean();
+       String var3 = "";
+       boolean var4 = false;
+@@ -50,12 +52,12 @@
+    }
+ 
+    // $FF: synthetic method
+-   public Object read(JsonReader var1) {
++   public Object read(JsonReader var1) throws IOException {
+       return this.method_3022(var1);
+    }
+ 
+    // $FF: synthetic method
+-   public void write(JsonWriter var1, Object var2) {
++   public void write(JsonWriter var1, Object var2) throws IOException {
+       this.method_3023(var1, (MutableBoolean)var2);
+    }
+ }

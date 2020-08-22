@@ -1,0 +1,25 @@
+--- a/net/badlion/class_2103.java
++++ b/net/badlion/class_2103.java
+@@ -1,5 +1,21 @@
+ package net.badlion;
+ 
++import org.apache.commons.lang3.mutable.MutableBoolean;
++
++import java.util.List;
++
+ public interface class_2103 {
+-   void method_5724(Object var1);
++    default void method_4844(class_1691 var1) {}
++
++    default void method_6186(MutableBoolean var1) {}
++
++    default void method_4846(class_1363 var1) {}
++
++    default void method_4845(class_1690 var1) {}
++
++    default void method_4811(class_1354.class_1355 var1x){}
++
++    default void method_4569(class_1363 var1x) {}
++
++    default void method_5724(Object o) {}
+ }

@@ -1,0 +1,11 @@
+--- a/net/badlion/client/mods/sba/PowerOrbManager.java
++++ b/net/badlion/client/mods/sba/PowerOrbManager.java
+@@ -29,7 +29,7 @@
+          if (((PowerOrbManager.PowerOrbEntry)var3.getValue()).detectPowerOrb + 100L > System.currentTimeMillis()) {
+             if (var1 == null) {
+                var1 = var3;
+-            } else if (((PowerOrb)var1.getKey()).compareTo((Enum)var3.getKey()) < 0) {
++            } else if (((PowerOrb)var1.getKey()).compareTo((PowerOrb) var3.getKey()) < 0) {
+                var1 = var3;
+             }
+          }

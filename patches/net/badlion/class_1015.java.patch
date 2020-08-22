@@ -1,0 +1,37 @@
+--- a/net/badlion/class_1015.java
++++ b/net/badlion/class_1015.java
+@@ -7,15 +7,17 @@
+ import org.apache.commons.lang3.mutable.MutableInt;
+ import org.apache.logging.log4j.LogManager;
+ 
++import java.io.IOException;
++
+ public class class_1015 extends TypeAdapter {
+-   public void method_3027(JsonWriter var1, MutableInt var2) {
++   public void method_3027(JsonWriter var1, MutableInt var2) throws IOException {
+       var1.beginObject();
+       var1.name("value");
+       var1.value((long)var2.intValue());
+       var1.endObject();
+    }
+ 
+-   public MutableInt method_3026(JsonReader var1) {
++   public MutableInt method_3026(JsonReader var1) throws IOException {
+       MutableInt var2 = new MutableInt();
+       String var3 = "";
+       boolean var4 = false;
+@@ -50,12 +52,12 @@
+    }
+ 
+    // $FF: synthetic method
+-   public Object read(JsonReader var1) {
++   public Object read(JsonReader var1) throws IOException {
+       return this.method_3026(var1);
+    }
+ 
+    // $FF: synthetic method
+-   public void write(JsonWriter var1, Object var2) {
++   public void write(JsonWriter var1, Object var2) throws IOException {
+       this.method_3027(var1, (MutableInt)var2);
+    }
+ }

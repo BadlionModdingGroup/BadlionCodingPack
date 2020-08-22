@@ -1,0 +1,20 @@
+--- a/net/badlion/class_911.java
++++ b/net/badlion/class_911.java
+@@ -15,7 +15,7 @@
+ 
+ public class class_911 {
+    @KeepName
+-   private Map modelData;
++   private Map<class_910, Map<String, class_919>> modelData;
+ 
+    public class_911() {
+       this.modelData = new HashMap();
+@@ -33,7 +33,7 @@
+          Throwable var3 = null;
+ 
+          try {
+-            this.modelData = ((class_911)BadlionClient.UGLY_GSON.fromJson(var2, class_911.class)).method_2665();
++            this.modelData = BadlionClient.UGLY_GSON.fromJson(var2, class_911.class).method_2665();
+             this.method_2666();
+             LogManager.getLogger().info("Loaded Models JSON!");
+          } catch (Throwable var14) {

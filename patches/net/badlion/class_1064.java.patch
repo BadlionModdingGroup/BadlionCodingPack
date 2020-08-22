@@ -1,0 +1,29 @@
+--- a/net/badlion/class_1064.java
++++ b/net/badlion/class_1064.java
+@@ -10,6 +10,8 @@
+ import com.google.gson.reflect.TypeToken;
+ import com.google.gson.stream.JsonReader;
+ import com.google.gson.stream.JsonWriter;
++
++import java.io.IOException;
+ import java.io.StringReader;
+ import java.io.StringWriter;
+ import java.util.Iterator;
+@@ -107,7 +109,7 @@
+       } else {
+          final TypeAdapter var3 = var1.getDelegateAdapter(this, var2);
+          return new TypeAdapter() {
+-            public void write(JsonWriter var1, Object var2) {
++            public void write(JsonWriter var1, Object var2) throws IOException {
+                if (var2 == null) {
+                   var3.write(var1, var2);
+                } else {
+@@ -118,7 +120,7 @@
+                }
+             }
+ 
+-            public Object read(JsonReader var1) {
++            public Object read(JsonReader var1) throws IOException {
+                JsonElement var2 = Streams.parse(var1);
+                class_1064.this.method_3107(var2);
+                return var3.read(new JsonReader(new StringReader(var2.toString())));

@@ -1,0 +1,77 @@
+--- a/net/badlion/class_758.java
++++ b/net/badlion/class_758.java
+@@ -4,6 +4,10 @@
+ import java.io.IOException;
+ import java.net.URI;
+ import java.net.UnknownHostException;
++
++import io.github.badlionmoddinggroup.badlion.extra.EntityExtra;
++import io.github.badlionmoddinggroup.badlion.extra.ItemStackExtra;
++import io.github.badlionmoddinggroup.badlion.extra.MinecraftClientExtra;
+ import net.badlion.client.common.entity.EntityWrapper;
+ import net.badlion.client.common.entity.player.PlayerWrapper;
+ import net.badlion.client.common.render.texture.BadlionTextureManagerWrapper;
+@@ -68,7 +72,7 @@
+    public class_758(MinecraftClient var1) {
+       this.client = var1;
+       this.session = new BadlionSession(this.client.getSession());
+-      this.field_1383 = new class_862(this.client.getTimer());
++      this.field_1383 = new class_862(((MinecraftClientExtra)this.client).getTimer());
+       this.field_1402 = new class_861();
+    }
+ 
+@@ -102,7 +106,7 @@
+ 
+    public void method_216(SessionWrapper var1) {
+       this.session = var1;
+-      this.client.setSession((Session)var1.method_22());
++      this.client.session = ((Session)var1.method_22());
+    }
+ 
+    public int method_231() {
+@@ -134,7 +138,7 @@
+    }
+ 
+    public PlayerWrapper getPlayer() {
+-      return this.client.player == null ? null : this.client.player.getBadlionEntity();
++      return this.client.player == null ? null : (PlayerWrapper) ((EntityExtra) this.client.player).getBadlionEntity();
+    }
+ 
+    public class_32 method_236() {
+@@ -306,7 +310,7 @@
+    }
+ 
+    public EntityWrapper method_185() {
+-      return this.client.getCameraEntity().getBadlionEntity();
++      return ((EntityExtra)this.client.getCameraEntity()).getBadlionEntity();
+    }
+ 
+    public void method_218(EntityWrapper var1) {
+@@ -487,6 +491,11 @@
+ 
+    public void method_213(String var1, String var2, String var3, String var4, final class_83 var5) {
+       this.client.openScreen(new ConfirmScreen(new IdentifibleBooleanConsumer() {
++         @Override
++         public void accept(boolean b, int id) {
++
++         }
++
+          public void method_2360(boolean var1, int var2) {
+             if (var1) {
+                var5.method_510();
+@@ -512,11 +521,13 @@
+    }
+ 
+    public void method_223(int var1, int var2) {
+-      this.client.frameResize(var1, var2);
++      //FIXME: mixin
++      //      this.client.frameResize(var1, var2);
+    }
+ 
+    public void method_202() {
+-      this.client.frameReset();
++      //FIXME: mixin
++//      this.client.frameReset();
+    }
+ 
+    public void method_203() {

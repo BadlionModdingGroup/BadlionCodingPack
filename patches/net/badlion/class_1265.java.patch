@@ -1,0 +1,14 @@
+--- a/net/badlion/class_1265.java
++++ b/net/badlion/class_1265.java
+@@ -7,9 +7,9 @@
+    @KeepName
+    public static class_2069 from(Mode var0) {
+       switch(var0) {
+-      case field_4645:
++      case THIRD_PERSON://4645
+          return class_2069.THIRD_PERSON_RIGHT_HAND;
+-      case field_4646:
++      case FIRST_PERSON:
+          return class_2069.FIRST_PERSON_RIGHT_HAND;
+       default:
+          return null;

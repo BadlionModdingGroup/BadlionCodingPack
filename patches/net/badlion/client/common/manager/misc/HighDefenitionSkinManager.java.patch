@@ -1,0 +1,27 @@
+--- a/net/badlion/client/common/manager/misc/HighDefenitionSkinManager.java
++++ b/net/badlion/client/common/manager/misc/HighDefenitionSkinManager.java
+@@ -53,7 +53,7 @@
+       (new Thread(new Runnable() {
+          public void run() {
+             while(!Thread.currentThread().isInterrupted()) {
+-               final HighDefenitionSkinManager.class_1905 var1;
++               HighDefenitionSkinManager.class_1905 var1;
+                try {
+                   while((var1 = (HighDefenitionSkinManager.class_1905)HighDefenitionSkinManager.this.field_5195.poll()) != null) {
+                      HttpURLConnection var2 = null;
+@@ -85,11 +85,12 @@
+                         }
+ 
+                         if (var3 != null) {
++                           class_1905 finalVar = var1;
+                            BadlionClient.minecraft.method_211(new Runnable() {
+                               public void run() {
+-                                 TextureWrapper var1x = BadlionClient.minecraft.method_232().loadTexture("hd_skin_" + var1.method_5203(), var3);
+-                                 HighDefenitionSkinManager.this.field_5193.put(var1.method_5203(), var1x);
+-                                 HighDefenitionSkinManager.this.field_5194.remove(var1.method_5203());
++                                 TextureWrapper var1x = BadlionClient.minecraft.method_232().loadTexture("hd_skin_" + finalVar.method_5203(), var3);
++                                 HighDefenitionSkinManager.this.field_5193.put(finalVar.method_5203(), var1x);
++                                 HighDefenitionSkinManager.this.field_5194.remove(finalVar.method_5203());
+                               }
+                            });
+                         }

@@ -1,0 +1,14 @@
+--- /dev/null
++++ b/io/github/badlionmoddinggroup/badlion/extra/MinecraftClientExtra.java
+@@ -0,0 +1,11 @@
++package io.github.badlionmoddinggroup.badlion.extra;
++
++import net.minecraft.client.render.ClientTickTracker;
++
++public interface MinecraftClientExtra {
++
++    ClientTickTracker getTimer();
++
++    void clearScheduledTasks();
++
++}

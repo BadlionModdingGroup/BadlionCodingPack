@@ -1,0 +1,19 @@
+--- a/net/badlion/launchwrapper/tweakers/BadlionTransformer.java
++++ b/net/badlion/launchwrapper/tweakers/BadlionTransformer.java
+@@ -112,7 +112,6 @@
+ import net.minecraft.client.util.SmoothUtil;
+ import net.minecraft.entity.Entity;
+ import net.minecraft.entity.LivingEntity;
+-import net.minecraft.launchwrapper.IClassTransformer;
+ import net.minecraft.resource.DefaultResourcePack;
+ import net.minecraft.resource.ResourceManager;
+ import net.minecraft.resource.ResourcePack;
+@@ -129,7 +128,7 @@
+ import org.objectweb.asm.Type;
+ 
+ @KeepName
+-public class BadlionTransformer extends class_1106 implements IClassTransformer {
++public class BadlionTransformer extends class_1106 {//implements IClassTransformer {
+    public static boolean OPTIFINE_LOADED = false;
+ 
+    public byte[] transform(String var1, String var2, byte[] var3) {

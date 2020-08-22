@@ -1,0 +1,36 @@
+--- a/net/badlion/class_847.java
++++ b/net/badlion/class_847.java
+@@ -1,7 +1,10 @@
+ package net.badlion;
+ 
+ import java.io.File;
++import java.io.IOException;
+ import java.io.InputStream;
++
++import io.github.badlionmoddinggroup.badlion.extra.EntityExtra;
+ import net.badlion.client.common.entity.EntityWrapper;
+ import net.badlion.client.common.item.tag.ITag;
+ import net.badlion.client.item.tag.Tag;
+@@ -14,11 +17,11 @@
+ import net.minecraft.nbt.NbtIo;
+ 
+ public class class_847 implements class_6 {
+-   public ITag method_26(InputStream var1) {
++   public ITag method_26(InputStream var1) throws IOException {
+       return new Tag(NbtIo.readCompressed(var1));
+    }
+ 
+-   public ITag method_25(File var1) {
++   public ITag method_25(File var1) throws IOException {
+       return new Tag(NbtIo.read(var1));
+    }
+ 
+@@ -43,7 +46,7 @@
+ 
+    public EntityWrapper method_28(ITag var1, MinecraftWrapper var2) {
+       Entity var3 = EntityType.method_7068(((Tag)var1).method_3173(), ((class_865)var2).method_3182());
+-      return var3 == null ? null : var3.getBadlionEntity();
++      return var3 == null ? null : ((EntityExtra)var3).getBadlionEntity();
+    }
+ 
+    public ITag method_29(EntityWrapper var1) {

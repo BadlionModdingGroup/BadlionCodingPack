@@ -1,0 +1,20 @@
+--- a/net/badlion/class_761.java
++++ b/net/badlion/class_761.java
+@@ -3,6 +3,8 @@
+ import java.util.ArrayList;
+ import java.util.List;
+ import java.util.UUID;
++
++import io.github.badlionmoddinggroup.badlion.extra.EntityExtra;
+ import net.badlion.client.common.entity.EntityWrapper;
+ import net.badlion.client.common.item.tag.ITag;
+ import net.badlion.client.item.tag.Tag;
+@@ -165,7 +167,7 @@
+ 
+    public EntityWrapper method_845() {
+       Entity var1 = this.field_2068.hasVehicle;
+-      return var1 == null ? null : var1.getBadlionEntity();
++      return var1 == null ? null : ((EntityExtra)var1).getBadlionEntity();
+    }
+ 
+    public boolean method_846() {

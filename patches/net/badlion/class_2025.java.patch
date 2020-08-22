@@ -1,0 +1,59 @@
+--- a/net/badlion/class_2025.java
++++ b/net/badlion/class_2025.java
+@@ -12,12 +12,9 @@
+ import java.util.UUID;
+ import net.badlion.launchwrapper.tweakers.BadlionTransformer;
+ import net.badlion.tags.KeepName;
+-import net.minecraft.launchwrapper.ITweaker;
+-import net.minecraft.launchwrapper.Launch;
+-import net.minecraft.launchwrapper.LaunchClassLoader;
+ 
+ @KeepName
+-public class class_2025 implements ITweaker {
++public class class_2025{// implements ITweaker {
+    public static String OPTIFINE_VERSION = "";
+    public static String TOKEN = "null";
+    public static UUID BADLION_UUID = null;
+@@ -26,15 +23,15 @@
+    private List args;
+ 
+    public class_2025() {
+-      try {
+-         Field var1 = LaunchClassLoader.class.getDeclaredField("classLoaderExceptions");
+-         var1.setAccessible(true);
+-         Set var2 = (Set)var1.get(Launch.classLoader);
+-         var2.remove("org.lwjgl.");
+-         var1.setAccessible(false);
+-      } catch (IllegalAccessException | NoSuchFieldException var3) {
+-         var3.printStackTrace();
+-      }
++//      try {
++//         Field var1 = LaunchClassLoader.class.getDeclaredField("classLoaderExceptions");
++//         var1.setAccessible(true);
++//         Set var2 = (Set)var1.get(Launch.classLoader);
++//         var2.remove("org.lwjgl.");
++//         var1.setAccessible(false);
++//      } catch (IllegalAccessException | NoSuchFieldException var3) {
++//         var3.printStackTrace();
++//      }
+ 
+    }
+ 
+@@ -126,12 +123,12 @@
+       }
+ 
+    }
++//
++//   public void injectIntoClassLoader(LaunchClassLoader var1) {
++//      this.debug("Badlion Tweak Loader: Injecting into class loader");
++//      var1.registerTransformer("net.badlion.client.tweaker.BadlionTransformer");
++//   }
+ 
+-   public void injectIntoClassLoader(LaunchClassLoader var1) {
+-      this.debug("Badlion Tweak Loader: Injecting into class loader");
+-      var1.registerTransformer("net.badlion.client.tweaker.BadlionTransformer");
+-   }
+-
+    public String getLaunchTarget() {
+       this.debug("Badlion Tweak Loader: Launch target");
+       return "net.minecraft.client.main.Main";

@@ -1,0 +1,11 @@
+--- a/net/badlion/class_1125.java
++++ b/net/badlion/class_1125.java
+@@ -303,7 +303,7 @@
+ 
+    private void method_3226(ClientPlayerEntity var1, boolean var2) {
+       var1.setSneaking(var2);
+-      var1.networkHandler.sendPacket(new ClientCommandC2SPacket(var1, var2 ? Mode.field_6440 : Mode.field_6441));
++      var1.networkHandler.sendPacket(new ClientCommandC2SPacket(var1, var2 ? Mode.START_SNEAKING : Mode.STOP_SNEAKING)); //Mode.field_6440 : Mode.field_6441));
+    }
+ 
+    private boolean method_3234(SchematicaMod var1, PlayerInventory var2, ItemStack var3) {

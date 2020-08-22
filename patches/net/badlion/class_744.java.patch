@@ -1,0 +1,11 @@
+--- a/net/badlion/class_744.java
++++ b/net/badlion/class_744.java
+@@ -39,7 +39,7 @@
+       this.setShowInModMenu(false);
+    }
+ 
+-   class_744(ItemStackWrapper var1) {
++   public class_744(ItemStackWrapper var1) {
+       super("ShowItem", "Display number of items in your inventory", 18, 28, true);
+       this.setShowInModMenu(false);
+       this.iconDimension = new BoxDimension(78, 78);

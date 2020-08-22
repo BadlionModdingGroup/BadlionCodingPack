@@ -1,0 +1,29 @@
+--- a/net/badlion/class_807.java
++++ b/net/badlion/class_807.java
+@@ -1,6 +1,8 @@
+ package net.badlion;
+ 
+ import java.util.List;
++
++import io.github.badlionmoddinggroup.badlion.util.BadlionDrawableHelper;
+ import net.badlion.client.common.render.texture.TextureWrapper;
+ import net.badlion.client.common.util.Colour;
+ import net.badlion.client.render.texture.MinecraftTexture;
+@@ -13,7 +15,7 @@
+ 
+    public class_69 method_145() {
+       if (this.field_1546 == null) {
+-         this.field_1546 = new class_821(DrawableHelper.backgroundPanorama);
++         this.field_1546 = new class_821(BadlionDrawableHelper.backgroundPanorama);
+       }
+ 
+       return this.field_1546;
+@@ -53,7 +55,7 @@
+ 
+    public void method_157(int var1, int var2, int var3, int var4, Colour var5) {
+       if (var5.method_2781() == Colour.class_952.CHROMA) {
+-         DrawableHelper.drawChromaRect(var1, var2, var3, var4);
++         BadlionDrawableHelper.drawChromaRect(var1, var2, var3, var4);
+       } else {
+          this.method_150(var1, var2, var3, var4, var5.method_2792());
+       }

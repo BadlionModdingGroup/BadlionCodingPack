@@ -1,0 +1,55 @@
+--- a/net/badlion/client/cosmetics/emotes/AnimatorController.java
++++ b/net/badlion/client/cosmetics/emotes/AnimatorController.java
+@@ -8,6 +8,8 @@
+ import java.util.Iterator;
+ import java.util.List;
+ import java.util.Map;
++
++import io.github.badlionmoddinggroup.badlion.extra.EntityExtra;
+ import net.badlion.class_1304;
+ import net.badlion.class_1308;
+ import net.badlion.class_1309;
+@@ -24,6 +26,7 @@
+ import net.badlion.class_427;
+ import net.badlion.client.Wrapper;
+ import net.badlion.client.common.BadlionClient;
++import net.badlion.client.common.entity.player.PlayerWrapper;
+ import net.badlion.client.common.manager.CosmeticManager;
+ import net.badlion.client.common.render.texture.TextureWrapper;
+ import net.minecraft.block.Block;
+@@ -110,7 +113,7 @@
+          return false;
+       } else {
+          if (this.method_3259()) {
+-            Wrapper.getWrapper().getActiveModProfile().passEvent(new class_1426(var1.getBadlionEntity(), var3, var5, var7));
++            Wrapper.getWrapper().getActiveModProfile().passEvent(new class_1426((PlayerWrapper) ((EntityExtra)var1).getBadlionEntity(), var3, var5, var7));
+             CosmeticManager.method_2655(var1, var10);
+             class_1310 var12 = (class_1310)this.field_2180.meshes.get("body");
+             if (var12 != null) {
+@@ -427,7 +430,7 @@
+             }
+ 
+             GlStateManager.scalef(0.625F, 0.625F, 0.625F);
+-            this.field_2187.getHeldItemRenderer().method_3482(var1, var3, Mode.field_4647);
++            this.field_2187.getHeldItemRenderer().method_3482(var1, var3, Mode.NONE);//field_4647
+             GlStateManager.popMatrix();
+          }
+       }
+@@ -445,7 +448,7 @@
+ 
+                while(var6.hasNext()) {
+                   class_1317 var7 = (class_1317)var6.next();
+-                  this.method_3257(var1, this.field_2182, var2, var7, var7.field_2604, Mode.field_4645, var3 * this.field_2183, this.field_2184);
++                  this.method_3257(var1, this.field_2182, var2, var7, var7.field_2604, Mode.NONE, var3 * this.field_2183, this.field_2184);//field_4645
+                }
+             }
+          } else if (var4 != null && this.field_2180.rightHands != null) {
+@@ -453,7 +456,7 @@
+ 
+             while(var8.hasNext()) {
+                class_1317 var9 = (class_1317)var8.next();
+-               this.method_3257(var1, var4, var2, var9, var9.field_2604, Mode.field_4645, var3, true);
++               this.method_3257(var1, var4, var2, var9, var9.field_2604, Mode.NONE, var3, true);//field_4645
+             }
+          }
+ 

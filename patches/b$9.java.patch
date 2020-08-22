@@ -1,0 +1,25 @@
+--- a/b$9.java
++++ /dev/null
+@@ -1,22 +0,0 @@
+-import java.util.concurrent.Callable;
+-import net.badlion.client.Wrapper;
+-import net.badlion.client.common.BadlionClient;
+-import net.minecraft.util.crash.CrashReport;
+-
+-class b$9 implements Callable {
+-   // $FF: synthetic field
+-   final CrashReport this$0;
+-
+-   b$9(CrashReport var1) {
+-      this.this$0 = var1;
+-   }
+-
+-   public String call() {
+-      StringBuilder var1 = new StringBuilder();
+-      var1.append("Name: " + Wrapper.getWrapper().getActiveModProfile().getProfileName());
+-      var1.append("\n-----------------\n");
+-      var1.append(BadlionClient.UGLY_GSON.toJson(Wrapper.getWrapper().getActiveModProfile()));
+-      var1.append("\n--------------\n");
+-      return var1.toString();
+-   }
+-}

@@ -1,0 +1,16 @@
+package io.github.badlionmoddinggroup.badlion.mixin;
+
+import io.github.badlionmoddinggroup.badlion.extra.ItemStackExtra;
+import net.badlion.client.common.item.ItemStackWrapper;
+import net.badlion.client.item.BadlionItemStack;
+import net.minecraft.item.ItemStack;
+import org.spongepowered.asm.mixin.Mixin;
+
+@Mixin(ItemStack.class)
+public class ItemStackMixin implements ItemStackExtra {
+
+    @Override
+    public ItemStackWrapper getBadlionItemStack() {
+        return new BadlionItemStack((ItemStack) (Object)this);
+    }
+}

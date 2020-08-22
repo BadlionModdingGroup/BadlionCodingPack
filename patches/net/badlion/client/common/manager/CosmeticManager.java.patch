@@ -1,0 +1,20 @@
+--- a/net/badlion/client/common/manager/CosmeticManager.java
++++ b/net/badlion/client/common/manager/CosmeticManager.java
+@@ -3,6 +3,8 @@
+ import java.util.Iterator;
+ import java.util.List;
+ import java.util.UUID;
++
++import io.github.badlionmoddinggroup.badlion.extra.PlayerEntityExtra;
+ import net.badlion.class_1111;
+ import net.badlion.class_1112;
+ import net.badlion.class_14;
+@@ -130,7 +132,7 @@
+       boolean var7 = var0.method_7177(2) != null;
+       boolean var8 = var0.method_7177(3) != null;
+       boolean var9 = var0.getModel().equals("slim");
+-      return new class_966(var2, var3.getPath(), var4, var5, var6, var7, var8, var9, var1, false, var0.controller.method_3259());
++      return new class_966(var2, var3.getPath(), var4, var5, var6, var7, var8, var9, var1, false, ((PlayerEntityExtra)var0).getController().method_3259());
+    }
+ 
+    public static void method_2653(class_966 var0, AbstractClientPlayerEntity var1, float var2) {

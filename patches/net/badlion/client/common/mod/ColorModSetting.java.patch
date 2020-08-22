@@ -1,0 +1,11 @@
+--- a/net/badlion/client/common/mod/ColorModSetting.java
++++ b/net/badlion/client/common/mod/ColorModSetting.java
+@@ -1014,7 +1014,7 @@
+             }
+ 
+             int var2 = this.field_4797.method_2792();
+-            if (BadlionClient.getBadlion().getWrapper().getRecentColors().remove(var2)) {
++            if (BadlionClient.getBadlion().getWrapper().getRecentColors().remove(var2) != 0) { // != 0 possibly breaks this?
+                BadlionClient.getBadlion().getWrapper().getRecentColors().add(var2);
+             } else {
+                BadlionClient.getBadlion().getWrapper().getRecentColors().add(var2);

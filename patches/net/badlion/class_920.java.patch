@@ -1,0 +1,24 @@
+--- a/net/badlion/class_920.java
++++ b/net/badlion/class_920.java
+@@ -1,18 +1,19 @@
+ package net.badlion;
+ 
+ import java.util.HashMap;
++import java.util.List;
+ import java.util.Map;
+ import net.badlion.tags.KeepName;
+ 
+ public class class_920 {
+    @KeepName
+-   private Map registeredCosmetics = new HashMap();
++   private Map<class_910, List<class_918>> registeredCosmetics = new HashMap();
+ 
+    public class_920(Map var1) {
+       this.registeredCosmetics = var1;
+    }
+ 
+-   public Map method_2712() {
++   public Map<class_910, List<class_918>> method_2712() {
+       return this.registeredCosmetics;
+    }
+ }

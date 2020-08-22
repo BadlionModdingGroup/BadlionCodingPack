@@ -1,0 +1,38 @@
+--- a/net/badlion/client/common/gui/overlay/ChatOverlay.java
++++ b/net/badlion/client/common/gui/overlay/ChatOverlay.java
+@@ -393,7 +393,7 @@
+       var3.method_4584(new class_1679(var3, "xxxx", "Archybot", "It will contain some cool features, so be sure to check it out", System.currentTimeMillis(), 2565437, class_1704.INSIDER));
+    }
+ 
+-   void method_4803() {
++   public void method_4803() {
+       class_1703 var1 = BadlionClient.chatManager.method_4767();
+       if (var1 != null && var1.getSelectedChat() != null && this.field_4228 != null) {
+          if (var1.getSelectedChat().method_4590().equals("SC:INGAME")) {
+@@ -1200,7 +1200,7 @@
+                      }
+                   }
+                } else if (class_2133.method_5894(var1, var2, 0, this.field_4270, field_4223, this.method_4780() + 45)) {
+-                  final class_2086 var21;
++                  class_2086 var21;
+                   if (var5.getSelectedChat() != null) {
+                      var21 = var5.getSelectedChat().method_4572(this.field_2764, this.field_2763, (double)this.field_2761, this.field_4270, this.method_4780(), var2);
+                      class_1679 var24 = (class_1679)var21.method_5666();
+@@ -1233,14 +1233,15 @@
+                            switch((Integer)var21.method_5670()) {
+                            case 0:
+                            case 1:
++                              class_2086 finalVar2 = var21;
+                               BadlionClient.chatManager.method_4769().execute(new Runnable() {
+                                  public void run() {
+                                     String var1 = "";
+ 
+                                     try {
+-                                       class_946 var2 = new class_946(UUID.fromString(var26[0]), (Integer)var21.method_5670() == 0, "Muted via BLC", 86400000L, var26[2]);
++                                       class_946 var2 = new class_946(UUID.fromString(var26[0]), (Integer) finalVar2.method_5670() == 0, "Muted via BLC", 86400000L, var26[2]);
+                                        if (!FriendsOverlay.method_4678(var1 = BadlionClient.getBadlion().getWrapper().chatMuteUser(BadlionClient.UGLY_GSON.toJson(var2)), "Chat")) {
+-                                          BadlionClient.getBadlion().getWrapper().getActiveModProfile().addNotification(new class_700(5000L, "Chat", class_699.SUCCESS, "You've " + ((Integer)var21.method_5670() == 0 ? "muted" : "unmuted") + " " + var26[1]));
++                                          BadlionClient.getBadlion().getWrapper().getActiveModProfile().addNotification(new class_700(5000L, "Chat", class_699.SUCCESS, "You've " + ((Integer) finalVar2.method_5670() == 0 ? "muted" : "unmuted") + " " + var26[1]));
+                                           LogManager.getLogger().debug("Notification send");
+                                        }
+                                     } catch (Exception var3) {

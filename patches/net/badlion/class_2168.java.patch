@@ -1,0 +1,12 @@
+--- a/net/badlion/class_2168.java
++++ b/net/badlion/class_2168.java
+@@ -10,7 +10,8 @@
+          public void run() {
+             int var1x = class_38.method_6245(var1.method_6249(), Wrapper.getWrapper().getBacServers());
+             if (var1x != -1) {
+-               var0.bacCount = var1x;
++               //FIXME: mixin fix
++//               var0.bacCount = var1x;
+             }
+ 
+          }

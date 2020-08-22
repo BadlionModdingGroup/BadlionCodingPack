@@ -1,0 +1,76 @@
+--- a/net/badlion/class_293.java
++++ b/net/badlion/class_293.java
+@@ -4,6 +4,8 @@
+ import com.google.gson.stream.JsonReader;
+ import com.google.gson.stream.JsonToken;
+ import com.google.gson.stream.JsonWriter;
++
++import java.io.IOException;
+ import java.util.Collection;
+ 
+ public abstract class class_293 extends class_349 {
+@@ -17,7 +19,7 @@
+       return ImmutableList.of(this.field_373);
+    }
+ 
+-   public void method_1114(JsonWriter var1, Integer var2) {
++   public void method_1114(JsonWriter var1, Integer var2) throws IOException {
+       if (var2 == null) {
+          var1.nullValue();
+       } else {
+@@ -25,13 +27,13 @@
+       }
+    }
+ 
+-   public Integer method_1113(JsonReader var1) {
++   public Integer method_1113(JsonReader var1) throws IOException {
+       JsonToken var2 = var1.peek();
+       return var2 == JsonToken.NUMBER ? var1.nextInt() : null;
+    }
+ 
+    // $FF: synthetic method
+-   public Object method_1293(JsonReader var1) {
++   public Object method_1293(JsonReader var1) throws IOException {
+       return this.method_1113(var1);
+    }
+ 
+@@ -48,8 +50,18 @@
+ 
+       }
+ 
++      @Override
++      public void method_1291(Object var1, Object var2) {
++
++      }
++
++      @Override
++      public void method_1290(JsonWriter var1, Object var2) {
++
++      }
++
+       // $FF: synthetic method
+-      public Object method_1293(JsonReader var1) {
++      public Object method_1293(JsonReader var1) throws IOException {
+          return super.method_1113(var1);
+       }
+    }
+@@ -66,8 +78,18 @@
+ 
+       }
+ 
++      @Override
++      public void method_1291(Object var1, Object var2) {
++
++      }
++
++      @Override
++      public void method_1290(JsonWriter var1, Object var2) {
++
++      }
++
+       // $FF: synthetic method
+-      public Object method_1293(JsonReader var1) {
++      public Object method_1293(JsonReader var1) throws IOException {
+          return super.method_1113(var1);
+       }
+    }
