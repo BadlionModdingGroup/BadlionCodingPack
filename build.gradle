@@ -1,6 +1,6 @@
 plugins {
 	id 'fabric-loom' version '0.4.3'
-	id 'badlion-gradle' version '2.0.4'
+	id 'badlion-gradle' version '2.2.0'
 	id 'uk.jamierocks.propatcher' version '1.2.3'
 	id 'maven-publish'
 }
@@ -23,9 +23,9 @@ repositories {
 
 badlion{
 	minecraftMappingsUrl = "https://gist.githubusercontent.com/hYdos/d8a7e36b960a393672e886bcd5949285/raw/4bb1764506c36fd70e0ede2beb0587c21bb4446b/1.8.9-LATEST-AUG17.tiny"
-	badlionMappingsUrl = "https://raw.githubusercontent.com/BadlionModdingGroup/badlionIntermediaries/master/intermediaries/v2.16.2-877fa01-PRODUCTION.tiny"
-	badlionIntermediariesUrl = "https://raw.githubusercontent.com/BadlionModdingGroup/badlionIntermediaries/master/intermediaries/v2.16.2-877fa01-PRODUCTION.tiny"
-	badlionVersion = "v2.16.2-877fa01-PRODUCTION"
+	badlionMappingsUrl = "https://gist.githubusercontent.com/hYdos/54d5f078b9b05b832fd519c29e79d25e/raw/4cebf9f5f6b1309c1e0398dcd0eda0b72f4b3c6b/coolio.tiny"
+	badlionIntermediariesUrl = "https://raw.githubusercontent.com/BadlionModdingGroup/badlionIntermediaries/master/intermediaries/v2.16.2-e7c91f1-PRODUCTION.tiny"
+	badlionVersion = "v2.16.2-e7c91f1-PRODUCTION"
 	minecraftVersion = "1.8.9"
 }
 
@@ -48,7 +48,7 @@ dependencies {
 }
 
 patches {
-	root = file('src/main/vanilla') // unpatched
+	root = file('vanilla') // unpatched
 	target = file('src/main/java') // patched
 	patches = file('patches') // patches
 }
