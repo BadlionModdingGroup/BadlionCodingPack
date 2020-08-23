@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "badlion",
+  "version": "${version}",
+
+  "name": "Badlion Coder Pack",
+  "description": "Mcp 2 electric boogaloo",
+  "authors": [
+    "hydos"
+  ],
+
+  "license": "LGPL-V3",
+  "icon": "assets/badlion/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+    ]
+  },
+  "accessWidener" : "badlion.aw",
+  "mixins": [
+    "badlion.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.7.4",
+    "minecraft": "1.8.9"
+  }
+}

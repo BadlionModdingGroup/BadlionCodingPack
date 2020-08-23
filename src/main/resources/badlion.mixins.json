@@ -1,0 +1,18 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "io.github.badlionmoddinggroup.badlion.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "ContainerMixin",
+    "EntityMixin",
+    "ItemStackMixin",
+    "MinecraftClientMixin",
+    "PlayerEntityMixin"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
