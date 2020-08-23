@@ -1,0 +1,21 @@
+--- a/net/badlion/class_6.java
++++ b/net/badlion/class_6.java
+@@ -1,15 +1,16 @@
+ package net.badlion;
+ 
+ import java.io.File;
++import java.io.IOException;
+ import java.io.InputStream;
+ import net.badlion.client.common.entity.EntityWrapper;
+ import net.badlion.client.common.item.tag.ITag;
+ import net.badlion.client.wrapper.MinecraftWrapper;
+ 
+ public interface class_6 {
+-    ITag method_26(InputStream var1);
++   ITag method_26(InputStream var1) throws IOException;
+ 
+-    ITag method_25(File var1);
++   ITag method_25(File var1) throws IOException;
+ 
+     ITag method_24();
+ 

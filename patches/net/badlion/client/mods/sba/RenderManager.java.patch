@@ -1,0 +1,11 @@
+--- a/net/badlion/client/mods/sba/RenderManager.java
++++ b/net/badlion/client/mods/sba/RenderManager.java
+@@ -114,7 +114,7 @@
+     static {
+         field_5353 = BadlionClient.factory.method_2535("skyblockaddons", "blankenderman.png");
+         field_5354 = BadlionClient.factory.method_2535("skyblockaddons", "blankenderchest.png");
+-        field_5355 = ((<undefinedtype>)(new Object() {
++      field_5355 = ((new Object() {
+             int field_5356;
+ 
+             {

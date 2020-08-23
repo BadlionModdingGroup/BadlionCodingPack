@@ -1,0 +1,38 @@
+--- a/net/badlion/client/common/manager/ChatManager.java
++++ b/net/badlion/client/common/manager/ChatManager.java
+@@ -355,7 +355,7 @@
+         return var4;
+     }
+ 
+-    List<class_1669> method_4765() {
++    public List<class_1669> method_4765() {
+         ArrayList var1 = new ArrayList();
+         Iterator var2 = ((Queue)this.field_4214.get(class_1703.BLC)).iterator();
+ 
+@@ -369,7 +369,7 @@
+         return var1;
+     }
+ 
+-    boolean method_4763(final String var1) {
++    public boolean method_4763(final String var1) {
+         if (var1.trim().isEmpty()) {
+             return true;
+         } else {
+@@ -407,7 +407,7 @@
+         }
+     }
+ 
+-    void method_4766() {
++    public void method_4766() {
+         Iterator var1 = this.field_4214.entrySet().iterator();
+ 
+         while(var1.hasNext()) {
+@@ -445,7 +445,7 @@
+         ((Queue)this.field_4214.get(var2)).addAll(var3);
+     }
+ 
+-    void method_4768() {
++    public void method_4768() {
+         BadlionClient.chatManager.method_4769().execute(new Runnable() {
+             public void run() {
+                 HashMap var1 = new HashMap();

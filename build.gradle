@@ -1,5 +1,6 @@
 plugins {
 	id 'fabric-loom' version '0.4.3'
+	id 'badlion-gradle' version '2.3.1'
 	id 'uk.jamierocks.propatcher' version '1.2.3'
 	id 'maven-publish'
 }
@@ -12,17 +13,27 @@ version = project.mod_version
 group = project.maven_group
 
 repositories {
+	mavenCentral()
+	maven { url 'https://jitpack.io' }
 	maven {
 		name = 'legacy-fabric'
 		url = 'https://dl.bintray.com/legacy-fabric/Legacy-Fabric-Maven'
 	}
 }
 
+badlion{
+	minecraftMappingsUrl = "https://gist.githubusercontent.com/hYdos/d8a7e36b960a393672e886bcd5949285/raw/4bb1764506c36fd70e0ede2beb0587c21bb4446b/1.8.9-LATEST-AUG17.tiny"
+	badlionMappingsUrl = "https://gist.githubusercontent.com/hYdos/54d5f078b9b05b832fd519c29e79d25e/raw/4cebf9f5f6b1309c1e0398dcd0eda0b72f4b3c6b/coolio.tiny"
+	badlionIntermediariesUrl = "https://raw.githubusercontent.com/BadlionModdingGroup/badlionIntermediaries/master/intermediaries/v2.16.2-e7c91f1-PRODUCTION.tiny"
+	badlionVersion = "v2.16.2-e7c91f1-PRODUCTION"
+	minecraftVersion = "1.8.9"
+}
 
 minecraft {
 	intermediaryUrl = {
 		return "https://dl.bintray.com/legacy-fabric/Legacy-Fabric-Maven/net/fabricmc/intermediary/" + it + "/intermediary-" + it + "-v2.jar";
 	}
+	accessWidener = file("src/main/resources/badlion.aw")
 }
 
 dependencies {
@@ -32,10 +43,12 @@ dependencies {
 	modCompile ("net.fabricmc:fabric-loader-1.8.9:${project.loader_version}") {
 		exclude module: "guava"
 	}
+
+	implementation "org.joml:joml:${jomlVersion}"
 }
 
 patches {
-	root = file('src/main/vanilla') // unpatched
+	root = file('vanilla') // unpatched
 	target = file('src/main/java') // patched
 	patches = file('patches') // patches
 }

@@ -1,0 +1,19 @@
+--- a/net/badlion/class_1264.java
++++ b/net/badlion/class_1264.java
+@@ -21,7 +21,7 @@
+     }
+ 
+     protected void method_5805(String var1) {
+-        this.field_2433.setMessage(var1);
++//      this.field_2433.setMessage(var1);
+     }
+ 
+     protected void method_5807(String var1, boolean var2) {
+@@ -33,6 +33,6 @@
+         }
+ 
+         ((Text)var3).getStyle().setColor(Formatting.RED);
+-        this.field_2433.setError(new DisconnectedScreen(this.field_2433.parent, "connect.failed", (Text)var3));
++//      this.field_2433.setError(new DisconnectedScreen(this.field_2433.parent, "connect.failed", (Text)var3));
+     }
+ }

@@ -1,0 +1,26 @@
+--- a/net/badlion/class_835.java
++++ b/net/badlion/class_835.java
+@@ -17,8 +17,9 @@
+ public class class_835 implements class_880 {
+     public class_27 method_2585(final class_61 var1, String var2, String var3, int var4) {
+         return new class_813(new ConfirmScreen(new IdentifibleBooleanConsumer() {
+-            public void method_2480(boolean var1x, int var2) {
+-                var1.confirmClicked(var1x, var2);
++         @Override
++         public void accept(boolean b, int id) {
++            var1.confirmClicked(b, id);
+             }
+         }, var2, var3, var4));
+     }
+@@ -45,8 +46,9 @@
+ 
+     public class_27 method_2584(final class_61 var1, String var2, int var3, boolean var4) {
+         return new class_813(new ConfirmChatLinkScreen(new IdentifibleBooleanConsumer() {
+-            public void method_2481(boolean var1x, int var2) {
+-                var1.confirmClicked(var1x, var2);
++         @Override
++         public void accept(boolean b, int id) {
++               var1.confirmClicked(b, id);
+             }
+         }, var2, var3, var4));
+     }

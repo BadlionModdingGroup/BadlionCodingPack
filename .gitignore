@@ -29,4 +29,9 @@ bin/
 run/
 
 # badlion code
-src/main/java
+src/main/java/net/badlion
+
+# badlion resources
+src/main/resources/assets/minecraft/blc
+src/main/resources/assets/minecraft/skyblockaddons
+src/main/resources/assets/blc/cosmetics

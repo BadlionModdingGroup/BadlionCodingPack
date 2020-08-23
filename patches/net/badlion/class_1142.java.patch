@@ -1,0 +1,30 @@
+--- a/net/badlion/class_1142.java
++++ b/net/badlion/class_1142.java
+@@ -12,7 +12,7 @@
+ import org.lwjgl.opengl.GL11;
+ 
+ public class class_1142 extends class_1140 {
+-    public void method_3279(RenderLayer var1) {
++   public void method_3346(RenderLayer var1) {
+         GL11.glEnableClientState(32884);
+         AdvancedOpenGlManager.gl13ClientActiveTexture(AdvancedOpenGlManager.textureUnit);
+         GL11.glEnableClientState(32888);
+@@ -48,15 +48,15 @@
+             Type var5 = var9.getType();
+             int var6 = var9.getIndex();
+             switch(var5) {
+-            case field_5211:
++         case POSITION:
+                 GL11.glDisableClientState(32884);
+                 break;
+-            case field_5214:
++         case UV:
+                 AdvancedOpenGlManager.gl13ClientActiveTexture(AdvancedOpenGlManager.textureUnit + var6);
+                 GL11.glDisableClientState(32888);
+                 AdvancedOpenGlManager.gl13ClientActiveTexture(AdvancedOpenGlManager.textureUnit);
+                 break;
+-            case field_5213:
++         case COLOR:
+                 GL11.glDisableClientState(32886);
+                 GlStateManager.clearColor();
+             }

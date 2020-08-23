@@ -1,0 +1,35 @@
+--- a/net/badlion/class_1257.java
++++ b/net/badlion/class_1257.java
+@@ -247,22 +247,23 @@
+             DrawableHelper.fill(var8, this.bottom, var9, this.height, -14144975);
+             DrawableHelper.fill(var8, this.bottom + 1, var9, this.bottom, -683259049);
+             GlStateManager.color3f(1.0F, 1.0F, 1.0F);
+-            if (MinecraftClient.getInstance().currentScreen instanceof MultiplayerScreen) {
+-                var16 = BadlionClient.fontRenderer.method_5762(((MultiplayerScreen)this.field_2409.currentScreen).isBac() ? "BAC SERVER LIST" : "SERVER LIST", 16, AbstractFontRenderer.FontType.HEADER);
+-                BadlionClient.fontRenderer.method_5756(var9 - var16 - 10, 10, ((MultiplayerScreen)this.field_2409.currentScreen).isBac() ? "BAC SERVER LIST" : "SERVER LIST", 16, AbstractFontRenderer.FontType.HEADER, true);
++         //FIXME: mixin
++//         if (MinecraftClient.getInstance().currentScreen instanceof MultiplayerScreen) {
++//            var16 = BadlionClient.fontRenderer.method_5762(((MultiplayerScreen)this.field_2409.currentScreen).isBac() ? "BAC SERVER LIST" : "SERVER LIST", 16, AbstractFontRenderer.FontType.HEADER);
++//            BadlionClient.fontRenderer.method_5756(var9 - var16 - 10, 10, ((MultiplayerScreen)this.field_2409.currentScreen).isBac() ? "BAC SERVER LIST" : "SERVER LIST", 16, AbstractFontRenderer.FontType.HEADER, true);
++//         }
+             }
+-        }
+ 
+     }
+ 
+     public void drawRegionButton(int var1, int var2, int var3, int var4, boolean var5, String var6) {
+         int var7 = var4 * 5;
+         GlStateManager.color4f(1.0F, 1.0F, 1.0F, 1.0F);
+-        if (var5) {
+-            this.field_2409.getTextureManager().bindTexture(ButtonWidget.newButtonHover);
+-        } else {
+-            this.field_2409.getTextureManager().bindTexture(ButtonWidget.backToGameButton);
+-        }
++//      if (var5) {
++//         this.field_2409.getTextureManager().bindTexture(ButtonWidget.newButtonHover);
++//      } else {
++//         this.field_2409.getTextureManager().bindTexture(ButtonWidget.backToGameButton);
++//      }
+ 
+         GlStateManager.enableBlend();
+         AdvancedOpenGlManager.blendFuncSeperate(770, 771, 1, 0);

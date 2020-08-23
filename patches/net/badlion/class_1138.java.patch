@@ -1,0 +1,11 @@
+--- a/net/badlion/class_1138.java
++++ b/net/badlion/class_1138.java
+@@ -25,7 +25,7 @@
+                 public void run() {
+                     class_1138.this.method_3274(var1, var2, var3, var4);
+                 }
+-            }, (Object)null);
++         }, null);
+             synchronized(this.field_4734) {
+                 this.field_4734.add(var5);
+                 return var5;

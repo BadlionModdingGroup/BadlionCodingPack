@@ -1,0 +1,71 @@
+--- a/azh$1$1.java
++++ /dev/null
+@@ -1,68 +0,0 @@
+-import com.google.gson.JsonArray;
+-import com.google.gson.JsonElement;
+-import com.google.gson.JsonObject;
+-import java.util.Iterator;
+-import java.util.List;
+-import net.badlion.class_38;
+-import net.badlion.client.Wrapper;
+-import net.badlion.client.common.BadlionClient;
+-import net.badlion.client.common.type.BacServer;
+-import net.minecraft.client.gui.screen.multiplayer.MultiplayerScreen;
+-import net.minecraft.client.gui.widget.ServerEntry;
+-
+-class azh$1$1 implements Runnable {
+-    azh$1$1(azh$1 var1, JsonObject var2) {
+-        this.this$1 = var1;
+-        this.val$jsonObject = var2;
+-    }
+-
+-    public void run() {
+-        List var1 = Wrapper.getWrapper().getBacServers();
+-        var1.clear();
+-        JsonArray var2 = this.val$jsonObject.getAsJsonArray("bacServers");
+-        Iterator var3 = var2.iterator();
+-
+-        while(var3.hasNext()) {
+-            JsonElement var4 = (JsonElement)var3.next();
+-            JsonObject var5 = var4.getAsJsonObject();
+-            var1.add(BadlionClient.PRETTY_GSON.fromJson(var5.toString(), BacServer.class));
+-        }
+-
+-        var3 = MultiplayerScreen.access$000(this.this$1.this$0).getServerListInternet().iterator();
+-
+-        while(var3.hasNext()) {
+-            ServerEntry var13 = (ServerEntry)var3.next();
+-            int var14 = class_38.method_6245(var13.method_2962().bacName, var1);
+-            if (var14 != -1) {
+-                Iterator var6 = var1.iterator();
+-
+-                label44:
+-                while(true) {
+-                    while(true) {
+-                        if (!var6.hasNext()) {
+-                            break label44;
+-                        }
+-
+-                        BacServer var7 = (BacServer)var6.next();
+-                        String[] var8 = var7.getips();
+-                        int var9 = var8.length;
+-
+-                        for(int var10 = 0; var10 < var9; ++var10) {
+-                            String var11 = var8[var10];
+-                            String var12 = var13.method_2962().address.contains(":") ? var13.method_2962().address : var13.method_2962().address + ":25565";
+-                            if (var11.equalsIgnoreCase(var12)) {
+-                                var14 = var7.getPlayerCount();
+-                                break;
+-                            }
+-                        }
+-                    }
+-                }
+-            }
+-
+-            if (var14 != -1) {
+-                var13.method_2962().bacCount = var14;
+-            }
+-        }
+-
+-    }
+-}

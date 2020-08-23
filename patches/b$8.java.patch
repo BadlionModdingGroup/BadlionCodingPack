@@ -1,0 +1,35 @@
+--- a/b$8.java
++++ /dev/null
+@@ -1,32 +0,0 @@
+-import java.util.concurrent.Callable;
+-import net.badlion.class_2025;
+-import net.badlion.client.Wrapper;
+-import net.badlion.launchwrapper.tweakers.BadlionTransformer;
+-import net.minecraft.client.MinecraftClient;
+-import net.minecraft.client.gui.screen.ConnectScreen;
+-import net.minecraft.util.crash.CrashReport;
+-
+-class b$8 implements Callable<String> {
+-    b$8(CrashReport var1) {
+-        this.this$0 = var1;
+-    }
+-
+-    public String call() {
+-        StringBuilder var1 = new StringBuilder();
+-        var1.append("BLC Version: ").append(Wrapper.getBlcVersion()).append("\n");
+-        var1.append("OF: ").append(BadlionTransformer.OPTIFINE_LOADED).append("\n");
+-        var1.append("OF VER: ").append(class_2025.OPTIFINE_VERSION).append("\n");
+-        var1.append("Width: ").append(MinecraftClient.getInstance().width).append("\n");
+-        var1.append("Height: ").append(MinecraftClient.getInstance().height).append("\n");
+-        var1.append("FullScreen: ").append(MinecraftClient.getInstance().isWindowFocused()).append("\n");
+-        var1.append("Last Server: ").append("\n");
+-        if (ConnectScreen.lastServer != null) {
+-            var1.append("   IP: ").append(ConnectScreen.lastServer.address).append("\n");
+-            var1.append("   Name: ").append(ConnectScreen.lastServer.name).append("\n");
+-            var1.append("   MOTD: ").append(ConnectScreen.lastServer.label).append("\n");
+-        }
+-
+-        var1.append("\n-----------------\n");
+-        return var1.toString();
+-    }
+-}

@@ -1,0 +1,29 @@
+--- a/net/badlion/class_1153.java
++++ b/net/badlion/class_1153.java
+@@ -42,7 +42,7 @@
+         }
+     }
+ 
+-    public class_780 method_3303(class_705 var1, Direction var2, boolean var3) {
++   public class_780 method_3303(class_705 var1, Direction var2, boolean var3) throws class_1154 {
+         Vec3i var4 = new Vec3i(var1.method_2185(), var1.method_2187(), var1.method_2186());
+         class_780 var5 = new class_780(var1.method_2183(), var4.getX(), var4.getY(), var4.getZ());
+         BlockPos var6 = new BlockPos();
+@@ -70,7 +70,7 @@
+         return var5;
+     }
+ 
+-    private BlockPos method_3305(class_84 var1, Direction var2, Vec3i var3, BlockPos var4) {
++   private BlockPos method_3305(class_84 var1, Direction var2, Vec3i var3, BlockPos var4) throws class_1154 {
+         switch(var2) {
+         case DOWN:
+         case UP:
+@@ -86,7 +86,7 @@
+         }
+     }
+ 
+-    private BlockState method_3300(BlockState var1, Direction var2, boolean var3) {
++   private BlockState method_3300(BlockState var1, Direction var2, boolean var3) throws class_1154 {
+         Property var4 = class_1151.method_3297(var1, "facing");
+         if (var4 instanceof DirectionProperty) {
+             Comparable var5 = var1.get(var4);

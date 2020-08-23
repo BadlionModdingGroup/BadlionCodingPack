@@ -1,0 +1,12 @@
+--- a/net/badlion/client/common/mod/AutoTipMod.java
++++ b/net/badlion/client/common/mod/AutoTipMod.java
+@@ -157,9 +157,6 @@
+                     });
+                 }
+             }
+-        } catch (IOException var2) {
+-            this.field_200.method_810("AutoTip is disabled because it couldn't create the required files.");
+-            class_231.method_926(var2);
+         } catch (Exception var3) {
+             this.field_200.method_810("AutoTip is disabled because it couldn't connect to the API.");
+             class_231.method_926(var3);

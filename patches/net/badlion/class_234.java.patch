@@ -1,0 +1,11 @@
+--- a/net/badlion/class_234.java
++++ b/net/badlion/class_234.java
+@@ -22,7 +22,7 @@
+         }
+     }
+ 
+-    private static byte[] method_950(String var0, String var1) {
++   private static byte[] method_950(String var0, String var1) throws NoSuchAlgorithmException {
+         MessageDigest var2 = MessageDigest.getInstance(var1);
+         byte[] var3 = var0.getBytes(StandardCharsets.UTF_8);
+         return var2.digest(var3);

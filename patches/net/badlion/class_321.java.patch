@@ -1,0 +1,15 @@
+--- a/net/badlion/class_321.java
++++ b/net/badlion/class_321.java
+@@ -29,9 +29,9 @@
+         this.method_1176("");
+         class_348 var4 = (class_348)this.field_436.get("");
+         if (var4 == null) {
+-            class_290 var5 = ReplayMod.field_440.method_1111();
+-            this.field_436.put("", var5);
+-            this.method_1177(var5);
++//         class_290 var5 = ReplayMod.field_440.method_1111();
++//         this.field_436.put("", var5);
++//         this.method_1177(var5);
+         } else {
+             this.method_1177((class_290)var4);
+         }

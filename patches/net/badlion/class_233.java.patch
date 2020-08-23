@@ -1,0 +1,11 @@
+--- a/net/badlion/class_233.java
++++ b/net/badlion/class_233.java
+@@ -24,7 +24,7 @@
+         this.field_318 = this.method_945("stats");
+     }
+ 
+-    public void method_932() {
++   public void method_932() throws IOException {
+         if (!Files.exists(this.field_318, new LinkOption[0])) {
+             Files.createDirectories(this.field_318);
+         }

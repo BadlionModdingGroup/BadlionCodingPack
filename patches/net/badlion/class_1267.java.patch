@@ -1,0 +1,56 @@
+--- a/net/badlion/class_1267.java
++++ b/net/badlion/class_1267.java
+@@ -3,14 +3,17 @@
+ import com.google.common.collect.ImmutableSet;
+ import java.awt.image.BufferedImage;
+ import java.io.FileNotFoundException;
++import java.io.IOException;
+ import java.io.InputStream;
+ import java.util.Set;
++
++import net.minecraft.class_1273;
+ import net.minecraft.resource.ResourcePack;
+ import net.minecraft.util.Identifier;
+ import net.minecraft.util.MetadataSerializer;
+ 
+ public class class_1267 implements ResourcePack {
+-    public InputStream method_3477(Identifier var1) {
++   public InputStream method_3477(Identifier var1) throws FileNotFoundException {
+         if (!this.method_3479(var1)) {
+             throw new FileNotFoundException("Only sounds.json is allowed!");
+         } else {
+@@ -37,4 +40,34 @@
+     public String method_3478() {
+         return "Badlion SoundPack";
+     }
++
++   @Override
++   public InputStream method_4369(Identifier identifier) throws IOException {
++      return null;
+ }
++
++   @Override
++   public boolean method_4371(Identifier identifier) {
++      return false;
++   }
++
++   @Override
++   public Set<String> method_4372() {
++      return null;
++   }
++
++   @Override
++   public <T extends class_1273> T method_4368(MetadataSerializer metadataSerializer, String string) throws IOException {
++      return null;
++   }
++
++   @Override
++   public BufferedImage method_4367() throws IOException {
++      return null;
++   }
++
++   @Override
++   public String getName() {
++      return null;
++   }
++}

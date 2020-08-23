@@ -1,0 +1,16 @@
+--- a/net/badlion/client/common/util/Colour.java
++++ b/net/badlion/client/common/util/Colour.java
+@@ -113,9 +113,12 @@
+         if (!this.enabled) {
+             return class_2125.method_5865(this.method_2788());
+         } else {
+-            return this.field_1752 != null ? this.field_1752 : this.field_1752 = class_2125.method_5865(this.color);
++         if(this.field_1752 == null){
++            this.field_1752 = class_2125.method_5865(this.color);
+         }
++         return this.field_1752;
+     }
++   }
+ 
+     public void method_2783(int var1) {
+         this.color = new net.badlion.client.common.colour.Colour(class_2125.method_5867(var1), class_2125.method_5869(var1), class_2125.method_5870(var1), class_2125.method_5871(var1));

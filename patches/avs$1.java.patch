@@ -1,0 +1,23 @@
+--- a/avs$1.java
++++ /dev/null
+@@ -1,20 +0,0 @@
+-// $FF: synthetic class
+-class avs$1 {
+-    static {
+-        try {
+-            $SwitchMap$net$minecraft$client$gui$GuiButton$ButtonType[avs$ButtonType.NORMAL.ordinal()] = 1;
+-        } catch (NoSuchFieldError var3) {
+-        }
+-
+-        try {
+-            $SwitchMap$net$minecraft$client$gui$GuiButton$ButtonType[avs$ButtonType.RED.ordinal()] = 2;
+-        } catch (NoSuchFieldError var2) {
+-        }
+-
+-        try {
+-            $SwitchMap$net$minecraft$client$gui$GuiButton$ButtonType[avs$ButtonType.THICK_LINES.ordinal()] = 3;
+-        } catch (NoSuchFieldError var1) {
+-        }
+-
+-    }
+-}

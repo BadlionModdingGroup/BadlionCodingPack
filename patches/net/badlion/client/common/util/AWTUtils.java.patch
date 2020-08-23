@@ -1,0 +1,19 @@
+--- a/net/badlion/client/common/util/AWTUtils.java
++++ b/net/badlion/client/common/util/AWTUtils.java
+@@ -6,6 +6,7 @@
+ import java.io.File;
+ import java.io.InputStreamReader;
+ import java.lang.ProcessBuilder.Redirect;
++import java.net.MalformedURLException;
+ import java.net.URL;
+ import java.util.ArrayList;
+ import java.util.Collections;
+@@ -178,7 +179,7 @@
+         }
+     }
+ 
+-    private static String method_5522() {
++   private static String method_5522() throws MalformedURLException {
+         URL var0 = AWTUtils.class.getProtectionDomain().getCodeSource().getLocation();
+         String var1 = (new URL(var0.toExternalForm())).getPath();
+         if (var1.startsWith("file:/")) {

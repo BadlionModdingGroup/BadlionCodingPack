@@ -1,0 +1,11 @@
+--- a/net/badlion/class_826.java
++++ b/net/badlion/class_826.java
+@@ -10,7 +10,7 @@
+     }
+ 
+     public String method_497() {
+-        return this.field_2121.getProgram().getProgramFilename();
++      return this.field_2121.getProgram().name;
+     }
+ 
+     public boolean method_498(String var1) {

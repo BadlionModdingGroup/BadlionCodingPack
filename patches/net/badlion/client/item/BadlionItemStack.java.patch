@@ -1,0 +1,20 @@
+--- a/net/badlion/client/item/BadlionItemStack.java
++++ b/net/badlion/client/item/BadlionItemStack.java
+@@ -2,6 +2,8 @@
+ 
+ import java.util.Collections;
+ import java.util.List;
++
++import io.github.badlionmoddinggroup.badlion.extra.ItemStackExtra;
+ import net.badlion.class_2159;
+ import net.badlion.class_697;
+ import net.badlion.class_768;
+@@ -98,7 +100,7 @@
+     }
+ 
+     public ItemStackWrapper copy() {
+-        return this.field_2077.copy().getBadlionItemStack();
++      return ((ItemStackExtra)(Object)this.field_2077.copy()).getBadlionItemStack();
+     }
+ 
+     public boolean method_2447(ItemStackWrapper var1) {
