@@ -7,14 +7,14 @@
 +import java.io.IOException;
 +
  public class class_833 implements class_878 {
-    private final ResourceManager field_2125;
+     private final ResourceManager field_2125;
  
 @@ -11,7 +13,7 @@
-       this.field_2125 = var1;
-    }
+         this.field_2125 = var1;
+     }
  
--   public class_71 method_2573(TextureWrapper var1) {
+-    public class_71 method_2573(TextureWrapper var1) {
 +   public class_71 method_2573(TextureWrapper var1) throws IOException {
-       return new class_823(this.field_2125.getResource(((MinecraftTexture)var1).getResourceLocation()));
-    }
+         return new class_823(this.field_2125.getResource(((MinecraftTexture)var1).getResourceLocation()));
+     }
  }

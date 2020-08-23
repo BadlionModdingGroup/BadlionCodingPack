@@ -1,26 +1,23 @@
 --- a/avs$1.java
 +++ /dev/null
-@@ -1,23 +0,0 @@
+@@ -1,20 +0,0 @@
 -// $FF: synthetic class
 -class avs$1 {
--   // $FF: synthetic field
--   static final int[] $SwitchMap$net$minecraft$client$gui$GuiButton$ButtonType = new int[avs$ButtonType.values().length];
+-    static {
+-        try {
+-            $SwitchMap$net$minecraft$client$gui$GuiButton$ButtonType[avs$ButtonType.NORMAL.ordinal()] = 1;
+-        } catch (NoSuchFieldError var3) {
+-        }
 -
--   static {
--      try {
--         $SwitchMap$net$minecraft$client$gui$GuiButton$ButtonType[avs$ButtonType.NORMAL.ordinal()] = 1;
--      } catch (NoSuchFieldError var3) {
--      }
+-        try {
+-            $SwitchMap$net$minecraft$client$gui$GuiButton$ButtonType[avs$ButtonType.RED.ordinal()] = 2;
+-        } catch (NoSuchFieldError var2) {
+-        }
 -
--      try {
--         $SwitchMap$net$minecraft$client$gui$GuiButton$ButtonType[avs$ButtonType.RED.ordinal()] = 2;
--      } catch (NoSuchFieldError var2) {
--      }
+-        try {
+-            $SwitchMap$net$minecraft$client$gui$GuiButton$ButtonType[avs$ButtonType.THICK_LINES.ordinal()] = 3;
+-        } catch (NoSuchFieldError var1) {
+-        }
 -
--      try {
--         $SwitchMap$net$minecraft$client$gui$GuiButton$ButtonType[avs$ButtonType.THICK_LINES.ordinal()] = 3;
--      } catch (NoSuchFieldError var1) {
--      }
--
--   }
+-    }
 -}

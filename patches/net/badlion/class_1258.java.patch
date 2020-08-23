@@ -8,11 +8,11 @@
  import java.nio.ByteBuffer;
  import net.minecraft.client.resource.metadata.TextureResourceMetadata;
 @@ -26,7 +27,7 @@
-       this.field_2415 = var1;
-    }
+         this.field_2415 = var1;
+     }
  
--   public void method_3456(ResourceManager var1) {
+-    public void method_3456(ResourceManager var1) {
 +   public void method_3456(ResourceManager var1) throws IOException {
-       InputStream var2 = null;
+         InputStream var2 = null;
  
-       try {
+         try {

@@ -3,23 +3,23 @@
 @@ -10,56 +10,56 @@
  
  public class class_1251 {
-    public static void method_3440(String[] var0) {
--      if (var0.length >= 1 && var0.length <= 2) {
--         File var1 = new File(MinecraftClient.getInstance().runDirectory, "screenshots");
--         var1.mkdir();
--         boolean var2 = false;
--         if (!var1.isFile() && var1.isDirectory()) {
--            try {
--               File[] var3 = var1.listFiles();
--               int var4 = var3.length;
+     public static void method_3440(String[] var0) {
+-        if (var0.length >= 1 && var0.length <= 2) {
+-            File var1 = new File(MinecraftClient.getInstance().runDirectory, "screenshots");
+-            var1.mkdir();
+-            boolean var2 = false;
+-            if (!var1.isFile() && var1.isDirectory()) {
+-                try {
+-                    File[] var3 = var1.listFiles();
+-                    int var4 = var3.length;
 -
--               for(int var5 = 0; var5 < var4; ++var5) {
--                  final File var6 = var3[var5];
--                  if (var6.getName().equalsIgnoreCase(var0[0])) {
--                     var2 = true;
--                     if (net.minecraft.class_674.uploadingImage.get()) {
--                        Wrapper.getWrapper().getActiveModProfile().getNotification().addNotification(new class_700(3000L, "Warning", class_699.WARNING, "You are already uploading an image.", true));
--                        return;
+-                    for(int var5 = 0; var5 < var4; ++var5) {
+-                        final File var6 = var3[var5];
+-                        if (var6.getName().equalsIgnoreCase(var0[0])) {
+-                            var2 = true;
+-                            if (net.minecraft.class_674.uploadingImage.get()) {
+-                                Wrapper.getWrapper().getActiveModProfile().getNotification().addNotification(new class_700(3000L, "Warning", class_699.WARNING, "You are already uploading an image.", true));
+-                                return;
 +//      if (var0.length >= 1 && var0.length <= 2) {
 +//         File var1 = new File(MinecraftClient.getInstance().runDirectory, "screenshots");
 +//         var1.mkdir();
@@ -71,40 +71,40 @@
 +//         }
 +//      }
 +//FIXME: mixin
-                      }
+                             }
 -
--                     net.minecraft.class_674.uploadingImage.set(true);
--                     net.minecraft.class_674.cachedThreadPool.execute(new Runnable() {
--                        public void run() {
--                           JsonElement var1 = net.minecraft.class_674.getURL(var6);
--                           net.minecraft.class_674.uploadingImage.set(false);
--                           switch(var1.getAsJsonObject().get("code").getAsInt()) {
--                           case -8:
--                              Wrapper.getWrapper().getActiveModProfile().getNotification().addNotification(new class_700(3000L, "Error", class_699.ERROR, "Error uploading screenshot: " + var1.getAsJsonObject().get("code").getAsInt() + ". Something is wrong with your connection.", true));
--                              break;
--                           case 0:
--                              String var2 = var1.getAsJsonObject().get("link").getAsString();
--                              LiteralText var3 = new LiteralText("Uploaded screenshot: " + var2);
--                              var3.getStyle().setClickEvent(new ClickEvent(Action.OPEN_URL, var2));
--                              MinecraftClient.getInstance().inGameHud.getChatHud().addMessage(var3);
--                              break;
--                           default:
--                              Wrapper.getWrapper().getActiveModProfile().getNotification().addNotification(new class_700(3000L, "Error", class_699.ERROR, "Error uploading screenshot: " + var1.getAsJsonObject().get("code").getAsInt(), true));
-                            }
+-                            net.minecraft.class_674.uploadingImage.set(true);
+-                            net.minecraft.class_674.cachedThreadPool.execute(new Runnable() {
+-                                public void run() {
+-                                    JsonElement var1 = net.minecraft.class_674.getURL(var6);
+-                                    net.minecraft.class_674.uploadingImage.set(false);
+-                                    switch(var1.getAsJsonObject().get("code").getAsInt()) {
+-                                    case -8:
+-                                        Wrapper.getWrapper().getActiveModProfile().getNotification().addNotification(new class_700(3000L, "Error", class_699.ERROR, "Error uploading screenshot: " + var1.getAsJsonObject().get("code").getAsInt() + ". Something is wrong with your connection.", true));
+-                                        break;
+-                                    case 0:
+-                                        String var2 = var1.getAsJsonObject().get("link").getAsString();
+-                                        LiteralText var3 = new LiteralText("Uploaded screenshot: " + var2);
+-                                        var3.getStyle().setClickEvent(new ClickEvent(Action.OPEN_URL, var2));
+-                                        MinecraftClient.getInstance().inGameHud.getChatHud().addMessage(var3);
+-                                        break;
+-                                    default:
+-                                        Wrapper.getWrapper().getActiveModProfile().getNotification().addNotification(new class_700(3000L, "Error", class_699.ERROR, "Error uploading screenshot: " + var1.getAsJsonObject().get("code").getAsInt(), true));
+                                     }
 -
+-                                }
+-                            });
+-                            break;
 -                        }
--                     });
--                     break;
--                  }
--               }
--            } catch (Exception var7) {
+-                    }
+-                } catch (Exception var7) {
+-                }
 -            }
--         }
 -
--         if (!var2) {
--            Wrapper.getWrapper().getActiveModProfile().getNotification().addNotification(new class_700(3000L, "Error", class_699.ERROR, "Could not find screenshot: " + var0[0], true));
--         }
--      }
+-            if (!var2) {
+-                Wrapper.getWrapper().getActiveModProfile().getNotification().addNotification(new class_700(3000L, "Error", class_699.ERROR, "Could not find screenshot: " + var0[0], true));
+-            }
+-        }
 -
--   }
+-    }
 -}

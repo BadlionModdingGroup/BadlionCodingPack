@@ -11,11 +11,11 @@
  import net.badlion.client.wrapper.MinecraftWrapper;
  
  public interface class_6 {
--   ITag method_26(InputStream var1);
+-    ITag method_26(InputStream var1);
 +   ITag method_26(InputStream var1) throws IOException;
  
--   ITag method_25(File var1);
+-    ITag method_25(File var1);
 +   ITag method_25(File var1) throws IOException;
  
-    ITag method_24();
+     ITag method_24();
  

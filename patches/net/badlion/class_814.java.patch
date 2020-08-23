@@ -1,21 +1,21 @@
 --- a/net/badlion/class_814.java
 +++ b/net/badlion/class_814.java
 @@ -9,6 +9,11 @@
-       return this.field_1557;
-    }
+         return this.field_1557;
+     }
  
 +   @Override
 +   public boolean method_178() {
 +      return false;
 +   }
 +
-    public void method_179(boolean var1) {
-       this.field_1557 = var1;
-    }
+     public void method_179(boolean var1) {
+         this.field_1557 = var1;
+     }
 @@ -16,4 +21,9 @@
-    public GuiType method_5256() {
-       return GuiType.BADLION_OVERLAY;
-    }
+     public GuiType method_5256() {
+         return GuiType.BADLION_OVERLAY;
+     }
 +
 +   @Override
 +   public boolean isButtonOccludedByOtherGui(int var1, int var2) {

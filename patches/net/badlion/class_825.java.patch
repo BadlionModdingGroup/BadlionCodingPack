@@ -1,21 +1,21 @@
 --- a/net/badlion/class_825.java
 +++ b/net/badlion/class_825.java
 @@ -20,7 +20,7 @@
-    }
+     }
  
-    public File method_491() {
--      return this.field_2120.getResourcePackFile();
+     public File method_491() {
+-        return this.field_2120.getResourcePackFile();
 +      return this.field_2120.resourcePack;
-    }
+     }
  
-    public void method_490(BadlionTextureManagerWrapper var1) {
+     public void method_490(BadlionTextureManagerWrapper var1) {
 @@ -28,7 +28,8 @@
-    }
+     }
  
-    public void method_492(BadlionTextureManagerWrapper var1) {
--      this.field_2120.unbindTexturePackIcon(((BadlionTextureManager)var1).method_3171());
+     public void method_492(BadlionTextureManagerWrapper var1) {
+-        this.field_2120.unbindTexturePackIcon(((BadlionTextureManager)var1).method_3171());
 +//      FIXME: Unknown
 +//      this.field_2120.unbindTexturePackIcon(((BadlionTextureManager)var1).method_3171());
-    }
+     }
  
-    public String method_493() {
+     public String method_493() {

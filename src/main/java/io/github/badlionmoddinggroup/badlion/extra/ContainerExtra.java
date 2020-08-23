@@ -1,9 +1,9 @@
 package io.github.badlionmoddinggroup.badlion.extra;
 
-import net.badlion.class_565;
+import net.badlion.client.common.container.ContainerWrapper;
 
 public interface ContainerExtra {
 
-    class_565 getBadlionContainer();
+    ContainerWrapper getBadlionContainer();
 
 }

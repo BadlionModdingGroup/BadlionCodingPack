@@ -11,10 +11,10 @@
  import net.badlion.client.common.item.ItemStackWrapper;
 @@ -13,7 +15,7 @@
  public class class_778 {
-    public static final ItemStackWrapper field_1429;
+     public static final ItemStackWrapper field_1429;
  
--   public static ITag method_2368(File var0) {
+-    public static ITag method_2368(File var0) {
 +   public static ITag method_2368(File var0) throws IOException {
-       try {
-          return BadlionClient.minecraft.method_195().method_26(new FileInputStream(var0));
-       } catch (Exception var2) {
+         try {
+             return BadlionClient.minecraft.method_195().method_26(new FileInputStream(var0));
+         } catch (Exception var2) {

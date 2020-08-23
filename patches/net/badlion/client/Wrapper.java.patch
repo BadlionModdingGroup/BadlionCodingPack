@@ -8,47 +8,47 @@
  import org.lwjgl.opengl.ContextCapabilities;
  import org.lwjgl.opengl.Display;
  import org.lwjgl.opengl.DisplayMode;
-@@ -493,10 +494,11 @@
+@@ -488,10 +489,11 @@
  
-       if (BadlionClient.minecraft.method_237() != null && BadlionClient.minecraft.method_237().method_5256().equals(GuiType.CONNECTING)) {
-          ConnectScreen var3 = (ConnectScreen)MinecraftClient.getInstance().currentScreen;
--         if (var3.getIP() != null && var3.getPort() != 0 && !var3.isConnecting()) {
--            var3.connect(var3.getIP(), var3.getPort());
+         if (BadlionClient.minecraft.method_237() != null && BadlionClient.minecraft.method_237().method_5256().equals(GuiType.CONNECTING)) {
+             ConnectScreen var3 = (ConnectScreen)MinecraftClient.getInstance().currentScreen;
+-            if (var3.getIP() != null && var3.getPort() != 0 && !var3.isConnecting()) {
+-                var3.connect(var3.getIP(), var3.getPort());
 +//         if (var3.getIP() != null && var3.getPort() != 0 && !var3.isConnecting()) {
 +//            var3.connect(var3.getIP(), var3.getPort());
 +//         }
 +//         TODO: Mixin fix
-          }
--      }
+             }
+-        }
  
-       BadlionClient.getBadlion().getAnalyicsManager().method_3511();
-       BadlionClient.getBadlion().getFpsAverager().method_5527();
-@@ -638,7 +640,7 @@
-       return this.debugEnabled;
-    }
+         BadlionClient.getBadlion().getAnalyicsManager().method_3511();
+         BadlionClient.getBadlion().getFpsAverager().method_5527();
+@@ -628,7 +630,7 @@
+         return this.debugEnabled;
+     }
  
--   public void handleFullScreen() {
+-    public void handleFullScreen() {
 +   public void handleFullScreen() throws LWJGLException {
-       if (this.getActiveModProfile().getBetterframesConfig().getBorderlessWindow().isTrue()) {
-          if (MinecraftClient.getInstance().isWindowFocused()) {
-             System.setProperty("org.lwjgl.opengl.Window.undecorated", "true");
-@@ -728,7 +730,9 @@
-       BlockPos var2 = var1.method_3828();
-       int var3 = Math.abs(((int)MinecraftClient.getInstance().player.x >> 4) - (var2.getX() >> 4));
-       int var4 = Math.abs(((int)MinecraftClient.getInstance().player.z >> 4) - (var2.getZ() >> 4));
--      return MinecraftClient.SERVER_VIEW_DISTANCE == -1 || var3 <= MinecraftClient.SERVER_VIEW_DISTANCE && var4 <= MinecraftClient.SERVER_VIEW_DISTANCE;
+         if (this.getActiveModProfile().getBetterframesConfig().getBorderlessWindow().isTrue()) {
+             if (MinecraftClient.getInstance().isWindowFocused()) {
+                 System.setProperty("org.lwjgl.opengl.Window.undecorated", "true");
+@@ -718,7 +720,9 @@
+         BlockPos var2 = var1.method_3828();
+         int var3 = Math.abs(((int)MinecraftClient.getInstance().player.x >> 4) - (var2.getX() >> 4));
+         int var4 = Math.abs(((int)MinecraftClient.getInstance().player.z >> 4) - (var2.getZ() >> 4));
+-        return MinecraftClient.SERVER_VIEW_DISTANCE == -1 || var3 <= MinecraftClient.SERVER_VIEW_DISTANCE && var4 <= MinecraftClient.SERVER_VIEW_DISTANCE;
 +//      TODO: Mixin fix
 +      return true;
 +//      return MinecraftClient.SERVER_VIEW_DISTANCE == -1 || var3 <= MinecraftClient.SERVER_VIEW_DISTANCE && var4 <= MinecraftClient.SERVER_VIEW_DISTANCE;
-    }
+     }
  
-    public void closeActiveSlideoutSettingsPage() {
-@@ -823,7 +827,7 @@
-    }
+     public void closeActiveSlideoutSettingsPage() {
+@@ -813,7 +817,7 @@
+     }
  
-    public void handleScreenshotCommand(String var1) {
--      class_674.handleCommand(var1);
+     public void handleScreenshotCommand(String var1) {
+-        class_674.handleCommand(var1);
 +//      class_674.handleCommand(var1);
-    }
+     }
  
-    public String minecraftVersionString() {
+     public String minecraftVersionString() {

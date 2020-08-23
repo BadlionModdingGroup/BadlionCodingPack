@@ -1,20 +1,20 @@
 package io.github.badlionmoddinggroup.badlion.mixin;
 
 import io.github.badlionmoddinggroup.badlion.extra.ContainerExtra;
-import net.badlion.class_565;
-import net.badlion.class_766;
+import net.badlion.client.common.container.ContainerWrapper;
+import net.badlion.client.container.BadlionContainer;
 import net.minecraft.container.Container;
 import org.spongepowered.asm.mixin.Mixin;
 
 @Mixin(Container.class)
 public class ContainerMixin implements ContainerExtra {
 
-    public class_565 badlionContainer;
+    public ContainerWrapper badlionContainer;
 
     @Override
-    public class_565 getBadlionContainer() {
+    public ContainerWrapper getBadlionContainer() {
         if (this.badlionContainer == null) {
-            this.badlionContainer = new class_766((Container) (Object) this);
+            this.badlionContainer = new BadlionContainer((Container) (Object) this);
         }
         return this.badlionContainer;
     }

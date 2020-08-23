@@ -46,7 +46,7 @@
 +        LOGGER.info("Setting user: " + this.session.getUsername());
 +        LOGGER.info("---------[ Badlion Client Loading Start ]---------");
 +        LOGGER.info("MC Version: 1.8");
-+        LOGGER.info("BLC Version: " + Wrapper.getVersion());
++        LOGGER.info("BLC Version: " + Wrapper.getBlcVersion());
 +        LOGGER.info("OF: " + BadlionTransformer.OPTIFINE_LOADED);
 +        LOGGER.info("OF VER: " + class_2025.OPTIFINE_VERSION);
 +        LOGGER.info("Width: " + args.information.field_3672);

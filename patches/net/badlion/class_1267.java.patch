@@ -14,15 +14,15 @@
  import net.minecraft.util.MetadataSerializer;
  
  public class class_1267 implements ResourcePack {
--   public InputStream method_3477(Identifier var1) {
+-    public InputStream method_3477(Identifier var1) {
 +   public InputStream method_3477(Identifier var1) throws FileNotFoundException {
-       if (!this.method_3479(var1)) {
-          throw new FileNotFoundException("Only sounds.json is allowed!");
-       } else {
+         if (!this.method_3479(var1)) {
+             throw new FileNotFoundException("Only sounds.json is allowed!");
+         } else {
 @@ -37,4 +40,34 @@
-    public String method_3478() {
-       return "Badlion SoundPack";
-    }
+     public String method_3478() {
+         return "Badlion SoundPack";
+     }
 +
 +   @Override
 +   public InputStream method_4369(Identifier identifier) throws IOException {

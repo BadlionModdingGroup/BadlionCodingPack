@@ -6,25 +6,24 @@
  import java.util.Map;
 +
 +import io.github.badlionmoddinggroup.badlion.extra.ContainerExtra;
+ import net.badlion.client.common.container.ContainerWrapper;
  import net.badlion.client.common.gui.lib.GuiType;
  import net.minecraft.client.gui.TwitchErrorScreen;
- import net.minecraft.client.gui.screen.AchievementsScreen;
-@@ -81,7 +83,8 @@
-    }
+@@ -62,7 +64,7 @@
+     public class_813(Screen var1) {
+         this.field_2110 = var1;
+         if (field_1554.containsKey(var1.getClass())) {
+-            this.field_1556 = (GuiType)field_1554.get(var1.getClass());
++            this.field_1556 = field_1554.get(var1.getClass());
+         } else {
+             this.field_1556 = GuiType.UNKNOWN;
+         }
+@@ -109,7 +111,7 @@
+     }
  
-    public boolean isButtonOccludedByOtherGui(int var1, int var2) {
--      return this.field_2110.isButtonOccludedByOtherGui(var1, var2);
-+//      return this.field_2110.isButtonOccludedByOtherGui(var1, var2);
-+      return true;
-    }
+     public ContainerWrapper method_5263() {
+-        return this.field_2110 instanceof ChestScreen ? ((ChestScreen)this.field_2110).container.getBadlionContainer() : null;
++        return this.field_2110 instanceof ChestScreen ? ((ContainerExtra)((ChestScreen)this.field_2110).container).getBadlionContainer() : null;
+     }
  
-    public boolean method_5259() {
-@@ -108,7 +111,7 @@
-    }
- 
-    public class_565 method_5263() {
--      return this.field_2110 instanceof ChestScreen ? ((ChestScreen)this.field_2110).container.getBadlionContainer() : null;
-+      return this.field_2110 instanceof ChestScreen ? ((ContainerExtra)((ChestScreen)this.field_2110).container).getBadlionContainer() : null;
-    }
- 
-    public boolean method_5264() {
+     public boolean method_5264() {

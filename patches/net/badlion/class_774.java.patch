@@ -1,13 +1,13 @@
 --- a/net/badlion/class_774.java
 +++ b/net/badlion/class_774.java
 @@ -79,7 +79,9 @@
-    }
+     }
  
-    public float method_2556() {
--      return this.field_2079.offsetBold;
+     public float method_2556() {
+-        return this.field_2079.offsetBold;
 +      return 0;
 +      //FIXME: mixin
 +//      return this.field_2079.offsetBold;
-    }
+     }
  
-    public TextRenderer method_3140() {
+     public TextRenderer method_3140() {

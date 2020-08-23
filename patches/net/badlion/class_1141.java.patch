@@ -4,8 +4,8 @@
  import org.lwjgl.opengl.GL11;
  
  public class class_1141 extends class_1140 {
--   public void method_3278(RenderLayer var1) {
+-    public void method_3278(RenderLayer var1) {
 +   public void method_3346(RenderLayer var1) {
-       if (this.field_4219) {
-          Iterator var2 = this.field_4218.iterator();
+         if (this.field_4219) {
+             Iterator var2 = this.field_4218.iterator();
  

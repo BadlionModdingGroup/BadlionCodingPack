@@ -1,6 +1,6 @@
 plugins {
 	id 'fabric-loom' version '0.4.3'
-	id 'badlion-gradle' version '2.2.0'
+	id 'badlion-gradle' version '2.3.1'
 	id 'uk.jamierocks.propatcher' version '1.2.3'
 	id 'maven-publish'
 }

@@ -1,9 +1,9 @@
 --- a/net/badlion/class_1924.java
 +++ b/net/badlion/class_1924.java
 @@ -67,4 +67,9 @@
-    public GuiType method_5256() {
-       return GuiType.BADLION_RESOURCE_PACKS_MENU;
-    }
+     public GuiType method_5256() {
+         return GuiType.BADLION_RESOURCE_PACKS_MENU;
+     }
 +
 +   @Override
 +   public boolean isButtonOccludedByOtherGui(int var1, int var2) {

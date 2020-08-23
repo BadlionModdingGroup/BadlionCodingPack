@@ -7,91 +7,91 @@
 +import net.minecraft.world.level.storage.WorldLoadException;
  
  public class class_866 implements class_52 {
-    private MinecraftWrapper field_1634;
+     private MinecraftWrapper field_1634;
 @@ -48,55 +49,72 @@
-          LevelInfo var1 = new LevelInfo(0L, GameMode.CREATIVE, false, false, LevelGeneratorType.FLAT);
-          LevelProperties var2 = new LevelProperties(var1, "FakeWorld");
-          this.field_1634 = new class_865(new World(new SaveHandler() {
--            public LevelProperties method_3188() {
+             LevelInfo var1 = new LevelInfo(0L, GameMode.CREATIVE, false, false, LevelGeneratorType.FLAT);
+             LevelProperties var2 = new LevelProperties(var1, "FakeWorld");
+             this.field_1634 = new class_865(new World(new SaveHandler() {
+-                public LevelProperties method_3188() {
 +            @Override
 +            public LevelProperties getLevelProperties() {
-                return null;
-             }
+                     return null;
+                 }
  
--            public void method_6108() {
+-                public void method_6108() {
 +            @Override
 +            public void readSessionLock() throws WorldLoadException {
 +
-             }
+                 }
  
--            public ChunkWriter method_3184(Dimension var1) {
+-                public ChunkWriter method_3184(Dimension var1) {
 +            @Override
 +            public ChunkWriter getChunkWriter(Dimension dim) {
-                return null;
-             }
+                     return null;
+                 }
  
--            public void method_3186(LevelProperties var1, CompoundTag var2) {
+-                public void method_3186(LevelProperties var1, CompoundTag var2) {
 +            @Override
 +            public void method_2012(LevelProperties properties, CompoundTag nbt) {
 +
-             }
+                 }
  
--            public void method_3185(LevelProperties var1) {
+-                public void method_3185(LevelProperties var1) {
 +            @Override
 +            public void saveLevelProperties(LevelProperties levelProperties) {
 +
-             }
+                 }
  
--            public WorldSaveHandler method_3189() {
+-                public WorldSaveHandler method_3189() {
 +            @Override
 +            public WorldSaveHandler getInstance() {
-                return null;
-             }
+                     return null;
+                 }
  
--            public void method_6107() {
+-                public void method_6107() {
 +            @Override
 +            public void method_2009() {
 +
-             }
+                 }
  
--            public File method_2512() {
+-                public File method_2512() {
 +            @Override
 +            public File getWorldFolder() {
-                return null;
-             }
+                     return null;
+                 }
  
--            public File method_2508(String var1) {
+-                public File method_2508(String var1) {
 +            @Override
 +            public File getDataFile(String fileName) {
-                return null;
-             }
+                     return null;
+                 }
  
--            public String method_2516() {
+-                public String method_2516() {
 +            @Override
 +            public String method_2018() {
-                return null;
-             }
-          }, var2, new Dimension() {
--            public String method_2517() {
+                     return null;
+                 }
+             }, var2, new Dimension() {
+-                public String method_2517() {
 +
 +            public String getName() {
-                return "Schematic";
-             }
+                     return "Schematic";
+                 }
  
--            public String method_2518() {
+-                public String method_2518() {
 +            public String getPersistentStateSuffix() {
-                return "_schematic";
-             }
-          }, new Profiler(), false) {
--            protected ChunkProvider method_3190() {
+                     return "_schematic";
+                 }
+             }, new Profiler(), false) {
+-                protected ChunkProvider method_3190() {
 +            @Override
 +            protected ChunkProvider getClientChunkCache() {
-                return null;
-             }
+                     return null;
+                 }
  
--            protected int method_2520() {
+-                protected int method_2520() {
 +            @Override
 +            protected int getNextMapId() {
-                return 0;
-             }
-          });
+                     return 0;
+                 }
+             });

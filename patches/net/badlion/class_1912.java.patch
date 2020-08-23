@@ -8,12 +8,12 @@
  import java.io.InputStream;
  import java.nio.ByteBuffer;
  import java.nio.ByteOrder;
-@@ -144,7 +145,7 @@
-       var5.clear();
-    }
+@@ -145,7 +146,7 @@
+         var5.clear();
+     }
  
--   public static BufferedImage readBufferedImage(InputStream var0) {
+-    public static BufferedImage readBufferedImage(InputStream var0) {
 +   public static BufferedImage readBufferedImage(InputStream var0) throws IOException {
-       return ImageIO.read(var0);
-    }
+         return ImageIO.read(var0);
+     }
  

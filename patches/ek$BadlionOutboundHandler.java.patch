@@ -12,23 +12,23 @@
 -import net.minecraft.network.ClientConnection;
 -
 -public class ek$BadlionOutboundHandler extends ChannelOutboundHandlerAdapter {
--   private static final AttributeKey BADLION_DISPATCHER = AttributeKey.valueOf("badlion:dispatcher");
+-    private static final AttributeKey<ek$BadlionOutboundHandler> BADLION_DISPATCHER = AttributeKey.valueOf("badlion:dispatcher");
 -
--   public static void onHandshake(ClientConnection var0) {
--      ek$BadlionOutboundHandler var1 = new ek$BadlionOutboundHandler();
--      ClientConnection.method_5094(var0).attr(BADLION_DISPATCHER).set(var1);
--      ClientConnection.method_5094(var0).pipeline().addLast(new ChannelHandler[]{var1});
--   }
+-    public static void onHandshake(ClientConnection var0) {
+-        ek$BadlionOutboundHandler var1 = new ek$BadlionOutboundHandler();
+-        ClientConnection.method_5094(var0).attr(BADLION_DISPATCHER).set(var1);
+-        ClientConnection.method_5094(var0).pipeline().addLast(new ChannelHandler[]{var1});
+-    }
 -
--   public void disconnect(ChannelHandlerContext var1, ChannelPromise var2) {
--      BadlionClient.cpsLimiter.method_5875();
--      Wrapper.getWrapper().getActiveModProfile().passEvent(new class_1427());
--      var1.disconnect(var2);
--   }
+-    public void disconnect(ChannelHandlerContext var1, ChannelPromise var2) {
+-        BadlionClient.cpsLimiter.method_5875();
+-        Wrapper.getWrapper().getActiveModProfile().fireEvent(new class_1427());
+-        var1.disconnect(var2);
+-    }
 -
--   public void close(ChannelHandlerContext var1, ChannelPromise var2) {
--      BadlionClient.cpsLimiter.method_5875();
--      Wrapper.getWrapper().getActiveModProfile().passEvent(new class_1427());
--      var1.close(var2);
--   }
+-    public void close(ChannelHandlerContext var1, ChannelPromise var2) {
+-        BadlionClient.cpsLimiter.method_5875();
+-        Wrapper.getWrapper().getActiveModProfile().fireEvent(new class_1427());
+-        var1.close(var2);
+-    }
 -}

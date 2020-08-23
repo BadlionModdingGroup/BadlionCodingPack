@@ -1,20 +1,20 @@
 --- a/net/badlion/class_1622.java
 +++ b/net/badlion/class_1622.java
 @@ -12,7 +12,7 @@
-    private Map field_3752 = new HashMap();
-    private List field_3753 = new LinkedList();
+     private Map<class_1632.Snapping, class_2102<class_1631, class_1632.Snapping, Double>> field_3752 = new HashMap();
+     private List<class_2086<class_1632.Snapping, class_578>> field_3753 = new LinkedList();
  
--   class_1622(class_578 var1, double var2, double var4) {
-+   public class_1622(class_578 var1, double var2, double var4) {
-       this.field_3749 = var1;
-       this.field_3750 = var2;
-       this.field_3751 = var4;
+-    class_1622(class_578 var1, double var2, double var4) {
++    public class_1622(class_578 var1, double var2, double var4) {
+         this.field_3749 = var1;
+         this.field_3750 = var2;
+         this.field_3751 = var4;
 @@ -30,7 +30,7 @@
-       return this.field_3751;
-    }
+         return this.field_3751;
+     }
  
--   protected void method_4418(int var1, int var2) {
-+   public void method_4418(int var1, int var2) {
-       this.field_3750 = -((double)var1 - this.field_3749.getX());
-       this.field_3751 = -((double)var2 - this.field_3749.getY());
-    }
+-    protected void method_4418(int var1, int var2) {
++    public void method_4418(int var1, int var2) {
+         this.field_3750 = -((double)var1 - this.field_3749.getX());
+         this.field_3751 = -((double)var2 - this.field_3749.getY());
+     }

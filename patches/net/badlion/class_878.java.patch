@@ -7,6 +7,6 @@
 +import java.io.IOException;
 +
  public interface class_878 {
--   class_71 method_2573(TextureWrapper var1);
+-    class_71 method_2573(TextureWrapper var1);
 +   class_71 method_2573(TextureWrapper var1) throws IOException;
  }

@@ -12,30 +12,30 @@
  
 -public class class_1253 extends ButtonWidget {
 +public class class_1253 extends BadlionButtonWidget {
-    private final Identifier field_2397;
+     private final Identifier field_2397;
  
-    public class_1253(int var1, int var2, int var3, Identifier var4) {
+     public class_1253(int var1, int var2, int var3, Identifier var4) {
 @@ -14,7 +15,7 @@
-    }
+     }
  
-    public class_1253(int var1, int var2, int var3, int var4, int var5, Identifier var6) {
--      super(var1, var2, var3, var4, var5, "");
+     public class_1253(int var1, int var2, int var3, int var4, int var5, Identifier var6) {
+-        super(var1, var2, var3, var4, var5, "");
 +      super(var1, var2, var3, (byte) var4, var5, "");
-       this.field_2397 = var6;
-    }
+         this.field_2397 = var6;
+     }
  
 @@ -23,10 +24,10 @@
-          var1.getTextureManager().bindTexture(this.field_2397);
-          GlStateManager.color4f(1.0F, 1.0F, 1.0F, 1.0F);
-          boolean var4 = var2 >= this.x && var3 >= this.y && var2 < this.x + this.width && var3 < this.y + this.height;
--         if (this.parentGui != null) {
--            var4 &= !this.parentGui.isButtonOccludedByOtherGui(var2, var3);
--         }
+             var1.getTextureManager().bindTexture(this.field_2397);
+             GlStateManager.color4f(1.0F, 1.0F, 1.0F, 1.0F);
+             boolean var4 = var2 >= this.x && var3 >= this.y && var2 < this.x + this.width && var3 < this.y + this.height;
+-            if (this.parentGui != null) {
+-                var4 &= !this.parentGui.isButtonOccludedByOtherGui(var2, var3);
+-            }
 -
 +//         if (this.parentGui != null) {
 +//            var4 &= !this.parentGui.isButtonOccludedByOtherGui(var2, var3);
 +//         }
 +         //FIXME: mixin
-          if (var4) {
-             GlStateManager.color4f(0.7F, 0.7F, 0.7F, 1.0F);
-          }
+             if (var4) {
+                 GlStateManager.color4f(0.7F, 0.7F, 0.7F, 1.0F);
+             }

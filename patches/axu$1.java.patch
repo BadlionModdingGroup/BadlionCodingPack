@@ -1,34 +1,31 @@
 --- a/axu$1.java
 +++ /dev/null
-@@ -1,31 +0,0 @@
+@@ -1,28 +0,0 @@
 -import java.util.Iterator;
 -import net.minecraft.client.gui.screen.Screen;
 -import net.minecraft.client.gui.widget.ButtonWidget;
 -
 -class axu$1 implements Runnable {
--   // $FF: synthetic field
--   final Screen this$0;
+-    axu$1(Screen var1) {
+-        this.this$0 = var1;
+-    }
 -
--   axu$1(Screen var1) {
--      this.this$0 = var1;
--   }
+-    public void run() {
+-        try {
+-            Thread.sleep(50L);
+-        } catch (InterruptedException var3) {
+-            var3.printStackTrace();
+-            return;
+-        }
 -
--   public void run() {
--      try {
--         Thread.sleep(50L);
--      } catch (InterruptedException var3) {
--         var3.printStackTrace();
--         return;
--      }
+-        if (this.this$0.buttons != null) {
+-            Iterator var1 = this.this$0.buttons.iterator();
 -
--      if (this.this$0.buttons != null) {
--         Iterator var1 = this.this$0.buttons.iterator();
+-            while(var1.hasNext()) {
+-                Object var2 = var1.next();
+-                ((ButtonWidget)var2).setParentGui(this.this$0);
+-            }
+-        }
 -
--         while(var1.hasNext()) {
--            Object var2 = var1.next();
--            ((ButtonWidget)var2).setParentGui(this.this$0);
--         }
--      }
--
--   }
+-    }
 -}

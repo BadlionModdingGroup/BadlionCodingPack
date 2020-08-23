@@ -8,20 +8,20 @@
  import net.badlion.client.common.entity.EntityWrapper;
  import net.badlion.client.common.gui.overlay.mods.replay.ReplayOverlay;
 @@ -95,7 +96,7 @@
-    public void method_5359() {
-       HitResult var1 = MinecraftClient.getInstance().result;
-       if (var1.type == Type.ENTITY && var1.entitiy != null && (var1.entitiy instanceof PlayerEntity || var1.entitiy instanceof MobEntity)) {
--         BadlionClient.getBadlion().getReplayManager().method_5312().method_5341(var1.entitiy.getBadlionEntity());
+     public void method_5359() {
+         HitResult var1 = MinecraftClient.getInstance().result;
+         if (var1.type == Type.ENTITY && var1.entitiy != null && (var1.entitiy instanceof PlayerEntity || var1.entitiy instanceof MobEntity)) {
+-            BadlionClient.getBadlion().getReplayManager().method_5312().method_5341(var1.entitiy.getBadlionEntity());
 +         BadlionClient.getBadlion().getReplayManager().method_5312().method_5341(((EntityExtra) var1.entitiy).getBadlionEntity());
-       }
+         }
  
-    }
+     }
 @@ -107,7 +108,7 @@
  
-    public EntityWrapper method_5364(int var1) {
-       Entity var2 = this.world.getEntity(var1);
--      return var2 == null ? null : var2.getBadlionEntity();
+     public EntityWrapper method_5364(int var1) {
+         Entity var2 = this.world.getEntity(var1);
+-        return var2 == null ? null : var2.getBadlionEntity();
 +      return var2 == null ? null : ((EntityExtra) var2).getBadlionEntity();
-    }
+     }
  
-    public boolean method_6113() {
+     public boolean method_6113() {

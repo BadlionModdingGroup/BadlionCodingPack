@@ -10,10 +10,10 @@
  
 @@ -43,7 +44,7 @@
  
-    }
+     }
  
--   public Cursor method_4493(BufferedImage var1) {
+-    public Cursor method_4493(BufferedImage var1) {
 +   public Cursor method_4493(BufferedImage var1) throws LWJGLException {
-       int var2 = var1.getWidth();
-       int var3 = var1.getHeight();
-       int var4 = Math.min(Math.max(var2, Cursor.getMinCursorSize()), Cursor.getMaxCursorSize());
+         int var2 = var1.getWidth();
+         int var3 = var1.getHeight();
+         int var4 = Math.min(Math.max(var2, Cursor.getMinCursorSize()), Cursor.getMaxCursorSize());
