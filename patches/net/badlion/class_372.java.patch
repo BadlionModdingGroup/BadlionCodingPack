@@ -1,17 +1,17 @@
---- a/net/badlion/class_372.java
-+++ b/net/badlion/class_372.java
+--- a/net\badlion\Class_372.java
++++ b/net\badlion\Class_372.java
 @@ -3,10 +3,12 @@
  import com.google.gson.stream.JsonReader;
  import com.google.gson.stream.JsonWriter;
  
 +import java.io.IOException;
 +
- public interface class_372 {
-     class_348 method_1393();
+ public interface Class_372 {
+     Class_348 method_1393();
  
--    void method_1392(JsonWriter var1, class_339 var2);
-+   void method_1392(JsonWriter var1, class_339 var2) throws IOException;
+-    void method_1392(JsonWriter parameter_1, Class_339 parameter_2);
++    void method_1392(JsonWriter parameter_1, Class_339 parameter_2) throws IOException;
  
--    class_339 method_1391(JsonReader var1);
-+   class_339 method_1391(JsonReader var1) throws IOException;
+-    Class_339 method_1391(JsonReader parameter_1);
++    Class_339 method_1391(JsonReader parameter_1) throws IOException;
  }

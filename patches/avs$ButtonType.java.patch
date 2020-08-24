@@ -1,5 +1,5 @@
 --- a/avs$ButtonType.java
-+++ /dev/null
++++ C:\dev\null
 @@ -1,5 +0,0 @@
 -public enum avs$ButtonType {
 -    NORMAL,

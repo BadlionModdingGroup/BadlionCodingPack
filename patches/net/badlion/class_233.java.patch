@@ -1,5 +1,5 @@
---- a/net/badlion/class_233.java
-+++ b/net/badlion/class_233.java
+--- a/net\badlion\Class_233.java
++++ b/net\badlion\Class_233.java
 @@ -24,7 +24,7 @@
          this.field_318 = this.method_945("stats");
      }

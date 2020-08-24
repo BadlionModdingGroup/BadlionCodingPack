@@ -1,5 +1,5 @@
---- a/net/badlion/client/input/CursorHandler.java
-+++ b/net/badlion/client/input/CursorHandler.java
+--- a/net\badlion\client\input\CursorHandler.java
++++ b/net\badlion\client\input\CursorHandler.java
 @@ -8,6 +8,7 @@
  import javax.imageio.ImageIO;
  import org.apache.logging.log4j.LogManager;
@@ -12,8 +12,8 @@
  
      }
  
--    public Cursor method_4493(BufferedImage var1) {
-+   public Cursor method_4493(BufferedImage var1) throws LWJGLException {
-         int var2 = var1.getWidth();
-         int var3 = var1.getHeight();
+-    public Cursor method_4493(BufferedImage parameter_1) {
++    public Cursor method_4493(BufferedImage parameter_1) throws LWJGLException {
+         int var2 = parameter_1.getWidth();
+         int var3 = parameter_1.getHeight();
          int var4 = Math.min(Math.max(var2, Cursor.getMinCursorSize()), Cursor.getMaxCursorSize());

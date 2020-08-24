@@ -1,6 +1,6 @@
---- a/net/badlion/client/common/mod/TimeChangerMod.java
-+++ b/net/badlion/client/common/mod/TimeChangerMod.java
-@@ -70,7 +70,7 @@
+--- a/net\badlion\client\common\mod\TimeChangerMod.java
++++ b/net\badlion\client\common\mod\TimeChangerMod.java
+@@ -74,7 +74,7 @@
                  BadlionClient.minecraft.getMinecraft().method_332(this.field_158);
              }
  

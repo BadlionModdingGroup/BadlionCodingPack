@@ -1,6 +1,6 @@
---- /dev/null
-+++ b/io/github/badlionmoddinggroup/badlion/extra/MinecraftClientExtra.java
-@@ -0,0 +1,11 @@
+--- C:\dev\null
++++ b/io\github\badlionmoddinggroup\badlion\extra\MinecraftClientExtra.java
+@@ -0,0 +1,14 @@
 +package io.github.badlionmoddinggroup.badlion.extra;
 +
 +import net.minecraft.client.render.ClientTickTracker;
@@ -11,4 +11,7 @@
 +
 +    void clearScheduledTasks();
 +
++    void frameResize(int parameter_1, int parameter_2);
++
++    void frameReset();
 +}

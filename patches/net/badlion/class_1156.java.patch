@@ -1,38 +1,38 @@
---- a/net/badlion/class_1156.java
-+++ b/net/badlion/class_1156.java
+--- a/net\badlion\Class_1156.java
++++ b/net\badlion\Class_1156.java
 @@ -71,7 +71,7 @@
  
      }
  
--    public class_780 method_3313(class_705 var1, Direction var2, boolean var3) {
-+   public class_780 method_3313(class_705 var1, Direction var2, boolean var3) throws class_1157 {
-         Vec3i var4 = this.method_3307(var2, var1.method_2185(), var1.method_2187(), var1.method_2186());
-         class_780 var5 = new class_780(var1.method_2183(), var4.getX(), var4.getY(), var4.getZ());
+-    public Class_780 method_3313(Class_705 parameter_1, Direction parameter_2, boolean parameter_3) {
++    public Class_780 method_3313(Class_705 parameter_1, Direction parameter_2, boolean parameter_3) throws Class_1157 {
+         Vec3i var4 = this.method_3307(parameter_2, parameter_1.method_2185(), parameter_1.method_2187(), parameter_1.method_2186());
+         Class_780 var5 = new Class_780(parameter_1.method_2183(), var4.getX(), var4.getY(), var4.getZ());
          BlockPos var6 = new BlockPos();
 @@ -99,7 +99,7 @@
          return var5;
      }
  
--    private Vec3i method_3307(Direction var1, int var2, int var3, int var4) {
-+   private Vec3i method_3307(Direction var1, int var2, int var3, int var4) throws class_1157 {
-         switch(var1) {
+-    private Vec3i method_3307(Direction parameter_1, int parameter_2, int parameter_3, int parameter_4) {
++    private Vec3i method_3307(Direction parameter_1, int parameter_2, int parameter_3, int parameter_4) throws Class_1157 {
+         switch(parameter_1) {
          case DOWN:
          case UP:
 @@ -115,7 +115,7 @@
          }
      }
  
--    private class_84 method_3316(class_84 var1, Direction var2, Vec3i var3, BlockPos var4) {
-+   private class_84 method_3316(class_84 var1, Direction var2, Vec3i var3, BlockPos var4) throws class_1157 {
-         switch(var2) {
+-    private Class_84 method_3316(Class_84 parameter_1, Direction parameter_2, Vec3i parameter_3, BlockPos parameter_4) {
++    private Class_84 method_3316(Class_84 parameter_1, Direction parameter_2, Vec3i parameter_3, BlockPos parameter_4) throws Class_1157 {
+         switch(parameter_2) {
          case DOWN:
-             return var4.method_273(var1.getZ(), var1.getY(), var3.getZ() - 1 - var1.getX());
+             return parameter_4.method_273(parameter_1.getZ(), parameter_1.getY(), parameter_3.getZ() - 1 - parameter_1.getX());
 @@ -134,7 +134,7 @@
          }
      }
  
--    private BlockState method_3306(BlockState var1, Direction var2, boolean var3) {
-+   private BlockState method_3306(BlockState var1, Direction var2, boolean var3) throws class_1157 {
-         Property var4 = class_1151.method_3297(var1, "facing");
+-    private BlockState method_3306(BlockState parameter_1, Direction parameter_2, boolean parameter_3) {
++    private BlockState method_3306(BlockState parameter_1, Direction parameter_2, boolean parameter_3) throws Class_1157 {
+         Property var4 = Class_1151.method_3297(parameter_1, "facing");
          if (var4 instanceof DirectionProperty) {
-             Comparable var5 = var1.get(var4);
+             Comparable var5 = parameter_1.get(var4);

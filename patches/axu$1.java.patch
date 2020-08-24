@@ -1,13 +1,13 @@
 --- a/axu$1.java
-+++ /dev/null
++++ C:\dev\null
 @@ -1,28 +0,0 @@
 -import java.util.Iterator;
 -import net.minecraft.client.gui.screen.Screen;
 -import net.minecraft.client.gui.widget.ButtonWidget;
 -
 -class axu$1 implements Runnable {
--    axu$1(Screen var1) {
--        this.this$0 = var1;
+-    axu$1(Screen parameter_1) {
+-        this.this$0 = parameter_1;
 -    }
 -
 -    public void run() {

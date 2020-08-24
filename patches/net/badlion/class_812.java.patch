@@ -1,5 +1,5 @@
---- a/net/badlion/class_812.java
-+++ b/net/badlion/class_812.java
+--- a/net\badlion\Class_812.java
++++ b/net\badlion\Class_812.java
 @@ -14,23 +14,26 @@
          return this.field_2109;
      }

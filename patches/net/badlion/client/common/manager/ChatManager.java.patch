@@ -1,21 +1,21 @@
---- a/net/badlion/client/common/manager/ChatManager.java
-+++ b/net/badlion/client/common/manager/ChatManager.java
+--- a/net\badlion\client\common\manager\ChatManager.java
++++ b/net\badlion\client\common\manager\ChatManager.java
 @@ -355,7 +355,7 @@
          return var4;
      }
  
--    List<class_1669> method_4765() {
-+    public List<class_1669> method_4765() {
+-    List<Class_1669> method_4765() {
++    public List<Class_1669> method_4765() {
          ArrayList var1 = new ArrayList();
-         Iterator var2 = ((Queue)this.field_4214.get(class_1703.BLC)).iterator();
+         Iterator var2 = ((Queue)this.field_4214.get(Class_1703.BLC)).iterator();
  
 @@ -369,7 +369,7 @@
          return var1;
      }
  
--    boolean method_4763(final String var1) {
-+    public boolean method_4763(final String var1) {
-         if (var1.trim().isEmpty()) {
+-    boolean method_4763(final String parameter_1) {
++    public boolean method_4763(final String parameter_1) {
+         if (parameter_1.trim().isEmpty()) {
              return true;
          } else {
 @@ -407,7 +407,7 @@

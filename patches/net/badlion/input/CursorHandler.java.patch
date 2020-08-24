@@ -1,5 +1,5 @@
---- a/net/badlion/input/CursorHandler.java
-+++ b/net/badlion/input/CursorHandler.java
+--- a/net\badlion\input\CursorHandler.java
++++ b/net\badlion\input\CursorHandler.java
 @@ -1,12 +1,14 @@
  package net.badlion.input;
  
@@ -9,10 +9,10 @@
  import org.lwjgl.input.Cursor;
  
  public interface CursorHandler {
-     void method_4494(CursorHandler.class_1636 var1);
+     void method_4494(CursorHandler.Class_1636 parameter_1);
  
--    Cursor method_4493(BufferedImage var1);
-+   Cursor method_4493(BufferedImage var1) throws LWJGLException;
+-    Cursor method_4493(BufferedImage parameter_1);
++    Cursor method_4493(BufferedImage parameter_1) throws LWJGLException;
  
-     boolean method_4495(CursorHandler.class_1636 var1);
+     boolean method_4495(CursorHandler.Class_1636 parameter_1);
  

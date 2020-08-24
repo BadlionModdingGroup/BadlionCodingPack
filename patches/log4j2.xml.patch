@@ -1,5 +1,5 @@
 --- a/log4j2.xml
-+++ /dev/null
++++ C:\dev\null
 @@ -1,44 +0,0 @@
 -<?xml version="1.0" encoding="UTF-8"?>
 -<Configuration status="WARN" packages="net.minecraft,com.mojang">

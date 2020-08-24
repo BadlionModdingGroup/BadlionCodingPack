@@ -1,13 +1,14 @@
---- /dev/null
-+++ b/io/github/badlionmoddinggroup/badlion/mixin/MinecraftClientMixin.java
-@@ -0,0 +1,70 @@
+--- C:\dev\null
++++ b/io\github\badlionmoddinggroup\badlion\mixin\MinecraftClientMixin.java
+@@ -0,0 +1,81 @@
 +package io.github.badlionmoddinggroup.badlion.mixin;
 +
 +import io.github.badlionmoddinggroup.badlion.extra.MinecraftClientExtra;
-+import net.badlion.class_2025;
-+import net.badlion.class_758;
++import net.badlion.Class_2025;
++import net.badlion.Class_758;
 +import net.badlion.client.Wrapper;
 +import net.badlion.client.common.BadlionClient;
++import net.badlion.client.common.wrapper.MinecraftWrapper;
 +import net.badlion.client.util.BadlionFactory;
 +import net.badlion.launchwrapper.tweakers.BadlionTransformer;
 +import net.minecraft.client.MinecraftClient;
@@ -48,14 +49,14 @@
 +        LOGGER.info("MC Version: 1.8");
 +        LOGGER.info("BLC Version: " + Wrapper.getBlcVersion());
 +        LOGGER.info("OF: " + BadlionTransformer.OPTIFINE_LOADED);
-+        LOGGER.info("OF VER: " + class_2025.OPTIFINE_VERSION);
++        LOGGER.info("OF VER: " + Class_2025.OPTIFINE_VERSION);
 +        LOGGER.info("Width: " + args.information.field_3672);
 +        LOGGER.info("Height: " + args.information.field_3673);
 +        LOGGER.info("FullScreen: " + args.information.field_3674);
 +        LOGGER.info("-------------------------------------------------");
 +        BadlionClient.debugMemory("WRAPPER_PRE_INIT");
 +        BadlionClient.factory = new BadlionFactory();
-+        new Wrapper(new class_758((MinecraftClient) (Object) this));
++        new Wrapper(new Class_758((MinecraftClient) (Object) this));
 +        BadlionClient.debugMemory("WRAPPER_POST_INIT");
 +    }
 +
@@ -69,5 +70,15 @@
 +        synchronized(this.tasks) {
 +            this.tasks.clear();
 +        }
++    }
++
++    @Override
++    public void frameResize(int parameter_1, int parameter_2) {
++
++    }
++
++    @Override
++    public void frameReset() {
++
 +    }
 +}

@@ -1,5 +1,5 @@
---- /dev/null
-+++ b/io/github/badlionmoddinggroup/badlion/extra/ItemStackExtra.java
+--- C:\dev\null
++++ b/io\github\badlionmoddinggroup\badlion\extra\ItemStackExtra.java
 @@ -0,0 +1,8 @@
 +package io.github.badlionmoddinggroup.badlion.extra;
 +

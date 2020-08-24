@@ -1,5 +1,5 @@
---- a/net/badlion/class_774.java
-+++ b/net/badlion/class_774.java
+--- a/net\badlion\Class_774.java
++++ b/net\badlion\Class_774.java
 @@ -79,7 +79,9 @@
      }
  

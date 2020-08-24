@@ -1,5 +1,5 @@
---- a/net/badlion/class_1258.java
-+++ b/net/badlion/class_1258.java
+--- a/net\badlion\Class_1258.java
++++ b/net\badlion\Class_1258.java
 @@ -1,5 +1,6 @@
  package net.badlion;
  
@@ -8,11 +8,20 @@
  import java.nio.ByteBuffer;
  import net.minecraft.client.resource.metadata.TextureResourceMetadata;
 @@ -26,7 +27,7 @@
-         this.field_2415 = var1;
+         this.field_2415 = parameter_1;
      }
  
--    public void method_3456(ResourceManager var1) {
-+   public void method_3456(ResourceManager var1) throws IOException {
+-    public void method_3456(ResourceManager parameter_1) {
++    public void method_3456(ResourceManager parameter_1) throws IOException {
          InputStream var2 = null;
  
          try {
+@@ -54,6 +55,8 @@
+             }
+ 
+             this.field_2412 = true;
++        } catch (IOException e) {
++            e.printStackTrace();
+         } finally {
+             if (var2 != null) {
+                 var2.close();

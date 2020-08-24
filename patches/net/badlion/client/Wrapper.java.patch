@@ -1,6 +1,15 @@
---- a/net/badlion/client/Wrapper.java
-+++ b/net/badlion/client/Wrapper.java
-@@ -102,6 +102,7 @@
+--- a/net\badlion\client\Wrapper.java
++++ b/net\badlion\client\Wrapper.java
+@@ -19,6 +19,8 @@
+ import java.util.concurrent.Future;
+ import java.util.concurrent.TimeUnit;
+ import java.util.concurrent.TimeoutException;
++
++import io.github.badlionmoddinggroup.badlion.extra.BadlionClass_674;
+ import net.badlion.Class_1056;
+ import net.badlion.Class_1058;
+ import net.badlion.Class_1348;
+@@ -102,6 +104,7 @@
  import org.apache.logging.log4j.Level;
  import org.apache.logging.log4j.LogManager;
  import org.apache.logging.log4j.core.Logger;
@@ -8,47 +17,69 @@
  import org.lwjgl.opengl.ContextCapabilities;
  import org.lwjgl.opengl.Display;
  import org.lwjgl.opengl.DisplayMode;
-@@ -488,10 +489,11 @@
+@@ -237,6 +240,11 @@
+         (new Thread(this.stocWorker)).start();
+         (new PermissionWorkerThread()).start();
+         (new BackoffThread(new Class_2100<Boolean>() {
++            @Override
++            public Boolean get() {
++                return method_5512();
++            }
++
+             public Boolean method_5512() {
+                 String var1 = Wrapper.getWrapper().getBACServers();
+                 JsonObject var2 = (new JsonParser()).parse(var1).getAsJsonObject();
+@@ -488,10 +496,11 @@
  
          if (BadlionClient.minecraft.method_237() != null && BadlionClient.minecraft.method_237().method_5256().equals(GuiType.CONNECTING)) {
              ConnectScreen var3 = (ConnectScreen)MinecraftClient.getInstance().currentScreen;
 -            if (var3.getIP() != null && var3.getPort() != 0 && !var3.isConnecting()) {
 -                var3.connect(var3.getIP(), var3.getPort());
-+//         if (var3.getIP() != null && var3.getPort() != 0 && !var3.isConnecting()) {
-+//            var3.connect(var3.getIP(), var3.getPort());
-+//         }
-+//         TODO: Mixin fix
++//            if (var3.getIP() != null && var3.getPort() != 0 && !var3.isConnecting()) {
++//                var3.connect(var3.getIP(), var3.getPort());
++//            }
++//            TODO: fix
              }
 -        }
  
          BadlionClient.getBadlion().getAnalyicsManager().method_3511();
          BadlionClient.getBadlion().getFpsAverager().method_5527();
-@@ -628,7 +630,7 @@
+@@ -541,6 +550,11 @@
+ 
+                         ExecutorService var3 = Executors.newCachedThreadPool();
+                         Callable var4 = new Callable<Boolean>() {
++                            @Override
++                            public Boolean call() throws Exception {
++                                return method_5513();
++                            }
++
+                             public Boolean method_5513() {
+                                 try {
+                                     return Wrapper.getWrapper().CacheJNIInformation();
+@@ -628,7 +642,7 @@
          return this.debugEnabled;
      }
  
 -    public void handleFullScreen() {
-+   public void handleFullScreen() throws LWJGLException {
++    public void handleFullScreen() throws LWJGLException {
          if (this.getActiveModProfile().getBetterframesConfig().getBorderlessWindow().isTrue()) {
              if (MinecraftClient.getInstance().isWindowFocused()) {
                  System.setProperty("org.lwjgl.opengl.Window.undecorated", "true");
-@@ -718,7 +720,9 @@
-         BlockPos var2 = var1.method_3828();
+@@ -718,7 +732,7 @@
+         BlockPos var2 = parameter_1.method_3828();
          int var3 = Math.abs(((int)MinecraftClient.getInstance().player.x >> 4) - (var2.getX() >> 4));
          int var4 = Math.abs(((int)MinecraftClient.getInstance().player.z >> 4) - (var2.getZ() >> 4));
 -        return MinecraftClient.SERVER_VIEW_DISTANCE == -1 || var3 <= MinecraftClient.SERVER_VIEW_DISTANCE && var4 <= MinecraftClient.SERVER_VIEW_DISTANCE;
-+//      TODO: Mixin fix
-+      return true;
-+//      return MinecraftClient.SERVER_VIEW_DISTANCE == -1 || var3 <= MinecraftClient.SERVER_VIEW_DISTANCE && var4 <= MinecraftClient.SERVER_VIEW_DISTANCE;
++        return true;
      }
  
      public void closeActiveSlideoutSettingsPage() {
-@@ -813,7 +817,7 @@
+@@ -813,7 +827,7 @@
      }
  
-     public void handleScreenshotCommand(String var1) {
--        class_674.handleCommand(var1);
-+//      class_674.handleCommand(var1);
+     public void handleScreenshotCommand(String parameter_1) {
+-        Class_674.handleCommand(parameter_1);
++        BadlionClass_674.handleCommand(parameter_1);
      }
  
      public String minecraftVersionString() {

@@ -1,5 +1,5 @@
---- /dev/null
-+++ b/io/github/badlionmoddinggroup/badlion/gui/BadlionButtonWidget.java
+--- C:\dev\null
++++ b/io\github\badlionmoddinggroup\badlion\gui\BadlionButtonWidget.java
 @@ -0,0 +1,21 @@
 +package io.github.badlionmoddinggroup.badlion.gui;
 +

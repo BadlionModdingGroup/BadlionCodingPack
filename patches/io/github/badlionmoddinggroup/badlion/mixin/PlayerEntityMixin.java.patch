@@ -1,5 +1,5 @@
---- /dev/null
-+++ b/io/github/badlionmoddinggroup/badlion/mixin/PlayerEntityMixin.java
+--- C:\dev\null
++++ b/io\github\badlionmoddinggroup\badlion\mixin\PlayerEntityMixin.java
 @@ -0,0 +1,32 @@
 +package io.github.badlionmoddinggroup.badlion.mixin;
 +

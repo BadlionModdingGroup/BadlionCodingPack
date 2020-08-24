@@ -8,4 +8,7 @@ public interface MinecraftClientExtra {
 
     void clearScheduledTasks();
 
+    void frameResize(int parameter_1, int parameter_2);
+
+    void frameReset();
 }

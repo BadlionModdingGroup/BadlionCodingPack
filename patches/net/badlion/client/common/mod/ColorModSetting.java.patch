@@ -1,5 +1,5 @@
---- a/net/badlion/client/common/mod/ColorModSetting.java
-+++ b/net/badlion/client/common/mod/ColorModSetting.java
+--- a/net\badlion\client\common\mod\ColorModSetting.java
++++ b/net\badlion\client\common\mod\ColorModSetting.java
 @@ -1014,7 +1014,7 @@
                  }
  

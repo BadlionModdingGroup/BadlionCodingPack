@@ -1,5 +1,5 @@
---- a/net/badlion/class_1996.java
-+++ b/net/badlion/class_1996.java
+--- a/net\badlion\Class_1996.java
++++ b/net\badlion\Class_1996.java
 @@ -115,12 +115,12 @@
                      }
  

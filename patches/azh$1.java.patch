@@ -1,26 +1,19 @@
 --- a/azh$1.java
-+++ /dev/null
-@@ -1,23 +0,0 @@
--import com.google.gson.JsonObject;
--import com.google.gson.JsonParser;
--import net.badlion.class_2100;
--import net.badlion.client.Wrapper;
--import net.badlion.client.common.BadlionClient;
++++ C:\dev\null
+@@ -1,16 +0,0 @@
+-import net.badlion.Class_2100;
 -import net.minecraft.client.gui.screen.multiplayer.MultiplayerScreen;
 -
--class azh$1 implements class_2100<Boolean> {
--    azh$1(MultiplayerScreen var1) {
--        this.this$0 = var1;
+-class azh$1 implements Class_2100<Boolean> {
+-    azh$1(MultiplayerScreen parameter_1) {
+-        this.this$0 = parameter_1;
 -    }
 -
 -    public Boolean get() {
--        String var1 = Wrapper.getWrapper().getBACServers();
--        JsonObject var2 = (new JsonParser()).parse(var1).getAsJsonObject();
--        if (!var2.has("error") && var2.has("bacServers")) {
--            BadlionClient.minecraft.method_211(new azh$1$1(this, var2));
--            return true;
--        } else {
--            return false;
--        }
+-        // $FF: Couldn't be decompiled
+-    }
+-
+-    public Boolean get() {
+-        // $FF: Couldn't be decompiled
 -    }
 -}

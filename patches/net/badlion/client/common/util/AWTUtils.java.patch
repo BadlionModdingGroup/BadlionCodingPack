@@ -1,5 +1,5 @@
---- a/net/badlion/client/common/util/AWTUtils.java
-+++ b/net/badlion/client/common/util/AWTUtils.java
+--- a/net\badlion\client\common\util\AWTUtils.java
++++ b/net\badlion\client\common\util\AWTUtils.java
 @@ -6,6 +6,7 @@
  import java.io.File;
  import java.io.InputStreamReader;

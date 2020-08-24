@@ -1,12 +1,12 @@
 --- a/azh$1$1.java
-+++ /dev/null
++++ C:\dev\null
 @@ -1,68 +0,0 @@
 -import com.google.gson.JsonArray;
 -import com.google.gson.JsonElement;
 -import com.google.gson.JsonObject;
 -import java.util.Iterator;
 -import java.util.List;
--import net.badlion.class_38;
+-import net.badlion.Class_38;
 -import net.badlion.client.Wrapper;
 -import net.badlion.client.common.BadlionClient;
 -import net.badlion.client.common.type.BacServer;
@@ -14,9 +14,9 @@
 -import net.minecraft.client.gui.widget.ServerEntry;
 -
 -class azh$1$1 implements Runnable {
--    azh$1$1(azh$1 var1, JsonObject var2) {
--        this.this$1 = var1;
--        this.val$jsonObject = var2;
+-    azh$1$1(azh$1 parameter_1, JsonObject parameter_2) {
+-        this.this$1 = parameter_1;
+-        this.val$jsonObject = parameter_2;
 -    }
 -
 -    public void run() {
@@ -35,7 +35,7 @@
 -
 -        while(var3.hasNext()) {
 -            ServerEntry var13 = (ServerEntry)var3.next();
--            int var14 = class_38.method_6245(var13.method_2962().bacName, var1);
+-            int var14 = Class_38.method_6245(var13.method_2962().bacName, var1);
 -            if (var14 != -1) {
 -                Iterator var6 = var1.iterator();
 -

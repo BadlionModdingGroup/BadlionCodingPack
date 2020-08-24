@@ -1,141 +1,140 @@
---- a/net/badlion/class_2083.java
-+++ b/net/badlion/class_2083.java
+--- a/net\badlion\Class_2083.java
++++ b/net\badlion\Class_2083.java
 @@ -43,7 +43,7 @@
      private byte[] field_5575;
      private byte[] field_5576;
  
--    public class_2083(InputStream var1) {
-+   public class_2083(InputStream var1) throws IOException {
-         this.field_5595 = var1;
+-    public Class_2083(InputStream parameter_1) {
++    public Class_2083(InputStream parameter_1) throws IOException {
+         this.field_5595 = parameter_1;
          this.field_5596 = new CRC32();
          this.field_5597 = new byte[4096];
-@@ -223,6 +223,8 @@
-                 var6 = var7;
-                 var7 = var11;
-             }
-+      } catch (IOException e) {
-+         e.printStackTrace();
-         } finally {
-             var9.end();
+@@ -123,7 +123,7 @@
          }
-@@ -513,7 +515,7 @@
+     }
+ 
+-    public void method_5629(ByteBuffer parameter_1, int parameter_2, Class_2083.Class_2084 parameter_3) {
++    public void method_5629(ByteBuffer parameter_1, int parameter_2, Class_2083.Class_2084 parameter_3) throws IOException {
+         int var4 = parameter_1.position();
+         int var5 = (this.field_5601 * this.field_5571 + 7) / 8 * this.field_5573;
+         byte[] var6 = new byte[var5 + 1];
+@@ -513,7 +513,7 @@
  
      }
  
--    private void method_5649(byte[] var1, byte[] var2) {
-+   private void method_5649(byte[] var1, byte[] var2) throws IOException {
-         switch(var1[0]) {
+-    private void method_5649(byte[] parameter_1, byte[] parameter_2) {
++    private void method_5649(byte[] parameter_1, byte[] parameter_2) throws IOException {
+         switch(parameter_1[0]) {
          case 0:
              break;
-@@ -608,7 +610,7 @@
+@@ -608,7 +608,7 @@
  
      }
  
 -    private void method_5650() {
-+   private void method_5650() throws IOException {
++    private void method_5650() throws IOException {
          this.method_5639(13);
          this.method_5636(this.field_5597, 0, 13);
          this.field_5601 = this.method_5635(this.field_5597, 0);
-@@ -674,7 +676,7 @@
+@@ -674,7 +674,7 @@
          }
      }
  
 -    private void method_5653() {
-+   private void method_5653() throws IOException {
++    private void method_5653() throws IOException {
          int var1 = this.field_5598 / 3;
          if (var1 >= 1 && var1 <= 256 && this.field_5598 % 3 == 0) {
              this.field_5574 = new byte[var1 * 3];
-@@ -684,7 +686,7 @@
+@@ -684,7 +684,7 @@
          }
      }
  
 -    private void method_5656() {
-+   private void method_5656() throws IOException {
++    private void method_5656() throws IOException {
          switch(this.field_5572) {
          case 0:
              this.method_5639(2);
-@@ -710,7 +712,7 @@
+@@ -710,7 +710,7 @@
  
      }
  
 -    private void method_5659() {
-+   private void method_5659() throws IOException {
++    private void method_5659() throws IOException {
          if (this.field_5600 > 0) {
              this.method_5628((long)(this.field_5600 + 4));
          } else {
-@@ -727,7 +729,7 @@
+@@ -727,7 +727,7 @@
          this.field_5599 = 0;
      }
  
 -    private void method_5661() {
-+   private void method_5661() throws IOException {
++    private void method_5661() throws IOException {
          this.method_5642(this.field_5597, 0, 8);
          this.field_5598 = this.method_5635(this.field_5597, 0);
          this.field_5599 = this.method_5635(this.field_5597, 4);
-@@ -736,20 +738,20 @@
+@@ -736,20 +736,20 @@
          this.field_5596.update(this.field_5597, 4, 4);
      }
  
--    private void method_5627(int var1) {
-+   private void method_5627(int var1) throws IOException {
+-    private void method_5627(int parameter_1) {
++    private void method_5627(int parameter_1) throws IOException {
          this.method_5661();
-         if (this.field_5599 != var1) {
-             throw new IOException("Expected chunk: " + Integer.toHexString(var1));
+         if (this.field_5599 != parameter_1) {
+             throw new IOException("Expected chunk: " + Integer.toHexString(parameter_1));
          }
      }
  
--    private void method_5639(int var1) {
-+   private void method_5639(int var1) throws IOException {
-         if (this.field_5598 != var1) {
+-    private void method_5639(int parameter_1) {
++    private void method_5639(int parameter_1) throws IOException {
+         if (this.field_5598 != parameter_1) {
              throw new IOException("Chunk has wrong size");
          }
      }
  
--    private int method_5636(byte[] var1, int var2, int var3) {
-+   private int method_5636(byte[] var1, int var2, int var3) throws IOException {
-         if (var3 > this.field_5600) {
-             var3 = this.field_5600;
+-    private int method_5636(byte[] parameter_1, int parameter_2, int parameter_3) {
++    private int method_5636(byte[] parameter_1, int parameter_2, int parameter_3) throws IOException {
+         if (parameter_3 > this.field_5600) {
+             parameter_3 = this.field_5600;
          }
-@@ -760,7 +762,7 @@
-         return var3;
+@@ -760,7 +760,7 @@
+         return parameter_3;
      }
  
--    private void method_5631(Inflater var1) {
-+   private void method_5631(Inflater var1) throws IOException {
+-    private void method_5631(Inflater parameter_1) {
++    private void method_5631(Inflater parameter_1) throws IOException {
          while(this.field_5600 == 0) {
              this.method_5659();
              this.method_5627(1229209940);
-@@ -770,7 +772,7 @@
-         var1.setInput(this.field_5597, 0, var2);
+@@ -770,7 +770,7 @@
+         parameter_1.setInput(this.field_5597, 0, var2);
      }
  
--    private void method_5632(Inflater var1, byte[] var2, int var3, int var4) {
-+   private void method_5632(Inflater var1, byte[] var2, int var3, int var4) throws IOException {
+-    private void method_5632(Inflater parameter_1, byte[] parameter_2, int parameter_3, int parameter_4) {
++    private void method_5632(Inflater parameter_1, byte[] parameter_2, int parameter_3, int parameter_4) throws IOException {
          try {
              do {
-                 int var5 = var1.inflate(var2, var3, var4);
-@@ -790,12 +792,12 @@
+                 int var5 = parameter_1.inflate(parameter_2, parameter_3, parameter_4);
+@@ -790,12 +790,12 @@
                  }
-             } while(var4 > 0);
+             } while(parameter_4 > 0);
  
 -        } catch (DataFormatException var6) {
--            throw (IOException)((IOException)(new IOException("inflate error")).initCause(var6));
-+      } catch (DataFormatException | EOFException var6) {
-+         throw (IOException) (new IOException("inflate error")).initCause(var6);
++        } catch (DataFormatException | EOFException var6) {
+             throw (IOException)((IOException)(new IOException("inflate error")).initCause(var6));
          }
      }
  
--    private void method_5642(byte[] var1, int var2, int var3) {
-+   private void method_5642(byte[] var1, int var2, int var3) throws IOException {
+-    private void method_5642(byte[] parameter_1, int parameter_2, int parameter_3) {
++    private void method_5642(byte[] parameter_1, int parameter_2, int parameter_3) throws IOException {
          do {
-             int var4 = this.field_5595.read(var1, var2, var3);
+             int var4 = this.field_5595.read(parameter_1, parameter_2, parameter_3);
              if (var4 < 0) {
-@@ -812,7 +814,7 @@
-         return var1[var2] << 24 | (var1[var2 + 1] & 255) << 16 | (var1[var2 + 2] & 255) << 8 | var1[var2 + 3] & 255;
+@@ -812,7 +812,7 @@
+         return parameter_1[parameter_2] << 24 | (parameter_1[parameter_2 + 1] & 255) << 16 | (parameter_1[parameter_2 + 2] & 255) << 8 | parameter_1[parameter_2 + 3] & 255;
      }
  
--    private void method_5628(long var1) {
-+   private void method_5628(long var1) throws IOException {
-         while(var1 > 0L) {
-             long var3 = this.field_5595.skip(var1);
+-    private void method_5628(long parameter_1) {
++    private void method_5628(long parameter_1) throws IOException {
+         while(parameter_1 > 0L) {
+             long var3 = this.field_5595.skip(parameter_1);
              if (var3 < 0L) {

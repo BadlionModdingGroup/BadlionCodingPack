@@ -1,5 +1,5 @@
---- a/net/badlion/class_1117.java
-+++ b/net/badlion/class_1117.java
+--- a/net\badlion\Class_1117.java
++++ b/net\badlion\Class_1117.java
 @@ -147,9 +147,10 @@
  
              while(var1.hasNext()) {

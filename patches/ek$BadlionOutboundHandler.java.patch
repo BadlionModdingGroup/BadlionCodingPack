@@ -1,12 +1,12 @@
 --- a/ek$BadlionOutboundHandler.java
-+++ /dev/null
++++ C:\dev\null
 @@ -1,31 +0,0 @@
 -import io.netty.channel.ChannelHandler;
 -import io.netty.channel.ChannelHandlerContext;
 -import io.netty.channel.ChannelOutboundHandlerAdapter;
 -import io.netty.channel.ChannelPromise;
 -import io.netty.util.AttributeKey;
--import net.badlion.class_1427;
+-import net.badlion.Class_1427;
 -import net.badlion.client.Wrapper;
 -import net.badlion.client.common.BadlionClient;
 -import net.minecraft.network.ClientConnection;
@@ -14,21 +14,21 @@
 -public class ek$BadlionOutboundHandler extends ChannelOutboundHandlerAdapter {
 -    private static final AttributeKey<ek$BadlionOutboundHandler> BADLION_DISPATCHER = AttributeKey.valueOf("badlion:dispatcher");
 -
--    public static void onHandshake(ClientConnection var0) {
+-    public static void onHandshake(ClientConnection parameter_0) {
 -        ek$BadlionOutboundHandler var1 = new ek$BadlionOutboundHandler();
--        ClientConnection.method_5094(var0).attr(BADLION_DISPATCHER).set(var1);
--        ClientConnection.method_5094(var0).pipeline().addLast(new ChannelHandler[]{var1});
+-        ClientConnection.method_5094(parameter_0).attr(BADLION_DISPATCHER).set(var1);
+-        ClientConnection.method_5094(parameter_0).pipeline().addLast(new ChannelHandler[]{var1});
 -    }
 -
--    public void disconnect(ChannelHandlerContext var1, ChannelPromise var2) {
+-    public void disconnect(ChannelHandlerContext parameter_1, ChannelPromise parameter_2) {
 -        BadlionClient.cpsLimiter.method_5875();
--        Wrapper.getWrapper().getActiveModProfile().fireEvent(new class_1427());
--        var1.disconnect(var2);
+-        Wrapper.getWrapper().getActiveModProfile().fireEvent(new Class_1427());
+-        parameter_1.disconnect(parameter_2);
 -    }
 -
--    public void close(ChannelHandlerContext var1, ChannelPromise var2) {
+-    public void close(ChannelHandlerContext parameter_1, ChannelPromise parameter_2) {
 -        BadlionClient.cpsLimiter.method_5875();
--        Wrapper.getWrapper().getActiveModProfile().fireEvent(new class_1427());
--        var1.close(var2);
+-        Wrapper.getWrapper().getActiveModProfile().fireEvent(new Class_1427());
+-        parameter_1.close(parameter_2);
 -    }
 -}

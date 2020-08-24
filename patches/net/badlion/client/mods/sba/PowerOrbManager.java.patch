@@ -1,5 +1,5 @@
---- a/net/badlion/client/mods/sba/PowerOrbManager.java
-+++ b/net/badlion/client/mods/sba/PowerOrbManager.java
+--- a/net\badlion\client\mods\sba\PowerOrbManager.java
++++ b/net\badlion\client\mods\sba\PowerOrbManager.java
 @@ -29,7 +29,7 @@
              if (((PowerOrbManager.PowerOrbEntry)var3.getValue()).detectPowerOrb + 100L > System.currentTimeMillis()) {
                  if (var1 == null) {
