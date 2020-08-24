@@ -1,0 +1,14 @@
+--- a/net\badlion\Class_249.java
++++ b/net\badlion\Class_249.java
+@@ -12,6 +12,11 @@
+         return new JsonPrimitive(parameter_1.method_954());
+     }
+ 
++    @Override
++    protected Class_237 method_5282(JsonElement parameter_1) {
++        return method_968(parameter_1);
++    }
++
+     public JsonElement method_5283(Class_237 parameter_1) {
+         return this.method_969((Class_237)parameter_1);
+     }

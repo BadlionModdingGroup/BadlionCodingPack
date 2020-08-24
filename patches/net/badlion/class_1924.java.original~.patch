@@ -1,0 +1,73 @@
+--- C:\dev\null
++++ b/net\badlion\class_1924.java.original~
+@@ -0,0 +1,70 @@
++package net.badlion;
++
++import net.badlion.client.common.BadlionClient;
++import net.badlion.client.common.gui.lib.GuiType;
++import net.minecraft.client.gui.screen.Screen;
++import net.minecraft.client.gui.widget.ButtonWidget;
++import net.minecraft.client.gui.widget.OptionWidget;
++
++public class Class_1924 extends Class_811 implements Class_1613 {
++    private Class_1654 field_5233;
++
++    public Class_1924(Screen parameter_1) {
++        this.field_5233 = new Class_1654(new Class_813(parameter_1), this);
++    }
++
++    public void method_5278() {
++        this.field_5233.method_4524();
++    }
++
++    public void method_4353(double parameter_1, double parameter_3, double parameter_5, double parameter_7) {
++        this.buttons.add(new OptionWidget(1, (int)((double)(this.width / 2) + parameter_1), this.height - 48, BadlionClient.minecraft.method_214("gui.done")));
++        this.buttons.add(new OptionWidget(2, (int)(parameter_5 + parameter_7 - 150.0D - parameter_1), this.height - 24, BadlionClient.minecraft.method_214("resourcePack.openFolder")));
++        this.buttons.add(new OptionWidget(3, (int)(parameter_5 + parameter_7 - 150.0D - parameter_1), this.height - 48, "Find New Packs"));
++        this.buttons.add(new OptionWidget(4, (int)((double)(this.width / 2) + parameter_1), this.height - 24, "Apply"));
++    }
++
++    public void method_5280() {
++        super.handleMouse();
++        this.field_5233.method_4543();
++    }
++
++    public void method_5281() {
++        this.field_5233.method_4546();
++    }
++
++    public void method_5279() {
++        this.field_5233.method_4547();
++    }
++
++    protected void method_5276(int parameter_1, int parameter_2, int parameter_3) {
++        if (!this.field_5233.method_4529(parameter_1, parameter_2, parameter_3)) {
++            super.mouseClicked(parameter_1, parameter_2, parameter_3);
++        }
++
++    }
++
++    protected void method_5277(ButtonWidget parameter_1) {
++        if (parameter_1.active) {
++            this.field_5233.method_4527(parameter_1.id);
++        }
++
++    }
++
++    public void method_5274(char parameter_1, int parameter_2) {
++        this.field_5233.method_4525(parameter_1, parameter_2);
++    }
++
++    public void method_4352() {
++        this.renderBackground();
++    }
++
++    public void method_5275(int parameter_1, int parameter_2, float parameter_3) {
++        this.field_5233.method_4528(parameter_1, parameter_2, parameter_3);
++        super.render(parameter_1, parameter_2, parameter_3);
++    }
++
++    public GuiType method_5256() {
++        return GuiType.BADLION_RESOURCE_PACKS_MENU;
++    }
++}

@@ -1,0 +1,17 @@
+--- a/net\badlion\client\common\item\tag\ITag.java
++++ b/net\badlion\client\common\item\tag\ITag.java
+@@ -1,6 +1,7 @@
+ package net.badlion.client.common.item.tag;
+ 
+ import java.io.DataOutput;
++import java.io.IOException;
+ import java.util.Set;
+ import net.badlion.Class_8;
+ 
+@@ -35,5 +36,5 @@
+ 
+     Set<String> getKeys();
+ 
+-    void write(String parameter_1, DataOutput parameter_2);
++    void write(String parameter_1, DataOutput parameter_2) throws IOException;
+ }

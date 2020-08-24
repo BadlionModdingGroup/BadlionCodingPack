@@ -1,0 +1,300 @@
+--- C:\dev\null
++++ b/net\badlion\client\common\render\texture\AbstractTextureRegister.java.original~
+@@ -0,0 +1,297 @@
++package net.badlion.client.common.render.texture;
++
++import java.awt.image.BufferedImage;
++import java.io.IOException;
++import java.io.InputStream;
++import java.net.URL;
++import java.nio.ByteBuffer;
++import java.nio.IntBuffer;
++import java.util.HashMap;
++import java.util.Map;
++import java.util.Queue;
++import java.util.concurrent.ConcurrentLinkedQueue;
++import java.util.concurrent.atomic.AtomicInteger;
++import javax.imageio.ImageIO;
++import net.badlion.client.common.BadlionClient;
++import org.apache.logging.log4j.LogManager;
++import org.apache.logging.log4j.Logger;
++import org.lwjgl.opengl.GL11;
++import org.lwjgl.opengl.GL30;
++
++public abstract class AbstractTextureRegister {
++    private static AtomicInteger field_5660 = new AtomicInteger(0);
++    private final Map<String, Integer> field_5661 = new HashMap();
++    private final Queue<AbstractTextureRegister.class_2117> field_5662 = new ConcurrentLinkedQueue();
++    private final ByteBuffer field_5663 = ByteBuffer.allocateDirect(33177600);
++    protected static final Logger field_5657 = LogManager.getLogger();
++    private static final IntBuffer field_5664;
++    protected boolean field_5658 = false;
++    protected boolean field_5659 = true;
++
++    public AbstractTextureRegister() {
++        (new Thread(new Runnable() {
++            public void run() {
++                while(!Thread.currentThread().isInterrupted()) {
++                    final AbstractTextureRegister.class_2117 var1;
++                    try {
++                        while((var1 = (AbstractTextureRegister.class_2117)AbstractTextureRegister.this.field_5662.poll()) != null) {
++                            try {
++                                InputStream var2 = AbstractTextureRegister.class.getResourceAsStream("/assets/minecraft/" + var1.field_5666);
++                                final BufferedImage var3 = ImageIO.read(var2);
++                                BadlionClient.minecraft.method_211(new Runnable() {
++                                    public void run() {
++                                        AbstractTextureRegister.this.method_5783(var1.field_5665, var3, var1.field_5667, var1.field_5668);
++                                    }
++                                });
++                            } catch (Exception var6) {
++                                LogManager.getLogger().warn("Something went wrong loading a Badlion resource!", var6);
++                            }
++                        }
++                    } catch (Exception var7) {
++                        LogManager.getLogger().warn("Badlion resource loading was interrupted!", var7);
++                    }
++
++                    try {
++                        Thread.sleep(1L);
++                    } catch (InterruptedException var5) {
++                        return;
++                    }
++                }
++
++            }
++        }, "Badlion-Resource-Thread")).start();
++    }
++
++    public void method_5780(String parameter_1) {
++        Integer var2 = (Integer)this.field_5661.get(parameter_1);
++        if (var2 != null) {
++            BadlionClient.glStateManager.method_107();
++            GL11.glBindTexture(3553, var2);
++        }
++
++    }
++
++    public void method_5781(String parameter_1, BufferedImage parameter_2) {
++        this.method_5782(parameter_1, parameter_2, true);
++    }
++
++    public void method_5782(String parameter_1, BufferedImage parameter_2, boolean parameter_3) {
++        this.method_5783(parameter_1, parameter_2, parameter_3, true);
++    }
++
++    public void method_5783(String parameter_1, BufferedImage parameter_2, boolean parameter_3, boolean parameter_4) {
++        this.field_5663.clear();
++        int[] var5 = new int[parameter_2.getWidth() * parameter_2.getHeight()];
++        parameter_2.getRGB(0, 0, parameter_2.getWidth(), parameter_2.getHeight(), var5, 0, parameter_2.getWidth());
++
++        int var6;
++        for(var6 = 0; var6 < parameter_2.getHeight(); ++var6) {
++            for(int var7 = 0; var7 < parameter_2.getWidth(); ++var7) {
++                int var8 = var5[var6 * parameter_2.getWidth() + var7];
++                this.field_5663.put((byte)(var8 >> 16 & 255));
++                this.field_5663.put((byte)(var8 >> 8 & 255));
++                this.field_5663.put((byte)(var8 & 255));
++                this.field_5663.put((byte)(var8 >> 24 & 255));
++            }
++        }
++
++        this.field_5663.flip();
++        var6 = GL11.glGenTextures();
++        GL11.glBindTexture(3553, var6);
++        GL11.glTexImage2D(3553, 0, 32856, parameter_2.getWidth(), parameter_2.getHeight(), 0, 6408, 5121, this.field_5663);
++        if (parameter_4 && BadlionClient.glStateManager.method_5248()) {
++            GL30.glGenerateMipmap(3553);
++            GL11.glTexParameterf(3553, 34049, -1.0F);
++            if (parameter_3) {
++                GL11.glTexParameteri(3553, 10241, 9987);
++                GL11.glTexParameteri(3553, 10240, 9729);
++            } else {
++                GL11.glTexParameteri(3553, 10241, 9984);
++                GL11.glTexParameteri(3553, 10240, 9728);
++            }
++        } else if (parameter_3) {
++            GL11.glTexParameteri(3553, 10241, 9729);
++            GL11.glTexParameteri(3553, 10240, 9729);
++        } else {
++            GL11.glTexParameteri(3553, 10241, 9728);
++            GL11.glTexParameteri(3553, 10240, 9728);
++        }
++
++        GL11.glBindTexture(3553, 0);
++        this.field_5661.put(parameter_1, var6);
++    }
++
++    public String method_5795(String parameter_1) {
++        String var2 = "badlion_resource_" + field_5660.getAndIncrement();
++        return this.method_5784(var2, parameter_1);
++    }
++
++    public String method_5784(String parameter_1, String parameter_2) {
++        return this.method_5785(parameter_1, parameter_2, true);
++    }
++
++    public String method_5785(String parameter_1, String parameter_2, boolean parameter_3) {
++        return this.method_5786(parameter_1, parameter_2, parameter_3, true);
++    }
++
++    public String method_5786(String parameter_1, String parameter_2, boolean parameter_3, boolean parameter_4) {
++        if (!this.field_5661.containsKey(parameter_1)) {
++            this.field_5661.put(parameter_1, (Object)null);
++            this.field_5662.add(new AbstractTextureRegister.class_2117(parameter_1, parameter_2, parameter_3, parameter_4));
++        }
++
++        return parameter_1;
++    }
++
++    public void method_5797(String parameter_1) {
++        Integer var2 = (Integer)this.field_5661.remove(parameter_1);
++        if (var2 != null) {
++            GL11.glDeleteTextures(var2);
++        }
++
++    }
++
++    public static int method_5778(int parameter_0, ByteBuffer parameter_1, int parameter_2, int parameter_3, boolean parameter_4, boolean parameter_5) {
++        method_5774(parameter_0, 0, parameter_2, parameter_3, 1.0F);
++        return method_5777(parameter_0, parameter_1, parameter_2, parameter_3, 0, 0, parameter_4, parameter_5);
++    }
++
++    public static int method_5776(int parameter_0, BufferedImage parameter_1, boolean parameter_2, boolean parameter_3) {
++        method_5774(parameter_0, 0, parameter_1.getWidth(), parameter_1.getHeight(), 1.0F);
++        return method_5775(parameter_0, parameter_1, 0, 0, parameter_2, parameter_3);
++    }
++
++    private static void method_5774(int parameter_0, int parameter_1, int parameter_2, int parameter_3, float parameter_4) {
++        GL11.glDeleteTextures(parameter_0);
++        GL11.glBindTexture(3553, parameter_0);
++        GL11.glTexImage2D(3553, 0, 6408, parameter_2, parameter_3, 0, 32993, 33639, (IntBuffer)null);
++    }
++
++    private static int method_5775(int parameter_0, BufferedImage parameter_1, int parameter_2, int parameter_3, boolean parameter_4, boolean parameter_5) {
++        GL11.glBindTexture(3553, parameter_0);
++        method_5779(parameter_1, parameter_2, parameter_3, parameter_4, parameter_5);
++        GL30.glGenerateMipmap(3553);
++        return parameter_0;
++    }
++
++    private static int method_5777(int parameter_0, ByteBuffer parameter_1, int parameter_2, int parameter_3, int parameter_4, int parameter_5, boolean parameter_6, boolean parameter_7) {
++        GL11.glBindTexture(3553, parameter_0);
++        method_5787(parameter_1, parameter_2, parameter_3, parameter_4, parameter_5, parameter_6, parameter_7);
++        GL30.glGenerateMipmap(3553);
++        return parameter_0;
++    }
++
++    private static void method_5779(BufferedImage parameter_0, int parameter_1, int parameter_2, boolean parameter_3, boolean parameter_4) {
++        int var5 = parameter_0.getWidth();
++        int var6 = parameter_0.getHeight();
++        int var7 = 4194304 / var5;
++        int[] var8 = new int[var7 * var5];
++        GL11.glTexParameteri(3553, 10241, 9987);
++        method_5791(parameter_4);
++
++        for(int var9 = 0; var9 < var5 * var6; var9 += var5 * var7) {
++            int var10 = var9 / var5;
++            int var11 = Math.min(var7, var6 - var10);
++            int var12 = var5 * var11;
++            parameter_0.getRGB(0, var10, var5, var11, var8, 0, var5);
++            method_5793(var8, var12);
++            GL11.glTexSubImage2D(3553, 0, parameter_1, parameter_2 + var10, var5, var11, 32993, 33639, field_5664);
++        }
++
++    }
++
++    private static void method_5787(ByteBuffer parameter_0, int parameter_1, int parameter_2, int parameter_3, int parameter_4, boolean parameter_5, boolean parameter_6) {
++        int var7 = 4194304 / parameter_1;
++        GL11.glTexParameteri(3553, 10241, 9987);
++        method_5791(parameter_6);
++
++        for(int var8 = 0; var8 < parameter_1 * parameter_2; var8 += parameter_1 * var7) {
++            int var9 = var8 / parameter_1;
++            int var10 = Math.min(var7, parameter_2 - var9);
++            GL11.glTexSubImage2D(3553, 0, parameter_3, parameter_4 + var9, parameter_1, var10, 32993, 33639, parameter_0);
++        }
++
++    }
++
++    private static void method_5791(boolean parameter_0) {
++        if (parameter_0) {
++            GL11.glTexParameteri(3553, 10242, 10496);
++            GL11.glTexParameteri(3553, 10243, 10496);
++        } else {
++            GL11.glTexParameteri(3553, 10242, 10497);
++            GL11.glTexParameteri(3553, 10243, 10497);
++        }
++
++    }
++
++    private static void method_5793(int[] parameter_0, int parameter_1) {
++        method_5794(parameter_0, 0, parameter_1);
++    }
++
++    private static void method_5794(int[] parameter_0, int parameter_1, int parameter_2) {
++        int[] var3 = parameter_0;
++        if (BadlionClient.minecraft.method_229().method_429()) {
++            var3 = method_5792(parameter_0);
++        }
++
++        field_5664.clear();
++        field_5664.put(var3, parameter_1, parameter_2);
++        field_5664.position(0).limit(parameter_2);
++    }
++
++    private static int[] method_5792(int[] parameter_0) {
++        int[] var1 = new int[parameter_0.length];
++
++        for(int var2 = 0; var2 < parameter_0.length; ++var2) {
++            int var3 = parameter_0[var2] >> 24 & 255;
++            int var4 = parameter_0[var2] >> 16 & 255;
++            int var5 = parameter_0[var2] >> 8 & 255;
++            int var6 = parameter_0[var2] & 255;
++            int var7 = (var4 * 30 + var5 * 59 + var6 * 11) / 100;
++            int var8 = (var4 * 30 + var5 * 70) / 100;
++            int var9 = (var4 * 30 + var6 * 70) / 100;
++            var1[var2] = var3 << 24 | var7 << 16 | var8 << 8 | var9;
++        }
++
++        return var1;
++    }
++
++    public static BufferedImage method_5799(String parameter_0) {
++        try {
++            URL var2 = new URL(parameter_0);
++            BufferedImage var1 = ImageIO.read(var2);
++            return var1;
++        } catch (IOException var3) {
++            var3.printStackTrace();
++            return null;
++        }
++    }
++
++    public abstract TextureWrapper method_5773();
++
++    public abstract boolean method_5788(TextureWrapper parameter_1);
++
++    public abstract boolean method_5789(TextureWrapper parameter_1, boolean parameter_2);
++
++    public abstract boolean method_5796(TextureWrapper parameter_1);
++
++    public abstract void method_5798(TextureWrapper parameter_1);
++
++    static {
++        field_5664 = BadlionClient.glAllocation.method_64(4194304);
++    }
++
++    private static class class_2117 {
++        private String field_5665;
++        private String field_5666;
++        private boolean field_5667;
++        private boolean field_5668;
++
++        public class_2117(String parameter_1, String parameter_2, boolean parameter_3, boolean parameter_4) {
++            this.field_5665 = parameter_1;
++            this.field_5666 = parameter_2;
++            this.field_5667 = parameter_3;
++            this.field_5668 = parameter_4;
++        }
++    }
++}

@@ -1,0 +1,11 @@
+--- a/net\badlion\client\common\manager\model\ModelManager.java
++++ b/net\badlion\client\common\manager\model\ModelManager.java
+@@ -115,7 +115,7 @@
+                     while(var36.hasNext()) {
+                         Class_921 var14 = (Class_921)var36.next();
+                         if (this.field_2567.contains(var14.method_2714().field_5450)) {
+-                            Object var15 = (List)this.field_2568.get(var14.method_2714().field_5450);
++                            List var15 = (List)this.field_2568.get(var14.method_2714().field_5450);
+                             if (var15 == null) {
+                                 var15 = new ArrayList();
+                                 this.field_2568.put(var14.method_2714().field_5450, var15);

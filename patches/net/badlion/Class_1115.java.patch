@@ -1,0 +1,12 @@
+--- a/net\badlion\Class_1115.java
++++ b/net\badlion\Class_1115.java
+@@ -27,4 +27,9 @@
+ 
+         parameter_1.fireChannelRead(parameter_2);
+     }
++
++    @Override
++    protected void channelRead0(ChannelHandlerContext channelHandlerContext, Packet packet) throws Exception {
++        method_3191(channelHandlerContext, packet);
+ }
++}

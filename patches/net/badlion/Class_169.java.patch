@@ -1,0 +1,14 @@
+--- a/net\badlion\Class_169.java
++++ b/net\badlion\Class_169.java
+@@ -74,6 +74,11 @@
+             long var9 = var7 + 5000L - System.currentTimeMillis();
+             var9 /= 1000L;
+             this.field_242 = (Class_191)this.field_240.method_731(new Callable<Class_191>() {
++                @Override
++                public Class_191 call() throws Exception {
++                    return method_718();
++                }
++
+                 public Class_191 method_718() {
+                     return var6.method_774();
+                 }

@@ -1,0 +1,26 @@
+--- a/net\badlion\Class_309.java
++++ b/net\badlion\Class_309.java
+@@ -18,7 +18,7 @@
+ import org.apache.commons.lang3.RandomStringUtils;
+ import org.apache.logging.log4j.LogManager;
+ 
+-class Class_309 {
++public class Class_309 {
+     private final Executor field_398 = Executors.newSingleThreadExecutor(new ThreadFactory() {
+         public Thread newThread(Runnable parameter_1) {
+             return new Thread(parameter_1, "NickHider-Thread");
+@@ -28,12 +28,12 @@
+     private final String field_400 = RandomStringUtils.random(6, true, true);
+     private boolean field_401;
+ 
+-    Class_309() {
++    public Class_309() {
+         this.field_399.set(new ArrayList());
+         this.field_401 = false;
+     }
+ 
+-    void method_1147() {
++    public void method_1147() {
+         if (!this.field_401) {
+             this.field_401 = true;
+             this.field_398.execute(new Runnable() {

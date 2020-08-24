@@ -1,0 +1,14 @@
+--- a/net\badlion\client\common\mod\WaypointsMod.java
++++ b/net\badlion\client\common\mod\WaypointsMod.java
+@@ -379,6 +379,11 @@
+ 
+     private void method_1989() {
+         Collections.sort(this.waypoints, new Comparator<WaypointsMod.Class_638>() {
++            @Override
++            public int compare(Class_638 o1, Class_638 o2) {
++                return method_2042(o1, o2);
++            }
++
+             public int method_2042(WaypointsMod.Class_638 parameter_1, WaypointsMod.Class_638 parameter_2) {
+                 return parameter_1.name.compareTo(parameter_2.name);
+             }

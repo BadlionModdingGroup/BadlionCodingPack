@@ -1,0 +1,12 @@
+--- a/net\badlion\Class_214.java
++++ b/net\badlion\Class_214.java
+@@ -66,4 +66,9 @@
+     static {
+         FORMAT = (DecimalFormat)NumberFormat.getInstance(Locale.US);
+     }
++
++    @Override
++    public int compareTo(Class_214 o) {
++        return method_854(o);
+ }
++}

@@ -1,0 +1,13 @@
+--- C:\dev\null
++++ b/io\github\badlionmoddinggroup\badlion\extra\TextExtra.java
+@@ -0,0 +1,10 @@
++package io.github.badlionmoddinggroup.badlion.extra;
++
++import java.util.Date;
++
++public interface TextExtra {
++
++    Date getDate();
++
++    void setDate(Date date);
++}

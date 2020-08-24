@@ -1,0 +1,14 @@
+--- a/net\badlion\Class_1010.java
++++ b/net\badlion\Class_1010.java
+@@ -13,6 +13,11 @@
+         return parameter_1 != Class_1632.Snapping.NONE && parameter_1 != null ? new JsonPrimitive(parameter_1.ordinal()) : new JsonPrimitive(-1);
+     }
+ 
++    @Override
++    protected Class_1632.Snapping method_5282(JsonElement parameter_1) {
++        return method_3021(parameter_1);
++    }
++
+     protected JsonElement method_5283(Class_1632.Snapping parameter_1) {
+         return this.method_3020((Class_1632.Snapping)parameter_1);
+     }

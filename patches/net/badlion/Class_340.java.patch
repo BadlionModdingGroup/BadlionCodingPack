@@ -1,0 +1,11 @@
+--- a/net\badlion\Class_340.java
++++ b/net\badlion\Class_340.java
+@@ -10,7 +10,7 @@
+     private Map<Class_352, Set<Class_345>> field_485 = new HashMap();
+ 
+     private void method_1244(Class_352 parameter_1, Class_345 parameter_2) {
+-        Object var3 = (Set)this.field_485.get(parameter_1);
++        Set<Class_345> var3 = this.field_485.get(parameter_1);
+         if (var3 == null) {
+             this.field_485.put(parameter_1, var3 = new LinkedHashSet());
+         }

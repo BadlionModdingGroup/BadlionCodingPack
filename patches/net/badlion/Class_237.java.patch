@@ -1,0 +1,12 @@
+--- a/net\badlion\Class_237.java
++++ b/net\badlion\Class_237.java
+@@ -51,4 +51,9 @@
+     public String toString() {
+         return this.method_954();
+     }
++
++    @Override
++    public int compareTo(Class_237 o) {
++        return method_955(o);
+ }
++}

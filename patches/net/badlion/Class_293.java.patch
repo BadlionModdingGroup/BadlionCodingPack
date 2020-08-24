@@ -1,0 +1,69 @@
+--- a/net\badlion\Class_293.java
++++ b/net\badlion\Class_293.java
+@@ -4,6 +4,8 @@
+ import com.google.gson.stream.JsonReader;
+ import com.google.gson.stream.JsonToken;
+ import com.google.gson.stream.JsonWriter;
++
++import java.io.IOException;
+ import java.util.Collection;
+ 
+ public abstract class Class_293 extends Class_349<Integer> {
+@@ -17,7 +19,7 @@
+         return ImmutableList.of(this.field_373);
+     }
+ 
+-    public void method_1114(JsonWriter parameter_1, Integer parameter_2) {
++    public void method_1114(JsonWriter parameter_1, Integer parameter_2) throws IOException {
+         if (parameter_2 == null) {
+             parameter_1.nullValue();
+         } else {
+@@ -25,12 +27,12 @@
+         }
+     }
+ 
+-    public Integer method_1113(JsonReader parameter_1) {
++    public Integer method_1113(JsonReader parameter_1) throws IOException {
+         JsonToken var2 = parameter_1.peek();
+         return var2 == JsonToken.NUMBER ? parameter_1.nextInt() : null;
+     }
+ 
+-    public void method_1290(JsonWriter parameter_1, Integer parameter_2) {
++    public void method_1290(JsonWriter parameter_1, Integer parameter_2) throws IOException {
+         this.method_1114(parameter_1, (Integer)parameter_2);
+     }
+ 
+@@ -47,10 +49,15 @@
+ 
+         }
+ 
+-        public void method_1290(JsonWriter parameter_1, Integer parameter_2) {
++        public void method_1290(JsonWriter parameter_1, Integer parameter_2) throws IOException {
+             super.method_1114(parameter_1, (Integer)parameter_2);
+         }
+ 
++        @Override
++        public Integer method_1293(JsonReader parameter_1) throws IOException {
++            return method_1113(parameter_1);
++        }
++
+         public void method_1291(Integer parameter_1, Object parameter_2) {
+             this.method_1116((Integer)parameter_1, parameter_2);
+         }
+@@ -68,10 +75,15 @@
+ 
+         }
+ 
+-        public void method_1290(JsonWriter parameter_1, Integer parameter_2) {
++        public void method_1290(JsonWriter parameter_1, Integer parameter_2) throws IOException {
+             super.method_1114(parameter_1, (Integer)parameter_2);
+         }
+ 
++        @Override
++        public Integer method_1293(JsonReader parameter_1) throws IOException {
++            return method_1113(parameter_1);
++        }
++
+         public void method_1291(Integer parameter_1, Object parameter_2) {
+             this.method_1115((Integer)parameter_1, parameter_2);
+         }

@@ -1,0 +1,28 @@
+--- a/net\badlion\Class_327.java
++++ b/net\badlion\Class_327.java
+@@ -7,6 +7,7 @@
+ import java.util.Iterator;
+ import java.util.Map;
+ import java.util.Map.Entry;
++import java.util.Set;
+ 
+ public final class Class_327 implements Class_377 {
+     private final int field_454;
+@@ -39,7 +40,7 @@
+         Iterator var4 = this.field_456.entrySet().iterator();
+ 
+         while(var4.hasNext()) {
+-            Entry var5 = (Entry)var4.next();
++            Entry<String, Class_437> var5 = (Entry)var4.next();
+             Class_352 var6 = parameter_1.method_1278((String)var5.getKey());
+             if (var6 == null) {
+                 throw new IllegalStateException("Property " + (String)var5.getKey() + " unknown.");
+@@ -64,7 +65,7 @@
+         Iterator var4 = this.field_457.entrySet().iterator();
+ 
+         while(var4.hasNext()) {
+-            Entry var5 = (Entry)var4.next();
++            Entry<String, Class_437> var5 = (Entry)var4.next();
+             Class_352 var6 = parameter_1.method_1278((String)var5.getKey());
+             if (var6 == null) {
+                 throw new IllegalStateException("Property " + (String)var5.getKey() + " unknown.");

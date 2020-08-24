@@ -1,0 +1,14 @@
+--- a/net\badlion\Class_246.java
++++ b/net\badlion\Class_246.java
+@@ -13,6 +13,11 @@
+         return new JsonPrimitive(parameter_1.toLanguageTag());
+     }
+ 
++    @Override
++    protected Locale method_5282(JsonElement parameter_1) {
++        return method_962(parameter_1);
++    }
++
+     public JsonElement method_5283(Locale parameter_1) {
+         return this.method_963((Locale)parameter_1);
+     }

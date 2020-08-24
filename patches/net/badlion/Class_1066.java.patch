@@ -1,0 +1,24 @@
+--- a/net\badlion\Class_1066.java
++++ b/net\badlion\Class_1066.java
+@@ -15,14 +15,19 @@
+         JsonPrimitive var5 = (JsonPrimitive)var4.get("classImpl");
+         String var6 = var5.getAsString();
+         Class var7 = this.method_3109(var6);
+-        return (Class_2027)(new Gson()).fromJson(var4, var7);
++        return (T) (new Gson()).fromJson(var4, var7);
+     }
+ 
+     private Class<T> method_3109(String parameter_1) {
+         try {
+-            return Class.forName(parameter_1);
++            return (Class<T>) Class.forName(parameter_1);
+         } catch (ClassNotFoundException var3) {
+             throw new JsonParseException(var3.getMessage());
+         }
+     }
++
++    @Override
++    public T deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
++        return method_3108(json, typeOfT, context);
+ }
++}

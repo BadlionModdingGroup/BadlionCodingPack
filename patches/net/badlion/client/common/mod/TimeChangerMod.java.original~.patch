@@ -1,0 +1,131 @@
+--- C:\dev\null
++++ b/net\badlion\client\common\mod\TimeChangerMod.java.original~
+@@ -0,0 +1,128 @@
++package net.badlion.client.common.mod;
++
++import net.badlion.Class_1844;
++import net.badlion.Class_1855;
++import net.badlion.Class_1886;
++import net.badlion.Class_2103;
++import net.badlion.client.common.BadlionClient;
++import net.badlion.client.common.event.Event;
++import net.badlion.client.common.event.EventType;
++import net.badlion.client.common.event.MotionUpdate;
++import net.badlion.client.common.gui.mod.config.ModSettingsPage;
++import net.badlion.client.common.util.BoxDimension;
++import net.badlion.tags.GsonSerialised;
++import org.apache.commons.lang3.mutable.MutableBoolean;
++import org.apache.commons.lang3.mutable.MutableDouble;
++
++public class TimeChangerMod extends AbstractMod {
++    @GsonSerialised
++    private MutableDouble timeMultiplier = new MutableDouble(1.0D);
++    @GsonSerialised
++    private MutableBoolean timeFrozen = new MutableBoolean(false);
++    @GsonSerialised
++    private MutableDouble time = new MutableDouble(0.0D);
++    private transient Class_1844<TimeChangerMod.class_120> field_156;
++    private transient TimeChangerMod.class_120 field_157;
++    private transient long field_158;
++
++    public TimeChangerMod() {
++        super("TimeChanger", "Change the time of the day or speed of day cycle", false);
++        this.field_157 = TimeChangerMod.class_120.ALWAYS_DAY;
++        this.field_158 = 0L;
++        this.iconDimension = new BoxDimension(90, 90);
++    }
++
++    public boolean method_595() {
++        return this.timeFrozen.booleanValue();
++    }
++
++    public void init() {
++        this.registerEvent(EventType.MOTION_UPDATE);
++        super.init();
++    }
++
++    public void reset() {
++        this.timeMultiplier.setValue(0.0D);
++        this.timeFrozen.setValue(false);
++        this.time.setValue(0.0D);
++        super.reset();
++    }
++
++    public void createSettingsPage(Class_1886 parameter_1) {
++        this.modSettingsPage = new ModSettingsPage(parameter_1, this);
++        this.modSettingsPage.addSetting(new ModFeatureEnabledBool("Freeze Time", this.timeFrozen));
++        this.field_156 = new Class_1844("Time Preset", this.field_157, TimeChangerMod.class_120.values(), new Class_2103<TimeChangerMod.class_120>() {
++            public void method_600(TimeChangerMod.class_120 parameter_1) {
++                TimeChangerMod.this.time.setValue((double)parameter_1.getTime());
++                TimeChangerMod.this.field_157 = parameter_1;
++            }
++
++            public void method_5724(TimeChangerMod.class_120 parameter_1) {
++                this.method_600((TimeChangerMod.class_120)parameter_1);
++            }
++        });
++        this.modSettingsPage.addSetting(this.field_156);
++        this.modSettingsPage.addSetting(new Class_1855("Time", this.time, 0.0D, 24000.0D, 10.0D));
++        this.modSettingsPage.addSetting(new Class_1855("Time Speed", this.timeMultiplier, 0.0D, 20.0D, 0.1D));
++        super.createSettingsPage(parameter_1);
++    }
++
++    public void event(Event parameter_1) {
++        if (this.isEnabled() && parameter_1 instanceof MotionUpdate) {
++            if (!this.timeFrozen.booleanValue()) {
++                this.field_158 = (long)((double)this.field_158 + 1.0D * this.timeMultiplier.doubleValue());
++                BadlionClient.minecraft.getMinecraft().method_332(this.field_158);
++            }
++
++            this.field_157 = this.method_596((int)this.time.getValue());
++            this.field_156.method_4997(this.field_157);
++        }
++
++        super.event(parameter_1);
++    }
++
++    public long method_597(long parameter_1, long parameter_3) {
++        return this.timeFrozen.booleanValue() ? this.time.getValue().longValue() : parameter_3;
++    }
++
++    private TimeChangerMod.class_120 method_596(int parameter_1) {
++        int var2 = Math.abs(TimeChangerMod.class_120.ALWAYS_DAY.time - parameter_1);
++        TimeChangerMod.class_120 var3 = TimeChangerMod.class_120.ALWAYS_DAY;
++        TimeChangerMod.class_120[] var4 = TimeChangerMod.class_120.values();
++        int var5 = var4.length;
++
++        for(int var6 = 0; var6 < var5; ++var6) {
++            TimeChangerMod.class_120 var7 = var4[var6];
++            int var8 = Math.abs(var7.time - parameter_1);
++            if (var8 < var2) {
++                var3 = var7;
++                var2 = var8;
++            }
++        }
++
++        return var3;
++    }
++
++    private static enum class_120 {
++        ALWAYS_DAY(0, "Always Day"),
++        ALWAYS_NIGHT(15000, "Always Night"),
++        ALWAYS_MIDNIGHT(18000, "Always Midnight"),
++        ALWAYS_SUNSET(13150, "Always Sunset");
++
++        private int time;
++        private String niceName;
++
++        private class_120(int parameter_3, String parameter_4) {
++            this.time = parameter_3;
++            this.niceName = parameter_4;
++        }
++
++        public String toString() {
++            return this.niceName;
++        }
++
++        public int getTime() {
++            return this.time;
++        }
++    }
++}

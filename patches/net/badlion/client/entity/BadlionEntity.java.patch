@@ -1,0 +1,21 @@
+--- a/net\badlion\client\entity\BadlionEntity.java
++++ b/net\badlion\client\entity\BadlionEntity.java
+@@ -3,6 +3,9 @@
+ import java.util.ArrayList;
+ import java.util.List;
+ import java.util.UUID;
++
++import io.github.badlionmoddinggroup.badlion.extra.EntityExtra;
++import io.github.badlionmoddinggroup.badlion.extra.ItemStackExtra;
+ import net.badlion.Class_43;
+ import net.badlion.client.common.entity.EntityWrapper;
+ import net.badlion.client.common.item.tag.ITag;
+@@ -166,7 +169,7 @@
+ 
+     public EntityWrapper method_845() {
+         Entity var1 = this.minecraftEntity.hasVehicle;
+-        return var1 == null ? null : var1.getBadlionEntity();
++        return var1 == null ? null : ((EntityExtra) var1).getBadlionEntity();
+     }
+ 
+     public boolean method_846() {

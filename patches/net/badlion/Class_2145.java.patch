@@ -1,0 +1,11 @@
+--- a/net\badlion\Class_2145.java
++++ b/net\badlion\Class_2145.java
+@@ -34,7 +34,7 @@
+                     int var2 = ((KeyBinding)var1.getKey()).getCode();
+                     if (var2 < 256 && var2 >= 0) {
+                         if (Keyboard.isKeyDown(var2)) {
+-                            ((KeyBinding)var1.getKey()).setPressed(true);
++                            ((KeyBinding)var1.getKey()).pressed = (true);
+                             ((MutableBoolean)var1.getValue()).setFalse();
+                         }
+                     } else {

@@ -1,0 +1,10 @@
+--- C:\dev\null
++++ b/io\github\badlionmoddinggroup\badlion\extra\BadlionClass_674.java
+@@ -0,0 +1,7 @@
++package io.github.badlionmoddinggroup.badlion.extra;
++
++public class BadlionClass_674 {
++    public static void handleCommand(String parameter_1) {
++        //FIXME: implement
++    }
++}

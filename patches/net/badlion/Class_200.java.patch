@@ -1,0 +1,14 @@
+--- a/net\badlion\Class_200.java
++++ b/net\badlion\Class_200.java
+@@ -31,6 +31,11 @@
+         return var2 == null ? new Class_191(false) : (Class_191)var2;
+     }
+ 
++    @Override
++    public Class_191 method_767() {
++        return method_774();
++    }
++
+     public Class_186 method_768() {
+         return Class_186.LOGIN;
+     }

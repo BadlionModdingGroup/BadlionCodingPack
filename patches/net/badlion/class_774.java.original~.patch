@@ -1,0 +1,99 @@
+--- C:\dev\null
++++ b/net\badlion\class_774.java.original~
+@@ -0,0 +1,96 @@
++package net.badlion;
++
++import java.util.List;
++import net.badlion.client.common.util.Colour;
++import net.badlion.tags.GsonSerialised;
++import net.minecraft.client.MinecraftClient;
++import net.minecraft.client.font.TextRenderer;
++
++public class Class_774 implements Class_874 {
++    @GsonSerialised
++    public static boolean RENDER_CHROMA = false;
++    private final TextRenderer field_2079;
++
++    public Class_774(TextRenderer parameter_1) {
++        this.field_2079 = parameter_1;
++    }
++
++    public int method_2542() {
++        return this.field_2079.fontHeight;
++    }
++
++    public int method_2545(String parameter_1) {
++        return this.field_2079.getStringWidth(parameter_1);
++    }
++
++    public int method_2543(char parameter_1) {
++        return this.field_2079.method_2382(parameter_1);
++    }
++
++    public List<String> method_2547(String parameter_1, int parameter_2) {
++        return this.field_2079.wrapLines(parameter_1, parameter_2);
++    }
++
++    public int method_2546(String parameter_1, float parameter_2, float parameter_3, int parameter_4, boolean parameter_5) {
++        return this.field_2079.draw(parameter_1, parameter_2, parameter_3, parameter_4, parameter_5);
++    }
++
++    public int method_2548(String parameter_1, int parameter_2, int parameter_3, int parameter_4) {
++        return this.field_2079.draw(parameter_1, parameter_2, parameter_3, parameter_4);
++    }
++
++    public int method_2549(String parameter_1, int parameter_2, int parameter_3, Colour parameter_4) {
++        return this.method_2550(parameter_1, parameter_2, parameter_3, parameter_4, false);
++    }
++
++    public int method_2550(String parameter_1, int parameter_2, int parameter_3, Colour parameter_4, boolean parameter_5) {
++        if (parameter_4.method_2781() == Colour.ColorMode.CHROMA) {
++            RENDER_CHROMA = true;
++            int var6 = this.field_2079.draw(parameter_1, (float)parameter_2, (float)parameter_3, -1, parameter_5);
++            RENDER_CHROMA = false;
++            return var6;
++        } else {
++            return this.field_2079.draw(parameter_1, (float)parameter_2, (float)parameter_3, parameter_4.method_2792(), parameter_5);
++        }
++    }
++
++    public int method_2552(String parameter_1, int parameter_2, int parameter_3, int parameter_4) {
++        return this.field_2079.drawWithShadow(parameter_1, (float)parameter_2, (float)parameter_3, parameter_4);
++    }
++
++    public float method_2551() {
++        return this.field_2079.field_2823;
++    }
++
++    public float method_2553() {
++        return this.field_2079.field_2824;
++    }
++
++    public byte[] method_2554() {
++        return this.field_2079.field_2819;
++    }
++
++    public void method_2544(int parameter_1) {
++        this.field_2079.method_2400(parameter_1);
++    }
++
++    public void method_2555() {
++        MinecraftClient.getInstance().getTextureManager().bindTexture(this.field_2079.fontTexture);
++    }
++
++    public float method_2556() {
++        return this.field_2079.offsetBold;
++    }
++
++    public TextRenderer method_3140() {
++        return this.field_2079;
++    }
++
++    @GsonSerialised
++    public static void applyChromaIfUsed(boolean parameter_0, float parameter_1, float parameter_2) {
++        if (RENDER_CHROMA && !parameter_0) {
++            Class_2125.bindHexColorRGBA(Class_2125.getChromaColor((int)parameter_1, (int)parameter_2));
++        }
++
++    }
++}

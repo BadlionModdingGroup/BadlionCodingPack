@@ -1,0 +1,76 @@
+--- a/net\badlion\client\session\BadlionSessionManager.java
++++ b/net\badlion\client\session\BadlionSessionManager.java
+@@ -14,6 +14,7 @@
+ import net.minecraft.util.Identifier;
+ import org.apache.logging.log4j.LogManager;
+ 
++//FIXME
+ public class BadlionSessionManager extends AbstractSessionManager {
+     private Map<UUID, GameProfile> profiles = new HashMap();
+ 
+@@ -26,41 +27,41 @@
+             LogManager.getLogger().info("Skin Lookup: " + var2.toString());
+             GameProfile var3 = new GameProfile(var2, parameter_1.getUsername());
+             this.profiles.put(var2, var3);
+-            MinecraftClient.getInstance().getSkinProvider().loadProfileTextures(var3, new SkinTextureAvailableCallback() {
+-                public void method_2593(Type parameter_1, Identifier parameter_2, MinecraftProfileTexture parameter_3) {
+-                    if (parameter_1.equals(Type.SKIN)) {
+-                        LogManager.getLogger().info("Skin Lookup Finished: " + var2.toString() + " file: " + parameter_2.toString());
+-                        BadlionSessionManager.this.field_5637.put(var2, new MinecraftTexture(parameter_2));
++//            MinecraftClient.getInstance().getSkinProvider().loadProfileTextures(var3, new SkinTextureAvailableCallback() {
++//                public void method_2593(Type parameter_1, Identifier parameter_2, MinecraftProfileTexture parameter_3) {
++//                    if (parameter_1.equals(Type.SKIN)) {
++//                        LogManager.getLogger().info("Skin Lookup Finished: " + var2.toString() + " file: " + parameter_2.toString());
++//                        BadlionSessionManager.this.field_5637.put(var2, new MinecraftTexture(parameter_2));
++//                    }
++//
++//                }
++//            }, false, true);
+                     }
+ 
+                 }
+-            }, false, true);
+-        }
+ 
+-    }
+-
+     public void method_5729(final UUID parameter_1, String parameter_2) {
+         if (!this.profiles.containsKey(parameter_1)) {
+             GameProfile var3 = new GameProfile(parameter_1, parameter_2);
+             this.profiles.put(parameter_1, var3);
+-            MinecraftClient.getInstance().getSkinProvider().loadProfileTextures(var3, new SkinTextureAvailableCallback() {
+-                public void method_2615(Type parameter_1x, Identifier parameter_2, MinecraftProfileTexture parameter_3) {
+-                    if (parameter_1x.equals(Type.SKIN)) {
+-                        LogManager.getLogger().info("Skin Lookup Finished: " + parameter_1.toString() + " file: " + parameter_2.toString());
+-                        BadlionSessionManager.this.field_5637.put(parameter_1, new MinecraftTexture(parameter_2));
+-                        String var4 = parameter_3.getMetadata("model");
+-                        if (var4 == null) {
+-                            var4 = "default";
++//            MinecraftClient.getInstance().getSkinProvider().loadProfileTextures(var3, new SkinTextureAvailableCallback() {
++//                public void method_2615(Type parameter_1x, Identifier parameter_2, MinecraftProfileTexture parameter_3) {
++//                    if (parameter_1x.equals(Type.SKIN)) {
++//                        LogManager.getLogger().info("Skin Lookup Finished: " + parameter_1.toString() + " file: " + parameter_2.toString());
++//                        BadlionSessionManager.this.field_5637.put(parameter_1, new MinecraftTexture(parameter_2));
++//                        String var4 = parameter_3.getMetadata("model");
++//                        if (var4 == null) {
++//                            var4 = "default";
++//                        }
++//
++//                        BadlionSessionManager.this.field_5638.put(parameter_1, var4);
++//                    }
++//
++//                }
++//            }, false, true);
+                         }
+-
+-                        BadlionSessionManager.this.field_5638.put(parameter_1, var4);
+                     }
+ 
+-                }
+-            }, false, true);
+-        }
+-    }
+-
+     public SessionWrapper method_5731(AbstractSessionManager.Class_2107 parameter_1) {
+         return new BadlionSession(parameter_1.method_5740(), parameter_1.method_5743(), parameter_1.method_5742(), parameter_1.method_5737() ? "MOJANG" : "LEGACY", parameter_1.method_5744());
+     }

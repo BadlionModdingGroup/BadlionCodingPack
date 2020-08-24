@@ -1,0 +1,89 @@
+--- C:\dev\null
++++ b/net\badlion\client\mods\sba\PowerOrbManager.java.original~
+@@ -0,0 +1,86 @@
++package net.badlion.client.mods.sba;
++
++import java.util.HashMap;
++import java.util.Iterator;
++import java.util.Map;
++import java.util.Map.Entry;
++import java.util.regex.Matcher;
++import java.util.regex.Pattern;
++import net.badlion.client.common.BadlionClient;
++import net.badlion.client.common.colour.TextColour;
++import net.badlion.client.common.entity.EntityWrapper;
++
++public class PowerOrbManager {
++    private static final Pattern field_5284 = Pattern.compile("[^0-9]");
++    private static final Pattern field_5285 = Pattern.compile("[A-Za-z ]* (?<seconds>[0-9]*)s");
++    public static final PowerOrbManager.PowerOrbEntry field_5283;
++    private Map<PowerOrb, PowerOrbManager.PowerOrbEntry> PowerOrbEntryMap = new HashMap();
++
++    private void put(PowerOrb parameter_1, int parameter_2) {
++        this.PowerOrbEntryMap.put(parameter_1, new PowerOrbManager.PowerOrbEntry(parameter_1, parameter_2));
++    }
++
++    public PowerOrbManager.PowerOrbEntry getActivePowerOrb() {
++        Entry var1 = null;
++        Iterator var2 = this.PowerOrbEntryMap.entrySet().iterator();
++
++        while(var2.hasNext()) {
++            Entry var3 = (Entry)var2.next();
++            if (((PowerOrbManager.PowerOrbEntry)var3.getValue()).detectPowerOrb + 100L > System.currentTimeMillis()) {
++                if (var1 == null) {
++                    var1 = var3;
++                } else if (((PowerOrb)var1.getKey()).compareTo((Enum)var3.getKey()) < 0) {
++                    var1 = var3;
++                }
++            }
++        }
++
++        return var1 == null ? null : (PowerOrbManager.PowerOrbEntry)var1.getValue();
++    }
++
++    public void detectPowerOrb(EntityWrapper parameter_1) {
++        String var2 = parameter_1.getCustomNameTag();
++        PowerOrb var3 = PowerOrb.getByDisplayname(var2);
++        if (var3 != null && BadlionClient.minecraft.getPlayer() != null && var3.isInRadius(parameter_1.getDistanceSqToEntity(BadlionClient.minecraft.getPlayer()))) {
++            var2 = TextColour.getTextWithoutFormattingCodes(var2);
++            Matcher var4 = field_5285.matcher(var2);
++            if (var4.matches()) {
++                String var5 = var4.group("seconds");
++
++                try {
++                    this.put(var3, Integer.parseInt(var5));
++                } catch (NumberFormatException var7) {
++                }
++            }
++        }
++
++    }
++
++    public static String method_5377(String parameter_0) {
++        return field_5284.matcher(parameter_0).replaceAll("");
++    }
++
++    static {
++        field_5283 = new PowerOrbManager.PowerOrbEntry(PowerOrb.RADIANT, 20);
++    }
++
++    public static class PowerOrbEntry {
++        private final PowerOrb powerOrb;
++        private final int seconds;
++        private final long detectPowerOrb;
++
++        private PowerOrbEntry(PowerOrb parameter_1, int parameter_2) {
++            this.powerOrb = parameter_1;
++            this.seconds = parameter_2;
++            this.detectPowerOrb = System.currentTimeMillis();
++        }
++
++        public PowerOrb gePowerOrb() {
++            return this.powerOrb;
++        }
++
++        public int getSeconds() {
++            return this.seconds;
++        }
++    }
++}

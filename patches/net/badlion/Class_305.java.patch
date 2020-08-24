@@ -1,0 +1,32 @@
+--- a/net\badlion\Class_305.java
++++ b/net\badlion\Class_305.java
+@@ -28,7 +28,7 @@
+     private final Map<String, String> field_389 = new HashMap();
+     private final Set<String> field_390 = new HashSet();
+ 
+-    void method_1135(NickHiderMod parameter_1) {
++    public void method_1135(NickHiderMod parameter_1) {
+         Class_27 var2 = BadlionClient.minecraft.method_237();
+         if (var2 != null && var2.method_5259()) {
+             Class_8 var3 = var2.method_5260();
+@@ -155,7 +155,7 @@
+         }
+     }
+ 
+-    void method_1132() {
++    public void method_1132() {
+         this.field_388.clear();
+         this.field_389.clear();
+         this.field_390.clear();
+@@ -170,6 +170,11 @@
+                 Class_299 var5 = new Class_299(Pattern.compile(parameter_1, var4), parameter_1, Pattern.compile(parameter_2, var4), parameter_2);
+                 this.field_388.add(var5);
+                 Collections.sort(this.field_388, new Comparator<Class_299>() {
++                    @Override
++                    public int compare(Class_299 o1, Class_299 o2) {
++                        return method_1137(o1, o2);
++                    }
++
+                     public int method_1137(Class_299 parameter_1, Class_299 parameter_2) {
+                         return Integer.compare(parameter_2.method_1125().length(), parameter_1.method_1125().length());
+                     }

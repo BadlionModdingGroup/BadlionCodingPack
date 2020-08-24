@@ -1,0 +1,20 @@
+--- a/net\badlion\Class_336.java
++++ b/net\badlion\Class_336.java
+@@ -22,7 +22,7 @@
+     }
+ 
+     private void method_1227(Class_352 parameter_1, Class_345 parameter_2) {
+-        Object var3 = (Set)this.field_481.get(parameter_1);
++        Set<Class_345> var3 = this.field_481.get(parameter_1);
+         if (var3 == null) {
+             this.field_481.put(parameter_1, var3 = new LinkedHashSet());
+         }
+@@ -206,7 +206,7 @@
+                     }
+                 }
+ 
+-                return Class_437.method_1565(var14);
++                return (Class_437<T>) Class_437.method_1565(var14);
+             } else {
+                 return Class_437.method_1564();
+             }

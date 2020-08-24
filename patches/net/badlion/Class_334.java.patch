@@ -1,0 +1,14 @@
+--- a/net\badlion\Class_334.java
++++ b/net\badlion\Class_334.java
+@@ -52,6 +52,11 @@
+             throw new IllegalStateException("No segments have been added yet.");
+         } else {
+             Collections.sort(this.field_475, new Comparator<Class_347>() {
++                @Override
++                public int compare(Class_347 o1, Class_347 o2) {
++                    return method_1224(o1, o2);
++                }
++
+                 public int method_1224(Class_347 parameter_1, Class_347 parameter_2) {
+                     return Long.compare(parameter_1.method_1273().method_1256(), parameter_2.method_1273().method_1256());
+                 }

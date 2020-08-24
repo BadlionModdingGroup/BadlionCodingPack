@@ -1,0 +1,19 @@
+--- C:\dev\null
++++ b/b$8.java.original~
+@@ -0,0 +1,16 @@
++import java.util.concurrent.Callable;
++import net.minecraft.util.crash.CrashReport;
++
++class b$8 implements Callable<String> {
++    b$8(CrashReport parameter_1) {
++        this.this$0 = parameter_1;
++    }
++
++    public String call() {
++        // $FF: Couldn't be decompiled
++    }
++
++    public String call() {
++        // $FF: Couldn't be decompiled
++    }
++}

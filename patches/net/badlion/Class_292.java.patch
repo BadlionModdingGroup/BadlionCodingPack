@@ -1,0 +1,25 @@
+--- a/net\badlion\Class_292.java
++++ b/net\badlion\Class_292.java
+@@ -47,7 +47,12 @@
+         return var1;
+     }
+ 
+-    public void method_1392(JsonWriter parameter_1, Class_339 parameter_2) {
++    @Override
++    public Class_348 method_1393() {
++        return method_1393();
++    }
++
++    public void method_1392(JsonWriter parameter_1, Class_339 parameter_2) throws IOException {
+         if (parameter_2 instanceof Class_340) {
+             parameter_1.value("linear");
+         } else if (parameter_2 instanceof Class_337) {
+@@ -65,7 +70,7 @@
+ 
+     }
+ 
+-    public Class_339 method_1391(JsonReader parameter_1) {
++    public Class_339 method_1391(JsonReader parameter_1) throws IOException {
+         JsonToken var2 = parameter_1.peek();
+         if (var2 == JsonToken.STRING) {
+             String var4 = parameter_1.nextString();

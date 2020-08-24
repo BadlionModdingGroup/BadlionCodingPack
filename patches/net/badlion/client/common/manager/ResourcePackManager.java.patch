@@ -1,0 +1,79 @@
+--- a/net\badlion\client\common\manager\ResourcePackManager.java
++++ b/net\badlion\client\common\manager\ResourcePackManager.java
+@@ -93,9 +93,9 @@
+         (new Thread(new Runnable() {
+             public void run() {
+                 while(!Thread.currentThread().isInterrupted()) {
+-                    final Class_1098 var1;
++                    Class_1098 var1;
+                     try {
+-                        while((var1 = (Class_1098)ResourcePackManager.this.field_2002.poll()) != null) {
++                        while((var1 = ResourcePackManager.this.field_2002.poll()) != null) {
+                             if (var1.thumbnailLocation == null) {
+                                 HttpURLConnection var2 = null;
+ 
+@@ -105,7 +105,7 @@
+                                     InputStream var4 = var2.getInputStream();
+                                     Throwable var5 = null;
+ 
+-                                    final BufferedImage var3;
++                                    BufferedImage var3;
+                                     try {
+                                         var3 = ImageIO.read(var4);
+                                     } catch (Throwable var28) {
+@@ -133,9 +133,11 @@
+                                             var3 = var33;
+                                         }
+ 
++                                        Class_1098 finalVar = var1;
++                                        BufferedImage finalVar1 = var3;
+                                         BadlionClient.minecraft.method_211(new Runnable() {
+                                             public void run() {
+-                                                var1.thumbnailLocation = BadlionClient.minecraft.getTextureManager().loadTexture("rp_24_" + var1.rp_id, var3);
++                                                finalVar.thumbnailLocation = BadlionClient.minecraft.getTextureManager().loadTexture("rp_24_" + finalVar.rp_id, finalVar1);
+                                             }
+                                         });
+                                     }
+@@ -164,13 +166,13 @@
+         }, "RP24-Thumbnail-Thread")).start();
+         (new Thread(new Runnable() {
+             public void run() {
+-                final int var2 = 0;
++                int var2 = 0;
+ 
+                 while(!Thread.currentThread().isInterrupted()) {
+                     try {
+                         label258:
+                         while(true) {
+-                            final Class_1098.Class_1099 var1;
++                            Class_1098.Class_1099 var1;
+                             do {
+                                 if ((var1 = (Class_1098.Class_1099)ResourcePackManager.this.field_2003.poll()) == null) {
+                                     break label258;
+@@ -185,7 +187,7 @@
+                                 InputStream var5 = var3.getInputStream();
+                                 Throwable var6 = null;
+ 
+-                                final BufferedImage var4;
++                                BufferedImage var4;
+                                 try {
+                                     var4 = ImageIO.read(var5);
+                                 } catch (Throwable var27) {
+@@ -217,11 +219,14 @@
+                                     }
+ 
+                                     ++var2;
++                                    Class_1098.Class_1099 finalVar = var1;
++                                    BufferedImage finalVar1 = var4;
++                                    int finalVar2 = var2;
+                                     BadlionClient.minecraft.method_211(new Runnable() {
+                                         public void run() {
+-                                            var1.screenshotLocation = BadlionClient.minecraft.getTextureManager().loadTexture("rp_24_ss_" + var2, var4);
+-                                            var1.width = var4.getWidth();
+-                                            var1.height = var4.getHeight();
++                                            finalVar.screenshotLocation = BadlionClient.minecraft.getTextureManager().loadTexture("rp_24_ss_" + finalVar2, finalVar1);
++                                            finalVar.width = finalVar1.getWidth();
++                                            finalVar.height = finalVar1.getHeight();
+                                         }
+                                     });
+                                 }

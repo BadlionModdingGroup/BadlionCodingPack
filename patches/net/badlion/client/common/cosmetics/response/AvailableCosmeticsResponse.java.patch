@@ -1,0 +1,11 @@
+--- a/net\badlion\client\common\cosmetics\response\AvailableCosmeticsResponse.java
++++ b/net\badlion\client\common\cosmetics\response\AvailableCosmeticsResponse.java
+@@ -28,7 +28,7 @@
+ 
+         while(var2.hasNext()) {
+             Cosmetic var3 = (Cosmetic)var2.next();
+-            Object var4 = (List)this.ownedCosmeticCache.get(var3.getType());
++            List<Cosmetic> var4 = this.ownedCosmeticCache.get(var3.getType());
+             if (var4 == null) {
+                 var4 = new ArrayList();
+                 this.ownedCosmeticCache.put(var3.getType(), var4);

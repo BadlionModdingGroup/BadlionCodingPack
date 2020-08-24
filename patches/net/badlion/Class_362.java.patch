@@ -1,0 +1,47 @@
+--- a/net\badlion\Class_362.java
++++ b/net\badlion\Class_362.java
+@@ -2,6 +2,8 @@
+ 
+ import com.google.gson.stream.JsonReader;
+ import com.google.gson.stream.JsonWriter;
++
++import java.io.IOException;
+ import java.io.StringReader;
+ import java.io.StringWriter;
+ import java.util.ArrayList;
+@@ -9,7 +11,7 @@
+ import java.util.List;
+ 
+ public class Class_362 {
+-    public static List<Class_361> method_1334(String parameter_0) {
++    public static List<Class_361> method_1334(String parameter_0) throws IOException {
+         ArrayList var1 = new ArrayList();
+         JsonReader var2 = new JsonReader(new StringReader(parameter_0));
+         var2.beginArray();
+@@ -22,7 +24,7 @@
+         return var1;
+     }
+ 
+-    private static Class_361 method_1333(JsonReader parameter_0) {
++    private static Class_361 method_1333(JsonReader parameter_0) throws IOException {
+         Class_361 var1 = new Class_361();
+         parameter_0.beginObject();
+ 
+@@ -74,7 +76,7 @@
+         }
+     }
+ 
+-    public static String method_1335(List<Class_361> parameter_0) {
++    public static String method_1335(List<Class_361> parameter_0) throws IOException {
+         StringWriter var1 = new StringWriter();
+         JsonWriter var2 = new JsonWriter(var1);
+         var2.beginArray();
+@@ -89,7 +91,7 @@
+         return var1.toString();
+     }
+ 
+-    private static void method_1336(Class_361 parameter_0, JsonWriter parameter_1) {
++    private static void method_1336(Class_361 parameter_0, JsonWriter parameter_1) throws IOException {
+         parameter_1.beginObject();
+         parameter_1.name("realTimestamp").value((long)parameter_0.method_1322());
+         parameter_1.name("value");

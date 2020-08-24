@@ -1,0 +1,41 @@
+--- a/net\badlion\client\session\BadlionSession.java
++++ b/net\badlion\client\session\BadlionSession.java
+@@ -12,11 +12,12 @@
+     }
+ 
+     public BadlionSession(String parameter_1, String parameter_2, String parameter_3, String parameter_4, String parameter_5) {
+-        this.minecraftSession = new Session(parameter_1, parameter_2, parameter_3, parameter_4, parameter_5);
++        this.minecraftSession = new Session(parameter_1, parameter_2, parameter_3, parameter_4);
+     }
+ 
+     public void setToken(String parameter_1) {
+-        this.minecraftSession.setToken(parameter_1);
++//        FIXME
++//        this.minecraftSession.accessToken = (parameter_1);
+     }
+ 
+     public String getSessionId() {
+@@ -28,8 +29,12 @@
+     }
+ 
+     public UUID getPlayerUuid() {
+-        return this.minecraftSession.getPlayerUUID();
++        try{
++            return UUID.fromString(this.minecraftSession.getUuid());
++        }catch (Exception e){
++            return UUID.randomUUID();
+     }
++    }
+ 
+     public String getUsername() {
+         return this.minecraftSession.getUsername();
+@@ -44,6 +49,8 @@
+     }
+ 
+     public String getUserId() {
+-        return this.minecraftSession.getUserId();
++        //FIXME: yes
++        return "UserID";
++//        return this.minecraftSession.userID();
+     }
+ }

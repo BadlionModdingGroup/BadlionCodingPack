@@ -1,0 +1,456 @@
+--- C:\dev\null
++++ b/net\badlion\class_1117.java.original~
+@@ -0,0 +1,453 @@
++package net.badlion;
++
++import com.google.common.collect.Lists;
++import com.google.common.collect.Sets;
++import io.netty.buffer.Unpooled;
++import java.util.ArrayList;
++import java.util.Collections;
++import java.util.HashSet;
++import java.util.Iterator;
++import java.util.LinkedList;
++import java.util.List;
++import net.badlion.client.common.BadlionClient;
++import net.badlion.client.mods.replaymod.ReplayManager;
++import net.minecraft.Class_1516;
++import net.minecraft.block.Block;
++import net.minecraft.block.entity.BlockEntity;
++import net.minecraft.client.MinecraftClient;
++import net.minecraft.client.network.ClientPlayNetworkHandler;
++import net.minecraft.client.network.ClientPlayerEntity;
++import net.minecraft.client.network.ClientPlayerInteractionManager;
++import net.minecraft.client.network.PlayerListEntry;
++import net.minecraft.client.world.ClientWorld;
++import net.minecraft.entity.EndCrystalEntity;
++import net.minecraft.entity.Entity;
++import net.minecraft.entity.EntityCategoryProvider;
++import net.minecraft.entity.ExperienceOrbEntity;
++import net.minecraft.entity.ExplodingTntEntity;
++import net.minecraft.entity.FallingBlockEntity;
++import net.minecraft.entity.FireworkEntity;
++import net.minecraft.entity.ItemEntity;
++import net.minecraft.entity.LivingEntity;
++import net.minecraft.entity.decoration.ArmorStandEntity;
++import net.minecraft.entity.decoration.ItemFrameEntity;
++import net.minecraft.entity.decoration.LeadKnotEntity;
++import net.minecraft.entity.decoration.PaintingEntity;
++import net.minecraft.entity.effect.StatusEffectInstance;
++import net.minecraft.entity.mob.MobEntity;
++import net.minecraft.entity.player.PlayerEntity;
++import net.minecraft.entity.player.ServerPlayerEntity;
++import net.minecraft.entity.projectile.ArrowEntity;
++import net.minecraft.entity.projectile.FishingBobberEntity;
++import net.minecraft.entity.projectile.ProjectileEntity;
++import net.minecraft.entity.projectile.SmallFireballEntity;
++import net.minecraft.entity.projectile.WitherSkullEntity;
++import net.minecraft.entity.thrown.EggEntity;
++import net.minecraft.entity.thrown.EnderPearlEntity;
++import net.minecraft.entity.thrown.ExperienceBottleEntity;
++import net.minecraft.entity.thrown.EyeOfEnderEntity;
++import net.minecraft.entity.thrown.PotionEntity;
++import net.minecraft.entity.thrown.SnowballEntity;
++import net.minecraft.entity.vehicle.AbstractMinecartEntity;
++import net.minecraft.entity.vehicle.BoatEntity;
++import net.minecraft.item.ItemStack;
++import net.minecraft.nbt.CompoundTag;
++import net.minecraft.network.ClientConnection;
++import net.minecraft.network.Packet;
++import net.minecraft.network.packet.s2c.play.CustomPayloadS2CPacket;
++import net.minecraft.network.packet.s2c.play.EntityAttachS2CPacket;
++import net.minecraft.network.packet.s2c.play.EntityEquipmentUpdateS2CPacket;
++import net.minecraft.network.packet.s2c.play.EntitySetHeadYawS2CPacket;
++import net.minecraft.network.packet.s2c.play.EntitySpawnS2CPacket;
++import net.minecraft.network.packet.s2c.play.EntityStatusEffectS2CPacket;
++import net.minecraft.network.packet.s2c.play.EntityTrackerUpdateS2CPacket;
++import net.minecraft.network.packet.s2c.play.ExperienceOrbSpawnS2CPacket;
++import net.minecraft.network.packet.s2c.play.GameJoinS2CPacket;
++import net.minecraft.network.packet.s2c.play.HeldItemChangeS2CPacket;
++import net.minecraft.network.packet.s2c.play.MobSpawnS2CPacket;
++import net.minecraft.network.packet.s2c.play.PaintingSpawnS2CPacket;
++import net.minecraft.network.packet.s2c.play.PlayerAbilitiesS2CPacket;
++import net.minecraft.network.packet.s2c.play.PlayerListS2CPacket;
++import net.minecraft.network.packet.s2c.play.PlayerPositionLookS2CPacket;
++import net.minecraft.network.packet.s2c.play.PlayerSpawnPositionS2CPacket;
++import net.minecraft.network.packet.s2c.play.PlayerSpawnS2CPacket;
++import net.minecraft.network.packet.s2c.play.ScoreboardDisplayS2CPacket;
++import net.minecraft.network.packet.s2c.play.ScoreboardObjectiveUpdateS2CPacket;
++import net.minecraft.network.packet.s2c.play.ScoreboardPlayerUpdateS2CPacket;
++import net.minecraft.network.packet.s2c.play.TeamS2CPacket;
++import net.minecraft.network.packet.s2c.play.PlayerListS2CPacket.Action;
++import net.minecraft.network.packet.s2c.play.PlayerListS2CPacket.Entry;
++import net.minecraft.scoreboard.Scoreboard;
++import net.minecraft.scoreboard.ScoreboardObjective;
++import net.minecraft.scoreboard.ScoreboardPlayerScore;
++import net.minecraft.scoreboard.Team;
++import net.minecraft.util.PacketByteBuf;
++import net.minecraft.util.math.BlockPos;
++import net.minecraft.util.math.MathHelper;
++import net.minecraft.world.World;
++import net.minecraft.world.chunk.Chunk;
++import org.apache.logging.log4j.LogManager;
++
++public class Class_1117 extends Class_312 {
++    private ClientConnection field_2152;
++    private ItemStack field_2153;
++    private ItemStack field_2154;
++    private ItemStack field_2155;
++    private ItemStack field_2156;
++    private ItemStack field_2157;
++    private World field_5834;
++
++    public Class_1117(ReplayManager parameter_1) {
++        super(parameter_1);
++    }
++
++    public void method_5284() {
++        if (this.field_2152 != null && this.field_2152.isOpen() && this.field_2152.getPacketListener() instanceof ClientPlayNetworkHandler) {
++            ClientPlayerEntity var1 = MinecraftClient.getInstance().player;
++            ClientPlayerInteractionManager var2 = MinecraftClient.getInstance().interactionManager;
++            ClientWorld var3 = MinecraftClient.getInstance().world;
++            ClientPlayNetworkHandler var4 = (ClientPlayNetworkHandler)this.field_2152.getPacketListener();
++            GameJoinS2CPacket var5 = new GameJoinS2CPacket(var1.getEntityId(), var2.getCurrentGameMode(), var3.getLevelProperties().isHardcore(), var1.dimension, MinecraftClient.getInstance().options.difficulty, var4.field_3961, var3.getGeneratorType(), var1.getReducedDebugInfo());
++            this.method_3196(var5);
++            String var6 = var1.getServerBrand();
++            if (var6 != null) {
++                CustomPayloadS2CPacket var7 = new CustomPayloadS2CPacket("MC|Brand", (new PacketByteBuf(Unpooled.buffer())).writeString(var6));
++                this.method_3196(var7);
++            }
++
++            PlayerSpawnPositionS2CPacket var15 = new PlayerSpawnPositionS2CPacket(var3.getSpawnPos());
++            this.method_3196(var15);
++            PlayerAbilitiesS2CPacket var8 = new PlayerAbilitiesS2CPacket(var1.abilities);
++            this.method_3196(var8);
++            HeldItemChangeS2CPacket var9 = new HeldItemChangeS2CPacket(var1.inventory.selectedSlot);
++            this.method_3196(var9);
++            this.method_3201();
++            PlayerPositionLookS2CPacket var10 = new PlayerPositionLookS2CPacket(var1.x, var1.y, var1.z, var1.yaw, var1.pitch, Collections.emptySet());
++            this.method_3196(var10);
++            LinkedList var11 = new LinkedList();
++            this.method_6110();
++            this.field_5834 = var1.getWorld();
++            this.method_3200(var1, var11);
++            this.method_3197(var11);
++            Iterator var12 = var11.iterator();
++
++            while(var12.hasNext()) {
++                Packet var13 = (Packet)var12.next();
++                this.method_3196(var13);
++            }
++
++            Scoreboard var14 = var3.getScoreboard();
++            this.method_3193(var14);
++        }
++    }
++
++    public void method_6110() {
++        if (MinecraftClient.getInstance().getNetworkHandler() != null) {
++            Iterator var1 = MinecraftClient.getInstance().getNetworkHandler().getPlayerList().iterator();
++
++            while(var1.hasNext()) {
++                PlayerListEntry var2 = (PlayerListEntry)var1.next();
++                PlayerListS2CPacket var3 = new PlayerListS2CPacket(Action.field_6252, new ServerPlayerEntity[0]);
++                var3.entries.add(new Entry(var2.getProfile(), var2.getLatency(), var2.getGameMode(), var2.getDisplayName()));
++                this.method_3196(var3);
++            }
++
++        }
++    }
++
++    public void method_3193(Scoreboard parameter_1) {
++        HashSet var2 = Sets.newHashSet();
++        Iterator var3 = parameter_1.getTeams().iterator();
++
++        while(var3.hasNext()) {
++            Team var4 = (Team)var3.next();
++            this.method_3196(new TeamS2CPacket(var4, 0));
++        }
++
++        for(int var7 = 0; var7 < 19; ++var7) {
++            ScoreboardObjective var8 = parameter_1.getObjectiveForSlot(var7);
++            if (var8 != null && !var2.contains(var8)) {
++                Iterator var5 = this.method_3194(parameter_1, var8).iterator();
++
++                while(var5.hasNext()) {
++                    Packet var6 = (Packet)var5.next();
++                    this.method_3196(var6);
++                }
++
++                var2.add(var8);
++            }
++        }
++
++    }
++
++    private List<Packet> method_3194(Scoreboard parameter_1, ScoreboardObjective parameter_2) {
++        ArrayList var3 = Lists.newArrayList();
++        var3.add(new ScoreboardObjectiveUpdateS2CPacket(parameter_2, 0));
++
++        for(int var4 = 0; var4 < 19; ++var4) {
++            if (parameter_1.getObjectiveForSlot(var4) == parameter_2) {
++                var3.add(new ScoreboardDisplayS2CPacket(var4, parameter_2));
++            }
++        }
++
++        Iterator var6 = parameter_1.getAllPlayerScores(parameter_2).iterator();
++
++        while(var6.hasNext()) {
++            ScoreboardPlayerScore var5 = (ScoreboardPlayerScore)var6.next();
++            var3.add(new ScoreboardPlayerUpdateS2CPacket(var5));
++        }
++
++        return var3;
++    }
++
++    public void method_3201() {
++        List var1 = MinecraftClient.getInstance().world.clientChunkCache.chunks;
++        if (!var1.isEmpty()) {
++            net.minecraft.Class_1498 var2 = new net.minecraft.Class_1498(var1);
++            this.method_3196(var2);
++            Iterator var3 = var1.iterator();
++
++            while(var3.hasNext()) {
++                Chunk var4 = (Chunk)var3.next();
++                Iterator var5 = var4.getBlockEntities().values().iterator();
++
++                while(var5.hasNext()) {
++                    BlockEntity var6 = (BlockEntity)var5.next();
++                    Packet var7 = var6.method_1111();
++                    if (var7 != null) {
++                        this.method_3196(var7);
++                    }
++                }
++            }
++        }
++
++    }
++
++    public void method_3197(List<Packet> parameter_1) {
++        List var2 = MinecraftClient.getInstance().world.loadedEntities;
++        Iterator var3 = var2.iterator();
++
++        while(var3.hasNext()) {
++            Entity var4 = (Entity)var3.next();
++            if (!(var4 instanceof ClientPlayerEntity)) {
++                LogManager.getLogger().info("Saving entity packets: " + var4.getClass().getName());
++                this.method_6109(var4, parameter_1);
++            }
++        }
++
++    }
++
++    public void method_3200(PlayerEntity parameter_1, List<Packet> parameter_2) {
++        if (this.field_5241.method_5309()) {
++            this.method_6109(parameter_1, parameter_2);
++        }
++    }
++
++    public void method_3196(Packet parameter_1) {
++        BadlionClient.getBadlion().getReplayManager().method_5299(new Class_1116(parameter_1));
++    }
++
++    public void method_3195(ClientConnection parameter_1) {
++        this.field_2152 = parameter_1;
++    }
++
++    private void method_6109(Entity parameter_1, List<Packet> parameter_2) {
++        Packet var3 = this.method_3198(parameter_1);
++        this.method_3196(var3);
++        if (!parameter_1.getDataTracker().isEmpty()) {
++            this.method_3196(new EntityTrackerUpdateS2CPacket(parameter_1.getEntityId(), parameter_1.getDataTracker(), true));
++        }
++
++        CompoundTag var4 = parameter_1.method_6968();
++        if (var4 != null) {
++            this.method_3196(new net.minecraft.Class_1491(parameter_1.getEntityId(), var4));
++        }
++
++        if (!(var3 instanceof MobSpawnS2CPacket)) {
++        }
++
++        if (parameter_1.hasVehicle != null) {
++            if (parameter_2 != null) {
++                parameter_2.add(new EntityAttachS2CPacket(0, parameter_1, parameter_1.hasVehicle));
++            } else {
++                this.method_3196(new EntityAttachS2CPacket(0, parameter_1, parameter_1.hasVehicle));
++            }
++        }
++
++        if (parameter_1 instanceof MobEntity && ((MobEntity)parameter_1).method_7214() != null) {
++            if (parameter_2 != null) {
++                parameter_2.add(new EntityAttachS2CPacket(1, parameter_1, ((MobEntity)parameter_1).method_7214()));
++            } else {
++                this.method_3196(new EntityAttachS2CPacket(1, parameter_1, ((MobEntity)parameter_1).method_7214()));
++            }
++        }
++
++        int var5;
++        if (parameter_1 instanceof LivingEntity) {
++            for(var5 = 0; var5 < 5; ++var5) {
++                ItemStack var6 = ((LivingEntity)parameter_1).method_7175(var5);
++                if (var6 != null) {
++                    this.method_3196(new EntityEquipmentUpdateS2CPacket(parameter_1.getEntityId(), var5, var6));
++                }
++            }
++        }
++
++        if (parameter_1 instanceof PlayerEntity) {
++            PlayerEntity var8 = (PlayerEntity)parameter_1;
++            if (var8.isSleeping()) {
++                this.method_3196(new Class_1516(var8, new BlockPos(parameter_1)));
++            }
++        }
++
++        if (parameter_1 instanceof LivingEntity) {
++            LivingEntity var9 = (LivingEntity)parameter_1;
++            Iterator var10 = var9.method_7134().iterator();
++
++            while(var10.hasNext()) {
++                StatusEffectInstance var7 = (StatusEffectInstance)var10.next();
++                this.method_3196(new EntityStatusEffectS2CPacket(parameter_1.getEntityId(), var7));
++            }
++        }
++
++        if (parameter_1 instanceof PlayerEntity) {
++            var5 = MathHelper.floor(parameter_1.yaw * 256.0F / 360.0F);
++            EntitySetHeadYawS2CPacket var11 = new EntitySetHeadYawS2CPacket(parameter_1, (byte)var5);
++            this.method_3196(var11);
++        }
++
++    }
++
++    public Packet method_3198(Entity parameter_1) {
++        if (parameter_1.removed) {
++            LogManager.getLogger().warn("Fetching addPacket for removed entity");
++        }
++
++        if (parameter_1 instanceof ItemEntity) {
++            return new EntitySpawnS2CPacket(parameter_1, 2, 1);
++        } else if (parameter_1 instanceof PlayerEntity) {
++            return new PlayerSpawnS2CPacket((PlayerEntity)parameter_1);
++        } else if (parameter_1 instanceof AbstractMinecartEntity) {
++            AbstractMinecartEntity var10 = (AbstractMinecartEntity)parameter_1;
++            return new EntitySpawnS2CPacket(parameter_1, 10, var10.method_7794().getId());
++        } else if (parameter_1 instanceof BoatEntity) {
++            return new EntitySpawnS2CPacket(parameter_1, 1);
++        } else if (parameter_1 instanceof EntityCategoryProvider) {
++            return new MobSpawnS2CPacket((LivingEntity)parameter_1);
++        } else if (parameter_1 instanceof FishingBobberEntity) {
++            PlayerEntity var9 = ((FishingBobberEntity)parameter_1).player;
++            return new EntitySpawnS2CPacket(parameter_1, 90, var9 != null ? var9.getEntityId() : parameter_1.getEntityId());
++        } else if (parameter_1 instanceof ArrowEntity) {
++            Entity var8 = ((ArrowEntity)parameter_1).field_8392;
++            return new EntitySpawnS2CPacket(parameter_1, 60, var8 != null ? var8.getEntityId() : parameter_1.getEntityId());
++        } else if (parameter_1 instanceof SnowballEntity) {
++            return new EntitySpawnS2CPacket(parameter_1, 61);
++        } else if (parameter_1 instanceof PotionEntity) {
++            return new EntitySpawnS2CPacket(parameter_1, 73, ((PotionEntity)parameter_1).method_8078());
++        } else if (parameter_1 instanceof ExperienceBottleEntity) {
++            return new EntitySpawnS2CPacket(parameter_1, 75);
++        } else if (parameter_1 instanceof EnderPearlEntity) {
++            return new EntitySpawnS2CPacket(parameter_1, 65);
++        } else if (parameter_1 instanceof EyeOfEnderEntity) {
++            return new EntitySpawnS2CPacket(parameter_1, 72);
++        } else if (parameter_1 instanceof FireworkEntity) {
++            return new EntitySpawnS2CPacket(parameter_1, 76);
++        } else {
++            EntitySpawnS2CPacket var3;
++            if (parameter_1 instanceof ProjectileEntity) {
++                ProjectileEntity var7 = (ProjectileEntity)parameter_1;
++                var3 = null;
++                byte var11 = 63;
++                if (parameter_1 instanceof SmallFireballEntity) {
++                    var11 = 64;
++                } else if (parameter_1 instanceof WitherSkullEntity) {
++                    var11 = 66;
++                }
++
++                if (var7.field_8404 != null) {
++                    var3 = new EntitySpawnS2CPacket(parameter_1, var11, ((ProjectileEntity)parameter_1).field_8404.getEntityId());
++                } else {
++                    var3 = new EntitySpawnS2CPacket(parameter_1, var11, 0);
++                }
++
++                var3.method_5332((int)(var7.field_8407 * 8000.0D));
++                var3.method_5334((int)(var7.field_8408 * 8000.0D));
++                var3.method_5336((int)(var7.field_8409 * 8000.0D));
++                return var3;
++            } else if (parameter_1 instanceof EggEntity) {
++                return new EntitySpawnS2CPacket(parameter_1, 62);
++            } else if (parameter_1 instanceof ExplodingTntEntity) {
++                return new EntitySpawnS2CPacket(parameter_1, 50);
++            } else if (parameter_1 instanceof EndCrystalEntity) {
++                return new EntitySpawnS2CPacket(parameter_1, 51);
++            } else if (parameter_1 instanceof FallingBlockEntity) {
++                FallingBlockEntity var6 = (FallingBlockEntity)parameter_1;
++                return new EntitySpawnS2CPacket(parameter_1, 70, Block.getByBlockState(var6.method_7758()));
++            } else if (parameter_1 instanceof ArmorStandEntity) {
++                return new EntitySpawnS2CPacket(parameter_1, 78);
++            } else if (parameter_1 instanceof PaintingEntity) {
++                return new PaintingSpawnS2CPacket((PaintingEntity)parameter_1);
++            } else {
++                BlockPos var4;
++                if (parameter_1 instanceof ItemFrameEntity) {
++                    ItemFrameEntity var5 = (ItemFrameEntity)parameter_1;
++                    var3 = new EntitySpawnS2CPacket(parameter_1, 71, var5.direction.getHorizontal());
++                    var4 = var5.getTilePos();
++                    var3.method_5325(MathHelper.floor((float)(var4.getX() * 32)));
++                    var3.method_5328(MathHelper.floor((float)(var4.getY() * 32)));
++                    var3.method_5330(MathHelper.floor((float)(var4.getZ() * 32)));
++                    return var3;
++                } else if (parameter_1 instanceof LeadKnotEntity) {
++                    LeadKnotEntity var2 = (LeadKnotEntity)parameter_1;
++                    var3 = new EntitySpawnS2CPacket(parameter_1, 77);
++                    var4 = var2.getTilePos();
++                    var3.method_5325(MathHelper.floor((float)(var4.getX() * 32)));
++                    var3.method_5328(MathHelper.floor((float)(var4.getY() * 32)));
++                    var3.method_5330(MathHelper.floor((float)(var4.getZ() * 32)));
++                    return var3;
++                } else if (parameter_1 instanceof ExperienceOrbEntity) {
++                    return new ExperienceOrbSpawnS2CPacket((ExperienceOrbEntity)parameter_1);
++                } else {
++                    throw new IllegalArgumentException("Don't know how to add " + parameter_1.getClass() + "!");
++                }
++            }
++        }
++    }
++
++    public void method_5285() {
++        ClientPlayerEntity var1 = MinecraftClient.getInstance().player;
++        if (var1 != null) {
++            this.field_5241.method_5311().lock();
++            if (var1.getWorld() != this.field_5834) {
++                this.field_5834 = var1.getWorld();
++                this.method_3200(var1, (List)null);
++            }
++
++            if (var1.inventory.getMainHandStack() != this.field_2153) {
++                this.field_2153 = var1.inventory.getMainHandStack();
++                this.method_3196(new EntityEquipmentUpdateS2CPacket(var1.getEntityId(), 0, this.field_2153));
++            }
++
++            if (var1.inventory.armor[0] != this.field_2154) {
++                this.field_2154 = var1.inventory.armor[0];
++                this.method_3196(new EntityEquipmentUpdateS2CPacket(var1.getEntityId(), 1, this.field_2154));
++            }
++
++            if (var1.inventory.armor[1] != this.field_2155) {
++                this.field_2155 = var1.inventory.armor[1];
++                this.method_3196(new EntityEquipmentUpdateS2CPacket(var1.getEntityId(), 2, this.field_2155));
++            }
++
++            if (var1.inventory.armor[2] != this.field_2156) {
++                this.field_2156 = var1.inventory.armor[2];
++                this.method_3196(new EntityEquipmentUpdateS2CPacket(var1.getEntityId(), 3, this.field_2156));
++            }
++
++            if (var1.inventory.armor[3] != this.field_2157) {
++                this.field_2157 = var1.inventory.armor[3];
++                this.method_3196(new EntityEquipmentUpdateS2CPacket(var1.getEntityId(), 4, this.field_2157));
++            }
++
++            this.field_5241.method_5311().unlock();
++        }
++    }
++}

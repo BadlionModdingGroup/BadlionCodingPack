@@ -1,0 +1,12 @@
+--- a/net\badlion\Class_251.java
++++ b/net\badlion\Class_251.java
+@@ -14,4 +14,9 @@
+     public Class_221 method_971(Type parameter_1) {
+         return new Class_221(this.field_329);
+     }
++
++    @Override
++    public Class_221 createInstance(Type type) {
++        return method_971(type);
+ }
++}

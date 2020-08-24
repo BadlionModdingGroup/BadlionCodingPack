@@ -1,0 +1,21 @@
+--- a/net\badlion\Class_352.java
++++ b/net\badlion\Class_352.java
+@@ -2,6 +2,8 @@
+ 
+ import com.google.gson.stream.JsonReader;
+ import com.google.gson.stream.JsonWriter;
++
++import java.io.IOException;
+ import java.util.Collection;
+ 
+ public interface Class_352<T> {
+@@ -17,7 +19,7 @@
+ 
+     void method_1291(T parameter_1, Object parameter_2);
+ 
+-    void method_1290(JsonWriter parameter_1, T parameter_2);
++    void method_1290(JsonWriter parameter_1, T parameter_2) throws IOException;
+ 
+-    T method_1293(JsonReader parameter_1);
++    T method_1293(JsonReader parameter_1) throws IOException;
+ }

@@ -1,0 +1,31 @@
+--- C:\dev\null
++++ b/axu$1.java.original~
+@@ -0,0 +1,28 @@
++import java.util.Iterator;
++import net.minecraft.client.gui.screen.Screen;
++import net.minecraft.client.gui.widget.ButtonWidget;
++
++class axu$1 implements Runnable {
++    axu$1(Screen parameter_1) {
++        this.this$0 = parameter_1;
++    }
++
++    public void run() {
++        try {
++            Thread.sleep(50L);
++        } catch (InterruptedException var3) {
++            var3.printStackTrace();
++            return;
++        }
++
++        if (this.this$0.buttons != null) {
++            Iterator var1 = this.this$0.buttons.iterator();
++
++            while(var1.hasNext()) {
++                Object var2 = var1.next();
++                ((ButtonWidget)var2).setParentGui(this.this$0);
++            }
++        }
++
++    }
++}

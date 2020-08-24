@@ -1,0 +1,15 @@
+--- a/net\badlion\client\common\thread\LevelheadLookupThread.java
++++ b/net\badlion\client\common\thread\LevelheadLookupThread.java
+@@ -55,10 +55,10 @@
+                             continue;
+                         }
+ 
+-                        Iterator var6 = var5.data.entrySet().iterator();
++                        Iterator<Map.Entry<UUID, JsonObject>> var6 = var5.data.entrySet().iterator();
+ 
+                         while(var6.hasNext()) {
+-                            Entry var7 = (Entry)var6.next();
++                            Entry<UUID, JsonObject> var7 = (Entry)var6.next();
+                             BadlionClient.getBadlion().getCosmeticManager().method_2860().put(var7.getKey(), var7.getValue());
+                         }
+ 

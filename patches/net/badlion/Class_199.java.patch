@@ -1,0 +1,14 @@
+--- a/net\badlion\Class_199.java
++++ b/net\badlion\Class_199.java
+@@ -25,6 +25,11 @@
+         return var2 == null ? new Class_190(false) : (Class_190)var2;
+     }
+ 
++    @Override
++    public Class_190 method_767() {
++        return method_772();
++    }
++
+     public Class_186 method_768() {
+         return Class_186.LOCALE;
+     }

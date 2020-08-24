@@ -1,0 +1,25 @@
+--- a/net\badlion\Class_373.java
++++ b/net\badlion\Class_373.java
+@@ -22,7 +22,7 @@
+         this.field_566 = parameter_1;
+     }
+ 
+-    public String method_1396(Map<String, Class_348> parameter_1) {
++    public String method_1396(Map<String, Class_348> parameter_1) throws IOException {
+         StringWriter var2 = new StringWriter();
+         JsonWriter var3 = new JsonWriter(var2);
+         var3.beginObject();
+@@ -110,11 +110,11 @@
+         return var2.toString();
+     }
+ 
+-    private static <T> void method_1394(JsonWriter parameter_0, Class_345 parameter_1, Class_352<T> parameter_2) {
++    private static <T> void method_1394(JsonWriter parameter_0, Class_345 parameter_1, Class_352<T> parameter_2) throws IOException {
+         parameter_2.method_1290(parameter_0, parameter_1.method_1257(parameter_2).method_1567());
+     }
+ 
+-    public Map<String, Class_348> method_1395(String parameter_1) {
++    public Map<String, Class_348> method_1395(String parameter_1) throws IOException {
+         JsonReader var2 = new JsonReader(new StringReader(parameter_1));
+         LinkedHashMap var3 = new LinkedHashMap();
+         var2.beginObject();

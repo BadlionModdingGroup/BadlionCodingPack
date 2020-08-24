@@ -1,0 +1,88 @@
+--- a/net\badlion\Class_769.java
++++ b/net\badlion\Class_769.java
+@@ -4,6 +4,8 @@
+ import java.util.Locale;
+ import java.util.Map;
+ import java.util.Map.Entry;
++
++import io.github.badlionmoddinggroup.badlion.extra.ItemStackExtra;
+ import net.badlion.client.common.block.Blocks;
+ import net.badlion.client.common.item.ItemStackWrapper;
+ import net.badlion.client.common.item.tag.ITag;
+@@ -35,7 +37,7 @@
+     }
+ 
+     public ItemStackWrapper method_2340(Blocks parameter_1, int parameter_2, int parameter_3) {
+-        return (new ItemStack(parameter_1 == null ? null : Block.get(parameter_1.name().toLowerCase(Locale.ROOT)), parameter_2, parameter_3)).getBadlionItemStack();
++        return ((ItemStackExtra)(Object)(new ItemStack(parameter_1 == null ? null : Block.get(parameter_1.name().toLowerCase(Locale.ROOT)), parameter_2, parameter_3))).getBadlionItemStack();
+     }
+ 
+     public ItemStackWrapper method_2342(Class_870 parameter_1) {
+@@ -47,11 +49,11 @@
+     }
+ 
+     public ItemStackWrapper method_2344(Class_870 parameter_1, int parameter_2, int parameter_3) {
+-        return (new ItemStack(parameter_1 == null ? null : Item.getFromId(parameter_1.name().toLowerCase(Locale.ROOT)), parameter_2, parameter_3)).getBadlionItemStack();
++        return ((ItemStackExtra)(Object)(new ItemStack(parameter_1 == null ? null : Item.getFromId(parameter_1.name().toLowerCase(Locale.ROOT)), parameter_2, parameter_3))).getBadlionItemStack();
+     }
+ 
+     public ItemStackWrapper method_2341(Class_697 parameter_1) {
+-        return (new ItemStack(((Class_768)parameter_1).method_3137())).getBadlionItemStack();
++        return ((ItemStackExtra)(Object)(new ItemStack(((Class_768)parameter_1).method_3137()))).getBadlionItemStack();
+     }
+ 
+     public ItemStackWrapper method_2332(String parameter_1, boolean parameter_2) {
+@@ -59,12 +61,12 @@
+         if (parameter_2) {
+             var3 = Block.REGISTRY.get(new Identifier(parameter_1));
+             if (var3 instanceof Block) {
+-                return (new ItemStack((Block)var3)).getBadlionItemStack();
++                return ((ItemStackExtra)(Object)(new ItemStack((Block)var3))).getBadlionItemStack();
+             }
+         } else {
+             var3 = Item.REGISTRY.get(new Identifier(parameter_1));
+             if (var3 instanceof Item) {
+-                return (new ItemStack((Item)var3)).getBadlionItemStack();
++                return ((ItemStackExtra)(Object)(new ItemStack((Item)var3))).getBadlionItemStack();
+             }
+         }
+ 
+@@ -79,17 +81,17 @@
+             ItemStack var3;
+             if (parameter_1 == 0) {
+                 var3 = var2.method_7107();
+-                return var3 == null ? null : var3.getBadlionItemStack();
++                return var3 == null ? null : ((ItemStackExtra)(Object)var3).getBadlionItemStack();
+             } else {
+                 var3 = var2.method_7177(parameter_1 - 1);
+-                return var3 == null ? null : var3.getBadlionItemStack();
++                return var3 == null ? null : ((ItemStackExtra)(Object)var3).getBadlionItemStack();
+             }
+         }
+     }
+ 
+     public ItemStackWrapper method_2331(String parameter_1) {
+         try {
+-            return ItemStack.fromTag(StringNbtReader.parse(parameter_1)).getBadlionItemStack();
++            return ((ItemStackExtra)(Object)ItemStack.fromTag(StringNbtReader.parse(parameter_1))).getBadlionItemStack();
+         } catch (Exception var3) {
+             return null;
+         }
+@@ -97,7 +99,7 @@
+ 
+     public ItemStackWrapper method_2334(ITag parameter_1) {
+         ItemStack var2 = ItemStack.fromTag(((Tag)parameter_1).method_3173());
+-        return var2 == null ? null : var2.getBadlionItemStack();
++        return var2 == null ? null : ((ItemStackExtra)(Object)var2).getBadlionItemStack();
+     }
+ 
+     public ItemStackWrapper method_2333(Map<String, Object> parameter_1) {
+@@ -140,7 +142,7 @@
+             }
+         }
+ 
+-        return var7.getBadlionItemStack();
++        return ((ItemStackExtra)(Object)var7).getBadlionItemStack();
+     }
+ 
+     public Class_45 method_2337(TextureWrapper parameter_1) {

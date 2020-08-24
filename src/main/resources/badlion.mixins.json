@@ -8,7 +8,8 @@
     "EntityMixin",
     "ItemStackMixin",
     "MinecraftClientMixin",
-    "PlayerEntityMixin"
+    "PlayerEntityMixin",
+    "TextMixin"
   ],
   "client": [
   ],

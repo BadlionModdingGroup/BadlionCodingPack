@@ -1,0 +1,14 @@
+--- a/net\badlion\client\registry\ModRegistry.java
++++ b/net\badlion\client\registry\ModRegistry.java
+@@ -796,6 +796,11 @@
+ 
+     public void sortMods() {
+         Collections.sort(this.allMods, new Comparator<IMod>() {
++            @Override
++            public int compare(IMod o1, IMod o2) {
++                return method_346(o1, o2);
++            }
++
+             public int method_346(IMod parameter_1, IMod parameter_2) {
+                 if (parameter_1.isFavorite() && parameter_2.isFavorite()) {
+                     return parameter_1.displayName().compareTo(parameter_2.displayName());

@@ -1,0 +1,39 @@
+--- C:\dev\null
++++ b/net\badlion\class_812.java.original~
+@@ -0,0 +1,36 @@
++package net.badlion;
++
++import net.minecraft.client.gui.screen.TitleScreen;
++
++public class Class_812 extends Class_813 implements Class_26 {
++    private TitleScreen field_2109;
++
++    public Class_812(TitleScreen parameter_1) {
++        super(parameter_1);
++        this.field_2109 = parameter_1;
++    }
++
++    public TitleScreen method_3163() {
++        return this.field_2109;
++    }
++
++    public void method_173() {
++        this.field_2109.getGuiPatchNotes().method_4127(true);
++    }
++
++    public void method_174() {
++        this.field_2109.getGuiCosmeticsMenu().open();
++    }
++
++    public void method_175() {
++        this.field_2109.getGuiCosmeticsMenu().method_4094();
++    }
++
++    public void method_177() {
++        this.field_2109.getGuiBadlionMainMenu().method_3953().open();
++    }
++
++    public boolean method_176() {
++        return this.field_2109.getGuiCosmeticsMenu().method_4713();
++    }
++}

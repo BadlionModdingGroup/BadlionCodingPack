@@ -1,0 +1,11 @@
+--- a/net\badlion\Class_317.java
++++ b/net\badlion\Class_317.java
+@@ -191,7 +191,7 @@
+         }
+     }
+ 
+-    public Class_435 method_6280() {
++    public Class_435 method_6280() throws InterruptedException {
+         this.method_1157(this.field_411.isEmpty(), this.field_5974.get() != Class_434.FAST_FORWARD);
+         Class_435 var1 = (Class_435)this.field_411.poll();
+         if (var1 != null) {

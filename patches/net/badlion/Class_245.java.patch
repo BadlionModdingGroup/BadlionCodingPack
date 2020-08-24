@@ -1,0 +1,14 @@
+--- a/net\badlion\Class_245.java
++++ b/net\badlion\Class_245.java
+@@ -19,6 +19,11 @@
+         return var2;
+     }
+ 
++    @Override
++    protected Date method_5282(JsonElement parameter_1) {
++        return method_960(parameter_1);
++    }
++
+     protected JsonElement method_5283(Date parameter_1) {
+         return this.method_961((Date)parameter_1);
+     }

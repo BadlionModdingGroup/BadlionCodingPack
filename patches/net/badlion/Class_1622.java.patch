@@ -1,0 +1,20 @@
+--- a/net\badlion\Class_1622.java
++++ b/net\badlion\Class_1622.java
+@@ -12,7 +12,7 @@
+     private Map<Class_1632.Snapping, Class_2102<Class_1631, Class_1632.Snapping, Double>> field_3752 = new HashMap();
+     private List<Class_2086<Class_1632.Snapping, Class_578>> field_3753 = new LinkedList();
+ 
+-    Class_1622(Class_578 parameter_1, double parameter_2, double parameter_4) {
++    public Class_1622(Class_578 parameter_1, double parameter_2, double parameter_4) {
+         this.field_3749 = parameter_1;
+         this.field_3750 = parameter_2;
+         this.field_3751 = parameter_4;
+@@ -30,7 +30,7 @@
+         return this.field_3751;
+     }
+ 
+-    protected void method_4418(int parameter_1, int parameter_2) {
++    public void method_4418(int parameter_1, int parameter_2) {
+         this.field_3750 = -((double)parameter_1 - this.field_3749.getX());
+         this.field_3751 = -((double)parameter_2 - this.field_3749.getY());
+     }

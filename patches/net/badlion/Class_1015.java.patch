@@ -1,0 +1,37 @@
+--- a/net\badlion\Class_1015.java
++++ b/net\badlion\Class_1015.java
+@@ -7,15 +7,17 @@
+ import org.apache.commons.lang3.mutable.MutableInt;
+ import org.apache.logging.log4j.LogManager;
+ 
++import java.io.IOException;
++
+ public class Class_1015 extends TypeAdapter<MutableInt> {
+-    public void method_3027(JsonWriter parameter_1, MutableInt parameter_2) {
++    public void method_3027(JsonWriter parameter_1, MutableInt parameter_2) throws IOException {
+         parameter_1.beginObject();
+         parameter_1.name("value");
+         parameter_1.value((long)parameter_2.intValue());
+         parameter_1.endObject();
+     }
+ 
+-    public MutableInt method_3026(JsonReader parameter_1) {
++    public MutableInt method_3026(JsonReader parameter_1) throws IOException {
+         MutableInt var2 = new MutableInt();
+         String var3 = "";
+         boolean var4 = false;
+@@ -48,4 +50,14 @@
+         parameter_1.endObject();
+         return var2;
+     }
++
++    @Override
++    public void write(JsonWriter out, MutableInt value) throws IOException {
++        method_3027(out, value);
+ }
++
++    @Override
++    public MutableInt read(JsonReader in) throws IOException {
++        return method_3026(in);
++    }
++}

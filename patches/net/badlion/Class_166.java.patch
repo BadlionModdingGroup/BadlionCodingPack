@@ -1,0 +1,29 @@
+--- a/net\badlion\Class_166.java
++++ b/net\badlion\Class_166.java
+@@ -51,6 +51,26 @@
+     private void method_696() {
+         try {
+             Files.walkFileTree(this.field_233.method_938(), new HashSet(), 1, new FileVisitor<Path>() {
++                @Override
++                public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attrs) throws IOException {
++                    return method_699(dir, attrs);
++                }
++
++                @Override
++                public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
++                    return method_701(file, attrs);
++                }
++
++                @Override
++                public FileVisitResult visitFileFailed(Path file, IOException exc) throws IOException {
++                    return method_698(file, exc);
++                }
++
++                @Override
++                public FileVisitResult postVisitDirectory(Path dir, IOException exc) throws IOException {
++                    return method_700(dir, exc);
++                }
++
+                 public FileVisitResult method_699(Path parameter_1, BasicFileAttributes parameter_2) {
+                     return parameter_1.equals(Class_166.this.field_233.method_938()) ? FileVisitResult.CONTINUE : FileVisitResult.SKIP_SUBTREE;
+                 }

@@ -1,0 +1,91 @@
+--- a/net\badlion\Class_758.java
++++ b/net\badlion\Class_758.java
+@@ -4,6 +4,9 @@
+ import java.io.IOException;
+ import java.net.URI;
+ import java.net.UnknownHostException;
++
++import io.github.badlionmoddinggroup.badlion.extra.EntityExtra;
++import io.github.badlionmoddinggroup.badlion.extra.MinecraftClientExtra;
+ import net.badlion.client.common.entity.EntityWrapper;
+ import net.badlion.client.common.entity.player.PlayerWrapper;
+ import net.badlion.client.common.render.texture.BadlionTextureManagerWrapper;
+@@ -72,7 +75,7 @@
+     public Class_758(MinecraftClient parameter_1) {
+         this.client = parameter_1;
+         this.session = new BadlionSession(this.client.getSession());
+-        this.field_1383 = new TickHandler(this.client.getTimer());
++        this.field_1383 = new TickHandler(((MinecraftClientExtra)this.client).getTimer());
+         this.field_1402 = new Class_861();
+     }
+ 
+@@ -106,7 +109,7 @@
+ 
+     public void method_216(SessionWrapper parameter_1) {
+         this.session = parameter_1;
+-        this.client.setSession((Session)parameter_1.getMinecraftSession());
++        this.client.session = ((Session)parameter_1.getMinecraftSession());
+     }
+ 
+     public int method_231() {
+@@ -138,7 +141,7 @@
+     }
+ 
+     public PlayerWrapper getPlayer() {
+-        return this.client.player == null ? null : this.client.player.getBadlionEntity();
++        return this.client.player == null ? null : (PlayerWrapper) ((EntityExtra)this.client.player).getBadlionEntity();
+     }
+ 
+     public TickTrackerWrapper getTickTracker() {
+@@ -179,6 +182,16 @@
+         return this.client.hasReducedDebugInfo();
+     }
+ 
++    @Override
++    public Class_17 method_241() {
++        return null;
++    }
++
++    @Override
++    public Class_751 method_242() {
++        return null;
++    }
++
+     public Class_90 method_239() {
+         return this.client.result == null ? null : new Class_831(this.client.result);
+     }
+@@ -310,7 +323,7 @@
+     }
+ 
+     public EntityWrapper getEntity() {
+-        return this.client.getCameraEntity().getBadlionEntity();
++        return ((EntityExtra)this.client.getCameraEntity()).getBadlionEntity();
+     }
+ 
+     public void method_218(EntityWrapper parameter_1) {
+@@ -491,6 +504,11 @@
+ 
+     public void method_213(String parameter_1, String parameter_2, String parameter_3, String parameter_4, final Class_83 parameter_5) {
+         this.client.openScreen(new ConfirmScreen(new IdentifibleBooleanConsumer() {
++            @Override
++            public void accept(boolean parameter_1, int parameter_2) {
++                method_2360(parameter_1, parameter_2);
++            }
++
+             public void method_2360(boolean parameter_1, int parameter_2) {
+                 if (parameter_1) {
+                     parameter_5.method_510();
+@@ -516,11 +534,11 @@
+     }
+ 
+     public void method_223(int parameter_1, int parameter_2) {
+-        this.client.frameResize(parameter_1, parameter_2);
++        ((MinecraftClientExtra)this.client).frameResize(parameter_1, parameter_2);
+     }
+ 
+     public void method_202() {
+-        this.client.frameReset();
++        ((MinecraftClientExtra)this.client).frameReset();
+     }
+ 
+     public void method_203() {

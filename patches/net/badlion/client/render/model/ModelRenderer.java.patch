@@ -1,0 +1,184 @@
+--- a/net\badlion\client\render\model\ModelRenderer.java
++++ b/net\badlion\client\render\model\ModelRenderer.java
+@@ -8,10 +8,7 @@
+ import com.google.common.collect.Sets;
+ import com.google.gson.JsonParseException;
+ import java.awt.image.BufferedImage;
+-import java.io.FileNotFoundException;
+-import java.io.InputStreamReader;
+-import java.io.Reader;
+-import java.io.StringReader;
++import java.io.*;
+ import java.nio.charset.StandardCharsets;
+ import java.util.ArrayDeque;
+ import java.util.ArrayList;
+@@ -28,9 +25,6 @@
+ import net.minecraft.client.render.model.json.ModelElement;
+ import net.minecraft.client.render.model.json.ModelElementFace;
+ import net.minecraft.client.render.model.json.ModelVariantMap;
+-import net.minecraft.client.render.model.json.ModelVariantMap.Class_1069;
+-import net.minecraft.client.render.model.json.ModelVariantMap.Class_1070;
+-import net.minecraft.client.render.model.json.ModelVariantMap.Class_1072;
+ import net.minecraft.client.util.ModelIdentifier;
+ import net.minecraft.resource.Resource;
+ import net.minecraft.resource.ResourceManager;
+@@ -107,9 +101,9 @@
+ 
+     @GsonSerialised
+     public static void registerState(ModelIdentifier parameter_0) {
+-        if (parameter_0.xrayVulnerable) {
+-            models.add(parameter_0);
+-        }
++//        if (parameter_0.xrayVulnerable) {
++//            models.add(parameter_0);
++//        }
+ 
+     }
+ 
+@@ -121,27 +115,28 @@
+             ModelIdentifier var2 = (ModelIdentifier)var1.next();
+             Iterator var3 = defenitions.get(method_6148(var2)).iterator();
+ 
+-            while(var3.hasNext()) {
+-                ModelVariantMap var4 = (ModelVariantMap)var3.next();
+-
+-                try {
+-                    Iterator var5 = var4.method_3671(var2.getVariant()).method_3686().iterator();
+-
+-                    while(var5.hasNext()) {
+-                        Class_1070 var6 = (Class_1070)var5.next();
+-                        Identifier var7 = var6.method_3675();
+-                        if (!field_5844.containsKey(var7)) {
+-                            try {
+-                                method_6147(parameter_0, var7);
+-                            } catch (Exception var9) {
+-                                LOGGER.warn("Unable to load block model: '" + var7 + "'", var9);
++//            FIXME: unsure howto fix
++//            while(var3.hasNext()) {
++//                ModelVariantMap var4 = (ModelVariantMap)var3.next();
++//
++//                try {
++//                    Iterator var5 = var4.method_3671(var2.getVariant()).method_3686().iterator();
++//
++//                    while(var5.hasNext()) {
++//                        Class_1070 var6 = (Class_1070)var5.next();
++//                        Identifier var7 = var6.method_3675();
++//                        if (!field_5844.containsKey(var7)) {
++//                            try {
++//                                method_6147(parameter_0, var7);
++//                            } catch (Exception var9) {
++//                                LOGGER.warn("Unable to load block model: '" + var7 + "'", var9);
++//                            }
++//                        }
++//                    }
++//                } catch (Class_1069 var10) {
++//                }
++//            }
+                             }
+-                        }
+-                    }
+-                } catch (Class_1069 var10) {
+-                }
+-            }
+-        }
+ 
+         method_6146(parameter_0);
+     }
+@@ -196,47 +191,48 @@
+ 
+     }
+ 
+-    @GsonSerialised
+-    public static void mergeData(Map<ModelIdentifier, Class_1072> parameter_0, Map<Identifier, Class_1063> parameter_1) {
+-        HashMap var2 = Maps.newHashMap();
+-        Iterator var3 = models.iterator();
++//    FIXME: yea this is broken too
++//    @GsonSerialised
++//    public static void mergeData(Map<ModelIdentifier, Class_1072> parameter_0, Map<Identifier, Class_1063> parameter_1) {
++//        HashMap var2 = Maps.newHashMap();
++//        Iterator var3 = models.iterator();
++//
++//        while(var3.hasNext()) {
++//            ModelIdentifier var4 = (ModelIdentifier)var3.next();
++//            List var5 = defenitions.get(method_6148(var4));
++//
++//            label37:
++//            for(int var6 = var5.size() - 1; var6 >= 0; --var6) {
++//                try {
++//                    Class_1072 var7 = ((ModelVariantMap)var5.get(var6)).method_3671(var4.getVariant());
++//                    ArrayList var8 = Lists.newArrayList();
++//                    Iterator var9 = var7.method_3686().iterator();
++//
++//                    while(var9.hasNext()) {
++//                        Class_1070 var10 = (Class_1070)var9.next();
++//                        Identifier var11 = var10.method_3675();
++//                        Class_1063 var12 = method_6150(var4, var11);
++//                        if (var12 == null) {
++//                            var2.clear();
++//                            continue label37;
++//                        }
++//
++//                        Identifier var13 = new Identifier(var11.getNamespace(), var11.getPath() + "_antixray");
++//                        var8.add(new Class_1070(var13, var10.method_3676(), var10.method_3677(), var10.method_3678()));
++//                        var2.put(var13, var12);
++//                    }
++//
++//                    parameter_1.putAll(var2);
++//                    var2.clear();
++//                    parameter_0.put(new ModelIdentifier(new Identifier(var4.getNamespace(), var4.getPath() + "_antixray"), var4.getVariant()), new Class_1072(var7.field_4598, var8));
++//                    break;
++//                } catch (Class_1069 var14) {
++//                }
++//            }
++//        }
++//
++//    }
+ 
+-        while(var3.hasNext()) {
+-            ModelIdentifier var4 = (ModelIdentifier)var3.next();
+-            List var5 = defenitions.get(method_6148(var4));
+-
+-            label37:
+-            for(int var6 = var5.size() - 1; var6 >= 0; --var6) {
+-                try {
+-                    Class_1072 var7 = ((ModelVariantMap)var5.get(var6)).method_3671(var4.getVariant());
+-                    ArrayList var8 = Lists.newArrayList();
+-                    Iterator var9 = var7.method_3686().iterator();
+-
+-                    while(var9.hasNext()) {
+-                        Class_1070 var10 = (Class_1070)var9.next();
+-                        Identifier var11 = var10.method_3675();
+-                        Class_1063 var12 = method_6150(var4, var11);
+-                        if (var12 == null) {
+-                            var2.clear();
+-                            continue label37;
+-                        }
+-
+-                        Identifier var13 = new Identifier(var11.getNamespace(), var11.getPath() + "_antixray");
+-                        var8.add(new Class_1070(var13, var10.method_3676(), var10.method_3677(), var10.method_3678()));
+-                        var2.put(var13, var12);
+-                    }
+-
+-                    parameter_1.putAll(var2);
+-                    var2.clear();
+-                    parameter_0.put(new ModelIdentifier(new Identifier(var4.getNamespace(), var4.getPath() + "_antixray"), var4.getVariant()), new Class_1072(var7.field_4598, var8));
+-                    break;
+-                } catch (Class_1069 var14) {
+-                }
+-            }
+-        }
+-
+-    }
+-
+     private static Class_1063 method_6150(Identifier parameter_0, Identifier parameter_1) {
+         Class_2143 var2 = null;
+         int var3 = Integer.MAX_VALUE;
+@@ -327,7 +323,7 @@
+         return null;
+     }
+ 
+-    private static void method_6147(ResourceManager parameter_0, Identifier parameter_1) {
++    private static void method_6147(ResourceManager parameter_0, Identifier parameter_1) throws IOException {
+         String var2 = parameter_1.getPath();
+         byte var5 = -1;
+         switch(var2.hashCode()) {

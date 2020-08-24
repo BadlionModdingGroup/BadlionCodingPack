@@ -1,0 +1,14 @@
+--- a/net\badlion\client\common\mod\AutoTextMod.java
++++ b/net\badlion\client\common\mod\AutoTextMod.java
+@@ -130,6 +130,11 @@
+ 
+     public void method_1784() {
+         Collections.sort(this.entries, new Comparator<AutoTextMod.Class_543>() {
++            @Override
++            public int compare(Class_543 o1, Class_543 o2) {
++                return method_1800(o1, o2);
++            }
++
+             public int method_1800(AutoTextMod.Class_543 parameter_1, AutoTextMod.Class_543 parameter_2) {
+                 return parameter_1.name.compareTo(parameter_2.name);
+             }

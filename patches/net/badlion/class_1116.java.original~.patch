@@ -1,0 +1,97 @@
+--- C:\dev\null
++++ b/net\badlion\class_1116.java.original~
+@@ -0,0 +1,94 @@
++package net.badlion;
++
++import io.netty.buffer.ByteBuf;
++import io.netty.buffer.Unpooled;
++import net.minecraft.network.NetworkSide;
++import net.minecraft.network.NetworkState;
++import net.minecraft.network.Packet;
++import net.minecraft.network.packet.c2s.login.LoginHelloC2SPacket;
++import net.minecraft.network.packet.c2s.login.LoginKeyC2SPacket;
++import net.minecraft.network.packet.c2s.play.KeepAliveC2SPacket;
++import net.minecraft.network.packet.s2c.login.LoginCompressionS2CPacket;
++import net.minecraft.network.packet.s2c.login.LoginDisconnectS2CPacket;
++import net.minecraft.network.packet.s2c.login.LoginHelloS2CPacket;
++import net.minecraft.network.packet.s2c.login.LoginSuccessS2CPacket;
++import net.minecraft.network.packet.s2c.play.ChunkLoadDistanceS2CPacket;
++import net.minecraft.network.packet.s2c.play.KeepAliveS2CPacket;
++import net.minecraft.network.packet.s2c.play.PlayerPositionLookS2CPacket;
++import net.minecraft.network.packet.s2c.play.PlayerSpawnS2CPacket;
++import net.minecraft.util.PacketByteBuf;
++
++public class Class_1116 implements Class_316 {
++    private Packet field_2151;
++
++    public Class_1116(Packet parameter_1) {
++        this.field_2151 = parameter_1;
++    }
++
++    public byte[] method_5318() {
++        ByteBuf var1 = null;
++
++        try {
++            var1 = Unpooled.buffer();
++            PacketByteBuf var2 = new PacketByteBuf(var1);
++            NetworkState var3 = NetworkState.getPacketHandlerState(this.field_2151);
++            int var4 = var3.method_5124(NetworkSide.field_6044, this.field_2151);
++            var2.writeVarInt(var4);
++            this.field_2151.write(var2);
++            var1.readerIndex(0);
++            byte[] var5 = new byte[var1.readableBytes()];
++            var1.readBytes(var5);
++            byte[] var6 = var5;
++            return var6;
++        } catch (Exception var10) {
++            var10.printStackTrace();
++        } finally {
++            if (var1 != null) {
++                var1.release();
++            }
++
++        }
++
++        return null;
++    }
++
++    public boolean method_5319() {
++        return this.field_2151 instanceof ChunkLoadDistanceS2CPacket;
++    }
++
++    public int method_5320() {
++        return this.field_2151 instanceof ChunkLoadDistanceS2CPacket ? ((ChunkLoadDistanceS2CPacket)this.field_2151).getDistance() : 0;
++    }
++
++    public boolean method_5321() {
++        return this.field_2151 instanceof LoginCompressionS2CPacket;
++    }
++
++    public boolean method_5322() {
++        return this.field_2151 instanceof LoginSuccessS2CPacket;
++    }
++
++    public boolean method_5323() {
++        return this.field_2151 instanceof KeepAliveS2CPacket || this.field_2151 instanceof KeepAliveC2SPacket;
++    }
++
++    public boolean method_5324() {
++        return this.field_2151 instanceof PlayerSpawnS2CPacket;
++    }
++
++    public String method_5325() {
++        return this.field_2151 instanceof PlayerSpawnS2CPacket ? ((PlayerSpawnS2CPacket)this.field_2151).getPlayerUuid().toString() : "";
++    }
++
++    public boolean method_5326() {
++        return this.field_2151 instanceof LoginDisconnectS2CPacket || this.field_2151 instanceof LoginHelloS2CPacket || this.field_2151 instanceof LoginSuccessS2CPacket || this.field_2151 instanceof LoginCompressionS2CPacket || this.field_2151 instanceof LoginHelloC2SPacket || this.field_2151 instanceof LoginKeyC2SPacket;
++    }
++
++    public boolean method_5327() {
++        return this.field_2151 instanceof PlayerPositionLookS2CPacket;
++    }
++
++    public Packet method_3192() {
++        return this.field_2151;
++    }
++}

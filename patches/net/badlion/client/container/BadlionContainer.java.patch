@@ -1,0 +1,18 @@
+--- a/net\badlion\client\container\BadlionContainer.java
++++ b/net\badlion\client\container\BadlionContainer.java
+@@ -1,5 +1,6 @@
+ package net.badlion.client.container;
+ 
++import io.github.badlionmoddinggroup.badlion.extra.ItemStackExtra;
+ import net.badlion.client.common.container.ContainerWrapper;
+ import net.badlion.client.common.item.ItemStackWrapper;
+ import net.minecraft.container.BeaconContainer;
+@@ -51,7 +52,7 @@
+         if (var2 != null) {
+             ItemStack var3 = var2.getStack();
+             if (var3 != null) {
+-                return var3.getBadlionItemStack();
++                return ((ItemStackExtra)(Object)var3).getBadlionItemStack();
+             }
+         }
+ 

@@ -1,0 +1,12 @@
+--- a/net\badlion\Class_252.java
++++ b/net\badlion\Class_252.java
+@@ -7,4 +7,9 @@
+     public Class_257 method_972(Type parameter_1) {
+         return new Class_257();
+     }
++
++    @Override
++    public Class_257 createInstance(Type type) {
++        return method_972(type);
+ }
++}

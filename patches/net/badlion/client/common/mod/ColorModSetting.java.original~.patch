@@ -1,0 +1,1068 @@
+--- C:\dev\null
++++ b/net\badlion\client\common\mod\ColorModSetting.java.original~
+@@ -0,0 +1,1065 @@
++package net.badlion.client.common.mod;
++
++import java.awt.Color;
++import java.util.ArrayList;
++import java.util.List;
++import java.util.Locale;
++import net.badlion.Class_1377;
++import net.badlion.Class_1854;
++import net.badlion.Class_1886;
++import net.badlion.Class_2066;
++import net.badlion.Class_2103;
++import net.badlion.Class_2125;
++import net.badlion.Class_2133;
++import net.badlion.Class_22;
++import net.badlion.Class_36;
++import net.badlion.client.common.BadlionClient;
++import net.badlion.client.common.render.texture.TextureWrapper;
++import net.badlion.client.common.text.AbstractFontRenderer;
++import net.badlion.client.common.util.Colour;
++import org.lwjgl.opengl.GL11;
++
++public class ColorModSetting extends Class_1854 {
++    public static int field_4753 = 0;
++    private static final List<Integer> field_4795 = new ArrayList();
++    private final String field_4796;
++    private final Colour field_4797;
++    private boolean field_4798;
++    private int field_4799;
++    private boolean field_4800;
++    private final Class_1377 field_4801;
++    private boolean field_4802;
++    private boolean field_4803;
++    private boolean field_4804;
++    private float field_4805;
++    private float field_4719;
++    private float field_4720;
++    private float field_4721;
++    private int field_4722;
++    private int field_4723;
++    private int field_4724;
++    private int field_4725;
++    private int field_4726;
++    private int field_4727;
++    private int field_4728;
++    private int field_4729;
++    private int field_4730;
++    private int field_4731;
++    private int field_4732;
++    private int field_4733;
++    private int field_4734;
++    private int field_4735;
++    private int field_4736;
++    private int field_4737;
++    private int field_4738;
++    private int field_4739;
++    private int field_4740;
++    private int field_4741;
++    private int field_4742;
++    private int field_4743;
++    private Class_2103<Colour> field_4744;
++    private final TextureWrapper field_4769;
++    private final TextureWrapper field_4770;
++    private final TextureWrapper field_4771;
++    private final TextureWrapper field_4772;
++    private final TextureWrapper field_4773;
++    private final TextureWrapper field_4774;
++    private final TextureWrapper field_4775;
++    private final TextureWrapper field_4776;
++    private final TextureWrapper field_4777;
++    private final int field_4778;
++    private final int field_4779;
++    private final int field_4780;
++    private final int field_4781;
++    private final int field_4782;
++    private int field_4783;
++    private int field_4784;
++    private final int field_4785;
++    private final int field_4786;
++    private final int field_4787;
++    private final int field_4788;
++    private final int field_4789;
++    private final int field_4790;
++    private final int field_4791;
++    private final int field_4792;
++    private int field_4793;
++    private final int field_4794;
++    private final int field_4745;
++    private final int field_4746;
++    private final int field_4747;
++    private final int field_4748;
++    private final int field_4749;
++    private final int field_4750;
++    private final int field_4751;
++    private final int field_4752;
++    private final int field_4754;
++    private final int field_4755;
++    private final int field_4756;
++    private final int field_4757;
++    private final int field_4758;
++    private final int field_4759;
++    private final int field_4760;
++    private final int field_4761;
++    private final int field_4762;
++    private final int field_4763;
++    private final int field_4764;
++    private final int field_4765;
++    private final int field_4766;
++    private final int field_4767;
++    private transient String field_4768;
++
++    public ColorModSetting(String parameter_1, Colour parameter_2) {
++        this(parameter_1, parameter_2, false);
++    }
++
++    public ColorModSetting(String parameter_1, Colour parameter_2, boolean parameter_3) {
++        this(parameter_1, parameter_2, parameter_3, (Class_2103)null);
++    }
++
++    public ColorModSetting(String parameter_1, Colour parameter_2, boolean parameter_3, Class_2103<Colour> parameter_4) {
++        super(true, true, true, true);
++        this.field_4800 = false;
++        this.field_4769 = BadlionClient.factory.loadTexture("blc/textures/slideout/overlay/checkbox-outline.png");
++        this.field_4770 = BadlionClient.factory.loadTexture("blc/textures/slideout/overlay/clicked-checkbox.png");
++        this.field_4771 = BadlionClient.factory.loadTexture("blc/textures/slideout/overlay/color-picker/main-color-cursor.png");
++        this.field_4772 = BadlionClient.factory.loadTexture("blc/textures/slideout/overlay/color-picker/sub-color-cursor-2.png");
++        this.field_4773 = BadlionClient.factory.loadTexture("blc/textures/slideout/overlay/color-picker/main-color-rectangle.png");
++        this.field_4774 = BadlionClient.factory.loadTexture("blc/textures/slideout/overlay/color-picker/preset-colors-filled-circle.png");
++        this.field_4775 = BadlionClient.factory.loadTexture("blc/textures/slideout/overlay/color-picker/preset-colors-outlined-circle.png");
++        this.field_4776 = BadlionClient.factory.loadTexture("blc/textures/slideout/overlay/round-button.png");
++        this.field_4777 = BadlionClient.factory.loadTexture("blc/textures/slideout/overlay/input-field-border.png");
++        this.field_4778 = 24;
++        this.field_4779 = 160;
++        this.field_4780 = 35;
++        this.field_4781 = 20;
++        this.field_4782 = 10;
++        this.field_4785 = 20;
++        this.field_4786 = -1727461111;
++        this.field_4787 = 200;
++        this.field_4788 = 200;
++        this.field_4789 = 48;
++        this.field_4790 = 16;
++        this.field_4791 = 52;
++        this.field_4792 = 6;
++        this.field_4794 = 20;
++        this.field_4745 = 10;
++        this.field_4746 = 22;
++        this.field_4747 = 1;
++        this.field_4748 = 16;
++        this.field_4749 = 2;
++        this.field_4750 = -1929379841;
++        this.field_4751 = 19;
++        this.field_4752 = 7;
++        this.field_4754 = 6;
++        this.field_4755 = 5;
++        this.field_4756 = 20;
++        this.field_4757 = 92;
++        this.field_4758 = 30;
++        this.field_4759 = 20;
++        this.field_4760 = 5;
++        this.field_4761 = 22;
++        this.field_4762 = 5;
++        this.field_4763 = 14;
++        this.field_4764 = 10;
++        this.field_4765 = 201;
++        this.field_4766 = 31;
++        this.field_4767 = 22;
++        this.field_4796 = parameter_1;
++        this.field_4797 = parameter_2;
++        this.field_4798 = parameter_3;
++        int var5 = parameter_2.method_2788().getRed();
++        int var6 = parameter_2.method_2788().getGreen();
++        int var7 = parameter_2.method_2788().getBlue();
++        this.field_4721 = (float)parameter_2.method_2788().getAlpha() / 255.0F;
++        float[] var8 = new float[3];
++        float[] var9 = Color.RGBtoHSB(var5, var6, var7, var8);
++        this.field_4805 = var9[0];
++        this.field_4719 = var9[1];
++        this.field_4720 = var9[2];
++        this.field_4744 = parameter_4;
++        String var10 = String.format("%02x%02x%02x", var5, var6, var7).toUpperCase(Locale.ROOT);
++        this.getClass();
++        this.getClass();
++        int var10005 = 201 - 2 * 14;
++        this.getClass();
++        Class_1377.InputFlavor var10011 = Class_1377.InputFlavor.field_2731;
++        this.getClass();
++        this.field_4801 = new Class_1377(0, 0, var10005, 31, false, var10, "#", 6, var10011, 22, true);
++        this.method_4987();
++    }
++
++    private void method_4987() {
++        this.getClass();
++        this.getClass();
++        int var10001 = 20 + 200;
++        this.getClass();
++        var10001 += 20;
++        this.getClass();
++        var10001 += 30;
++        this.getClass();
++        var10001 += 5;
++        this.getClass();
++        var10001 += 30;
++        this.getClass();
++        var10001 += 10;
++        this.getClass();
++        var10001 += 31;
++        this.getClass();
++        this.field_4784 = var10001 + 20;
++        this.getClass();
++        this.getClass();
++        var10001 = 20 + 200;
++        this.getClass();
++        var10001 += 20;
++        this.getClass();
++        var10001 += 48;
++        this.getClass();
++        var10001 += 10;
++        this.getClass();
++        var10001 += 48;
++        this.getClass();
++        var10001 += 10;
++        this.getClass();
++        var10001 += 20;
++        this.getClass();
++        var10001 += 5;
++        this.getClass();
++        var10001 += 20;
++        this.getClass();
++        this.field_4783 = var10001 + 20;
++        this.getClass();
++        this.field_4793 = (int)Math.floor((double)(200.0F / 6.0F));
++    }
++
++    public void method_5030() {
++        if (this.field_4800) {
++            this.method_4979(false);
++        }
++
++    }
++
++    public boolean method_5033(int parameter_1, int parameter_2, int parameter_3) {
++        if (parameter_3 != 0) {
++            return false;
++        } else {
++            int var10002;
++            int var10003;
++            if (this.field_4798) {
++                var10002 = this.field_4724;
++                var10003 = this.field_4725;
++                this.getClass();
++                this.getClass();
++                if (Class_2133.method_5894(parameter_1, parameter_2, var10002, var10003, 20, 20)) {
++                    this.field_4797.method_2787(!this.field_4797.method_2793());
++                    if (this.field_4744 != null) {
++                        this.field_4744.method_5724(this.field_4797);
++                    }
++
++                    this.method_4979(this.field_4797.method_2793());
++                    return false;
++                }
++            }
++
++            var10002 = this.field_4726;
++            var10003 = this.field_4727;
++            this.getClass();
++            this.getClass();
++            if (Class_2133.method_5894(parameter_1, parameter_2, var10002, var10003, 160, 35) && this.field_4797.method_2793()) {
++                this.method_4979(!this.field_4800);
++            } else if (this.field_4800) {
++                this.field_4801.method_3708(parameter_3, parameter_1, parameter_2);
++                if (!this.method_4983(parameter_1, parameter_2)) {
++                    this.method_4979(false);
++                } else {
++                    var10002 = this.field_4728;
++                    var10003 = this.field_4729;
++                    this.getClass();
++                    this.getClass();
++                    float var4;
++                    if (Class_2133.method_5894(parameter_1, parameter_2, var10002, var10003, 200, 200)) {
++                        var4 = (float)(parameter_1 - this.field_4728);
++                        float var5 = (float)(parameter_2 - this.field_4729);
++                        this.field_4802 = true;
++                        this.getClass();
++                        this.field_4719 = Class_36.method_261(var4 / 200.0F, 0.0F, 1.0F);
++                        this.getClass();
++                        this.field_4720 = Class_36.method_261(1.0F - var5 / 200.0F, 0.0F, 1.0F);
++                        this.method_4988();
++                    } else {
++                        var10002 = this.field_4730;
++                        var10003 = this.field_4731;
++                        this.getClass();
++                        this.getClass();
++                        if (Class_2133.method_5894(parameter_1, parameter_2, var10002, var10003, 48, 200)) {
++                            var4 = (float)(parameter_2 - this.field_4731);
++                            this.field_4803 = true;
++                            this.getClass();
++                            this.field_4805 = Class_36.method_261(var4 / 200.0F, 0.0F, 0.99F);
++                            this.method_4988();
++                        } else {
++                            var10002 = this.field_4732;
++                            var10003 = this.field_4733;
++                            this.getClass();
++                            this.getClass();
++                            if (Class_2133.method_5894(parameter_1, parameter_2, var10002, var10003, 48, 200)) {
++                                var4 = (float)(parameter_2 - this.field_4733);
++                                this.field_4804 = true;
++                                this.getClass();
++                                this.field_4721 = Class_36.method_261(1.0F - var4 / 200.0F, 0.11F, 1.0F);
++                                this.method_4988();
++                            } else {
++                                var10002 = this.field_4738;
++                                var10003 = this.field_4739;
++                                this.getClass();
++                                this.getClass();
++                                if (Class_2133.method_5894(parameter_1, parameter_2, var10002, var10003, 92, 30)) {
++                                    if (this.field_4797.method_2781() == Colour.ColorMode.RAINBOW) {
++                                        this.field_4797.method_2784(Colour.ColorMode.STATIC);
++                                    } else {
++                                        this.field_4797.method_2784(Colour.ColorMode.RAINBOW);
++                                    }
++                                } else {
++                                    var10002 = this.field_4740;
++                                    var10003 = this.field_4741;
++                                    this.getClass();
++                                    this.getClass();
++                                    if (Class_2133.method_5894(parameter_1, parameter_2, var10002, var10003, 92, 30)) {
++                                        if (this.field_4797.method_2781() == Colour.ColorMode.BREATHING) {
++                                            this.field_4797.method_2784(Colour.ColorMode.STATIC);
++                                        } else {
++                                            this.field_4797.method_2784(Colour.ColorMode.BREATHING);
++                                        }
++                                    } else {
++                                        var10002 = this.field_4742;
++                                        var10003 = this.field_4743;
++                                        this.getClass();
++                                        this.getClass();
++                                        if (!Class_2133.method_5894(parameter_1, parameter_2, var10002, var10003, 92, 30)) {
++                                            int var11 = 0;
++
++                                            while(true) {
++                                                this.getClass();
++                                                int var6;
++                                                int var7;
++                                                int var8;
++                                                float[] var9;
++                                                float[] var10;
++                                                int var12;
++                                                if (var11 >= 7) {
++                                                    var11 = 0;
++
++                                                    while(true) {
++                                                        this.getClass();
++                                                        if (var11 >= 7) {
++                                                            return false;
++                                                        }
++
++                                                        var10002 = this.field_4736;
++                                                        var10003 = this.field_4737;
++                                                        this.getClass();
++                                                        this.getClass();
++                                                        var10003 += var11 * (20 + 6);
++                                                        this.getClass();
++                                                        this.getClass();
++                                                        if (Class_2133.method_5894(parameter_1, parameter_2, var10002, var10003, 20, 20)) {
++                                                            if (BadlionClient.getBadlion().getWrapper().getRecentColors().size() < var11 + 1) {
++                                                                return false;
++                                                            }
++
++                                                            var12 = (Integer)BadlionClient.getBadlion().getWrapper().getRecentColors().get(BadlionClient.getBadlion().getWrapper().getRecentColors().size() - var11 - 1);
++                                                            var6 = Class_2125.method_5867(var12);
++                                                            var7 = Class_2125.method_5869(var12);
++                                                            var8 = Class_2125.method_5870(var12);
++                                                            this.field_4721 = (float)Class_2125.method_5871(var12) / 255.0F;
++                                                            var9 = new float[3];
++                                                            var10 = Color.RGBtoHSB(var6, var7, var8, var9);
++                                                            this.field_4805 = var10[0];
++                                                            this.field_4719 = var10[1];
++                                                            this.field_4720 = var10[2];
++                                                            this.method_4988();
++                                                            return true;
++                                                        }
++
++                                                        ++var11;
++                                                    }
++                                                }
++
++                                                var10002 = this.field_4734;
++                                                var10003 = this.field_4735;
++                                                this.getClass();
++                                                this.getClass();
++                                                var10003 += var11 * (20 + 6);
++                                                this.getClass();
++                                                this.getClass();
++                                                if (Class_2133.method_5894(parameter_1, parameter_2, var10002, var10003, 20, 20)) {
++                                                    var12 = (Integer)field_4795.get(var11);
++                                                    var6 = Class_2125.method_5867(var12);
++                                                    var7 = Class_2125.method_5869(var12);
++                                                    var8 = Class_2125.method_5870(var12);
++                                                    this.field_4721 = (float)Class_2125.method_5871(var12) / 255.0F;
++                                                    var9 = new float[3];
++                                                    var10 = Color.RGBtoHSB(var6, var7, var8, var9);
++                                                    this.field_4805 = var10[0];
++                                                    this.field_4719 = var10[1];
++                                                    this.field_4720 = var10[2];
++                                                    this.method_4988();
++                                                    return true;
++                                                }
++
++                                                ++var11;
++                                            }
++                                        }
++
++                                        if (this.field_4797.method_2781() == Colour.ColorMode.CHROMA) {
++                                            this.field_4797.method_2784(Colour.ColorMode.STATIC);
++                                        } else {
++                                            this.field_4797.method_2784(Colour.ColorMode.CHROMA);
++                                        }
++                                    }
++                                }
++                            }
++                        }
++                    }
++                }
++
++                return true;
++            }
++
++            return false;
++        }
++    }
++
++    public void method_5032(int parameter_1, int parameter_2) {
++        if (this.field_4797.method_2793()) {
++            boolean var3 = false;
++            float var4;
++            if (this.field_4802) {
++                var4 = (float)(parameter_1 - this.field_4728);
++                float var5 = (float)(parameter_2 - this.field_4729);
++                if (!BadlionClient.minecraft.method_208(0)) {
++                    this.field_4802 = false;
++                }
++
++                this.getClass();
++                this.field_4719 = Class_36.method_261(var4 / 200.0F, 0.0F, 1.0F);
++                this.getClass();
++                this.field_4720 = Class_36.method_261(1.0F - var5 / 200.0F, 0.0F, 1.0F);
++                var3 = true;
++            } else if (this.field_4803) {
++                var4 = (float)(parameter_2 - this.field_4731);
++                if (!BadlionClient.minecraft.method_208(0)) {
++                    this.field_4803 = false;
++                }
++
++                this.getClass();
++                this.field_4805 = Class_36.method_261(var4 / 200.0F, 0.0F, 0.99F);
++                var3 = true;
++            }
++
++            if (this.field_4804) {
++                var4 = (float)(parameter_2 - this.field_4733);
++                if (!BadlionClient.minecraft.method_208(0)) {
++                    this.field_4804 = false;
++                }
++
++                this.getClass();
++                this.field_4721 = Class_36.method_261(1.0F - var4 / 200.0F, 0.11F, 1.0F);
++                var3 = true;
++            }
++
++            if (var3) {
++                this.method_4988();
++            }
++
++        }
++    }
++
++    public void method_5031(char parameter_1, int parameter_2) {
++        if (this.field_4801.method_3731()) {
++            this.field_4801.method_3745(parameter_1, parameter_2);
++            if (this.field_4768 != null && !this.field_4768.equals(this.field_4801.method_3732()) && this.field_4801.method_3732().length() == this.field_4801.method_3733()) {
++                this.field_4801.method_3722(-1);
++                Color var3 = Class_2125.method_5864(this.field_4801.method_3732());
++                float[] var4 = new float[3];
++                float[] var5 = Color.RGBtoHSB(var3.getRed(), var3.getGreen(), var3.getBlue(), var4);
++                this.field_4805 = var5[0];
++                this.field_4719 = var5[1];
++                this.field_4720 = var5[2];
++                this.method_4988();
++            } else if (this.field_4801.method_3732().length() != this.field_4801.method_3733()) {
++                this.field_4801.method_3722(-48060);
++            }
++
++            this.field_4768 = this.field_4801.method_3732();
++        }
++
++    }
++
++    public int method_5034(int parameter_1, int parameter_2, int parameter_3, int parameter_4, int parameter_5) {
++        Class_1886 var6 = (Class_1886)BadlionClient.getBadlion().getWrapper().getOverlayManager().method_4744(Class_1886.class);
++        BadlionClient.glStateManager.method_72(1.0F, 1.0F, 1.0F, 1.0F);
++        AbstractFontRenderer var10000 = BadlionClient.fontRenderer;
++        this.getClass();
++        this.getClass();
++        int var10002 = parameter_4 + (int)((float)(35 - 24) / 2.0F);
++        String var10003 = this.field_4796;
++        this.getClass();
++        var10000.method_5752(parameter_3, var10002, var10003, 24, AbstractFontRenderer.FontType.TITLE);
++        int var10001 = parameter_3 + parameter_5;
++        this.getClass();
++        this.field_4726 = var10001 - 160;
++        this.field_4727 = parameter_4;
++        int var9 = this.field_4726;
++        var10001 = this.field_4727;
++        var10002 = this.field_4726;
++        this.getClass();
++        var10002 += 160;
++        int var11 = this.field_4727;
++        this.getClass();
++        Class_2066.method_5555(var9, var10001, var10002, var11 + 35, 4.0F, this.field_4797.method_2792());
++        if (this.field_4798) {
++            BadlionClient.glStateManager.method_72(1.0F, 1.0F, 1.0F, 1.0F);
++            BadlionClient.glStateManager.method_107();
++            BadlionClient.glStateManager.method_97();
++            if (this.field_4797.method_2793()) {
++                BadlionClient.textureManager.method_5788(this.field_4770);
++            } else {
++                BadlionClient.textureManager.method_5788(this.field_4769);
++            }
++
++            var10001 = this.field_4726;
++            this.getClass();
++            var10001 -= 10;
++            this.getClass();
++            this.field_4724 = var10001 - 20;
++            this.getClass();
++            this.getClass();
++            this.field_4725 = parameter_4 + (int)((float)(35 - 20) / 2.0F);
++            Class_22 var10 = BadlionClient.gui;
++            var10001 = this.field_4724;
++            var10002 = this.field_4725;
++            this.getClass();
++            this.getClass();
++            this.getClass();
++            this.getClass();
++            var10.method_159(var10001, var10002, 0.0F, 0.0F, 20, 20, 20.0F, 20.0F);
++        }
++
++        if (this.field_4800) {
++            boolean var8 = true;
++            var9 = parameter_4 - 20;
++            var10001 = BadlionClient.minecraft.method_228() - this.field_4784;
++            this.getClass();
++            int var7 = Math.min(var9, var10001 - 20);
++            var10001 = var6.method_5119();
++            this.getClass();
++            this.method_4978(var10001 + 20, var7, true);
++        }
++
++        this.getClass();
++        return 35;
++    }
++
++    public void method_4981(int parameter_1, int parameter_2) {
++        this.method_4978(parameter_1, parameter_2, false);
++        GL11.glDisable(3089);
++    }
++
++    public void method_4978(int parameter_1, int parameter_2, boolean parameter_3) {
++        int var4 = BadlionClient.minecraft.method_192();
++        int var5 = BadlionClient.minecraft.method_228() - BadlionClient.minecraft.method_193();
++        boolean var6 = true;
++        boolean var7 = true;
++        boolean var8 = true;
++        GL11.glDisable(3089);
++        this.field_4722 = parameter_1;
++        this.field_4723 = parameter_2;
++        if (parameter_3) {
++            BadlionClient.glStateManager.method_108();
++            BadlionClient.glStateManager.method_97();
++            BadlionClient.glStateManager.method_75(770, 771);
++            GL11.glEnable(2881);
++            this.getClass();
++            Class_2125.bindHexColorRGBA(-1727461111);
++            GL11.glBegin(4);
++            GL11.glVertex2f((float)(parameter_1 - 15), (float)(parameter_2 + 20 + 15));
++            GL11.glVertex2f((float)parameter_1, (float)(parameter_2 + 20 + 30));
++            GL11.glVertex2f((float)parameter_1, (float)(parameter_2 + 20));
++            GL11.glEnd();
++            GL11.glDisable(2881);
++        }
++
++        GL11.glShadeModel(7425);
++        int var10002 = parameter_1 + this.field_4783;
++        int var10003 = parameter_2 + this.field_4784;
++        this.getClass();
++        Class_2066.method_5555(parameter_1, parameter_2, var10002, var10003, 4.0F, -1727461111);
++        this.getClass();
++        int var9 = parameter_1 + 20;
++        this.getClass();
++        int var10 = parameter_2 + 20;
++        this.field_4728 = var9;
++        this.field_4729 = var10;
++        Color var11 = Class_2125.method_5859(this.field_4805, 1.0F, 1.0F);
++        int var12 = (int)Long.parseLong(String.format("FF%02x%02x%02x", var11.getRed(), var11.getGreen(), var11.getBlue()), 16);
++        Class_22 var10000 = BadlionClient.gui;
++        this.getClass();
++        var10003 = var9 + 200;
++        this.getClass();
++        var10000.method_150(var9, var10, var10003, var10 + 200, var12);
++        BadlionClient.glStateManager.method_107();
++        BadlionClient.glStateManager.method_97();
++        BadlionClient.glStateManager.method_72(1.0F, 1.0F, 1.0F, 1.0F);
++        BadlionClient.minecraft.getTextureManager().bindTexture(this.field_4773);
++        var10000 = BadlionClient.gui;
++        this.getClass();
++        this.getClass();
++        this.getClass();
++        this.getClass();
++        var10000.method_159(var9, var10, 0.0F, 0.0F, 200, 200, 200.0F, 200.0F);
++        this.getClass();
++        int var13 = (int)(16.0F / 2.0F);
++        BadlionClient.glStateManager.method_72(1.0F, 1.0F, 1.0F, 1.0F);
++        BadlionClient.glStateManager.method_107();
++        BadlionClient.textureManager.method_5788(this.field_4771);
++        var10000 = BadlionClient.gui;
++        float var10001 = (float)var9;
++        float var27 = this.field_4719;
++        this.getClass();
++        int var25 = (int)(var10001 + var27 * 200.0F) - var13;
++        this.getClass();
++        var27 = (float)(var10 + 200);
++        float var30 = this.field_4720;
++        this.getClass();
++        var10002 = (int)(var27 - var30 * 200.0F) - var13;
++        this.getClass();
++        this.getClass();
++        this.getClass();
++        this.getClass();
++        var10000.method_159(var25, var10002, 0.0F, 0.0F, 16, 16, 16.0F, 16.0F);
++        this.getClass();
++        this.getClass();
++        var9 += 200 + 20;
++        BadlionClient.glStateManager.method_108();
++        this.field_4730 = var9;
++        this.field_4731 = var10;
++        byte var14 = 0;
++        GL11.glBegin(8);
++        BadlionClient.glStateManager.method_71(1.0F, 0.0F, 0.0F);
++        this.getClass();
++        GL11.glVertex2f((float)(var9 + 48), (float)var10);
++        GL11.glVertex2f((float)var9, (float)var10);
++        int var22 = var14 + this.field_4793;
++        BadlionClient.glStateManager.method_71(1.0F, 1.0F, 0.0F);
++        this.getClass();
++        GL11.glVertex2f((float)(var9 + 48), (float)(var10 + var22));
++        GL11.glVertex2f((float)var9, (float)(var10 + var22));
++        var22 += this.field_4793;
++        BadlionClient.glStateManager.method_71(0.0F, 1.0F, 0.0F);
++        this.getClass();
++        GL11.glVertex2f((float)(var9 + 48), (float)(var10 + var22));
++        GL11.glVertex2f((float)var9, (float)(var10 + var22));
++        var22 += this.field_4793;
++        BadlionClient.glStateManager.method_71(0.0F, 1.0F, 1.0F);
++        this.getClass();
++        GL11.glVertex2f((float)(var9 + 48), (float)(var10 + var22));
++        GL11.glVertex2f((float)var9, (float)(var10 + var22));
++        var22 += this.field_4793;
++        BadlionClient.glStateManager.method_71(0.0F, 0.0F, 1.0F);
++        this.getClass();
++        GL11.glVertex2f((float)(var9 + 48), (float)(var10 + var22));
++        GL11.glVertex2f((float)var9, (float)(var10 + var22));
++        var22 += this.field_4793;
++        BadlionClient.glStateManager.method_71(1.0F, 0.0F, 1.0F);
++        this.getClass();
++        GL11.glVertex2f((float)(var9 + 48), (float)(var10 + var22));
++        GL11.glVertex2f((float)var9, (float)(var10 + var22));
++        var22 += this.field_4793;
++        BadlionClient.glStateManager.method_71(1.0F, 0.0F, 0.0F);
++        this.getClass();
++        GL11.glVertex2f((float)(var9 + 48), (float)(var10 + var22));
++        GL11.glVertex2f((float)var9, (float)(var10 + var22));
++        GL11.glEnd();
++        this.getClass();
++        this.getClass();
++        int var15 = (int)((float)(52 - 48) / 2.0F);
++        this.getClass();
++        int var16 = (int)(6.0F / 2.0F);
++        BadlionClient.glStateManager.method_72(1.0F, 1.0F, 1.0F, 1.0F);
++        BadlionClient.glStateManager.method_107();
++        BadlionClient.textureManager.method_5788(this.field_4772);
++        var10000 = BadlionClient.gui;
++        var25 = var9 - var15;
++        var10002 = var10 - var16;
++        var30 = this.field_4805;
++        this.getClass();
++        var10002 += (int)(var30 * 200.0F);
++        this.getClass();
++        this.getClass();
++        this.getClass();
++        this.getClass();
++        var10000.method_159(var25, var10002, 0.0F, 0.0F, 52, 6, 52.0F, 6.0F);
++        this.getClass();
++        this.getClass();
++        var9 += 48 + 10;
++        BadlionClient.glStateManager.method_108();
++        this.field_4732 = var9;
++        this.field_4733 = var10;
++        GL11.glBegin(7);
++        BadlionClient.glStateManager.method_72(1.0F, 1.0F, 1.0F, 1.0F);
++        this.getClass();
++        GL11.glVertex2f((float)(var9 + 48), (float)var10);
++        GL11.glVertex2f((float)var9, (float)var10);
++        Class_2125.bindHexColorRGBA(-8355712);
++        float var26 = (float)var9;
++        this.getClass();
++        GL11.glVertex2f(var26, (float)(var10 + 200));
++        this.getClass();
++        var26 = (float)(var9 + 48);
++        this.getClass();
++        GL11.glVertex2f(var26, (float)(var10 + 200));
++        GL11.glEnd();
++        BadlionClient.glStateManager.method_72(1.0F, 1.0F, 1.0F, 1.0F);
++        BadlionClient.glStateManager.method_107();
++        BadlionClient.textureManager.method_5788(this.field_4772);
++        var10000 = BadlionClient.gui;
++        var25 = var9 - var15;
++        var10002 = var10 - var16;
++        this.getClass();
++        var10002 += 200;
++        var30 = this.field_4721;
++        this.getClass();
++        var10002 -= (int)(var30 * 200.0F);
++        this.getClass();
++        this.getClass();
++        this.getClass();
++        this.getClass();
++        var10000.method_159(var25, var10002, 0.0F, 0.0F, 52, 6, 52.0F, 6.0F);
++        this.getClass();
++        this.getClass();
++        var9 += 48 + 10;
++        int var17 = 0;
++
++        while(true) {
++            this.getClass();
++            int var18;
++            int var19;
++            int var29;
++            if (var17 >= 7) {
++                this.method_4976(var9, var10, var4, var5, "S", "Standard Colors");
++                this.getClass();
++                this.getClass();
++                var9 += 20 + 5;
++                BadlionClient.glStateManager.method_97();
++                var17 = 0;
++
++                while(true) {
++                    this.getClass();
++                    if (var17 >= 7) {
++                        this.method_4976(var9, var10, var4, var5, "R", "Recent Colors");
++                        this.getClass();
++                        this.getClass();
++                        var10 += 200 + 20;
++                        this.getClass();
++                        var9 = parameter_1 + 20;
++                        this.field_4738 = var9;
++                        this.field_4739 = var10;
++                        this.method_4977(this.field_4738, this.field_4739, var4, var5, Colour.ColorMode.RAINBOW);
++                        this.getClass();
++                        var25 = var9 + 200;
++                        this.getClass();
++                        this.field_4740 = var25 - 92;
++                        this.field_4741 = var10;
++                        this.method_4977(this.field_4740, this.field_4741, var4, var5, Colour.ColorMode.BREATHING);
++                        this.field_4742 = var9;
++                        this.getClass();
++                        var25 = var10 + 30;
++                        this.getClass();
++                        this.field_4743 = var25 + 5;
++                        this.method_4977(this.field_4742, this.field_4743, var4, var5, Colour.ColorMode.CHROMA);
++                        this.getClass();
++                        this.getClass();
++                        var9 += 200 + 20;
++                        this.getClass();
++                        this.getClass();
++                        var10 += (int)((float)(30 - 22) / 2.0F) - 1;
++                        Color var23 = Class_2125.method_5859(this.field_4805, this.field_4719, this.field_4720);
++                        AbstractFontRenderer var31 = BadlionClient.fontRenderer;
++                        String var32 = "R: " + var23.getRed();
++                        this.getClass();
++                        var31.method_5756(var9, var10, var32, 22, AbstractFontRenderer.FontType.TEXT, true);
++                        var31 = BadlionClient.fontRenderer;
++                        this.getClass();
++                        var25 = var9 + 48;
++                        this.getClass();
++                        var25 += 10;
++                        var32 = "A: " + (int)(this.field_4721 * 100.0F) + "%";
++                        this.getClass();
++                        var31.method_5756(var25, var10, var32, 22, AbstractFontRenderer.FontType.TEXT, true);
++                        this.getClass();
++                        this.getClass();
++                        var10 += 22 + 5;
++                        var31 = BadlionClient.fontRenderer;
++                        var32 = "G: " + var23.getGreen();
++                        this.getClass();
++                        var31.method_5756(var9, var10, var32, 22, AbstractFontRenderer.FontType.TEXT, true);
++                        this.getClass();
++                        this.getClass();
++                        var10 += 22 + 5;
++                        var31 = BadlionClient.fontRenderer;
++                        var32 = "B: " + var23.getBlue();
++                        this.getClass();
++                        var31.method_5756(var9, var10, var32, 22, AbstractFontRenderer.FontType.TEXT, true);
++                        this.getClass();
++                        var9 = parameter_1 + 20;
++                        var29 = this.field_4743;
++                        this.getClass();
++                        var29 += 30;
++                        this.getClass();
++                        var10 = var29 + 10;
++                        Class_2125.bindHexColorRGBA(-8552311);
++                        BadlionClient.glStateManager.method_107();
++                        BadlionClient.glStateManager.method_97();
++                        BadlionClient.textureManager.method_5788(this.field_4777);
++                        var10000 = BadlionClient.gui;
++                        this.getClass();
++                        this.getClass();
++                        this.getClass();
++                        this.getClass();
++                        var10000.method_159(var9, var10, 0.0F, 0.0F, 201, 31, 201.0F, 31.0F);
++                        this.getClass();
++                        var18 = var9 + 14;
++                        this.getClass();
++                        this.getClass();
++                        var19 = var10 + (int)((float)(24 - 22) / 2.0F) + 1;
++                        this.field_4801.method_3748(var18, var19);
++                        this.field_4801.method_3751();
++                        GL11.glEnable(3089);
++                        return;
++                    }
++
++                    this.getClass();
++                    int var20 = 7 - var17;
++                    TextureWrapper var24;
++                    if (BadlionClient.getBadlion().getWrapper().getRecentColors().size() < var20) {
++                        var18 = -1;
++                        var24 = this.field_4775;
++                    } else {
++                        var18 = (Integer)BadlionClient.getBadlion().getWrapper().getRecentColors().get(BadlionClient.getBadlion().getWrapper().getRecentColors().size() - var20);
++                        var24 = this.field_4774;
++                    }
++
++                    this.getClass();
++                    var29 = var10 + 200;
++                    var25 = var17 + 1;
++                    this.getClass();
++                    var29 -= var25 * 20;
++                    this.getClass();
++                    int var21 = var29 - var17 * 6;
++                    Class_2125.bindHexColorRGBA(var18);
++                    BadlionClient.textureManager.method_5788(var24);
++                    var10000 = BadlionClient.gui;
++                    this.getClass();
++                    this.getClass();
++                    this.getClass();
++                    this.getClass();
++                    var10000.method_159(var9, var21, 0.0F, 0.0F, 20, 20, 20.0F, 20.0F);
++                    this.getClass();
++                    if (var17 == 7 - 1) {
++                        this.field_4736 = var9;
++                        this.field_4737 = var21;
++                    }
++
++                    ++var17;
++                }
++            }
++
++            List var28 = field_4795;
++            this.getClass();
++            var18 = (Integer)var28.get(7 - var17 - 1);
++            this.getClass();
++            var29 = var10 + 200;
++            var25 = var17 + 1;
++            this.getClass();
++            var29 -= var25 * 20;
++            this.getClass();
++            var19 = var29 - var17 * 6;
++            Class_2125.bindHexColorRGBA(var18);
++            BadlionClient.textureManager.method_5788(this.field_4774);
++            var10000 = BadlionClient.gui;
++            this.getClass();
++            this.getClass();
++            this.getClass();
++            this.getClass();
++            var10000.method_159(var9, var19, 0.0F, 0.0F, 20, 20, 20.0F, 20.0F);
++            this.getClass();
++            if (var17 == 7 - 1) {
++                this.field_4734 = var9;
++                this.field_4735 = var19;
++            }
++
++            ++var17;
++        }
++    }
++
++    private void method_4976(int parameter_1, int parameter_2, int parameter_3, int parameter_4, String parameter_5, String parameter_6) {
++        BadlionClient.glStateManager.method_72(1.0F, 1.0F, 1.0F, 1.0F);
++        AbstractFontRenderer var10000 = BadlionClient.fontRenderer;
++        this.getClass();
++        int var7 = var10000.method_5762(parameter_5, 22, AbstractFontRenderer.FontType.TITLE);
++        this.getClass();
++        int var8 = parameter_1 + (int)((float)(20 - var7) / 2.0F);
++        int var9 = parameter_2 - 5;
++        var10000 = BadlionClient.fontRenderer;
++        this.getClass();
++        var10000.method_5752(var8, var9, parameter_5, 22, AbstractFontRenderer.FontType.TITLE);
++        this.getClass();
++        this.getClass();
++        int var10 = parameter_1 + (int)((float)(20 - 16) / 2.0F);
++        this.getClass();
++        int var12 = var9 + 22;
++        this.getClass();
++        int var11 = var12 + 1;
++        Class_22 var13 = BadlionClient.gui;
++        this.getClass();
++        int var10003 = var10 + 16;
++        this.getClass();
++        int var10004 = var11 + 2;
++        this.getClass();
++        var13.method_150(var10, var11, var10003, var10004, -1929379841);
++        this.getClass();
++        this.getClass();
++        if (Class_2133.method_5894(parameter_3, parameter_4, parameter_1, parameter_2, 20, var11 + 2 - parameter_2)) {
++            this.getClass();
++            var12 = parameter_1 + (int)(20.0F / 2.0F);
++            String[] var10002 = new String[]{parameter_6};
++            this.getClass();
++            Class_2066.method_5567(var12, parameter_2, var10002, 19, AbstractFontRenderer.FontType.TITLE, 0, true);
++        }
++
++    }
++
++    private void method_4977(int parameter_1, int parameter_2, int parameter_3, int parameter_4, Colour.ColorMode parameter_5) {
++        this.getClass();
++        this.getClass();
++        int var6;
++        if (Class_2133.method_5894(parameter_3, parameter_4, parameter_1, parameter_2, 92, 30)) {
++            if (this.field_4797.method_2781() == parameter_5) {
++                var6 = -7745046;
++            } else {
++                var6 = -11184290;
++            }
++        } else if (this.field_4797.method_2781() == parameter_5) {
++            var6 = -9648411;
++        } else {
++            var6 = -13947338;
++        }
++
++        BadlionClient.glStateManager.method_97();
++        Class_2125.bindHexColorRGBA(var6);
++        BadlionClient.textureManager.method_5788(this.field_4776);
++        Class_22 var10000 = BadlionClient.gui;
++        this.getClass();
++        this.getClass();
++        this.getClass();
++        this.getClass();
++        var10000.method_159(parameter_1, parameter_2, 0.0F, 0.0F, 92, 30, 92.0F, 30.0F);
++        String var7 = parameter_5.name();
++        var7 = var7.substring(0, 1).toUpperCase() + var7.substring(1).toLowerCase();
++        AbstractFontRenderer var9 = BadlionClient.fontRenderer;
++        this.getClass();
++        int var8 = var9.method_5762(var7, 20, AbstractFontRenderer.FontType.TITLE);
++        BadlionClient.glStateManager.method_72(1.0F, 1.0F, 1.0F, 1.0F);
++        var9 = BadlionClient.fontRenderer;
++        this.getClass();
++        int var10001 = parameter_1 + (int)((float)(92 - var8) / 2.0F);
++        this.getClass();
++        this.getClass();
++        int var10002 = parameter_2 + (int)((float)(30 - 20) / 2.0F) - 2;
++        this.getClass();
++        var9.method_5752(var10001, var10002, var7, 20, AbstractFontRenderer.FontType.TITLE);
++    }
++
++    private void method_4988() {
++        Color var1 = Class_2125.method_5859(this.field_4805, this.field_4719, this.field_4720);
++        int var2 = (int)Long.parseLong(String.format("%02x%02x%02x%02x", (int)(this.field_4721 * 255.0F), var1.getRed(), var1.getGreen(), var1.getBlue()), 16);
++        this.field_4797.method_2783(var2);
++        String var3 = String.format("%02x%02x%02x", var1.getRed(), var1.getGreen(), var1.getBlue()).toUpperCase(Locale.US);
++        if (!this.field_4801.method_3732().equals(var3)) {
++            this.field_4801.method_3727(var3);
++        }
++
++        this.field_4801.method_3722(-1);
++    }
++
++    public boolean method_4983(int parameter_1, int parameter_2) {
++        return Class_2133.method_5894(parameter_1, parameter_2, this.field_4722, this.field_4723, this.field_4783, this.field_4784);
++    }
++
++    public boolean method_4980() {
++        return this.field_4800;
++    }
++
++    public void method_4979(boolean parameter_1) {
++        if (this.field_4800 != parameter_1) {
++            this.field_4800 = parameter_1;
++            if (!parameter_1) {
++                --field_4753;
++                if (this.field_4797.method_2792() == this.field_4799) {
++                    return;
++                }
++
++                if (this.field_4744 != null) {
++                    this.field_4744.method_5724(this.field_4797);
++                }
++
++                int var2 = this.field_4797.method_2792();
++                if (BadlionClient.getBadlion().getWrapper().getRecentColors().remove(var2)) {
++                    BadlionClient.getBadlion().getWrapper().getRecentColors().add(var2);
++                } else {
++                    BadlionClient.getBadlion().getWrapper().getRecentColors().add(var2);
++
++                    while(true) {
++                        int var10000 = BadlionClient.getBadlion().getWrapper().getRecentColors().size();
++                        this.getClass();
++                        if (var10000 <= 7) {
++                            break;
++                        }
++
++                        BadlionClient.getBadlion().getWrapper().getRecentColors().remove(0);
++                    }
++                }
++            } else {
++                ++field_4753;
++                this.field_4799 = this.field_4797.method_2792();
++            }
++
++        }
++    }
++
++    public Colour method_4982() {
++        return this.field_4797;
++    }
++
++    public int method_4984() {
++        return this.field_4783;
++    }
++
++    public int method_4985() {
++        return this.field_4784;
++    }
++
++    public String method_4986() {
++        return this.field_4796;
++    }
++
++    static {
++        field_4795.add(-65536);
++        field_4795.add(-16454869);
++        field_4795.add(-15650305);
++        field_4795.add(-329216);
++        field_4795.add(-438268);
++        field_4795.add(-4980481);
++        field_4795.add(-3815995);
++    }
++}

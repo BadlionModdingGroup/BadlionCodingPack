@@ -1,0 +1,46 @@
+--- a/net\badlion\Class_296.java
++++ b/net\badlion\Class_296.java
+@@ -4,6 +4,8 @@
+ import com.google.gson.stream.JsonReader;
+ import com.google.gson.stream.JsonToken;
+ import com.google.gson.stream.JsonWriter;
++
++import java.io.IOException;
+ import java.util.Collection;
+ 
+ public class Class_296 extends Class_349<Class_283> {
+@@ -74,7 +76,7 @@
+ 
+     }
+ 
+-    public void method_1118(JsonWriter parameter_1, Class_283 parameter_2) {
++    public void method_1118(JsonWriter parameter_1, Class_283 parameter_2) throws IOException {
+         if (parameter_2 == null) {
+             parameter_1.nullValue();
+         } else {
+@@ -82,7 +84,7 @@
+         }
+     }
+ 
+-    public Class_283 method_1117(JsonReader parameter_1) {
++    public Class_283 method_1117(JsonReader parameter_1) throws IOException {
+         JsonToken var2 = parameter_1.peek();
+         if (var2 == JsonToken.BEGIN_ARRAY) {
+             Class_283 var3 = new Class_283(0.0D, 0.0D, 0.0D);
+@@ -97,10 +99,15 @@
+         }
+     }
+ 
+-    public void method_1290(JsonWriter parameter_1, Class_283 parameter_2) {
++    public void method_1290(JsonWriter parameter_1, Class_283 parameter_2) throws IOException {
+         this.method_1118(parameter_1, (Class_283)parameter_2);
+     }
+ 
++    @Override
++    public Class_283 method_1293(JsonReader parameter_1) throws IOException {
++        return method_1117(parameter_1);
++    }
++
+     public void method_1291(Class_283 parameter_1, Object parameter_2) {
+         this.method_1119((Class_283)parameter_1, parameter_2);
+     }

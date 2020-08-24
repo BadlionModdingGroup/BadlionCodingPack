@@ -1,0 +1,20 @@
+--- a/net\badlion\Class_319.java
++++ b/net\badlion\Class_319.java
+@@ -17,7 +17,7 @@
+     private final BlockingQueue<Class_438> field_429 = new ArrayBlockingQueue(1000);
+     protected Set<String> field_426 = new HashSet();
+     private Deflater field_430 = new Deflater();
+-    protected final Object field_427 = new Object();
++    public final Object field_427 = new Object();
+ 
+     public Class_319(ReplayManager parameter_1) {
+         this.field_428 = parameter_1;
+@@ -89,7 +89,7 @@
+ 
+     }
+ 
+-    protected void method_1173(boolean parameter_1, final boolean parameter_2) {
++    public void method_1173(boolean parameter_1, final boolean parameter_2) {
+         if (this.field_429.remainingCapacity() <= 0 || parameter_1) {
+             final ArrayList var3 = new ArrayList(1000);
+             this.field_429.drainTo(var3);

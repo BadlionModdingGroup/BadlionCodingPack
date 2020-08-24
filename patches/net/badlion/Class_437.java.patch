@@ -1,0 +1,11 @@
+--- a/net\badlion\Class_437.java
++++ b/net\badlion\Class_437.java
+@@ -9,7 +9,7 @@
+         return new Class_437(null);
+     }
+ 
+-    public static <T> Class_437<T> method_1565(T parameter_0) {
++    public static <T> Class_437<T> method_1565(Object parameter_0) {
+         if (parameter_0 == null) {
+             throw new NoSuchElementException("Value is null");
+         } else {

@@ -1,0 +1,14 @@
+--- a/net\badlion\client\common\manager\session\AbstractSessionManager.java
++++ b/net\badlion\client\common\manager\session\AbstractSessionManager.java
+@@ -61,6 +61,11 @@
+             }
+ 
+             Collections.sort(this.field_5636, new Comparator<String>() {
++                @Override
++                public int compare(String o1, String o2) {
++                    return method_5746(o1, o2);
++                }
++
+                 public int method_5746(String parameter_1, String parameter_2) {
+                     return parameter_1.compareToIgnoreCase(parameter_2);
+                 }

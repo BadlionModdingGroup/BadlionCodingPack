@@ -1,0 +1,11 @@
+--- a/net\badlion\client\common\mod\BlockOverlayMod.java
++++ b/net\badlion\client\common\mod\BlockOverlayMod.java
+@@ -114,7 +114,7 @@
+         parameter_1 = parameter_1.method_6235(var43, parameter_2);
+         Class_2162 var11 = BadlionClient.minecraft.method_6197(parameter_1, var43, parameter_2);
+         boolean var12 = false;
+-        Object var13 = null;
++        List var13 = null;
+         if (parameter_9) {
+             var13 = new ArrayList();
+             List var14 = (List)this.modelToProcessedLinesCache.getIfPresent(var11.method_6225());

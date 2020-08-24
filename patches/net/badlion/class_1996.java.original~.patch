@@ -1,0 +1,209 @@
+--- C:\dev\null
++++ b/net\badlion\class_1996.java.original~
+@@ -0,0 +1,206 @@
++package net.badlion;
++
++import com.mojang.blaze3d.platform.GlStateManager;
++import java.util.Random;
++import net.badlion.client.common.BadlionClient;
++import net.badlion.client.common.mod.ItemPhysicsMod;
++import net.badlion.tags.GsonSerialised;
++import net.minecraft.block.AbstractFluidBlock;
++import net.minecraft.block.Block;
++import net.minecraft.block.BlockState;
++import net.minecraft.block.Blocks;
++import net.minecraft.client.MinecraftClient;
++import net.minecraft.client.render.GuiLighting;
++import net.minecraft.client.render.entity.ItemEntityRenderer;
++import net.minecraft.client.render.model.BakedModel;
++import net.minecraft.client.render.model.json.ModelTransformation.Mode;
++import net.minecraft.client.texture.SpriteAtlasTexture;
++import net.minecraft.entity.Entity;
++import net.minecraft.entity.ItemEntity;
++import net.minecraft.item.Item;
++import net.minecraft.item.ItemStack;
++import net.minecraft.util.Identifier;
++import net.minecraft.util.math.BlockPos;
++import org.lwjgl.opengl.GL11;
++
++@GsonSerialised
++public class Class_1996 extends ItemPhysicsMod {
++    private static final MinecraftClient client = MinecraftClient.getInstance();
++    private static final Random random = new Random();
++
++    public boolean doRender(ItemEntityRenderer parameter_1, Entity parameter_2, double parameter_3, double parameter_5, double parameter_7) {
++        ItemEntity var9 = (ItemEntity)parameter_2;
++        ItemStack var10 = var9.method_7765();
++        if (var9.getAge() == 0) {
++            return false;
++        } else {
++            random.setSeed(var10.getItem() == null ? 187L : (long)(Item.getRawId(var10.getItem()) + var10.getMeta()));
++            Identifier var11 = SpriteAtlasTexture.PARTICLE_ATLAS_TEX;
++            parameter_1.method_3906(var11);
++            parameter_1.getRenderManager().textureManager.getTexture(var11).pushFilter(false, false);
++            BadlionClient.glStateManager.method_109();
++            BadlionClient.glStateManager.method_74(516, 0.1F);
++            BadlionClient.glStateManager.method_97();
++            GuiLighting.enableNormally();
++            BadlionClient.glStateManager.method_76(770, 771, 1, 0);
++            BadlionClient.glStateManager.method_112();
++            BakedModel var12 = client.getItemRenderer().getModels().method_3499(var10);
++            int var13 = this.getModelCount(var10);
++            boolean var14 = var12.hasDepth();
++            boolean var15 = var9.getAge() > 0 && (var14 || client.getEntityRenderManager().field_4825 != null);
++            double var16 = (double)(System.nanoTime() - this.tick) / 2500000.0D * this.rotateSpeed.doubleValue();
++            BadlionClient.glStateManager.method_89((float)parameter_3, (float)parameter_5, (float)parameter_7);
++            GL11.glRotatef(90.0F, 1.0F, 0.0F, 0.0F);
++            GL11.glRotatef(var9.yaw, 0.0F, 0.0F, 1.0F);
++            if (var14) {
++                BadlionClient.glStateManager.method_81(0.0D, -0.2D, -0.08D);
++            } else if (parameter_2.world.getBlockState(parameter_2.getBlockPos()).getBlock() == Blocks.SNOW_LAYER) {
++                BadlionClient.glStateManager.method_81(0.0D, 0.0D, -0.14D);
++            } else {
++                BadlionClient.glStateManager.method_81(0.0D, 0.0D, -0.04D);
++            }
++
++            if (var15) {
++                double var18;
++                Double var20;
++                if (var14) {
++                    if (!var9.onGround) {
++                        var18 = var16 * 2.0D;
++                        var20 = this.getFluidDensity(var9, true);
++                        if (var20 != null) {
++                            var18 /= var20 / 1000.0D * 10.0D;
++                        }
++
++                        var9.pitch = (float)((double)var9.pitch + var18);
++                    }
++                } else if (!Double.isNaN(var9.x) && !Double.isNaN(var9.y) && !Double.isNaN(var9.z) && var9.world != null) {
++                    if (var9.onGround) {
++                        var9.pitch = 0.0F;
++                    } else {
++                        var18 = var16 * 2.0D;
++                        var20 = this.getFluidDensity(var9, false);
++                        if (var20 != null) {
++                            var18 /= var20 / 1000.0D * 10.0D;
++                        }
++
++                        var9.pitch = (float)((double)var9.pitch + var18);
++                    }
++                }
++
++                if (var14) {
++                    BadlionClient.glStateManager.method_81(0.0D, 0.2D, 0.0D);
++                }
++
++                BadlionClient.glStateManager.method_84(var9.pitch, 1.0F, 0.0F, 0.0F);
++            }
++
++            BadlionClient.glStateManager.method_72(1.0F, 1.0F, 1.0F, 1.0F);
++            float var19;
++            float var24;
++            if (!var14) {
++                float var22 = -0.0F * (float)(var13 - 1) * 0.5F;
++                var19 = -0.0F * (float)(var13 - 1) * 0.5F;
++                var24 = -0.09375F * (float)(var13 - 1) * 0.5F;
++                BadlionClient.glStateManager.method_89(var22, var19, var24);
++            }
++
++            for(int var23 = 0; var23 < var13; ++var23) {
++                if (var14) {
++                    BadlionClient.glStateManager.method_112();
++                    if (var23 > 0) {
++                        var19 = (random.nextFloat() * 2.0F - 1.0F) * 0.15F;
++                        var24 = (random.nextFloat() * 2.0F - 1.0F) * 0.15F;
++                        float var21 = (random.nextFloat() * 2.0F - 1.0F) * 0.15F;
++                        BadlionClient.glStateManager.method_89(var19, var24, var21);
++                    }
++
++                    GlStateManager.scalef(0.5F, 0.5F, 0.5F);
++                    var12.getTransformation().method_3723(Mode.field_4649);
++                    client.getItemRenderer().method_3982(var10, var12);
++                    BadlionClient.glStateManager.method_113();
++                } else {
++                    BadlionClient.glStateManager.method_112();
++                    var12.getTransformation().method_3723(Mode.field_4649);
++                    client.getItemRenderer().method_3982(var10, var12);
++                    BadlionClient.glStateManager.method_113();
++                    BadlionClient.glStateManager.method_89(0.0F, 0.0F, 0.05375F);
++                }
++            }
++
++            BadlionClient.glStateManager.method_113();
++            BadlionClient.glStateManager.method_110();
++            BadlionClient.glStateManager.method_99();
++            parameter_1.method_3906(SpriteAtlasTexture.PARTICLE_ATLAS_TEX);
++            parameter_1.getRenderManager().textureManager.getTexture(var11).pop();
++            return true;
++        }
++    }
++
++    private AbstractFluidBlock getFluid(ItemEntity parameter_1, boolean parameter_2) {
++        if (parameter_1.world == null) {
++            return null;
++        } else {
++            double var3 = parameter_1.y + (double)parameter_1.getEyeHeight();
++            int var5 = Class_36.method_266(parameter_1.x);
++            int var6 = Class_36.method_266((double)((float)Class_36.method_266(var3)));
++            if (parameter_2) {
++                --var6;
++            }
++
++            int var7 = Class_36.method_266(parameter_1.z);
++            BlockPos var8 = new BlockPos(var5, var6, var7);
++            BlockState var9 = parameter_1.world.getBlockState(var8);
++            Block var10 = var9.getBlock();
++            if (var10 instanceof AbstractFluidBlock) {
++                AbstractFluidBlock var11 = (AbstractFluidBlock)var10;
++                if (parameter_2) {
++                    return var11;
++                } else {
++                    double var12 = (double)AbstractFluidBlock.method_904((Integer)var9.get(AbstractFluidBlock.LEVEL));
++                    if (var12 < 0.0D) {
++                        var12 *= -1.0D;
++                        if (var3 > (double)var6 + (1.0D - var12)) {
++                            return var11;
++                        }
++                    } else if (var3 < (double)var6 + var12) {
++                        return var11;
++                    }
++
++                    return null;
++                }
++            } else {
++                return null;
++            }
++        }
++    }
++
++    private Double getFluidDensity(ItemEntity parameter_1, boolean parameter_2) {
++        AbstractFluidBlock var3 = this.getFluid(parameter_1, false);
++        if (var3 == null) {
++            if (parameter_2) {
++                var3 = this.getFluid(parameter_1, true);
++            }
++
++            if (var3 == null) {
++                return null;
++            }
++        }
++
++        return var3 != Blocks.WATER && var3 != Blocks.FLOWING_WATER ? 3000.0D : 1000.0D;
++    }
++
++    private int getModelCount(ItemStack parameter_1) {
++        byte var2 = 1;
++        if (parameter_1.count > 48) {
++            var2 = 5;
++        } else if (parameter_1.count > 32) {
++            var2 = 4;
++        } else if (parameter_1.count > 16) {
++            var2 = 3;
++        } else if (parameter_1.count > 1) {
++            var2 = 2;
++        }
++
++        return var2;
++    }
++}

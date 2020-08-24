@@ -1,0 +1,37 @@
+--- a/net\badlion\client\cosmetics\emotes\AnimatorController.java
++++ b/net\badlion\client\cosmetics\emotes\AnimatorController.java
+@@ -8,6 +8,8 @@
+ import java.util.Iterator;
+ import java.util.List;
+ import java.util.Map;
++
++import io.github.badlionmoddinggroup.badlion.extra.EntityExtra;
+ import net.badlion.Class_1304;
+ import net.badlion.Class_1309;
+ import net.badlion.Class_1310;
+@@ -24,6 +26,7 @@
+ import net.badlion.client.Wrapper;
+ import net.badlion.client.common.BadlionClient;
+ import net.badlion.client.common.animaton.Animation;
++import net.badlion.client.common.entity.player.PlayerWrapper;
+ import net.badlion.client.common.manager.CosmeticManager;
+ import net.badlion.client.common.render.texture.TextureWrapper;
+ import net.minecraft.block.Block;
+@@ -110,7 +113,7 @@
+             return false;
+         } else {
+             if (this.isAnimationPlaying()) {
+-                Wrapper.getWrapper().getActiveModProfile().fireEvent(new Class_1426(parameter_1.getBadlionEntity(), parameter_3, parameter_5, parameter_7));
++                Wrapper.getWrapper().getActiveModProfile().fireEvent(new Class_1426((PlayerWrapper) ((EntityExtra)parameter_1).getBadlionEntity(), parameter_3, parameter_5, parameter_7));
+                 CosmeticManager.method_2655(parameter_1, parameter_10);
+                 Class_1310 var12 = (Class_1310)this.model.meshes.get("body");
+                 if (var12 != null) {
+@@ -427,7 +430,7 @@
+                 }
+ 
+                 GlStateManager.scalef(0.625F, 0.625F, 0.625F);
+-                this.client.getHeldItemRenderer().method_3482(parameter_1, var3, Mode.field_4647);
++                this.client.getHeldItemRenderer().method_3482(parameter_1, var3, Mode.HEAD);
+                 GlStateManager.popMatrix();
+             }
+         }

@@ -1,0 +1,140 @@
+--- C:\dev\null
++++ b/net\badlion\client\mods\sba\RenderManager.java.original~
+@@ -0,0 +1,137 @@
++package net.badlion.client.mods.sba;
++
++import java.util.Iterator;
++import java.util.List;
++import net.badlion.Class_2069;
++import net.badlion.Class_502;
++import net.badlion.Class_798;
++import net.badlion.Class_799;
++import net.badlion.Class_958;
++import net.badlion.client.common.BadlionClient;
++import net.badlion.client.common.colour.Colour;
++import net.badlion.client.common.cosmetics.Cosmetic;
++import net.badlion.client.common.item.ItemStackWrapper;
++import net.badlion.client.common.mod.SkyblockAddonsMod;
++import net.badlion.client.common.render.texture.TextureWrapper;
++import net.badlion.client.cosmetics.misc.CosmeticType;
++import net.badlion.tags.GsonSerialised;
++import org.lwjgl.opengl.GL11;
++
++public class RenderManager {
++    private static final TextureWrapper field_5353;
++    private static final TextureWrapper field_5354;
++    private static final int field_5355;
++
++    public boolean method_5434() {
++        SkyblockAddonsMod var1 = BadlionClient.getBadlion().getWrapper().getModProfile().getSkyblockAddons();
++        return var1.isEnabled() && Class_502.isOnSkyblock() && BadlionClient.minecraft.method_237() == null && var1.greenEnderChests.isTrue() && Class_502.getCurrentLocation() == Class_502.DRAGONS_NEST;
++    }
++
++    public boolean method_5435() {
++        SkyblockAddonsMod var1 = BadlionClient.getBadlion().getWrapper().getModProfile().getSkyblockAddons();
++        return var1.isEnabled() && Class_502.isOnSkyblock() && var1.changeZealotColor.isTrue() && Class_502.getCurrentLocation() == Class_502.DRAGONS_NEST;
++    }
++
++    public TextureWrapper method_5436() {
++        return field_5353;
++    }
++
++    public void method_1478() {
++        BadlionClient.minecraft.getTextureManager().bindTexture(field_5354);
++    }
++
++    public void method_5437() {
++        SkyblockAddonsMod var1 = BadlionClient.getBadlion().getWrapper().getModProfile().getSkyblockAddons();
++        Colour var2 = var1.changedZealotColour.method_2788();
++        BadlionClient.glStateManager.method_71((float)var2.getRed() / 255.0F, (float)var2.getGreen() / 255.0F, (float)var2.getBlue() / 255.0F);
++    }
++
++    public Colour method_5438() {
++        SkyblockAddonsMod var1 = BadlionClient.getBadlion().getWrapper().getModProfile().getSkyblockAddons();
++        return var1.changedZealotColour.method_2788();
++    }
++
++    public void method_5439() {
++        SkyblockAddonsMod var1 = BadlionClient.getBadlion().getWrapper().getModProfile().getSkyblockAddons();
++        Colour var2 = var1.changedEnderChestColour.method_2788();
++        GL11.glColor3f((float)var2.getRed() / 255.0F, (float)var2.getGreen() / 255.0F, (float)var2.getBlue() / 255.0F);
++        BadlionClient.glStateManager.method_71((float)var2.getRed() / 255.0F, (float)var2.getGreen() / 255.0F, (float)var2.getBlue() / 255.0F);
++    }
++
++    public Colour method_5440() {
++        SkyblockAddonsMod var1 = BadlionClient.getBadlion().getWrapper().getModProfile().getSkyblockAddons();
++        return var1.changedEnderChestColour.method_2788();
++    }
++
++    @GsonSerialised
++    public boolean shouldOverrideNightVisionBrightness() {
++        SkyblockAddonsMod var1 = BadlionClient.getBadlion().getWrapper().getModProfile().getSkyblockAddons();
++        return var1.isEnabled() && Class_502.isOnSkyblock() && var1.avoidBlinkingNightVision.isTrue();
++    }
++
++    public boolean method_1479() {
++        SkyblockAddonsMod var1 = BadlionClient.getBadlion().getWrapper().getModProfile().getSkyblockAddons();
++        return var1.isEnabled() && Class_502.isOnSkyblock() && var1.disableMinionLocationNotPerfectWarning.isTrue();
++    }
++
++    @GsonSerialised
++    public static boolean shouldRenderMountHealth() {
++        SkyblockAddonsMod var0 = BadlionClient.getBadlion().getWrapper().getModProfile().getSkyblockAddons();
++        if (!var0.isEnabled()) {
++            return true;
++        } else if (!Class_502.isOnSkyblock()) {
++            return true;
++        } else {
++            return !var0.hidePetHealthBar.getValue();
++        }
++    }
++
++    @GsonSerialised
++    public boolean shouldRenderGreenBow(ItemStackWrapper parameter_1, Class_2069 parameter_2, boolean parameter_3) {
++        SkyblockAddonsMod var4 = BadlionClient.getBadlion().getWrapper().getModProfile().getSkyblockAddons();
++        if (var4.isEnabled() && Class_502.isOnSkyblock() && !var4.turnBowGreenWhenUsingToxicArrowPoison.isFalse() && SkyblockAddonsMod.inventoryUtils.getUsingToxicArrowPoison() && parameter_1 != null && parameter_1.method_2442().method_2143()) {
++            if (!parameter_3 && parameter_2 == Class_2069.FIRST_PERSON_RIGHT_HAND && BadlionClient.getBadlion().getWrapper().getModProfile().getBetterframesConfig().getShowItemCosmetics().isTrue()) {
++                List var5 = BadlionClient.getBadlion().getCosmeticManager().method_2833(CosmeticType.BOW);
++                if (var5 != null) {
++                    Iterator var6 = var5.iterator();
++
++                    while(var6.hasNext()) {
++                        Cosmetic var7 = (Cosmetic)var6.next();
++                        Class_799 var8 = (Class_799)Class_798.field_1944.get(new Class_958(var7.method_2806(), var7.getType()));
++                        if (var8 != null) {
++                            return false;
++                        }
++                    }
++                }
++            }
++
++            return true;
++        } else {
++            return false;
++        }
++    }
++
++    static {
++        field_5353 = BadlionClient.factory.method_2535("skyblockaddons", "blankenderman.png");
++        field_5354 = BadlionClient.factory.method_2535("skyblockaddons", "blankenderchest.png");
++        field_5355 = ((<undefinedtype>)(new Object() {
++            int field_5356;
++
++            {
++                switch((int)(System.currentTimeMillis() % 4L)) {
++                case 0:
++                case 4:
++                    this.field_5356 = 7;
++                    break;
++                case 1:
++                    this.field_5356 = 2;
++                    break;
++                case 2:
++                    this.field_5356 = 4;
++                case 3:
++                }
++
++            }
++        })).field_5356;
++    }
++}

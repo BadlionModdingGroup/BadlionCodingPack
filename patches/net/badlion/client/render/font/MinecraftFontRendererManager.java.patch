@@ -1,0 +1,11 @@
+--- a/net\badlion\client\render\font\MinecraftFontRendererManager.java
++++ b/net\badlion\client\render\font\MinecraftFontRendererManager.java
+@@ -264,7 +264,7 @@
+         }
+ 
+         private boolean method_5595() {
+-            GLManager.Matrix var1 = (GLManager.Matrix)GLManager.getMatrixStack().peek();
++            GLManager.Matrix var1 = GLManager.getMatrixStack().peek();
+             if (var1 == null) {
+                 return false;
+             } else {

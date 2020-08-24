@@ -1,0 +1,11 @@
+--- a/net\badlion\Class_333.java
++++ b/net\badlion\Class_333.java
+@@ -51,7 +51,7 @@
+     }
+ 
+     private <T> void method_1221(long parameter_1, Object parameter_3, Class_352<T> parameter_4) {
+-        Class_437 var5 = this.method_1280(parameter_4, parameter_1);
++        Class_437<T> var5 = this.method_1280(parameter_4, parameter_1);
+         if (var5.method_1566()) {
+             parameter_4.method_1291(var5.method_1567(), parameter_3);
+         }

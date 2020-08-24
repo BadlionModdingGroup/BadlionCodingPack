@@ -1,0 +1,28 @@
+--- a/net\badlion\client\common\mod\ChunkBordersMod.java
++++ b/net\badlion\client\common\mod\ChunkBordersMod.java
+@@ -24,7 +24,7 @@
+ 
+ public class ChunkBordersMod extends AbstractMod {
+     private static final KeybindWrapper field_916;
+-    private static final Keyboard.Keybind field_917;
++    private static final Keyboard.Keybind field_917 = Keyboard.Keybind.KEY_UNKNOWN;
+     @GsonSerialised
+     private Keyboard.Keybind toggleKey;
+     @GsonSerialised
+@@ -288,7 +288,7 @@
+     }
+ 
+     public void method_1834(ChunkBordersMod.Class_562 parameter_1) {
+-        GL11.glLineWidth((float)parameter_1.method_1838().getValue());
++        GL11.glLineWidth(parameter_1.method_1838().getValue().floatValue());
+         this.field_919 = parameter_1.method_1836();
+         this.field_918 = parameter_1.method_1836().method_2781() == Colour.ColorMode.CHROMA;
+     }
+@@ -311,7 +311,6 @@
+ 
+     static {
+         field_916 = BadlionClient.keybindManager.method_3794("Toggle Chunk Borders", field_917, "Badlion: Chunk Borders");
+-        field_917 = Keyboard.Keybind.KEY_UNKNOWN;
+     }
+ 
+     public static class Class_562 {

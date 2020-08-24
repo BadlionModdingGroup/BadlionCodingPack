@@ -1,0 +1,14 @@
+--- a/net\badlion\Class_2148.java
++++ b/net\badlion\Class_2148.java
+@@ -155,6 +155,11 @@
+                 this.field_5885 = new ArrayList();
+                 this.field_5885.addAll(this.method_6167().values());
+                 Collections.sort(this.field_5885, new Comparator<Class_2148.Class_2149>() {
++                    @Override
++                    public int compare(Class_2149 o1, Class_2149 o2) {
++                        return method_6170(o1, o2);
++                    }
++
+                     public int method_6170(Class_2148.Class_2149 parameter_1, Class_2148.Class_2149 parameter_2) {
+                         return Long.compare(parameter_2.field_5874.method_6168(), parameter_1.field_5874.method_6168());
+                     }

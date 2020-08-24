@@ -1,0 +1,11 @@
+--- a/net\badlion\Class_307.java
++++ b/net\badlion\Class_307.java
+@@ -11,7 +11,7 @@
+     private TextureWrapper field_395;
+     private boolean field_396;
+ 
+-    Class_307() {
++    public Class_307() {
+     }
+ 
+     public TextureWrapper method_1138() {

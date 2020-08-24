@@ -1,0 +1,81 @@
+--- a/net\badlion\Class_1142.java
++++ b/net\badlion\Class_1142.java
+@@ -2,15 +2,16 @@
+ 
+ import com.mojang.blaze3d.platform.AdvancedOpenGlManager;
+ import com.mojang.blaze3d.platform.GlStateManager;
+-import java.util.Iterator;
+-import java.util.List;
+ import net.minecraft.client.network.ClientRemotePlayerEntity;
+ import net.minecraft.client.render.RenderLayer;
+ import net.minecraft.client.render.VertexFormatElement;
+-import net.minecraft.client.render.VertexFormats;
+ import net.minecraft.client.render.VertexFormatElement.Type;
++import net.minecraft.client.render.VertexFormats;
+ import org.lwjgl.opengl.GL11;
+ 
++import java.util.Iterator;
++import java.util.List;
++
+ public class Class_1142 extends Class_1140 {
+     public void method_3279(RenderLayer parameter_1) {
+         GL11.glEnableClientState(32884);
+@@ -23,8 +24,8 @@
+         if (this.field_4219) {
+             Iterator var2 = this.field_4218.iterator();
+ 
+-            while(var2.hasNext()) {
+-                net.minecraft.Class_1111 var3 = (net.minecraft.Class_1111)var2.next();
++            while (var2.hasNext()) {
++                net.minecraft.Class_1111 var3 = (net.minecraft.Class_1111) var2.next();
+                 ClientRemotePlayerEntity var4 = var3.method_3821(parameter_1.ordinal());
+                 GlStateManager.pushMatrix();
+                 this.method_3347(var3);
+@@ -43,20 +44,20 @@
+         List var7 = VertexFormats.field_5166.method_4324();
+         Iterator var8 = var7.iterator();
+ 
+-        while(var8.hasNext()) {
+-            VertexFormatElement var9 = (VertexFormatElement)var8.next();
++        while (var8.hasNext()) {
++            VertexFormatElement var9 = (VertexFormatElement) var8.next();
+             Type var5 = var9.getType();
+             int var6 = var9.getIndex();
+-            switch(var5) {
+-            case field_5211:
++            switch (var5) {
++                case POSITION:
+                 GL11.glDisableClientState(32884);
+                 break;
+-            case field_5214:
++                case UV:
+                 AdvancedOpenGlManager.gl13ClientActiveTexture(AdvancedOpenGlManager.textureUnit + var6);
+                 GL11.glDisableClientState(32888);
+                 AdvancedOpenGlManager.gl13ClientActiveTexture(AdvancedOpenGlManager.textureUnit);
+                 break;
+-            case field_5213:
++                case COLOR:
+                 GL11.glDisableClientState(32886);
+                 GlStateManager.clearColor();
+             }
+@@ -79,8 +80,8 @@
+             GL11.glEnableClientState(32886);
+             Iterator var1 = this.field_2206.iterator();
+ 
+-            while(var1.hasNext()) {
+-                Class_1145 var2 = (Class_1145)var1.next();
++            while (var1.hasNext()) {
++                Class_1145 var2 = (Class_1145) var1.next();
+                 ClientRemotePlayerEntity var3 = var2.method_3286(RenderLayer.TRANSLUCENT.ordinal());
+                 GlStateManager.pushMatrix();
+                 this.method_3347(var2);
+@@ -104,4 +105,9 @@
+         GL11.glVertexPointer(3, 5126, 16, 0L);
+         GL11.glColorPointer(4, 5121, 16, 12L);
+     }
++
++    @Override
++    public void method_3346(RenderLayer parameter_1) {
++        method_3279(parameter_1);
+ }
++}

@@ -1,0 +1,26 @@
+--- a/net\badlion\client\render\texture\BadlionTextureRegister.java
++++ b/net\badlion\client\render\texture\BadlionTextureRegister.java
+@@ -126,6 +126,11 @@
+                         var3.addElement("Resource location", parameter_1);
+                         final Class_1258 var4 = parameter_2;
+                         var3.add("Texture object class", new Callable() {
++                            @Override
++                            public Object call() throws Exception {
++                                return method_3472();
++                            }
++
+                             private static final String field_2428 = "CL_00001065";
+ 
+                             public String method_3472() {
+@@ -151,6 +156,11 @@
+                 CrashReportSection var6 = var5.addElement("Resource location being registered");
+                 var6.addElement("Resource location", parameter_1);
+                 var6.add("Texture object class", new Callable() {
++                    @Override
++                    public Object call() throws Exception {
++                        return method_3473();
++                    }
++
+                     private static final String field_2431 = "CL_00001065";
+ 
+                     public String method_3473() {

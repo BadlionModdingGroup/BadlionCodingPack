@@ -1,0 +1,82 @@
+--- a/net\badlion\client\common\manager\cosmetic\CosmeticManager.java
++++ b/net\badlion\client\common\manager\cosmetic\CosmeticManager.java
+@@ -311,8 +311,8 @@
+     public void method_2837(final Cosmetic parameter_1) {
+         if (!this.runningCosmeticEdit) {
+             this.runningCosmeticEdit = true;
+-            final Integer var2 = null;
+-            final CosmeticType var3 = null;
++            Integer var2 = null;
++            CosmeticType var3 = null;
+             Iterator var4 = this.cosmeticResponse.getCosmetics().iterator();
+ 
+             while(var4.hasNext()) {
+@@ -323,6 +323,8 @@
+                 }
+             }
+ 
++            Integer finalVar = var2;
++            CosmeticType finalVar1 = var3;
+             this.threadPool.submit(new Runnable() {
+                 public void run() {
+                     try {
+@@ -343,8 +345,8 @@
+                         } else {
+                             LogManager.getLogger().debug("Disable Not Success: " + var2x.method_3081());
+                             BadlionClient.getBadlion().getWrapper().getModProfile().addNotification(new Class_700(3000L, "Cosmetics", Class_699.WARNING, "Please wait a bit before doing this again!", true));
+-                            if (var2 != null) {
+-                                LogManager.getLogger().debug("Enabling last cosmetic " + var2);
++                            if (finalVar != null) {
++                                LogManager.getLogger().debug("Enabling last cosmetic " + finalVar);
+                                 var3x = CosmeticManager.this.cosmeticResponse.getCosmetics().iterator();
+ 
+                                 label102:
+@@ -355,7 +357,7 @@
+                                         }
+ 
+                                         var4 = (Cosmetic)var3x.next();
+-                                        if (var4.method_2806() == var2 && var4.getType().equals(var3)) {
++                                        if (var4.method_2806() == finalVar && var4.getType().equals(finalVar1)) {
+                                             var4.setActive(true);
+                                         } else if (var4.getType().equals(parameter_1.getType())) {
+                                             var4.setActive(false);
+@@ -382,8 +384,8 @@
+     public void method_2850(final Cosmetic parameter_1) {
+         if (!this.runningCosmeticEdit && this.cosmeticResponse != null) {
+             this.runningCosmeticEdit = true;
+-            final Integer var2 = null;
+-            final CosmeticType var3 = null;
++            Integer var2 = null;
++            CosmeticType var3 = null;
+             Iterator var4 = this.cosmeticResponse.getCosmetics().iterator();
+ 
+             while(var4.hasNext()) {
+@@ -394,6 +396,8 @@
+                 }
+             }
+ 
++            Integer finalVar = var2;
++            CosmeticType finalVar1 = var3;
+             this.threadPool.submit(new Runnable() {
+                 public void run() {
+                     try {
+@@ -421,8 +425,8 @@
+                         } else {
+                             LogManager.getLogger().debug("Enable Not Success: " + var2x.method_3081());
+                             BadlionClient.getBadlion().getWrapper().getModProfile().addNotification(new Class_700(3000L, "Cosmetics", Class_699.WARNING, "Please wait a bit before doing this again!", true));
+-                            if (var2 != null) {
+-                                LogManager.getLogger().debug("Enabling last cosmetic " + var2);
++                            if (finalVar != null) {
++                                LogManager.getLogger().debug("Enabling last cosmetic " + finalVar);
+                                 var3x = CosmeticManager.this.method_2862().getCosmetics().iterator();
+ 
+                                 label111:
+@@ -433,7 +437,7 @@
+                                         }
+ 
+                                         var4 = (Cosmetic)var3x.next();
+-                                        if (var4.method_2806() == var2 && var4.getType().equals(var3)) {
++                                        if (var4.method_2806() == finalVar && var4.getType().equals(finalVar1)) {
+                                             var4.setActive(true);
+                                         } else if (var4.getType().equals(parameter_1.getType())) {
+                                             var4.setActive(false);

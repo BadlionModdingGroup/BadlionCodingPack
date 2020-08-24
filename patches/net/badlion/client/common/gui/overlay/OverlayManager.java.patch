@@ -1,0 +1,23 @@
+--- a/net\badlion\client\common\gui\overlay\OverlayManager.java
++++ b/net\badlion\client\common\gui\overlay\OverlayManager.java
+@@ -274,6 +274,11 @@
+             }
+ 
+             Collections.sort(var4, new Comparator<Class_1696>() {
++                @Override
++                public int compare(Class_1696 o1, Class_1696 o2) {
++                    return method_4752(o1, o2);
++                }
++
+                 public int method_4752(Class_1696 parameter_1, Class_1696 parameter_2) {
+                     return OverlayManager.this.field_4197.indexOf(parameter_1) > OverlayManager.this.field_4197.indexOf(parameter_2) ? -1 : 1;
+                 }
+@@ -458,7 +463,7 @@
+     }
+ 
+     public <T extends Class_1696> T method_4744(Class<T> parameter_1) {
+-        return (Class_1696)parameter_1.cast(this.field_4200.get(parameter_1));
++        return (T)parameter_1.cast(this.field_4200.get(parameter_1));
+     }
+ 
+     public int method_4745(Class_1696 parameter_1) {

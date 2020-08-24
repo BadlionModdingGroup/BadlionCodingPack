@@ -1,0 +1,33 @@
+--- a/net\badlion\Class_370.java
++++ b/net\badlion\Class_370.java
+@@ -4,11 +4,7 @@
+ import com.google.gson.JsonObject;
+ import com.google.gson.JsonPrimitive;
+ import java.awt.image.BufferedImage;
+-import java.io.BufferedOutputStream;
+-import java.io.File;
+-import java.io.FileOutputStream;
+-import java.io.IOException;
+-import java.io.OutputStream;
++import java.io.*;
+ import java.nio.charset.StandardCharsets;
+ import java.util.Collections;
+ import java.util.HashSet;
+@@ -40,7 +36,7 @@
+     private Set<UUID> field_564;
+     private Class_2171 field_5988;
+ 
+-    public Class_370(Class_365 parameter_1, File parameter_2, boolean parameter_3) {
++    public Class_370(Class_365 parameter_1, File parameter_2, boolean parameter_3) throws FileNotFoundException {
+         this(new BufferedOutputStream(new FileOutputStream(parameter_2)), parameter_1, parameter_2, parameter_3);
+     }
+ 
+@@ -268,7 +264,7 @@
+ 
+     }
+ 
+-    public Class_370.Class_371 method_1380() {
++    public Class_370.Class_371 method_1380() throws IOException {
+         boolean var1 = false;
+         if (this.field_555) {
+             this.field_555 = false;

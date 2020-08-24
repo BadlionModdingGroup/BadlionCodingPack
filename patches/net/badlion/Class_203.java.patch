@@ -1,0 +1,14 @@
+--- a/net\badlion\Class_203.java
++++ b/net\badlion\Class_203.java
+@@ -21,6 +21,11 @@
+         return var2 == null ? Class_194.method_762() : (Class_194)var2;
+     }
+ 
++    @Override
++    public Class_194 method_767() {
++        return method_780();
++    }
++
+     public Class_186 method_768() {
+         return Class_186.TIP;
+     }

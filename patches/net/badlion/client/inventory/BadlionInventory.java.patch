@@ -1,0 +1,100 @@
+--- a/net\badlion\client\inventory\BadlionInventory.java
++++ b/net\badlion\client\inventory\BadlionInventory.java
+@@ -3,6 +3,8 @@
+ import java.util.ArrayList;
+ import java.util.LinkedList;
+ import java.util.List;
++
++import io.github.badlionmoddinggroup.badlion.extra.ItemStackExtra;
+ import net.badlion.client.common.item.ItemStackWrapper;
+ import net.badlion.client.common.wrapper.item.InventoryWrapper;
+ import net.minecraft.entity.player.PlayerInventory;
+@@ -27,7 +29,7 @@
+         for(int var4 = 0; var4 < var3; ++var4) {
+             ItemStack var5 = var2[var4];
+             if (var5 != null && var5.getItem().equals(Items.ARROW)) {
+-                var1.add(var5.getBadlionItemStack());
++                var1.add(((ItemStackExtra)(Object)var5).getBadlionItemStack());
+             }
+         }
+ 
+@@ -42,7 +44,7 @@
+         for(int var4 = 0; var4 < var3; ++var4) {
+             ItemStack var5 = var2[var4];
+             if (var5 != null && var5.getItem().equals(Items.GOLDEN_APPLE) && var5.getDamage() == 0) {
+-                var1.add(var5.getBadlionItemStack());
++                var1.add(((ItemStackExtra)(Object)var5).getBadlionItemStack());
+             }
+         }
+ 
+@@ -57,7 +59,7 @@
+         for(int var4 = 0; var4 < var3; ++var4) {
+             ItemStack var5 = var2[var4];
+             if (var5 != null && var5.getItem().equals(Items.GOLDEN_APPLE) && var5.getDamage() == 1) {
+-                var1.add(var5.getBadlionItemStack());
++                var1.add(((ItemStackExtra)(Object)var5).getBadlionItemStack());
+             }
+         }
+ 
+@@ -72,7 +74,7 @@
+         for(int var4 = 0; var4 < var3; ++var4) {
+             ItemStack var5 = var2[var4];
+             if (var5 != null && (var5.getItem() instanceof FoodItem || var5.getItem() == Items.CAKE)) {
+-                var1.add(var5.getBadlionItemStack());
++                var1.add(((ItemStackExtra)(Object)var5).getBadlionItemStack());
+             }
+         }
+ 
+@@ -87,7 +89,7 @@
+         for(int var4 = 0; var4 < var3; ++var4) {
+             ItemStack var5 = var2[var4];
+             if (var5 != null && var5.getItem() instanceof PotionItem) {
+-                var1.add(var5.getBadlionItemStack());
++                var1.add(((ItemStackExtra)(Object)var5).getBadlionItemStack());
+             }
+         }
+ 
+@@ -102,7 +104,7 @@
+         for(int var4 = 0; var4 < var3; ++var4) {
+             ItemStack var5 = var2[var4];
+             if (var5 != null && var5.getItem() instanceof StewItem) {
+-                var1.add(var5.getBadlionItemStack());
++                var1.add(((ItemStackExtra)(Object)var5).getBadlionItemStack());
+             }
+         }
+ 
+@@ -120,7 +122,7 @@
+             if (var6 == null) {
+                 var2.add(null);
+             } else {
+-                var2.add(var6.getBadlionItemStack());
++                var2.add(((ItemStackExtra)(Object)var6).getBadlionItemStack());
+             }
+         }
+ 
+@@ -129,7 +131,7 @@
+ 
+     public ItemStackWrapper getItemInHand() {
+         ItemStack var1 = this.playerInventory.getMainHandStack();
+-        return var1 == null ? null : var1.getBadlionItemStack();
++        return var1 == null ? null : ((ItemStackExtra)(Object)var1).getBadlionItemStack();
+     }
+ 
+     public int getSelectedSlot() {
+@@ -142,7 +144,7 @@
+ 
+         for(int var3 = 0; var3 < var1; ++var3) {
+             ItemStack var4 = this.playerInventory.main[var3];
+-            var2[var3] = var4 == null ? null : var4.getBadlionItemStack();
++            var2[var3] = var4 == null ? null : ((ItemStackExtra)(Object)var4).getBadlionItemStack();
+         }
+ 
+         return var2;
+@@ -150,6 +152,6 @@
+ 
+     public ItemStackWrapper getItem(int parameter_1) {
+         ItemStack var2 = this.playerInventory.armor[parameter_1];
+-        return var2 == null ? null : var2.getBadlionItemStack();
++        return var2 == null ? null : ((ItemStackExtra)(Object)var2).getBadlionItemStack();
+     }
+ }

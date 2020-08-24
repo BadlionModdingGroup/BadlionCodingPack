@@ -1,0 +1,41 @@
+--- a/net\badlion\launchwrapper\tweakers\BadlionTransformer.java
++++ b/net\badlion\launchwrapper\tweakers\BadlionTransformer.java
+@@ -102,7 +102,6 @@
+ import net.minecraft.client.render.model.ModelLoader;
+ import net.minecraft.client.render.model.json.ModelVariantMap;
+ import net.minecraft.client.resource.ResourcePackLoader;
+-import net.minecraft.client.resource.ResourcePackLoader.Class_1263;
+ import net.minecraft.client.texture.AbstractTexture;
+ import net.minecraft.client.texture.NativeImage;
+ import net.minecraft.client.texture.ResourceTexture;
+@@ -112,7 +111,6 @@
+ import net.minecraft.client.util.SmoothUtil;
+ import net.minecraft.entity.Entity;
+ import net.minecraft.entity.LivingEntity;
+-import net.minecraft.launchwrapper.IClassTransformer;
+ import net.minecraft.resource.DefaultResourcePack;
+ import net.minecraft.resource.ResourceManager;
+ import net.minecraft.resource.ResourcePack;
+@@ -129,7 +127,7 @@
+ import org.objectweb.asm.Type;
+ 
+ @GsonSerialised
+-public class BadlionTransformer extends Class_1106 implements IClassTransformer {
++public class BadlionTransformer extends Class_1106{// implements IClassTransformer {
+     public static boolean OPTIFINE_LOADED = false;
+ 
+     public byte[] transform(String parameter_1, String parameter_2, byte[] parameter_3) {
+@@ -157,10 +155,10 @@
+                     return this.overwriteClass(getClassName(Class_674.class), parameter_3);
+                 }
+ 
+-                if (parameter_2.equals(getClassName(ResourcePackLoader.class)) || parameter_2.equals(getClassName(Class_1263.class))) {
+-                    return this.overwriteClass(parameter_2, parameter_3);
++//                if (parameter_2.equals(getClassName(ResourcePackLoader.class)) || parameter_2.equals(getClassName(Class_1263.class))) {
++//                    return this.overwriteClass(parameter_2, parameter_3);
++//                }
+                 }
+-            }
+ 
+             if (classVisitorMap.containsKey(parameter_2)) {
+                 return this.handleTransform(parameter_2, parameter_3);

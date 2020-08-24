@@ -1,0 +1,29 @@
+--- a/net\badlion\Class_215.java
++++ b/net\badlion\Class_215.java
+@@ -177,12 +177,12 @@
+     private <K, V> void method_864(Map<K, V> parameter_1, K parameter_2, V parameter_3, Class_228<? super V, ? super V, ? extends V> parameter_4) {
+         Objects.requireNonNull(parameter_4);
+         Objects.requireNonNull(parameter_3);
+-        Object var5 = parameter_1.get(parameter_2);
++        V var5 = parameter_1.get(parameter_2);
+         Object var6 = var5 == null ? parameter_3 : parameter_4.method_906(var5, parameter_3);
+         if (var6 == null) {
+             parameter_1.remove(parameter_2);
+         } else {
+-            parameter_1.put(parameter_2, var6);
++            parameter_1.put(parameter_2, (V) var6);
+         }
+ 
+     }
+@@ -207,6 +207,11 @@
+         var1.method_800();
+         ArrayList var2 = new ArrayList(this.gameStatistics.entrySet());
+         Collections.sort(var2, new Comparator<Entry<String, Class_214>>() {
++            @Override
++            public int compare(Entry<String, Class_214> o1, Entry<String, Class_214> o2) {
++                return method_886(o1, o2);
++            }
++
+             public int method_886(Entry<String, Class_214> parameter_1, Entry<String, Class_214> parameter_2) {
+                 return ((Class_214)parameter_2.getValue()).method_854((Class_214)parameter_1.getValue());
+             }

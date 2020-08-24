@@ -1,0 +1,63 @@
+--- a/net\badlion\client\common\manager\replay\ReplayManager.java
++++ b/net\badlion\client\common\manager\replay\ReplayManager.java
+@@ -31,23 +31,23 @@
+ public abstract class ReplayManager {
+     public static final ExecutorService field_5242 = Executors.newSingleThreadExecutor();
+     public static boolean field_5243 = false;
+-    private Class_436 field_5252;
+-    protected boolean field_5244;
+-    protected long field_5245;
+-    protected int field_5246;
+-    private Class_317 field_5253;
+-    private Class_319 field_5254;
+-    private ReentrantReadWriteLock field_5255;
++    public Class_436 field_5252;
++    public boolean field_5244;
++    public long field_5245;
++    public int field_5246;
++    public Class_317 field_5253;
++    public Class_319 field_5254;
++    public ReentrantReadWriteLock field_5255;
+     public Class_365 currentReplayFile;
+-    protected Map<Integer, String> field_5248;
+-    private int field_5256;
+-    protected Class_312 field_5249;
+-    protected Class_425 field_5250;
+-    protected Class_433 field_5251;
+-    private Class_2170 field_5967;
+-    private Class_321 field_5257;
+-    private Class_2171 field_5968;
+-    private int field_5258;
++    public Map<Integer, String> field_5248;
++    public int field_5256;
++    public Class_312 field_5249;
++    public Class_425 field_5250;
++    public Class_433 field_5251;
++    public Class_2170 field_5967;
++    public Class_321 field_5257;
++    public Class_2171 field_5968;
++    public int field_5258;
+ 
+     public ReplayManager() {
+         this.field_5252 = Class_436.NONE;
+@@ -175,7 +175,7 @@
+                 public void run() {
+                     synchronized(ReplayManager.this.field_5254.field_427) {
+                         try {
+-                            ReplayManager.this.method_5301((File)null).method_1356();
++                            ReplayManager.this.method_5301(null).method_1356();
+                         } catch (IOException var4) {
+                             var4.printStackTrace();
+                         }
+@@ -254,9 +254,9 @@
+         this.field_5254.method_1171(parameter_1, parameter_2);
+     }
+ 
+-    protected abstract void method_5289(ConcurrentLinkedQueue<Class_435> parameter_1);
++    public abstract void method_5289(ConcurrentLinkedQueue<Class_435> parameter_1);
+ 
+-    private Class_365 method_5301(File parameter_1) {
++    private Class_365 method_5301(File parameter_1) throws IOException {
+         this.currentReplayFile = new Class_365(parameter_1);
+         return this.currentReplayFile;
+     }

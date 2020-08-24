@@ -1,0 +1,37 @@
+--- a/net\badlion\Class_1067.java
++++ b/net\badlion\Class_1067.java
+@@ -7,15 +7,17 @@
+ import net.badlion.client.common.mod.NotificationMod;
+ import org.apache.logging.log4j.LogManager;
+ 
++import java.io.IOException;
++
+ public class Class_1067 extends TypeAdapter<NotificationMod> {
+-    public void method_3111(JsonWriter parameter_1, NotificationMod parameter_2) {
++    public void method_3111(JsonWriter parameter_1, NotificationMod parameter_2) throws IOException {
+         parameter_1.beginObject();
+         parameter_1.name("value");
+         parameter_1.value(parameter_2.booleanValue());
+         parameter_1.endObject();
+     }
+ 
+-    public NotificationMod method_3110(JsonReader parameter_1) {
++    public NotificationMod method_3110(JsonReader parameter_1) throws IOException {
+         NotificationMod var2 = new NotificationMod();
+         String var3 = "";
+         boolean var4 = false;
+@@ -48,4 +50,14 @@
+         parameter_1.endObject();
+         return var2;
+     }
++
++    @Override
++    public void write(JsonWriter out, NotificationMod value) throws IOException {
++        method_3111(out, value);
+ }
++
++    @Override
++    public NotificationMod read(JsonReader in) throws IOException {
++        return method_3110(in);
++    }
++}

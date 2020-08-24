@@ -1,0 +1,97 @@
+--- a/net\badlion\Class_369.java
++++ b/net\badlion\Class_369.java
+@@ -30,7 +30,7 @@
+     private BufferedInputStream field_551;
+     private boolean field_552 = false;
+ 
+-    public Class_369(File parameter_1) {
++    public Class_369(File parameter_1) throws IOException {
+         this.field_549 = parameter_1;
+         this.field_550 = new ZipFile(parameter_1);
+         this.field_551 = new BufferedInputStream(this.field_550.getInputStream(this.method_1367("recording.tmcpr")));
+@@ -40,7 +40,7 @@
+         return this.field_550.getEntry(parameter_1);
+     }
+ 
+-    public BufferedInputStream method_1369(String parameter_1) {
++    public BufferedInputStream method_1369(String parameter_1) throws IOException {
+         ZipEntry var2 = this.method_1367(parameter_1);
+         return var2 == null ? null : new BufferedInputStream(this.field_550.getInputStream(var2));
+     }
+@@ -76,7 +76,7 @@
+         }
+     }
+ 
+-    public Class_439 method_1368() {
++    public Class_439 method_1368() throws IOException {
+         BufferedInputStream var1 = null;
+ 
+         Object var3;
+@@ -90,8 +90,6 @@
+ 
+             var2 = (Class_439)BadlionClient.UGLY_GSON.fromJson(new InputStreamReader(var1), Class_439.class);
+             return var2;
+-        } catch (IOException var14) {
+-            var3 = null;
+         } finally {
+             if (var1 != null) {
+                 try {
+@@ -102,7 +100,6 @@
+ 
+         }
+ 
+-        return (Class_439)var3;
+     }
+ 
+     public BufferedImage method_1370() {
+@@ -191,15 +188,11 @@
+         }
+     }
+ 
+-    public InputStream method_1371(String parameter_1) {
+-        try {
++    public InputStream method_1371(String parameter_1) throws IOException {
+             return this.method_1369(String.format("resourcepack/%s.zip", parameter_1));
+-        } catch (IOException var3) {
+-            return null;
+         }
+-    }
+ 
+-    public List<Class_361> method_1373() {
++    public Object method_1373() {
+         try {
+             BufferedInputStream var1 = this.method_1369("markers.json");
+             Throwable var2 = null;
+@@ -253,7 +246,7 @@
+                 Class_292 var3;
+                 if (var1 == null) {
+                     var3 = null;
+-                    return var3;
++                    return (Map<String, Class_348>) var3;
+                 }
+ 
+                 var3 = new Class_292();
+@@ -306,7 +299,7 @@
+                         try {
+                             if (var4 == null) {
+                                 var6 = null;
+-                                return var6;
++                                return (Set<UUID>) var6;
+                             }
+ 
+                             var3 = (JsonObject)BadlionClient.UGLY_GSON.fromJson(new InputStreamReader(var4), JsonObject.class);
+@@ -416,12 +409,12 @@
+         try {
+             this.field_551.close();
+             this.field_551 = new BufferedInputStream(this.field_550.getInputStream(this.method_1367("recording.tmcpr")));
+-        } catch (IOException var2) {
++        } catch (IOException ignored) {
+         }
+ 
+     }
+ 
+-    public void method_1379() {
++    public void method_1379() throws IOException {
+         this.field_551.close();
+         this.field_550.close();
+     }

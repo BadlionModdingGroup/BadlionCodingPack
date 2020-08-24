@@ -1,0 +1,26 @@
+--- a/net\badlion\Class_1120.java
++++ b/net\badlion\Class_1120.java
+@@ -1,5 +1,6 @@
+ package net.badlion;
+ 
++import io.github.badlionmoddinggroup.badlion.extra.MinecraftClientExtra;
+ import io.netty.channel.ChannelHandler;
+ import io.netty.channel.embedded.EmbeddedChannel;
+ import net.badlion.client.common.manager.replay.ReplayManager;
+@@ -65,7 +66,7 @@
+         MinecraftClient.getInstance().method_2310();
+         MinecraftClient.getInstance().disconnect((ClientWorld)null);
+         MinecraftClient.getInstance().openScreen(new Class_1256());
+-        MinecraftClient.getInstance().clearScheduledTasks();
++        ((MinecraftClientExtra)MinecraftClient.getInstance()).clearScheduledTasks();
+         this.field_5265 = false;
+         this.method_5336();
+     }
+@@ -102,6 +103,6 @@
+     }
+ 
+     public void method_5337(float parameter_1) {
+-        MinecraftClient.getInstance().getTimer().field_2799 = parameter_1;
++        ((MinecraftClientExtra)MinecraftClient.getInstance()).getTimer().field_2799 = parameter_1;
+     }
+ }

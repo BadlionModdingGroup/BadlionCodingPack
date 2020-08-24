@@ -1,0 +1,25 @@
+--- a/net\badlion\client\common\mod\NotificationMod.java
++++ b/net\badlion\client\common\mod\NotificationMod.java
+@@ -17,12 +17,9 @@
+         super(parameter_1);
+     }
+ 
+-    public Boolean getValue() {
+-        // $FF: Couldn't be decompiled
+-    }
+-
+     public boolean isFalse() {
+-        return !this.field_5462 == null ? super.getValue() : this.field_5462;
++        if(field_5462 == null) return super.getValue();
++        return this.field_5462;
+     }
+ 
+     public boolean isTrue() {
+@@ -51,6 +48,6 @@
+     }
+ 
+     public Boolean getValue() {
+-        // $FF: Couldn't be decompiled
++        return super.getValue();
+     }
+ }

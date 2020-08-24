@@ -1,0 +1,19 @@
+--- C:\dev\null
++++ b/azh$1.java.original~
+@@ -0,0 +1,16 @@
++import net.badlion.Class_2100;
++import net.minecraft.client.gui.screen.multiplayer.MultiplayerScreen;
++
++class azh$1 implements Class_2100<Boolean> {
++    azh$1(MultiplayerScreen parameter_1) {
++        this.this$0 = parameter_1;
++    }
++
++    public Boolean get() {
++        // $FF: Couldn't be decompiled
++    }
++
++    public Boolean get() {
++        // $FF: Couldn't be decompiled
++    }
++}

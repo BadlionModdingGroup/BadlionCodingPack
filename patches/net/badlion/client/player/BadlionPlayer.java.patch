@@ -1,0 +1,74 @@
+--- a/net\badlion\client\player\BadlionPlayer.java
++++ b/net\badlion\client\player\BadlionPlayer.java
+@@ -4,6 +4,11 @@
+ import java.util.LinkedList;
+ import java.util.List;
+ import java.util.UUID;
++
++import io.github.badlionmoddinggroup.badlion.extra.ContainerExtra;
++import io.github.badlionmoddinggroup.badlion.extra.EntityExtra;
++import io.github.badlionmoddinggroup.badlion.extra.ItemStackExtra;
++import io.github.badlionmoddinggroup.badlion.extra.PlayerEntityExtra;
+ import net.badlion.Class_2027;
+ import net.badlion.Class_43;
+ import net.badlion.Class_771;
+@@ -45,12 +50,12 @@
+ 
+     public ItemStackWrapper method_993() {
+         ItemStack var1 = this.minecraftPlayer.method_7107();
+-        return var1 == null ? null : var1.getBadlionItemStack();
++        return var1 == null ? null : ((ItemStackExtra)(Object)var1).getBadlionItemStack();
+     }
+ 
+     public ItemStackWrapper method_994() {
+         ItemStack var1 = this.minecraftPlayer.method_8017();
+-        return var1 == null ? null : var1.getBadlionItemStack();
++        return var1 == null ? null : ((ItemStackExtra)(Object)var1).getBadlionItemStack();
+     }
+ 
+     public InventoryWrapper getInventory() {
+@@ -185,11 +190,11 @@
+     }
+ 
+     public void method_5230(Class_2027 parameter_1) {
+-        this.minecraftPlayer.controller.method_3256(this.minecraftPlayer, parameter_1);
++        ((PlayerEntityExtra)this.minecraftPlayer).getController().method_3256(this.minecraftPlayer, parameter_1);
+     }
+ 
+     public boolean method_1013() {
+-        return this.minecraftPlayer.controller.isAnimationPlaying();
++        return ((PlayerEntityExtra)this.minecraftPlayer).getController().isAnimationPlaying();
+     }
+ 
+     public double method_1014() {
+@@ -209,14 +214,19 @@
+         return var3 != null && var3.type == Type.BLOCK ? new Class_43(var3.pos.x, var3.pos.y, var3.pos.z) : null;
+     }
+ 
++    @Override
++    public Object getMinecraftPlayer() {
++        return minecraftPlayer;
++    }
++
+     public ContainerWrapper method_1025() {
+         Container var1 = this.minecraftPlayer.openedContainer;
+-        return var1 == null ? null : var1.getBadlionContainer();
++        return var1 == null ? null : ((ContainerExtra)var1).getBadlionContainer();
+     }
+ 
+     public ItemStackWrapper method_1017(int parameter_1) {
+         ItemStack var2 = this.minecraftPlayer.method_7175(parameter_1);
+-        return var2 == null ? null : var2.getBadlionItemStack();
++        return var2 == null ? null : ((ItemStackExtra)(Object)var2).getBadlionItemStack();
+     }
+ 
+     public float getHealth() {
+@@ -233,7 +243,7 @@
+ 
+     public EntityWrapper getFishHook() {
+         FishingBobberEntity var1 = this.minecraftPlayer.fishHook;
+-        return var1 == null ? null : var1.getBadlionEntity();
++        return var1 == null ? null : ((EntityExtra)var1).getBadlionEntity();
+     }
+ 
+     public PlayerEntity method_3135() {

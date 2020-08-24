@@ -1,0 +1,28 @@
+--- a/net\badlion\client\text\BadlionText.java
++++ b/net\badlion\client\text\BadlionText.java
+@@ -4,6 +4,8 @@
+ import java.util.Iterator;
+ import java.util.LinkedList;
+ import java.util.List;
++
++import io.github.badlionmoddinggroup.badlion.extra.TextExtra;
+ import net.badlion.Class_830;
+ import net.badlion.client.common.text.StyleWrapper;
+ import net.badlion.client.common.text.TextWrapper;
+@@ -51,7 +53,7 @@
+     }
+ 
+     public Date getDate() {
+-        return this.minecraftText.getDate();
++        return ((TextExtra)this.minecraftText).getDate();
+     }
+ 
+     public void append(String parameter_1) {
+@@ -87,6 +89,6 @@
+     }
+ 
+     public void setDate(Date parameter_1) {
+-        this.minecraftText.setDate(parameter_1);
++        ((TextExtra)this.minecraftText).setDate(parameter_1);
+     }
+ }

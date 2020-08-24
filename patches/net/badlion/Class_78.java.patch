@@ -1,0 +1,41 @@
+--- a/net\badlion\Class_78.java
++++ b/net\badlion\Class_78.java
+@@ -85,17 +85,13 @@
+         }
+ 
+         public boolean apply(Class_78 param1) {
+-            // $FF: Couldn't be decompiled
++            throw new RuntimeException("apply couldnt be decompiled");
+         }
+ 
+         public Iterator<Class_78> iterator() {
+             return Iterators.forArray(this.facings());
+         }
+-
+-        public boolean apply(Class_78 param1) {
+-            // $FF: Couldn't be decompiled
+         }
+-    }
+ 
+     public static enum Class_80 {
+         POSITIVE(1, "Towards positive"),
+@@ -152,10 +148,6 @@
+             return this.name;
+         }
+ 
+-        public boolean apply(Class_78 param1) {
+-            // $FF: Couldn't be decompiled
+-        }
+-
+         public Class_78.Class_81 getPlane() {
+             return this.plane;
+         }
+@@ -165,7 +157,7 @@
+         }
+ 
+         public boolean apply(Class_78 param1) {
+-            // $FF: Couldn't be decompiled
++            throw new RuntimeException("apply couldnt be decompiled");
+         }
+ 
+         static {

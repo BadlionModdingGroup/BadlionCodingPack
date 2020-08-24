@@ -1,0 +1,23 @@
+--- a/net\badlion\Class_1009.java
++++ b/net\badlion\Class_1009.java
+@@ -6,12 +6,18 @@
+ import net.badlion.client.common.BadlionClient;
+ import net.badlion.client.common.input.Keyboard;
+ 
++import java.io.IOException;
++
+ public class Class_1009 extends TypeAdapter<Keyboard.Keybind> {
+-    public void method_3019(JsonWriter parameter_1, Keyboard.Keybind parameter_2) {
++    public void write(JsonWriter parameter_1, Keyboard.Keybind parameter_2){
++        try {
+         parameter_1.value(parameter_2.name());
++        } catch (IOException e) {
++            e.printStackTrace();
+     }
++    }
+ 
+-    public Keyboard.Keybind method_3018(JsonReader parameter_1) {
++    public Keyboard.Keybind read(JsonReader parameter_1) throws IOException {
+         try {
+             int var2;
+             try {

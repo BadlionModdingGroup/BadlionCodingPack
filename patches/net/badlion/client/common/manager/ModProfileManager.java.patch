@@ -1,0 +1,44 @@
+--- a/net\badlion\client\common\manager\ModProfileManager.java
++++ b/net\badlion\client\common\manager\ModProfileManager.java
+@@ -237,6 +237,11 @@
+         }
+ 
+         Collections.sort(this.field_93, new Comparator<ModRegistry>() {
++            @Override
++            public int compare(ModRegistry o1, ModRegistry o2) {
++                return method_616(o1, o2);
++            }
++
+             public int method_616(ModRegistry parameter_1, ModRegistry parameter_2) {
+                 return parameter_1.getProfileName().compareTo(parameter_2.getProfileName());
+             }
+@@ -660,6 +665,11 @@
+ 
+     public void method_369() {
+         Collections.sort(this.field_91, new Comparator<ModRegistry>() {
++            @Override
++            public int compare(ModRegistry o1, ModRegistry o2) {
++                return method_617(o1, o2);
++            }
++
+             public int method_617(ModRegistry parameter_1, ModRegistry parameter_2) {
+                 return parameter_2.getProfileName().compareTo(parameter_1.getProfileName());
+             }
+@@ -713,7 +723,7 @@
+ 
+         label71:
+         while(true) {
+-            Entry var5;
++            Entry<String, JsonElement> var5;
+             IMod var8;
+             label58:
+             do {
+@@ -771,7 +781,7 @@
+ 
+             label64:
+             while(true) {
+-                Entry var2;
++                Entry<String, JsonElement> var2;
+                 IMod var5;
+                 label51:
+                 do {

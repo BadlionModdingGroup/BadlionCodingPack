@@ -1,0 +1,35 @@
+--- a/net\badlion\Class_578.java
++++ b/net\badlion\Class_578.java
+@@ -30,17 +30,17 @@
+ public abstract class Class_578 extends AbstractMod implements Class_587 {
+     private static final List<RenderMode> DEFAULT_RENDER_MODE;
+     @GsonSerialised
+-    protected transient double sizeX;
++    public transient double sizeX;
+     @GsonSerialised
+-    protected transient double sizeY;
++    public transient double sizeY;
+     @GsonSerialised
+-    protected BoxCoord centerBox = null;
++    public BoxCoord centerBox = null;
+     @GsonSerialised
+-    protected BoxCoord topLeftBox = null;
++    public BoxCoord topLeftBox = null;
+     @GsonSerialised
+-    protected BoxCoord bottomRightBox = null;
++    public BoxCoord bottomRightBox = null;
+     @GsonSerialised
+-    private Class_1632 snapping = new Class_1632();
++    public Class_1632 snapping = new Class_1632();
+     protected transient int defaultSizeX;
+     protected transient int defaultSizeY;
+     protected transient int currentWidth;
+@@ -435,7 +435,7 @@
+         this.updateModSize();
+     }
+ 
+-    protected void handleMove(double parameter_1, double parameter_3) {
++    public void handleMove(double parameter_1, double parameter_3) {
+         double var5 = this.getX() + parameter_1;
+         double var7 = this.getY() + parameter_3;
+         this.snapping.method_4489();

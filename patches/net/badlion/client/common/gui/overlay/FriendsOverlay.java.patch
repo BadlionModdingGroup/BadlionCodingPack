@@ -1,0 +1,14 @@
+--- a/net\badlion\client\common\gui\overlay\FriendsOverlay.java
++++ b/net\badlion\client\common\gui\overlay\FriendsOverlay.java
+@@ -1658,6 +1658,11 @@
+         synchronized(this.field_4106) {
+             ArrayList var3 = new ArrayList(this.field_4106);
+             Collections.sort(var3, new Comparator<Class_1688>() {
++                @Override
++                public int compare(Class_1688 o1, Class_1688 o2) {
++                    return method_4840(o1, o2);
++                }
++
+                 public int method_4840(Class_1688 parameter_1, Class_1688 parameter_2) {
+                     return parameter_1.method_4669() != parameter_2.method_4669() ? parameter_1.method_4669().ordinal() - parameter_2.method_4669().ordinal() : parameter_1.method_4659().compareToIgnoreCase(parameter_2.method_4659());
+                 }

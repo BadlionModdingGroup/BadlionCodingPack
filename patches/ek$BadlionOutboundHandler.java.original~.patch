@@ -1,0 +1,34 @@
+--- C:\dev\null
++++ b/ek$BadlionOutboundHandler.java.original~
+@@ -0,0 +1,31 @@
++import io.netty.channel.ChannelHandler;
++import io.netty.channel.ChannelHandlerContext;
++import io.netty.channel.ChannelOutboundHandlerAdapter;
++import io.netty.channel.ChannelPromise;
++import io.netty.util.AttributeKey;
++import net.badlion.Class_1427;
++import net.badlion.client.Wrapper;
++import net.badlion.client.common.BadlionClient;
++import net.minecraft.network.ClientConnection;
++
++public class ek$BadlionOutboundHandler extends ChannelOutboundHandlerAdapter {
++    private static final AttributeKey<ek$BadlionOutboundHandler> BADLION_DISPATCHER = AttributeKey.valueOf("badlion:dispatcher");
++
++    public static void onHandshake(ClientConnection parameter_0) {
++        ek$BadlionOutboundHandler var1 = new ek$BadlionOutboundHandler();
++        ClientConnection.method_5094(parameter_0).attr(BADLION_DISPATCHER).set(var1);
++        ClientConnection.method_5094(parameter_0).pipeline().addLast(new ChannelHandler[]{var1});
++    }
++
++    public void disconnect(ChannelHandlerContext parameter_1, ChannelPromise parameter_2) {
++        BadlionClient.cpsLimiter.method_5875();
++        Wrapper.getWrapper().getActiveModProfile().fireEvent(new Class_1427());
++        parameter_1.disconnect(parameter_2);
++    }
++
++    public void close(ChannelHandlerContext parameter_1, ChannelPromise parameter_2) {
++        BadlionClient.cpsLimiter.method_5875();
++        Wrapper.getWrapper().getActiveModProfile().fireEvent(new Class_1427());
++        parameter_1.close(parameter_2);
++    }
++}

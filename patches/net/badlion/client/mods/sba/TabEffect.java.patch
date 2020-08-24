@@ -1,0 +1,12 @@
+--- a/net\badlion\client\mods\sba\TabEffect.java
++++ b/net\badlion\client\mods\sba\TabEffect.java
+@@ -39,4 +39,9 @@
+         int var2 = parameter_1.getDurationSeconds() - this.getDurationSeconds();
+         return Math.abs(var2) <= 1 ? TextColour.getTextWithoutFormattingCodes(parameter_1.getEffect()).compareTo(TextColour.getTextWithoutFormattingCodes(this.getEffect())) : var2;
+     }
++
++    @Override
++    public int compareTo(TabEffect o) {
++        return method_5385(o);
+ }
++}

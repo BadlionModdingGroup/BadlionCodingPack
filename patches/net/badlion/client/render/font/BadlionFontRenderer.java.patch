@@ -1,0 +1,12 @@
+--- a/net\badlion\client\render\font\BadlionFontRenderer.java
++++ b/net\badlion\client\render\font\BadlionFontRenderer.java
+@@ -129,7 +129,8 @@
+ 
+     public float method_5751(int parameter_1) {
+         if (BadlionTransformer.OPTIFINE_LOADED) {
+-            return Class_2025.OPTIFINE_VERSION.equals("L5") ? (float)MinecraftClient.getInstance().textRenderer.field_2818[parameter_1] : MinecraftClient.getInstance().textRenderer.d[parameter_1];
++            return (float)MinecraftClient.getInstance().textRenderer.field_2818[parameter_1];
++//            return Class_2025.OPTIFINE_VERSION.equals("L5") ? (float)MinecraftClient.getInstance().textRenderer.field_2818[parameter_1] : MinecraftClient.getInstance().textRenderer.d[parameter_1]; FIXME
+         } else {
+             return (float)MinecraftClient.getInstance().textRenderer.field_2818[parameter_1];
+         }

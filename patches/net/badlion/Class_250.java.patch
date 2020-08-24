@@ -1,0 +1,12 @@
+--- a/net\badlion\Class_250.java
++++ b/net\badlion\Class_250.java
+@@ -14,4 +14,9 @@
+     public Class_162 method_970(Type parameter_1) {
+         return new Class_162(this.field_328);
+     }
++
++    @Override
++    public Class_162 createInstance(Type type) {
++        return method_970(type);
+ }
++}

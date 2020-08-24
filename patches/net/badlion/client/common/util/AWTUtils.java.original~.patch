@@ -1,0 +1,204 @@
+--- C:\dev\null
++++ b/net\badlion\client\common\util\AWTUtils.java.original~
+@@ -0,0 +1,201 @@
++package net.badlion.client.common.util;
++
++import com.google.common.base.Joiner;
++import java.awt.Component;
++import java.io.BufferedReader;
++import java.io.File;
++import java.io.InputStreamReader;
++import java.lang.ProcessBuilder.Redirect;
++import java.net.URL;
++import java.util.ArrayList;
++import java.util.Collections;
++import java.util.List;
++import javax.swing.JFileChooser;
++import javax.swing.JOptionPane;
++import javax.swing.filechooser.FileFilter;
++import net.badlion.client.common.BadlionClient;
++import net.badlion.tags.GsonSerialised;
++import org.apache.logging.log4j.LogManager;
++
++public class AWTUtils {
++    private AWTUtils() {
++    }
++
++    @GsonSerialised
++    public static void main(final String[] parameter_0) {
++        String var1 = parameter_0[0];
++        byte var2 = -1;
++        switch(var1.hashCode()) {
++        case 3143036:
++            if (var1.equals("file")) {
++                var2 = 1;
++            }
++            break;
++        case 96784904:
++            if (var1.equals("error")) {
++                var2 = 0;
++            }
++        }
++
++        switch(var2) {
++        case 0:
++            JOptionPane.showMessageDialog((Component)null, parameter_0[1], "Badlion Client", 0);
++            break;
++        case 1:
++            final String[] var3 = parameter_0[1].split("\\|");
++            JFileChooser var4 = new JFileChooser();
++            var4.setFileFilter(new FileFilter() {
++                public boolean accept(File parameter_1) {
++                    if (parameter_1.isDirectory()) {
++                        return true;
++                    } else {
++                        String[] var2 = var3;
++                        int var3x = var2.length;
++
++                        for(int var4 = 0; var4 < var3x; ++var4) {
++                            String var5 = var2[var4];
++                            if (parameter_1.getName().endsWith(var5)) {
++                                return true;
++                            }
++                        }
++
++                        return false;
++                    }
++                }
++
++                public String getDescription() {
++                    return parameter_0[2];
++                }
++            });
++            if ("true".equals(parameter_0[3])) {
++                var4.setMultiSelectionEnabled(true);
++            }
++
++            int var5 = var4.showOpenDialog((Component)null);
++            switch(var5) {
++            case -1:
++                System.exit(2);
++                break;
++            case 0:
++                if ("true".equals(parameter_0[3])) {
++                    File[] var6 = var4.getSelectedFiles();
++                    int var7 = var6.length;
++
++                    for(int var8 = 0; var8 < var7; ++var8) {
++                        File var9 = var6[var8];
++                        System.out.println(var9.getAbsolutePath());
++                    }
++                } else {
++                    System.out.println(var4.getSelectedFile().getAbsolutePath());
++                }
++
++                return;
++            case 1:
++                System.exit(1);
++            }
++        }
++
++    }
++
++    public static void displayError(String parameter_0) {
++        if (BadlionClient.getBadlion().getMinecraftVersion().ordinal() >= MinecraftVersion.v1_14.ordinal()) {
++            try {
++                String var1 = method_5522();
++                ProcessBuilder var2 = new ProcessBuilder(new String[]{System.getProperty("java.home") + "/bin/java", "-cp", var1, AWTUtils.class.getName(), "error", parameter_0});
++                LogManager.getLogger().warn("Showing popup with command : " + var2.command());
++                var2.environment();
++                var2.redirectOutput(Redirect.INHERIT);
++                var2.redirectError(Redirect.INHERIT);
++                Process var3 = var2.start();
++                int var4 = var3.waitFor();
++                if (var4 != 0) {
++                    throw new Exception("Returned " + var4);
++                }
++            } catch (Exception var5) {
++                LogManager.getLogger().error("Failed to show error popup : " + var5.getMessage(), var5);
++            }
++
++        } else {
++            JOptionPane.showMessageDialog((Component)null, parameter_0, "Badlion Client", 0);
++        }
++    }
++
++    public static File method_5524(List<String> parameter_0, String parameter_1) {
++        List var2 = method_5525(parameter_0, parameter_1, false);
++        return var2.isEmpty() ? null : (File)var2.get(0);
++    }
++
++    public static List<File> method_5526(List<String> parameter_0, String parameter_1) {
++        return method_5525(parameter_0, parameter_1, true);
++    }
++
++    private static List<File> method_5525(List<String> parameter_0, String parameter_1, boolean parameter_2) {
++        try {
++            String var3 = method_5522();
++            ProcessBuilder var4 = new ProcessBuilder(new String[]{System.getProperty("java.home") + "/bin/java", "-cp", var3, AWTUtils.class.getName(), "file", Joiner.on("|").join(parameter_0), parameter_1, String.valueOf(parameter_2)});
++            LogManager.getLogger().warn("Showing file chooser with command : " + var4.command());
++            var4.environment();
++            var4.redirectError(Redirect.INHERIT);
++            Process var5 = var4.start();
++            int var6 = var5.waitFor();
++            if (var6 > 0) {
++                return Collections.emptyList();
++            } else {
++                BufferedReader var7 = new BufferedReader(new InputStreamReader(var5.getInputStream()));
++                Throwable var8 = null;
++
++                try {
++                    ArrayList var10 = new ArrayList();
++
++                    String var9;
++                    while((var9 = var7.readLine()) != null) {
++                        var10.add(new File(var9));
++                    }
++
++                    ArrayList var11 = var10;
++                    return var11;
++                } catch (Throwable var21) {
++                    var8 = var21;
++                    throw var21;
++                } finally {
++                    if (var7 != null) {
++                        if (var8 != null) {
++                            try {
++                                var7.close();
++                            } catch (Throwable var20) {
++                                var8.addSuppressed(var20);
++                            }
++                        } else {
++                            var7.close();
++                        }
++                    }
++
++                }
++            }
++        } catch (Exception var23) {
++            LogManager.getLogger().error("Failed to show file chooser : " + var23.getMessage(), var23);
++            return Collections.emptyList();
++        }
++    }
++
++    private static String method_5522() {
++        URL var0 = AWTUtils.class.getProtectionDomain().getCodeSource().getLocation();
++        String var1 = (new URL(var0.toExternalForm())).getPath();
++        if (var1.startsWith("file:/")) {
++            var1 = var1.substring(6);
++        }
++
++        String var2 = AWTUtils.class.getName().replace('.', '/') + ".class";
++        int var3;
++        if ((var3 = var1.replace('\\', '/').lastIndexOf(var2)) != -1) {
++            var1 = var1.substring(0, var3);
++        }
++
++        if (var1.endsWith(".jar!/")) {
++            var1 = var1.substring(0, var1.length() - 2);
++        }
++
++        LogManager.getLogger().warn("Located the current jar at " + var1 + " (" + var0 + ")");
++        return var1;
++    }
++}

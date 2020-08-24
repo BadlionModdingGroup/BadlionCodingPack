@@ -1,0 +1,126 @@
+--- C:\dev\null
++++ b/net\badlion\class_233.java.original~
+@@ -0,0 +1,123 @@
++package net.badlion;
++
++import java.io.File;
++import java.io.IOException;
++import java.nio.file.Files;
++import java.nio.file.LinkOption;
++import java.nio.file.Path;
++import java.nio.file.Paths;
++import java.text.SimpleDateFormat;
++import java.util.Date;
++import net.badlion.client.common.BadlionClient;
++import net.badlion.client.common.mod.AutoTipMod;
++import org.apache.commons.io.FilenameUtils;
++
++public class Class_233 {
++    private static final SimpleDateFormat field_315 = new SimpleDateFormat("dd-MM-yyyy");
++    private static final SimpleDateFormat field_316 = new SimpleDateFormat("yyyy-MM-dd");
++    private final Path field_317;
++    private final Path field_318;
++    private Date field_319;
++
++    public Class_233() {
++        this.field_317 = this.method_946(BadlionClient.minecraft.getRunDirectory().getAbsolutePath() + "/mods/autotip/" + BadlionClient.minecraft.getSession().getPlayerUuid());
++        this.field_318 = this.method_945("stats");
++    }
++
++    public void method_932() {
++        if (!Files.exists(this.field_318, new LinkOption[0])) {
++            Files.createDirectories(this.field_318);
++        }
++
++    }
++
++    public Path method_938() {
++        return this.field_318;
++    }
++
++    public boolean method_934(String parameter_1) {
++        return Files.exists(this.method_945(parameter_1), new LinkOption[0]);
++    }
++
++    public void method_939(String parameter_1) {
++        this.method_935(this.method_945(parameter_1));
++    }
++
++    public void method_933(File parameter_1) {
++        this.method_935(parameter_1.toPath());
++    }
++
++    public void method_935(Path parameter_1) {
++        try {
++            Files.delete(parameter_1);
++        } catch (IOException var3) {
++            AutoTipMod.LOGGER.error("Could not delete file " + parameter_1);
++        }
++
++    }
++
++    public File method_937(Date parameter_1) {
++        return this.method_936(this.field_318, field_315.format(parameter_1) + ".at");
++    }
++
++    public File method_942(Date parameter_1) {
++        return this.method_936(this.field_318, field_316.format(parameter_1) + ".at");
++    }
++
++    public Date method_943() {
++        if (this.field_319 != null) {
++            return this.field_319;
++        } else {
++            File[] var1 = this.method_938().toFile().listFiles();
++            if (var1 != null) {
++                File[] var2 = var1;
++                int var3 = var1.length;
++
++                for(int var4 = 0; var4 < var3; ++var4) {
++                    File var5 = var2[var4];
++                    Path var6 = var5.toPath();
++                    Date var7 = this.method_940(var6);
++                    if (var7 != null) {
++                        return this.field_319 = var7;
++                    }
++                }
++            }
++
++            return this.field_319 = Class_230.method_908();
++        }
++    }
++
++    private Date method_940(Path parameter_1) {
++        String var2 = FilenameUtils.getBaseName(parameter_1.getFileName().toString());
++
++        try {
++            return new Date(var2);
++        } catch (IllegalArgumentException var4) {
++            return null;
++        }
++    }
++
++    public File method_944(String parameter_1) {
++        return this.method_945(parameter_1).toFile();
++    }
++
++    public Path method_945(String parameter_1) {
++        return this.method_941(this.field_317, parameter_1);
++    }
++
++    private File method_936(Path parameter_1, String parameter_2) {
++        return this.method_941(parameter_1, parameter_2).toFile();
++    }
++
++    private Path method_941(Path parameter_1, String parameter_2) {
++        return parameter_1.resolve(this.method_947(parameter_2));
++    }
++
++    private Path method_946(String parameter_1) {
++        return Paths.get(this.method_947(parameter_1));
++    }
++
++    private String method_947(String parameter_1) {
++        return parameter_1.replaceAll("///", File.separator);
++    }
++}

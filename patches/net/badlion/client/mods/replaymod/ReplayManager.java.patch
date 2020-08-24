@@ -1,0 +1,11 @@
+--- a/net\badlion\client\mods\replaymod\ReplayManager.java
++++ b/net\badlion\client\mods\replaymod\ReplayManager.java
+@@ -90,7 +90,7 @@
+ 
+     }
+ 
+-    protected void method_5289(ConcurrentLinkedQueue<Class_435> parameter_1) {
++    public void method_5289(ConcurrentLinkedQueue<Class_435> parameter_1) {
+         parameter_1.add(new Class_435(0L, new Class_1116(new LoginSuccessS2CPacket(new GameProfile(UUID.nameUUIDFromBytes(new byte[16]), "Player")))));
+     }
+ 
