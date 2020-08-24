@@ -1,0 +1,20 @@
+--- a/net\badlion\Class_1148.java
++++ b/net\badlion\Class_1148.java
+@@ -6,7 +6,7 @@
+ import net.minecraft.util.math.BlockPos;
+ import net.minecraft.world.Heightmap;
+ import net.minecraft.world.World;
+-import net.minecraft.world.Heightmap.Class_1104;
++import net.minecraft.world.Heightmap.class_1104;
+ 
+ public class Class_1148 extends net.minecraft.Class_1111 {
+     public Class_1148(World parameter_1, WorldRenderer parameter_2, BlockPos parameter_3, int parameter_4) {
+@@ -17,7 +17,7 @@
+         parameter_4.method_3775().lock();
+ 
+         try {
+-            if (parameter_4.method_3766() == Class_1104.field_4720) {
++            if (parameter_4.method_3766() == class_1104.field_4720) {
+                 BlockPos var5 = this.method_3828();
+                 Class_1159 var6 = (Class_1159)this.field_4764;
+                 if (var5.getX() < 0 || var5.getZ() < 0 || var5.getX() >= var6.method_2643().method_2185() || var5.getZ() >= var6.method_2643().method_2186()) {

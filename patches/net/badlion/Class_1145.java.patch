@@ -1,0 +1,20 @@
+--- a/net\badlion\Class_1145.java
++++ b/net\badlion\Class_1145.java
+@@ -19,7 +19,7 @@
+ import net.minecraft.util.math.Direction;
+ import net.minecraft.world.Heightmap;
+ import net.minecraft.world.World;
+-import net.minecraft.world.Heightmap.Class_1104;
++import net.minecraft.world.Heightmap.class_1104;
+ 
+ public class Class_1145 extends net.minecraft.Class_1111 {
+     private final ClientRemotePlayerEntity field_2208;
+@@ -43,7 +43,7 @@
+         ChunkRenderCache var8;
+         label237: {
+             try {
+-                if (parameter_4.method_3766() != Class_1104.field_4720) {
++                if (parameter_4.method_3766() != class_1104.field_4720) {
+                     return;
+                 }
+ 

@@ -1,0 +1,12 @@
+--- a/net\badlion\Class_1141.java
++++ b/net\badlion\Class_1141.java
+@@ -42,4 +42,9 @@
+         GlStateManager.clearColor();
+         this.field_2206.clear();
+     }
++
++    @Override
++    public void method_3346(RenderLayer parameter_1) {
++        method_3278(parameter_1);
+ }
++}

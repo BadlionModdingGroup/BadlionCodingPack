@@ -1,0 +1,59 @@
+--- a/net\badlion\Class_1188.java
++++ b/net\badlion\Class_1188.java
+@@ -9,9 +9,14 @@
+ import java.util.LinkedList;
+ import java.util.List;
+ import java.util.Set;
++
++import io.github.badlionmoddinggroup.badlion.extra.BlockEntityExtra;
++import io.github.badlionmoddinggroup.badlion.extra.EntityExtra;
+ import net.badlion.client.common.BadlionClient;
++import net.badlion.client.common.entity.player.PlayerWrapper;
+ import net.badlion.client.common.mod.SchematicaMod;
+ import net.badlion.tags.GsonSerialised;
++import net.minecraft.Class_1111;
+ import net.minecraft.block.entity.BlockEntity;
+ import net.minecraft.client.MinecraftClient;
+ import net.minecraft.client.network.ClientPlayerEntity;
+@@ -113,6 +118,11 @@
+     private void method_3430() {
+         this.field_2290 = new Class_1142();
+         this.field_2297 = new Class_1144() {
++            @Override
++            public Class_1111 method_3831(World parameter_1, WorldRenderer parameter_2, BlockPos parameter_3, int parameter_4) {
++                return method_3261(parameter_1, parameter_2, parameter_3, parameter_4);
++            }
++
+             public net.minecraft.Class_1111 method_3261(World parameter_1, WorldRenderer parameter_2, BlockPos parameter_3, int parameter_4) {
+                 return new Class_1148(parameter_1, parameter_2, parameter_3, parameter_4);
+             }
+@@ -126,6 +136,11 @@
+     private void method_3432() {
+         this.field_2290 = new Class_1141();
+         this.field_2297 = new Class_1144() {
++            @Override
++            public Class_1111 method_3831(World parameter_1, WorldRenderer parameter_2, BlockPos parameter_3, int parameter_4) {
++                return method_3262(parameter_1, parameter_2, parameter_3, parameter_4);
++            }
++
+             public net.minecraft.Class_1111 method_3262(World parameter_1, WorldRenderer parameter_2, BlockPos parameter_3, int parameter_4) {
+                 return new Class_1147(parameter_1, parameter_2, parameter_3, parameter_4);
+             }
+@@ -187,7 +202,7 @@
+         ClientPlayerEntity var2 = this.field_2310.player;
+         if (var2 != null) {
+             this.field_2311.push("schematica");
+-            SchematicaMod.method_2170(var2.getBadlionEntity(), parameter_1);
++            SchematicaMod.method_2170((PlayerWrapper) ((EntityExtra)var2).getBadlionEntity(), parameter_1);
+             Class_1159 var3 = (Class_1159)SchematicaMod.field_1222;
+             boolean var4 = var3 != null && var3.method_2644();
+             SchematicaMod var5 = BadlionClient.getBadlion().getWrapper().getModProfile().getSchematica();
+@@ -414,7 +429,7 @@
+ 
+             while(var12.hasNext()) {
+                 BlockEntity var13 = (BlockEntity)var12.next();
+-                Box var14 = var13.getRenderBoundingBox();
++                Box var14 = ((BlockEntityExtra)(Object)var13).getRenderBoundingBox();
+                 ++this.field_2294;
+                 if (parameter_2.method_3845(var14)) {
+                     net.badlion.client.common.block.BlockPos var15 = this.field_2319.method_2649();

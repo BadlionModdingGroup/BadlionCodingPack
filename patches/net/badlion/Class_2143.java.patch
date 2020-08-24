@@ -1,0 +1,10 @@
+--- a/net\badlion\Class_2143.java
++++ b/net\badlion\Class_2143.java
+@@ -3,7 +3,6 @@
+ import java.util.List;
+ import java.util.Map;
+ import net.minecraft.Class_1063;
+-import net.minecraft.Class_1063.Class_1064;
+ import net.minecraft.client.render.model.json.ModelElement;
+ import net.minecraft.client.render.model.json.ModelTransformation;
+ import net.minecraft.client.render.model.json.Transformation;

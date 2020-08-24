@@ -1,0 +1,109 @@
+--- a/net\badlion\Class_866.java
++++ b/net\badlion\Class_866.java
+@@ -18,6 +18,7 @@
+ import net.minecraft.world.level.LevelInfo;
+ import net.minecraft.world.level.LevelProperties;
+ import net.minecraft.world.level.LevelInfo.GameMode;
++import net.minecraft.world.level.storage.WorldLoadException;
+ 
+ public class Class_866 implements Class_52 {
+     private MinecraftWrapper field_1634;
+@@ -48,42 +49,70 @@
+             LevelInfo var1 = new LevelInfo(0L, GameMode.CREATIVE, false, false, LevelGeneratorType.FLAT);
+             LevelProperties var2 = new LevelProperties(var1, "FakeWorld");
+             this.field_1634 = new Class_865(new World(new SaveHandler() {
+-                public LevelProperties method_3188() {
+-                    return null;
++                @Override
++                public LevelProperties getLevelProperties() {
++                    return method_3188();
+                 }
+ 
+-                public void method_6108() {
++                @Override
++                public void readSessionLock() throws WorldLoadException {
+                 }
+ 
+-                public ChunkWriter method_3184(Dimension parameter_1) {
++                @Override
++                public ChunkWriter getChunkWriter(Dimension parameter_1) {
+                     return null;
+                 }
+ 
+-                public void method_3186(LevelProperties parameter_1, CompoundTag parameter_2) {
++                @Override
++                public void method_2012(LevelProperties parameter_1, CompoundTag parameter_2) {
++
+                 }
+ 
+-                public void method_3185(LevelProperties parameter_1) {
++                @Override
++                public void saveLevelProperties(LevelProperties parameter_1) {
++
+                 }
+ 
+-                public WorldSaveHandler method_3189() {
++                @Override
++                public WorldSaveHandler getInstance() {
+                     return null;
+                 }
+ 
+-                public void method_6107() {
++                @Override
++                public void method_2009() {
++
+                 }
+ 
+-                public File method_2512() {
++                @Override
++                public File getWorldFolder() {
+                     return null;
+                 }
+ 
+-                public File method_2508(String parameter_1) {
++                @Override
++                public File getDataFile(String parameter_1) {
+                     return null;
+                 }
+ 
+-                public String method_2516() {
++                @Override
++                public String method_2018() {
+                     return null;
+                 }
++
++                public LevelProperties method_3188() {
++                    return null;
++                }
++
+             }, var2, new Dimension() {
++                @Override
++                public String getName() {
++                    return method_2517();
++                }
++
++                @Override
++                public String getPersistentStateSuffix() {
++                    return method_2518();
++                }
++
+                 public String method_2517() {
+                     return "Schematic";
+                 }
+@@ -92,6 +121,16 @@
+                     return "_schematic";
+                 }
+             }, new Profiler(), false) {
++                @Override
++                protected ChunkProvider getClientChunkCache() {
++                    return method_3190();
++                }
++
++                @Override
++                protected int getNextMapId() {
++                    return method_2520();
++                }
++
+                 protected ChunkProvider method_3190() {
+                     return null;
+                 }
